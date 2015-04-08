@@ -91,6 +91,10 @@ Create the application's Cloud Formation stack with Senza:
 
 .. code-block:: bash
 
-    $ senza create definition.yaml eu-west-1 1 1.0
+    $ senza create definition.yaml --region=eu-west-1 1 1.0
 
 .. Note:: The last parameter is a custom parameter "ImageVersion" defined in the SenzaInfo/Parameters section of the above definition YAML.
+
+.. Tip:: You can avoid passing the ``--region`` option by configuring the default AWS region ID in ``~/.aws/config``. See the `AWS CLI docs`_ for details.
+
+.. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
