@@ -1,0 +1,6 @@
+# sphinx
+/_build/
+
+# IntelliJ
+/.idea
+*.iml
