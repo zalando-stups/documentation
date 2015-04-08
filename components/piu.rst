@@ -4,5 +4,5 @@
 Piu
 ===
 
-**Piu** is the command line client for the "even" SSH access granting service.
+**Piu** is the command line client for the :ref:`even` SSH access granting service.
 

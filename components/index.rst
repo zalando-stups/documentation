@@ -3,15 +3,21 @@ Components
 ==========
 
 
+.. NOTE: components should be sorted alphabetically here
 
 .. toctree::
    :maxdepth: 1
 
+   berry
+   even
+   kio
+   mai
+   mint
+   odd
+   pierone
    piu
    senza
-   mai
-   even
-   odd
-   taupage
-   pierone
    sevenseconds
+   taupage
+   twintip
+   yourturn
