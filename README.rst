@@ -2,6 +2,15 @@
 STUPS Documentation
 ===================
 
+.. image:: https://readthedocs.org/projects/stups/badge/?version=latest
+   :target: https://readthedocs.org/projects/stups/?badge=latest
+   :alt: Documentation Status
+
+The STUPS documentation is available on http://stups.readthedocs.org/
+
+Local Usage
+===========
+
 First install the Sphinx_ documentation generator.
 
 .. code-block:: bash
@@ -9,7 +18,7 @@ First install the Sphinx_ documentation generator.
     $ pip install sphinx sphinx_rtd_theme
 
 
-Generate the Pequod HTML documentation locally:
+Generate the STUPS HTML documentation locally:
 
 .. code-block:: bash
 
