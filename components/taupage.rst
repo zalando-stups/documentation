@@ -1,21 +1,18 @@
-===========
-Zalando AMI
-===========
-
-We enforce the usage of the official Zalando AMI in order to fulfill our auditing requirements. We have to bridge the
-gap between freedom and compliance.
+=======
+Taupage
+=======
 
 As we want to foster immutable (and therefore deterministic and reproducible) deployments, we want to encourage the use
-of Docker (and similar deployment technologies). The Zalando AMI is capable of starting a Docker container on boot. This
+of Docker (and similar deployment technologies). The Taupage AMI is capable of starting a Docker container on boot. This
 will enable teams to deploy 'what they want' as long as they package it in a Docker image. The server will be
 set up to have an optimal configuration including managed SSH access, audit logging, log collection, monitoring and
 reviewed security additions.
 
 ---------------------
-Using the Zalando AMI
+Using the Taupage AMI
 ---------------------
 
-There is currently no internal tooling but you can find the Zalando AMIs in your EC2 UI. They are maintained by the
+There is currently no internal tooling but you can find the Taupage AMIs in your EC2 UI. They are maintained by the
 Platform team and regularly updated with the newest security fixes and configuration improvements.
 
 .. NOTE::
@@ -24,7 +21,7 @@ Platform team and regularly updated with the newest security fixes and configura
 How to configure the AMI
 ++++++++++++++++++++++++
 
-The Zalando AMI uses the official cloud-init project to receive user configuration. Different to the standard, you can
+The Taupage AMI uses the official cloud-init project to receive user configuration. Different to the standard, you can
 not use the normal user data mimetypes (no #cloud-config, shell scripts, file uploads, URL lists, ...) but only our own
 configuration format::
 
@@ -169,7 +166,7 @@ This is useful if an application (runtime container) wants to use the default SS
 AMI internals
 +++++++++++++
 
-This section gives you an overview of customization, the Zalando AMI contains on top of the Ubuntu Cloud Images.
+This section gives you an overview of customization, the Taupage AMI contains on top of the Ubuntu Cloud Images.
 
 Hardening
 ---------

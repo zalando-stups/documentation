@@ -8,9 +8,9 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   aws/index
-   aws-accountsetup/index
-   application-development/index
+   installation/index
+   user-guide/index
+   components/index
 
 
 
