@@ -20,8 +20,64 @@ Next you need to create a new deployment definition YAML file:
 
 .. code-block:: yaml
 
+    Description: "MyApp version {{Arguments.ImageVersion}}"
+
+    # basic information for generating and executing this definition
     SenzaInfo:
+      StackName: myapp
+      Parameters:
+        - ImageVersion:
+            Description: "Docker image version of MyApp."
+
+    # a list of senza components to apply to the definition
     SenzaComponents:
+
+      # this basic configuration is required for the other components
+      - Configuration:
+          Type: Senza::StupsAutoConfiguration
+
+      # will create a launch configuration and auto scaling group with scaling triggers
+      - AppServer:
+          Type: Senza::TaupageAutoScalingGroup
+          InstanceType: t2.medium
+          SecurityGroups:
+            - sg-123123
+          IamInstanceProfile: arn:aws:iam::123456789012:instance-profile/app-myapp
+          ElasticLoadBalancer: AppLoadBalancer
+          TaupageConfig:
+            runtime: Docker
+            source: myteam/myapp:{{Arguments.ImageVersion}}
+            ports:
+              8080: 8080
+            notify_cfn:
+              stack: "{{SenzaInfo.StackName}}-{{SenzaInfo.StackVersion}}"
+              resource: "AppServer"
+            environment:
+              SOME_ENV: foobar
+          AutoScaling:
+            Minimum: 2
+            Maximum: 10
+            MetricType: CPU
+            ScaleUpThreshold: 70
+            ScaleDownThreshold: 40
+
+      # creates an ELB entry and Route53 domains to this ELB
+      - AppLoadBalancer:
+          Type: Senza::ElasticLoadBalancer
+          HTTPPort: 8080
+          SSLCertificateId: arn:aws:iam::123456789012:server-certificate/myapp
+          HealthCheckPath: /
+          SecurityGroups:
+            - sg-123123
+          Domains:
+            MainDomain:
+              Type: weighted
+              Zone: myteam.example.org
+              Subdomain: myapp
+            VersionDomain:
+              Type: standalone
+              Zone: myteam.example.org
+              Subdomain: myapp-{{SenzaInfo.StackVersion}}
 
 
 In order to create the Cloud Formation stack, we need to login with :ref:`mai`:
@@ -35,4 +91,6 @@ Create the application's Cloud Formation stack with Senza:
 
 .. code-block:: bash
 
-    $ senza create definition.yaml 1 1.0
+    $ senza create definition.yaml eu-west-1 1 1.0
+
+.. Note:: The last parameter is a custom parameter "ImageVersion" defined in the SenzaInfo/Parameters section of the above definition YAML.
