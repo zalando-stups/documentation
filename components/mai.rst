@@ -21,3 +21,5 @@ If you only have one profile, you can simply execute ``mai`` to login:
     $ mai
     $ # credentials are now stored in ~/.aws/credentials
     $ aws ec2 describe-instances # example usage
+
+.. Note:: Mai will save its configuration in a YAML file in your home directory (``~/.config/mai/mai.yaml`` on Linux)

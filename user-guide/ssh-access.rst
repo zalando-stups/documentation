@@ -16,5 +16,11 @@ Every team member can get access to any of the team's EC2 instances by using the
     $ ssh -A odd-eu-west-1.myteam.example.org # agent-forwarding must be used!
     $ ssh 172.31.146.1 # jump from bastion to private instance
 
+Piu will remember the URL of :ref:`even` and the hostname of :ref:`odd` in the local config file (``~/.config/piu/piu.yaml`` on Linux).
+You can overwrite settings on the command line:
+
+.. code-block:: bash
+
+    $ piu -O odd-eu-west-1.myotherteam.example.org 172.31.1.1 test
 
 

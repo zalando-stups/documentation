@@ -93,6 +93,7 @@ source:
 **(required)**
 
 The source, the configured runtime uses to fetch your delpoyment artifact. For Docker, this is the Docker image.
+Usually this will point to a Docker image stored in :ref:`pierone`.
 
 ports:
 ------
