@@ -1,6 +1,10 @@
+.. _taupage:
+
 =======
 Taupage
 =======
+
+**Taupage** is the base AMI allowing dockerized applications to run with STUPS.
 
 As we want to foster immutable (and therefore deterministic and reproducible) deployments, we want to encourage the use
 of Docker (and similar deployment technologies). The Taupage AMI is capable of starting a Docker container on boot. This
