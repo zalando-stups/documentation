@@ -15,14 +15,14 @@ First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
 .. code-block:: bash
 
     $ cd myapp # enter your application's source folder
+    $ # please remember to generate the "scm-source.json",
+    $ # which must be in your Docker image!
     $ docker build -t pierone.stups.example.org/myteam/myapp:1.0 .
     $ docker push pierone.stups.example.org/myteam/myapp:1.0
 
-Next you need to create a new deployment definition YAML file:
+Next you need to create a new :ref:`Senza deployment definition YAML <senza-definition>` file:
 
 .. code-block:: yaml
-
-    Description: "MyApp version {{Arguments.ImageVersion}}"
 
     # basic information for generating and executing this definition
     SenzaInfo:
@@ -36,14 +36,14 @@ Next you need to create a new deployment definition YAML file:
 
       # this basic configuration is required for the other components
       - Configuration:
-          Type: Senza::StupsAutoConfiguration
+          Type: Senza::StupsAutoConfiguration # auto-detect network setup
 
       # will create a launch configuration and auto scaling group with scaling triggers
       - AppServer:
           Type: Senza::TaupageAutoScalingGroup
           InstanceType: t2.medium
           SecurityGroups:
-            - sg-123123
+            - app-myapp
           IamInstanceProfile: arn:aws:iam::123456789012:instance-profile/app-myapp
           ElasticLoadBalancer: AppLoadBalancer
           TaupageConfig:
@@ -56,20 +56,11 @@ Next you need to create a new deployment definition YAML file:
 
       # creates an ELB entry and Route53 domains to this ELB
       - AppLoadBalancer:
-          Type: Senza::ElasticLoadBalancer
+          Type: Senza::WeightedDnsElasticLoadBalancer
           HTTPPort: 8080
           HealthCheckPath: /
           SecurityGroups:
-            - sg-123123
-          Domains:
-            MainDomain:
-              Type: weighted
-              Zone: myteam.example.org
-              Subdomain: myapp
-            VersionDomain:
-              Type: standalone
-              Zone: myteam.example.org
-              Subdomain: myapp-{{SenzaInfo.StackVersion}}
+            - app-myapp-lb
 
 
 In order to create the Cloud Formation stack, we need to login with :ref:`mai`:
