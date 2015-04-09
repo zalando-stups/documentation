@@ -31,7 +31,8 @@ configuration format::
 
    #zalando-ami-config
 
-   application_name: my-nginx-test-app
+   application_id: my-nginx-test-app
+   application_version: "1.0"
 
    runtime: Docker
    source: dockerfiles/nginx:latest
@@ -72,12 +73,19 @@ configuration format::
 
 Provide this configuration as your user-data during launch of your EC2 instance.
 
-application_name:
+application_id:
 -----------------
 
 **(required)**
 
-The well-known, registered application identifier/name. Examples: "order-engine", "eventlog-service", ..
+The well-known, registered (in :ref:`kio`) application identifier/name. Examples: "order-engine", "eventlog-service", ..
+
+application_version:
+--------------------
+
+**(required)**
+
+The well-known, registered (in :ref:`kio`) application version string. Examples: "1.0", "0.1-alpha", ..
 
 runtime:
 --------
