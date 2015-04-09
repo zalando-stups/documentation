@@ -51,23 +51,13 @@ Next you need to create a new deployment definition YAML file:
             source: myteam/myapp:{{Arguments.ImageVersion}}
             ports:
               8080: 8080
-            notify_cfn:
-              stack: "{{SenzaInfo.StackName}}-{{SenzaInfo.StackVersion}}"
-              resource: "AppServer"
             environment:
               SOME_ENV: foobar
-          AutoScaling:
-            Minimum: 2
-            Maximum: 10
-            MetricType: CPU
-            ScaleUpThreshold: 70
-            ScaleDownThreshold: 40
 
       # creates an ELB entry and Route53 domains to this ELB
       - AppLoadBalancer:
           Type: Senza::ElasticLoadBalancer
           HTTPPort: 8080
-          SSLCertificateId: arn:aws:iam::123456789012:server-certificate/myapp
           HealthCheckPath: /
           SecurityGroups:
             - sg-123123
