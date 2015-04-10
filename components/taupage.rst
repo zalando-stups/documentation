@@ -203,8 +203,8 @@ Auditing & Logs
 
 TODO
 
-Issues can be found here:
-https://github.com/zalando-stups/taupage/issues
+* auditd logs all access
+* all logs, including application logs (docker logs) are streamed to central logging service and rotated
 
 Managed SSH access
 ------------------
