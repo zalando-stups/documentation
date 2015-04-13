@@ -2,6 +2,19 @@
 Troubleshooting
 ===============
 
+Permission issues when running Docker container on Taupage AMI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you get permission issues (e.g. ``chown: changing ownership of foobar: Operation not permitted``) when running your Docker image on Taupage,
+you probably run a Docker image assuming to run as ``root``. Taupage starts Docker containers with an unprivileged user by default.
+You can test your Docker image locally with ``docker run -u 998 ...``.
+Usually all apps (especially JVM-based applications) should be able to run as non-root.
+Sadly most Docker images from the official Docker Hub assume running as root.
+
+
+If you really need to run your Docker container as ``root``, you can use the ``root: true`` Taupage config option.
+See the :ref:`Taupage reference <taupage>` for details.
+
+
 I cannot access my EC2 instance via SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

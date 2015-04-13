@@ -24,3 +24,7 @@ You can overwrite settings on the command line:
     $ piu -O odd-eu-west-1.myotherteam.example.org 172.31.1.1 test
 
 
+.. Caution::
+
+    All user actions are logged for auditing reasons, therefore all **SSH sessions must be kept free of
+    any sensitive and/or personal information**.

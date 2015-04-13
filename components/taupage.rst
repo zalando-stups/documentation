@@ -72,6 +72,8 @@ configuration format::
      - 22
 
 Provide this configuration as your user-data during launch of your EC2 instance.
+You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
+to easily pass Taupage options when deploying with Senza.
 
 application_id:
 -----------------
@@ -209,6 +211,6 @@ TODO
 Managed SSH access
 ------------------
 
-SSH access is managed with the SSH access granting service. The AMI is set up to have automatic integration. Your
+SSH access is managed with the :ref:`even` SSH access granting service. The AMI is set up to have automatic integration. Your
 SSH key pair choice on AWS will be ignored - temporary access can only be gained via the granting service. All user
-actions are logged for auditing reasons.
+actions are logged for auditing reasons. See the :ref:`ssh-access` section in the User's Guide for details.

@@ -7,7 +7,7 @@ To be written...
 * Applications should be developed as microservices which focus on small tasks.
 * Applications should follow the `Twelve-Factor App Principle`_.
 * Application APIs shoud be RESTful
-* Applications should be deployed as Docker artifacts
+* Applications must be deployed as Docker artifacts
 
 
 Docker
@@ -42,11 +42,31 @@ Example:
 .. code-block:: json
 
     {
-    "url": "git:git@github.com:zalando/bastion-host.git",
-    "revision": "cd768599e1bb41c38279c26254feff5cf57bf967",
-    "author": "hjacobs",
-    "status": ""
+        "url": "git:git@github.com:zalando/bastion-host.git",
+        "revision": "cd768599e1bb41c38279c26254feff5cf57bf967",
+        "author": "hjacobs",
+        "status": ""
     }
+
+An example implementation on how to generate the ``scm-source.json`` file with Bash:
+
+.. code-block:: bash
+
+    #!/bin/bash
+    REV=$(git rev-parse HEAD)
+    URL=$(git config --get remote.origin.url)
+    STATUS=$(git status --porcelain)
+    if [ -n "$STATUS" ]; then
+        REV="$REV (locally modified)"
+    fi
+    # finally write hand-crafted JSON to scm-source.json
+    echo '{"url": "git:'$URL'", "revision": "'$REV'", "author": "'$USER'", "status": "'$STATUS'"}' > scm-source.json
+
+Logging
+=======
+
+Applications should log to STDOUT. The runtime environment (:ref:`Taupage`) will do appropriate log shipping to a central log UI provider.
+Application logs must not contain any personal and/or sensitive information such as customer data, credentials or similar.
 
 
 .. _Twelve-Factor App Principle: http://12factor.net/
