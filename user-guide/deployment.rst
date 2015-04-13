@@ -17,67 +17,47 @@ First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
     $ cd myapp # enter your application's source folder
     $ # please remember to generate the "scm-source.json",
     $ # which must be in your Docker image!
-    $ docker build -t pierone.stups.example.org/myteam/myapp:1.0 .
-    $ docker push pierone.stups.example.org/myteam/myapp:1.0
+    $ docker build -t pierone.stups.example.org/myteam/myapp:0.1 .
+    $ docker push pierone.stups.example.org/myteam/myapp:0.1
 
-Next you need to create a new :ref:`Senza deployment definition YAML <senza-definition>` file:
-
-.. code-block:: yaml
-
-    # basic information for generating and executing this definition
-    SenzaInfo:
-      StackName: myapp
-      Parameters:
-        - ImageVersion:
-            Description: "Docker image version of MyApp."
-
-    # a list of senza components to apply to the definition
-    SenzaComponents:
-
-      # this basic configuration is required for the other components
-      - Configuration:
-          Type: Senza::StupsAutoConfiguration # auto-detect network setup
-
-      # will create a launch configuration and auto scaling group with scaling triggers
-      - AppServer:
-          Type: Senza::TaupageAutoScalingGroup
-          InstanceType: t2.medium
-          SecurityGroups:
-            - app-myapp
-          IamInstanceProfile: arn:aws:iam::123456789012:instance-profile/app-myapp
-          ElasticLoadBalancer: AppLoadBalancer
-          TaupageConfig:
-            runtime: Docker
-            source: myteam/myapp:{{Arguments.ImageVersion}}
-            ports:
-              8080: 8080
-            environment:
-              SOME_ENV: foobar
-
-      # creates an ELB entry and Route53 domains to this ELB
-      - AppLoadBalancer:
-          Type: Senza::WeightedDnsElasticLoadBalancer
-          HTTPPort: 8080
-          HealthCheckPath: /
-          SecurityGroups:
-            - app-myapp-lb
-
-
-In order to create the Cloud Formation stack, we need to login with :ref:`mai`:
+In order to call AWS endpoints and to create the Cloud Formation stack, we need to login with :ref:`mai`:
 
 .. code-block:: bash
 
     $ mai create myteam # create a new profile (if you haven't done so)
     $ mai # login
 
-Create the application's Cloud Formation stack with Senza:
+Next you need to create a new :ref:`Senza deployment definition YAML <senza-definition>` file.
+This can be done conveniently with the ``senza init`` command:
 
 .. code-block:: bash
 
-    $ senza create definition.yaml --region=eu-west-1 1 1.0
+    $ senza init myapp.yaml
+
+.. Note::
+
+    We assume you have your default AWS region ID (e.g. "eu-west-1") configured in ``~/.aws/config``, alternatively you can pass the ``--region`` option to Senza.
+    See the `AWS CLI docs`_ for details.
+
+``senza init`` will guide you through a bunch of questions.
+Use the "webapp" template and choose the default answers to get a ready-to-use hello world application.
+Senza will also create the necessary security groups for you.
+
+Now we can create the application's Cloud Formation stack with Senza:
+
+.. code-block:: bash
+
+    $ senza create myapp.yaml 1 0.1
 
 .. Note:: The last parameter is a custom parameter "ImageVersion" defined in the SenzaInfo/Parameters section of the above definition YAML.
 
-.. Tip:: You can avoid passing the ``--region`` option by configuring the default AWS region ID in ``~/.aws/config``. See the `AWS CLI docs`_ for details.
+The stack creation will take some time, we can use the ``events`` command to monitor the progress:
+
+.. code-block:: bash
+
+    $ senza events myapp.yaml 1 --watch=2
+
+The ``--watch`` option tells Senza to refresh the display every 2 seconds until we press ``CTRL-C``.
+
 
 .. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
