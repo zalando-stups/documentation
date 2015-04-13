@@ -11,6 +11,12 @@ See the :ref:`deployment` section for details on how to deploy applications usin
 Command Line Usage
 ==================
 
+Bootstrapping Senza definitions
+
+.. code-block:: bash
+
+    $ senza init myapp.yaml
+
 Creating Stacks
 
 .. code-block:: bash
@@ -37,6 +43,33 @@ Deleting Stacks
 .. code-block:: bash
 
     $ senza delete myapp.yaml 1
+
+.. Tip::
+
+    All commands and subcommands can be abbreviated, i.e. the following lines are equivalent:
+
+    .. code-block:: bash
+
+        senza list
+        senza l
+
+Bash Completion
+---------------
+
+The programmable completion feature in Bash permits typing a partial command, then pressing the :kbd:`[Tab]` key to auto-complete the command sequence.
+If multiple completions are possible, then :kbd:`[Tab]` lists them all.
+
+To activate bash completion for the Senza CLI, just run:
+
+.. code-block:: bash
+
+    $ eval "$(_SENZA_COMPLETE=source senza)"
+
+Put the eval line into your :file:`.bashrc`:
+
+.. code-block:: bash
+
+    $ echo 'eval "$(_SENZA_COMPLETE=source senza)"' >> ~/.bashrc
 
 .. _senza-definition:
 
