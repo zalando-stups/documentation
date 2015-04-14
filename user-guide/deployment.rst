@@ -8,7 +8,7 @@ The :ref:`senza` command line tools allows deploying application stacks.
 
 .. code-block:: bash
 
-    $ pip3 install --upgrade stups-mai stups-senza
+    $ sudo pip3 install --upgrade stups-mai stups-senza
 
 First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
 
