@@ -55,14 +55,14 @@ configuration format::
      /var/lib/zookeeper-logs:
        devices:
          - /dev/sdb
-       setup: true
+       erase_on_boot: true
 
      /var/lib/zookeeper-data:
        devices:
          - /dev/sdc
          - /dev/sdd
        raid_mode: 0
-       setup: true
+       erase_on_boot: true
 
    notify_cfn:
      stack: pharos
@@ -154,8 +154,8 @@ mounts:
 **(optional)**
 
 A map of mount targets and device configurations. A device configuration has **device** to reference the root device
-node and a **setup** flag if the device should be partitioned and formatted no boot (of not, the AMI expects and mounts
-partition 1 from the device).
+node and a **erase_on_boot** flag if the device should be partitioned and formatted on every boot (of not, the AMI expects and mounts
+partition 1 from the device but partitions a new empty device).
 
 notify_cfn:
 -----------

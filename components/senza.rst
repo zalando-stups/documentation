@@ -4,20 +4,20 @@
 Senza
 =====
 
-**Senza** is STUPS' deployment tool.
+**Senza** is STUPS' deployment tool to create and execute `AWS CloudFormation templates`_ in a sane way.
 
 See the :ref:`deployment` section for details on how to deploy applications using Senza, :ref:`pierone` and :ref:`taupage`.
 
 Command Line Usage
 ==================
 
-Bootstrapping Senza definitions
+Senza definitions can be bootstrapped conveniently to get started quickly:
 
 .. code-block:: bash
 
     $ senza init myapp.yaml
 
-Creating Stacks
+Cloud Formation stacks are created from Senza definitions with the ``create`` command:
 
 .. code-block:: bash
 
@@ -29,7 +29,7 @@ You can disable the automatic Cloud Formation rollback-on-failure in order to do
 
     $ senza create --disable-rollback myerroneous-stack.yaml 1
 
-Listing Stacks
+Stacks can be listed using the ``list`` command:
 
 .. code-block:: bash
 
@@ -38,7 +38,15 @@ Listing Stacks
     $ senza list                  # list all active stacks
     $ senza list --all            # list all stacks (including deleted ones)
 
-Deleting Stacks
+There are a few commands to get more detailed information about stacks:
+
+.. code-block:: bash
+
+    $ senza resources myapp.yaml 1 # list all CF resources
+    $ senza events myapp.yaml 1    # list all CF events
+    $ senza instances myapp.yaml 1 # list EC2 instances and IPs
+
+Stacks can be deleted when they are no longer used:
 
 .. code-block:: bash
 
@@ -50,8 +58,8 @@ Deleting Stacks
 
     .. code-block:: bash
 
-        senza list
-        senza l
+        $ senza list
+        $ senza l
 
 Bash Completion
 ---------------
@@ -174,3 +182,5 @@ The default Route53 hosted zone is used for the domain name.
           SecurityGroups:
             - app-myapp-lb
 
+
+.. _AWS CloudFormation templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
