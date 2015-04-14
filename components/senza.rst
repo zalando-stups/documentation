@@ -96,6 +96,13 @@ A minimal Senza definition without any Senza components would look like:
       MyQueue:
         Type: AWS::SQS::Queue
 
+.. Tip::
+
+    Use ``senza init`` to quickly bootstrap a new Senza definition YAML for most common use cases (e.g. a web application).
+
+During evaluation of the definition, mustache templating is applied with access to the rendered definition,
+including the SenzaInfo, SenzaComponents and Arguments key (containing all given arguments).
+
 
 Senza Components
 ----------------
