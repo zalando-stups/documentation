@@ -147,7 +147,7 @@ The **TaupageAutoScalingGroup** component type creates one AWS AutoScalingGroup 
 .. code-block:: yaml
 
     SenzaComponents:
-      - Configuration:
+      - AppServer:
           Type: Senza::TaupageAutoScalingGroup
           InstanceType: t2.micro
           SecurityGroups:
@@ -167,6 +167,8 @@ This component supports the following configuration properties:
     The EC2 instance type to use.
 ``SecurityGroups``
     List of security groups to associate the EC2 instances with. Each list item can be either an existing security group name or ID.
+``IamRoles``
+    List of IAM role names to use for the automatically created instance profile.
 ``ElasticLoadBalancer``
     Name of the ELB resource.
 ``TaupageConfig``
