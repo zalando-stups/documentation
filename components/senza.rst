@@ -103,6 +103,20 @@ A minimal Senza definition without any Senza components would look like:
 During evaluation of the definition, mustache templating is applied with access to the rendered definition,
 including the SenzaInfo, SenzaComponents and Arguments key (containing all given arguments).
 
+Senza Info
+----------
+
+The ``SenzaInfo`` key must always be present in the definition YAML and configures global Senza behavior.
+
+Available properties for the ``SenzaInfo`` section are:
+
+``StackName``
+    The stack name (required).
+``OperatorTopicId``
+    Optional SNS topic name or ARN for Cloud Formation notifications. This can used for example to send notifications about deployments to a mailing list.
+``Parameters``
+    Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
+
 
 Senza Components
 ----------------
