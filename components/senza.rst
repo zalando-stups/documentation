@@ -153,6 +153,8 @@ Example usage:
       - Configuration:
           Type: Senza::StupsAutoConfiguration
 
+.. _senza-taupage-auto-scaling-group:
+
 Senza::TaupageAutoScalingGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
