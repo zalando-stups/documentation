@@ -5,10 +5,30 @@ Deployment
 ==========
 
 The :ref:`senza` command line tools allows deploying application stacks.
+This page will guide you through the steps necessary to deploy
+a Docker-based application with Senza.
+
+Prerequisites
+=============
+
+First install Python 3.4 on your PC (Ubuntu 14.04 already has it installed, use Homebrew on Mac).
+
+.. Note::
+
+    OS X users may need to set their locale environment to UTF-8 with::
+
+        export LC_ALL=en_US.utf-8
+        export LANG=en_US.utf-8
+
+Senza and Mai (required for AWS credentials) can be installed from PyPI using PIP:
 
 .. code-block:: bash
 
     $ sudo pip3 install --upgrade stups-mai stups-senza
+
+
+Prepare the deployment artifact
+===============================
 
 First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
 
@@ -19,6 +39,9 @@ First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
     $ # which must be in your Docker image!
     $ docker build -t pierone.stups.example.org/myteam/myapp:0.1 .
     $ docker push pierone.stups.example.org/myteam/myapp:0.1
+
+Create a new Senza definition
+=============================
 
 In order to call AWS endpoints and to create the Cloud Formation stack, we need to login with :ref:`mai`:
 
@@ -42,6 +65,9 @@ This can be done conveniently with the ``senza init`` command:
 ``senza init`` will guide you through a bunch of questions.
 Use the "webapp" template and choose the default answers to get a ready-to-use hello world application.
 Senza will also create the necessary security groups for you.
+
+Deploying your application with Senza
+=====================================
 
 Now we can create the application's Cloud Formation stack with Senza:
 
