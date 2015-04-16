@@ -14,8 +14,21 @@ Creating a new profile:
 .. code-block:: bash
 
     $ mai create myteam
+    $ Identity provider URL: https://aws.example.org # Enter your Identity Provider URL 
+    $ SAML username: john.doe@example.org # Enter your SAML username
     # answer the questions
 
+Deleting a profile:
+
+.. code-block:: bash
+
+    $ mai delete myteam
+    
+List profile(s):
+
+.. code-block:: bash
+
+    $ mai list
 
 If you only have one profile, you can simply execute ``mai`` to login:
 
