@@ -189,6 +189,22 @@ This component supports the following configuration properties:
     Name of the ELB resource.
 ``TaupageConfig``
     Taupage AMI config, see :ref:`taupage` for details.
+``AutoScaling``
+    Map of auto scaling properties, see below.
+
+``AutoScaling`` properties:
+
+``Minimum``
+    Minimum number of instances to spawn.
+``Maximum``
+    Maximum number of instances to spawn.
+``MetricType``
+    Metric to do auto scaling on, only supported value is ``CPU``
+``ScaleUpThreshold``
+    On which value of the metric to scale up. For the "CPU" metric: a value of 70 would mean 70% CPU usage.
+``ScaleDownThreshold``
+    On which value of the metric to scale down.
+
 
 
 Senza::WeightedDnsElasticLoadBalancer
