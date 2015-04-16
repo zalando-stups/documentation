@@ -49,5 +49,55 @@ From Another AWS Account
 
 IAM roles can be used across accounts by defining a trust relationship policy.
 
+Policy configuration:
+
+.. code-block:: json
+
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "",
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }
+
+if the role is also used by an application, to retrive via Instance Profile the credentials,
+then you should also add the ec2 service:
+
+.. code-block:: json
+
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "",
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "ec2.amazonaws.com",
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }
+
+As result you will have one Trusted Entity for the first option and two for the second one.
+
+Trusted Entities:
+
+* The account ACCOUNT_ID
+
+and for the second option also
+
+* The identity provider(s) ec2.amazonaws.com
+
+This will let you retrive credentials from the Instance Profile.
+
 .. _Amazon SDK: https://aws.amazon.com/tools/
 .. _EC2 instance profile: http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-usingrole-ec2instance.html
