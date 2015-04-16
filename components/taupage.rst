@@ -178,6 +178,16 @@ ssh_ports:
 List of SSH server ports. This option allows using alternative TCP ports for the OpenSSH server.
 This is useful if an application (runtime container) wants to use the default SSH port.
 
+Runtime environment
++++++++++++++++++++
+
+By default, your application will run as an unprivileged user, see the 'root' option.
+
+Taupage integrates :ref:`berry` and exposes the credentials file to your application. Your application will have access
+to the environment variable 'CREDENTIALS_FILE', which points to a local file, containing the 'credentials.json' JSON of
+the :ref:`mint` API. This way, you can authenticate yourself to your IAM solution to for example obtain own access
+tokens.
+
 AMI internals
 +++++++++++++
 

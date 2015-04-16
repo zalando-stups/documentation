@@ -58,4 +58,5 @@ The application username and password are the application's credentials for thei
 The client ID and secret are the application's OAuth 2.0 credentials.
 
 Look at :ref:`berry` for automated download of this file for your application. Remember that this file changes
-regularly.
+regularly. See also :ref:`taupage`, which already integrates berry and provides the credentials file to your
+Docker image on the local filesystem.
