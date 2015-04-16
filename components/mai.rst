@@ -6,6 +6,9 @@ Mai
 
 **Mai** is a command line utility to retrieve temporary AWS credentials.
 
+How to use
+==========
+
 Creating a new profile:
 
 .. code-block:: bash

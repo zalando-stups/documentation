@@ -4,15 +4,20 @@
 Pier One
 ========
 
-**Pier One** is STUPS' Docker registry with immutable tags, repo permissions, S3 backend and OAuth.
+**Pier One** is STUPS' Docker registry with immutable tags, repo permissions, S3 backend and OAuth 2.0. It differs from
+the public registry in that all tags and images are immutable which are required for reproducible deployments and for
+internal and external audits. In addition, Pier One respects the notion of teams and allows access to namespaces based
+on your team.
 
-You can push Docker images to Pier One using the Docker command line client:
+How to use it
+=============
+
+Pier One is fully Docker compliant. You can push Docker images using the normal Docker command line client:
 
 .. code-block:: bash
 
-    $ # replace "teamid" with your team's ID
-    $ docker tag EXISTING-IMAGE-ID pierone.stups.example.org/teamid/myapp:0.1
-    $ docker push pierone.stups.example.org/teamid/myapp:0.1
+    $ docker build -t pierone.stups.example.com/your-team-id/myapp:0.1 .
+    $ docker push pierone.stups.example.com/your-team-id/myapp:0.1
 
 **How can I delete Docker images?**
     Docker images cannot be deleted as Pier One tries to ensure immutable deployment artifacts for audit compliance.
