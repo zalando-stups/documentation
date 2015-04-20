@@ -60,3 +60,17 @@ The client ID and secret are the application's OAuth 2.0 credentials.
 Look at :ref:`berry` for automated download of this file for your application. Remember that this file changes
 regularly. See also :ref:`taupage`, which already integrates berry and provides the credentials file to your
 Docker image on the local filesystem.
+
+.. Note::
+
+    In order to access other OAuth 2.0 protected services with your application, you need an access token. If your IAM
+    solution supports the `Resource Owner Password Credentials Grant`_, then you can get an access token for yourself with
+    the above credentials:
+
+    .. code-block:: shell
+
+        $ curl -u $client_id:$client_secret \
+            -d "grant_type=password&username=$application_username&password=$application_password&scope=cn+uid" \
+            https://your-oauth-provider/oauth2/access_token
+
+.. _Resource Owner Password Credentials Grant: http://tools.ietf.org/html/rfc6749#section-4.3
