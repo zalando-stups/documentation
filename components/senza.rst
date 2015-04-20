@@ -46,6 +46,13 @@ There are a few commands to get more detailed information about stacks:
     $ senza events myapp.yaml 1    # list all CF events
     $ senza instances myapp.yaml 1 # list EC2 instances and IPs
 
+Traffic can be routed via Route53 DNS to your new stack:
+
+.. code-block:: bash
+
+    $ senza traffic myapp.yaml      # show traffic distribution
+    $ senza traffic myapp.yaml 2 50 # give version 2 50% of traffic
+
 Stacks can be deleted when they are no longer used:
 
 .. code-block:: bash
@@ -192,7 +199,7 @@ This component supports the following configuration properties:
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
-``AutoScaling`` properties:
+``AutoScaling`` properties are:
 
 ``Minimum``
     Minimum number of instances to spawn.

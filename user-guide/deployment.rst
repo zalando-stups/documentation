@@ -85,5 +85,23 @@ The stack creation will take some time, we can use the ``events`` command to mon
 
 The ``--watch`` option tells Senza to refresh the display every 2 seconds until we press ``CTRL-C``.
 
+The "events" command will eventually show ``CREATE_COMPLETE`` for the ``CloudFormation::Stack`` resource if everything went well.
+
+Read the section :ref:`ssh-access` on how to get shell access to your EC2 instances (if needed).
+
+Routing traffic to your application
+===================================
+
+Your new application stack should be accessible via the version domain, e.g. "myapp-1.example.org".
+You can use the version domain to verify that your application is working (e.g. via automated regression tests).
+
+Eventually you want to route "real" traffic via the main domain (e.g. "myapp.example.org") to your new application stack.
+This can be done via Senza`s "traffic" command:
+
+.. code-block:: bash
+
+    $ senza traffic myapp.yaml 1 100 # route 100% traffic to version 1
+
+
 
 .. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
