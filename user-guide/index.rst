@@ -11,4 +11,5 @@ How to use the STUPS platform.
    deployment
    ssh-access
    aws-api
+   databases
    troubleshooting
