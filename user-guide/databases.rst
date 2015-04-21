@@ -11,7 +11,7 @@ client (e.g. psql or pgAdmin) directly to the host where your database server ru
 But how can I connect from my desktop to an internal RDS instance?
 ==================================================================
 
-You can use your :ref:odd bastion host to establish an **SSH tunnel** and forward the remote database port (e.g. 5432)
+You can use your :ref:`odd` bastion host to establish an **SSH tunnel** and forward the remote database port (e.g. 5432)
 to any free port on your local machine. Afterwards you can simply connect your client application to this local port.
 
 This small tutorial will guide you through the setup:
@@ -35,7 +35,7 @@ Assumptions
 
 * your bastion host's security group permits **inbound traffic on port 22 from your local IP** address
   (should already be in place)
-* your bastion host's security group permits **outbound traffic on you db port to your internal instances**
+* your bastion host's security group permits **outbound traffic on the db port to your internal instances**
 
   .. figure:: images/bastion-host-security-group-outbound.png
      :alt: Bastion Host security group outbound rules
