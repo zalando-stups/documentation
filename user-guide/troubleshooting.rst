@@ -18,4 +18,11 @@ See the :ref:`Taupage reference <taupage>` for details.
 I cannot access my EC2 instance via SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you can get access to :ref:`odd` via :ref:`piu`, but accessing your private EC2 instance does not work: First check your server's security group. It must allow inbound traffic on TCP port 22 (SSH).
+If you can get access to :ref:`odd` via :ref:`piu`, but accessing your private EC2 instance does not work: First check your server's security group. It must allow inbound traffic on TCP port 22 (SSH) from the "odd" bastion host.
+
+If you get a "Permission denied (publickey)" error, check that your local SSH key agent is running:
+
+.. code-block::
+
+    $ ssh-add -l
+    # this should list your private key(s) (e.g. id_rsa)
