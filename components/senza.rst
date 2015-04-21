@@ -8,6 +8,20 @@ Senza
 
 See the :ref:`deployment` section for details on how to deploy applications using Senza, :ref:`pierone` and :ref:`taupage`.
 
+Installation
+============
+
+Install or upgrade to the latest version of Senza (|senza-pypi-version|) with PIP:
+
+.. |senza-pypi-version| image:: https://pypip.in/version/stups-senza/badge.svg
+   :target: https://pypi.python.org/pypi/stups-senza/
+   :alt: Latest PyPI version
+
+.. code-block:: bash
+
+    $ sudo pip3 install --upgrade stups-senza
+
+
 Command Line Usage
 ==================
 

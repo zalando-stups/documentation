@@ -6,6 +6,19 @@ Mai
 
 **Mai** is a command line utility to retrieve temporary AWS credentials.
 
+Installation
+============
+
+Install or upgrade to the latest version of Mai (|mai-pypi-version|) with PIP:
+
+.. |mai-pypi-version| image:: https://pypip.in/version/stups-mai/badge.svg
+   :target: https://pypi.python.org/pypi/stups-mai/
+   :alt: Latest PyPI version
+
+.. code-block:: bash
+
+    $ sudo pip3 install --upgrade stups-mai
+
 How to use
 ==========
 
