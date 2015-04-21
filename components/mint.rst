@@ -22,43 +22,56 @@ Step 3 + 4
 ----------
 
 mint will regularly rotate the passwords and OAuth 2.0 credentials for all service user's. The new secrets are then
-stored in an S3 bucket where each registered application has one directory. mint creates cross-account permissions for
-all the directories and links them with the owner's AWS accounts.
+stored in S3 buckets in the owning team's AWS accounts, where each registered application has one directory. mint
+has write access to those directories for updating the secrets but no read access.
 
 Step 5
 ------
 
-Applications can download their current secrets from their directory on S3 using their cross-account IAM role. It is now
-the application owner's responsibility to assign the correct IAM profiles to the actual EC2 instances. :ref:`berry` can
-help with the permanent retrieval of the application's secrets.
+Applications can download their current secrets from their directory on S3 using their instance profiles. A team has to
+configure access to the correct credentials for their server. It is the application owner's responsibility to assign
+the correct IAM profiles to the actual EC2 instances. :ref:`berry` can help with the permanent retrieval of the
+application's secrets.
+
+The following picture demonstrates the exchange over S3:
+
+.. image:: mint/s3.svg
 
 API for applications
 ====================
 
 mint stores all credentials of an application in a directory in S3. At first, you have to know in which S3 bucket mint
-stores everything. Knowing that, you can construct the correct URL to it:
+stores everything. Knowing that, you can construct the correct URLs to it:
 
-    https://mints-s3-bucket.amazonaws.com/my-app-id/credentials.json
+* https://mints-s3-bucket.amazonaws.com/my-app-id/user.json
+* https://mints-s3-bucket.amazonaws.com/my-app-id/client.json
 
-    <s3 bucket> / <app-id> / credentials.json
+    <s3 bucket> / <app-id> / [user|client].json
 
-You should download the file via the AWS SDKs but you could also construct the HTTP request yourself according to the
-Amazon documentation. The file contains the following content:
+The 'user.json' contains username and password of the service user. The 'client.json' contains the OAuth 2.0 client
+credentials. You should download the files via the AWS SDKs but you could also construct the HTTP request yourself
+according to the Amazon documentation. The two files have the following content:
+
+user.json:
 
 .. code-block:: json
 
     {
         "application_username": "abc",
         "application_password": "xyz",
+    }
+
+client.json:
+
+.. code-block:: json
+
+    {
         "client_id": "foo",
         "client_secret": "bar"
     }
 
-The application username and password are the application's credentials for their own service user in your IAM solution.
-The client ID and secret are the application's OAuth 2.0 credentials.
-
-Look at :ref:`berry` for automated download of this file for your application. Remember that this file changes
-regularly. See also :ref:`taupage`, which already integrates berry and provides the credentials file to your
+Look at :ref:`berry` for automated download of these files for your application. Remember that these files change
+regularly. See also :ref:`taupage`, which already integrates berry and provides the credentials files to your
 Docker image on the local filesystem.
 
 .. Note::
