@@ -71,6 +71,10 @@ configuration format::
    ssh_ports:
      - 22
 
+   logentries_account_key: 12345-ACCOUNT-12345-KEY
+
+   logentries_hostname: customhostname_for_webinterface
+
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
 to easily pass Taupage options when deploying with Senza.
@@ -177,6 +181,21 @@ ssh_ports:
 
 List of SSH server ports. This option allows using alternative TCP ports for the OpenSSH server.
 This is useful if an application (runtime container) wants to use the default SSH port.
+
+logentries_account_key:
+-----------------------
+
+**(optional)**
+
+Account Key from your Logentries Account. You can see the Account Key in the Logentries Webinterface under /Account/Profile
+
+
+logentries_hostname:
+--------------------
+
+**(optional)**
+
+Custom Name for the Host, this name will be displayed in the Logentries Webinterface.
 
 Runtime environment
 +++++++++++++++++++
