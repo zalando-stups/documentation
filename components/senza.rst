@@ -210,7 +210,7 @@ This component supports the following configuration properties:
 ``ScaleUpThreshold``
     On which value of the metric to scale up. For the "CPU" metric: a value of 70 would mean 70% CPU usage.
 ``ScaleDownThreshold``
-    On which value of the metric to scale down.
+    On which value of the metric to scale down. For the "CPU" metric: a value of 40 would mean 40% CPU usage.
 
 
 
