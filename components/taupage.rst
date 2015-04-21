@@ -73,7 +73,7 @@ configuration format::
 
    logentries_account_key: 12345-ACCOUNT-12345-KEY
 
-   logentries_hostname: customhostname_for_webinterface
+   logentries_hostname: custom_hostname_for_webinterface
 
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
