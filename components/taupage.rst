@@ -29,7 +29,7 @@ The Taupage AMI uses the official cloud-init project to receive user configurati
 not use the normal user data mimetypes (no #cloud-config, shell scripts, file uploads, URL lists, ...) but only our own
 configuration format::
 
-   #zalando-ami-config
+   #taupage-ami-config
 
    application_id: my-nginx-test-app
    application_version: "1.0"
