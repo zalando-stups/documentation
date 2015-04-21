@@ -187,7 +187,16 @@ logentries_account_key:
 
 **(optional)**
 
-Account Key from your Logentries Account. You can see the Account Key in the Logentries Webinterface under /Account/Profile
+If you specify the Account Key from you logentries account, the Logentries Agent will be registered with your Account.
+And the Agent will follow these logs:
+  * /var/log/syslog
+  * /var/log/auth.log
+  * /var/log/boot.log
+  * /var/log/application.log
+
+You can get your Account Key from the Logentries Webinterface under /Account/Profile
+
+
 
 
 logentries_hostname:
