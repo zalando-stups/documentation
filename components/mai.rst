@@ -29,6 +29,12 @@ List profile(s):
 .. code-block:: bash
 
     $ mai list
+    
+Login profile(s):
+
+.. code-block:: bash
+
+    $ mai login myteam
 
 If you only have one profile, you can simply execute ``mai`` to login:
 
