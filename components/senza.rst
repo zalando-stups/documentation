@@ -220,6 +220,7 @@ This component supports the following configuration properties:
     Map of auto scaling properties, see below.
 
 ``AutoScaling`` properties are:
+
 ``Minimum``
     Minimum number of instances to spawn.
 ``Maximum``
