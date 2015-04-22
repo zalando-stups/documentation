@@ -26,6 +26,8 @@ Assumptions
   - we will use a Postgres installation running on port 5432 in this example, but it should also work with any other
     dbms and port
 
+* the RDS instance's security group permits **inbound traffic on the db port (e.g. 5432) from the bastion host**
+
 **Bastion host**
 
 * your bastion host is available at ``odd.myteam.example.org``
@@ -36,14 +38,8 @@ Assumptions
 * your bastion host's security group permits **inbound traffic on port 22 from your local IP** address
   (should already be in place)
 * your bastion host's security group permits **outbound traffic on the db port to your internal instances**
+  (should already be in place)
 
-  .. figure:: images/bastion-host-security-group-outbound.png
-     :alt: Bastion Host security group outbound rules
-
-     Bastion host security group outbound rules
-
-     In our example, we added a rule to permit outbound traffic (from the bastion host) on port 5432 to the entire
-     IP range of our VPC (which of course includes the RDS instance)
 
 Dig a tunnel
 ------------
