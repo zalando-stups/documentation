@@ -204,16 +204,18 @@ This component supports the following configuration properties:
     The EC2 instance type to use.
 ``SecurityGroups``
     List of security groups to associate the EC2 instances with. Each list item can be either an existing security group name or ID.
+``IamInstanceProfile``
+    ARN of the IAM instance profile to use. You can either use "IamInstanceProfile" or "IamRoles", but not both.
 ``IamRoles``
     List of IAM role names to use for the automatically created instance profile.
+``Image``
+    AMI to use, defaults to ``LatestTaupageImage``.
 ``ElasticLoadBalancer``
     Name of the ELB resource.
 ``TaupageConfig``
-    Taupage AMI config, see :ref:`taupage` for details. 
-        ``runtime?``
-        ``source?``
-        ``ports?``
-        ``environments?``
+    Taupage AMI config, see :ref:`taupage` for details.
+    At least the properties ``runtime`` ("Docker") and ``source`` (Docker image) are required.
+    Usually you will want to specify ``ports`` and ``environment`` too.
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
