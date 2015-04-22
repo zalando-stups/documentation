@@ -209,12 +209,15 @@ This component supports the following configuration properties:
 ``ElasticLoadBalancer``
     Name of the ELB resource.
 ``TaupageConfig``
-    Taupage AMI config, see :ref:`taupage` for details.
+    Taupage AMI config, see :ref:`taupage` for details. 
+        ``runtime?``
+        ``source?``
+        ``ports?``
+        ``environments?``
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
 ``AutoScaling`` properties are:
-
 ``Minimum``
     Minimum number of instances to spawn.
 ``Maximum``
