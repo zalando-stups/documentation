@@ -246,6 +246,12 @@ TODO
 * auditd logs all access
 * all logs, including application logs (docker logs) are streamed to central logging service and rotated
 
+Docker application logging
+--------------------------
+
+Application logs by Docker containers are streamed to syslog via Docker's logging driver for syslog as described
+in the Docker documentation: https://docs.docker.com/reference/run/#logging-driver-syslog
+
 Managed SSH access
 ------------------
 
