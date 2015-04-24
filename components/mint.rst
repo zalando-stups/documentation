@@ -12,6 +12,11 @@ How it works
 
 .. image:: mint/architecture.svg
 
+Step 0
+------
+
+A developer has to define, in which AWS account, the credentials of his application should get distributed to.
+
 Step 1 + 2
 ----------
 
