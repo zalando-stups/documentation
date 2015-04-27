@@ -8,7 +8,7 @@ on top of Amazon Web Services (AWS).
 Contents:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    introduction/index
    installation/index
