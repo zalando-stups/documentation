@@ -1,13 +1,16 @@
 Welcome to STUPS' documentation!
 ================================
 
-This documentation describes various topics about the Zalando STUPS platform.
+The STUPS platform is a set of tools and components
+to provide a convenient and audit-compliant Platform-as-a-Service (PaaS) for multiple autonomous teams
+on top of Amazon Web Services (AWS).
 
 Contents:
 
 .. toctree::
    :maxdepth: 1
 
+   introduction/index
    installation/index
    user-guide/index
    components/index
