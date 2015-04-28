@@ -11,7 +11,7 @@ Installation
 
 Install or upgrade to the latest version of Piu (|piu-pypi-version|) with PIP:
 
-.. |piu-pypi-version| image:: https://pypip.in/version/stups-piu/badge.svg
+.. |piu-pypi-version| image:: https://img.shields.io/pypi/v/stups-piu.svg
    :target: https://pypi.python.org/pypi/stups-piu/
    :alt: Latest PyPI version
 

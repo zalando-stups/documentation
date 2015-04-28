@@ -13,7 +13,7 @@ Installation
 
 Install or upgrade to the latest version of Senza (|senza-pypi-version|) with PIP:
 
-.. |senza-pypi-version| image:: https://pypip.in/version/stups-senza/badge.svg
+.. |senza-pypi-version| image:: https://img.shields.io/pypi/v/stups-senza.svg
    :target: https://pypi.python.org/pypi/stups-senza/
    :alt: Latest PyPI version
 
