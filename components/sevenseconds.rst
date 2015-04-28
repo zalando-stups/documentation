@@ -11,7 +11,7 @@ Installation
 
 Install or upgrade to the latest version of Seven Seconds (|sevenseconds-pypi-version|) with PIP:
 
-.. |sevenseconds-pypi-version| image:: https://pypip.in/version/stups-sevenseconds/badge.svg
+.. |sevenseconds-pypi-version| image:: https://img.shields.io/pypi/v/stups-sevenseconds.svg
    :target: https://pypi.python.org/pypi/stups-sevenseconds/
    :alt: Latest PyPI version
 

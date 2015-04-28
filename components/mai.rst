@@ -11,7 +11,7 @@ Installation
 
 Install or upgrade to the latest version of Mai (|mai-pypi-version|) with PIP:
 
-.. |mai-pypi-version| image:: https://pypip.in/version/stups-mai/badge.svg
+.. |mai-pypi-version| image:: https://img.shields.io/pypi/v/stups-mai.svg
    :target: https://pypi.python.org/pypi/stups-mai/
    :alt: Latest PyPI version
 
