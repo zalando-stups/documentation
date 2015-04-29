@@ -62,7 +62,7 @@ configuration format::
        devices:
          - /dev/sdc
          - /dev/sdd
-       raid_mode: 0
+       raid_mode: 0 # Software RAID is not supported yet.
        erase_on_boot: true
 
    notify_cfn:
