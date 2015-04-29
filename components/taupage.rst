@@ -56,7 +56,7 @@ configuration format::
        devices:
          - /dev/sdb
        erase_on_boot: true
-       filesystem: ext3
+       filesystem: ext3 # default fs is ext4
 
      /var/lib/zookeeper-data:
        devices:
