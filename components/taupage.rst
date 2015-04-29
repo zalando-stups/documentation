@@ -73,8 +73,8 @@ configuration format::
      - 22
 
    logentries_account_key: 12345-ACCOUNT-12345-KEY
-
    logentries_hostname: custom_hostname_for_webinterface
+   logentries_tokenid: 123456-TOKENID-123456
 
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
@@ -190,10 +190,9 @@ logentries_account_key:
 
 If you specify the Account Key from you logentries account, the Logentries Agent will be registered with your Account.
 And the Agent will follow these logs:
+
   * /var/log/syslog
   * /var/log/auth.log
-  * /var/log/boot.log
-  * /var/log/application.log
 
 You can get your Account Key from the Logentries Webinterface under /Account/Profile
 
@@ -206,6 +205,22 @@ logentries_hostname:
 **(optional)**
 
 Custom Name for the Host, this name will be displayed in the Logentries Webinterface.
+
+logentries_tokenid
+------------------
+
+**(optional)**
+
+You have to create a new "Manual Log" in the Webinterface.
+
+For Example:
+
+  * Create a new "Manual Log"
+  * LogSet = APPLICATIONNAME
+  * Log Name = APPLICATIONNAME-VERSION
+
+Than you get the **LogToken** and this token you have to set in the yaml file.
+
 
 Runtime environment
 +++++++++++++++++++
