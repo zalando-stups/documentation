@@ -219,7 +219,7 @@ For Example:
   * LogSet = APPLICATIONNAME
   * Log Name = APPLICATIONNAME-VERSION
 
-Than you get the **LogToken** and this token you have to set in the yaml file.
+Afterwards you get the **LogToken** and this token you have to set in the yaml file.
 
 
 Runtime environment
