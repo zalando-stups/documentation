@@ -26,4 +26,14 @@ If you get a "Permission denied (publickey)" error, check that your local SSH ke
 
     $ ssh-add -l
     # this should list your private key(s) (e.g. id_rsa)
-    
+
+
+How to read Docker logs on EC2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Docker logs containing your application's STDOUT are written to Syslog.
+After getting :ref:`ssh-access` to your EC2 instance (running the Taupage AMI), you can grep them:
+
+.. code-block:: bash
+
+    $ grep docker /var/log/syslog
