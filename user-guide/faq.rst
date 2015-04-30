@@ -91,8 +91,8 @@ you can find out the missing value by checking the JSON. You get the JASON by
 
      $ senza print
 
-******************************
-How I can debug falling stacks
-******************************
+**************************************************
+How I can debug falling AWS cloud formation stacks
+**************************************************
 
 If your stack is terminated you can debug it with a further option by senza create etc. The option is --disable rollback. That prevents that a instance will be canceled after a problem. Then you can debug the instances and find out, what was happend.
