@@ -33,3 +33,10 @@ You can overwrite settings on the command line:
 
     All user actions are logged for auditing reasons, therefore all **SSH sessions must be kept free of
     any sensitive and/or personal information**.
+
+SSH Access Revocation
+=====================
+
+SSH access will automatically be revoked by :ref:`even` after the request's lifetime (default: 60 minutes) expired.
+You can specify a non-default lifetime by using Piu's ``-t`` option.
+
