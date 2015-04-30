@@ -27,12 +27,6 @@ If I use keyring in a shared linux maschine, everyone can get my LDAP password b
 
 Just don't use a shared linux machine. And if you really have to use a shared linux machine -> linux is multi-user, just configure it accordingly (that no user can read other users files).
 
-*************************************************************************
-Is the agreement with amazon to store customer information already valid?
-*************************************************************************
-
-Yes, we signed a "DPA" (Data Protection Addendum) for the Enterprise Aggrement. This is valid for Ireland and Frankfurt
-
 ******************************************************************
 Via SSH acces I get the information Permission denied (publickey).
 ******************************************************************
@@ -50,12 +44,6 @@ I get an Internal server error: 409 trying to push tag ...
 
 error: 409 means conflict which we send when you try to push an image or tag with an existing name again - pierone enforces immutability, you cannot push a tag twice.
 
-*************************************************************
-What kind of SSL certificate I have to use in my Docker file?
-*************************************************************
-
-https://pierone.stups.zalan.do/ is now using a Comodo SSL cert, i.e. you should not need to put any CA cert config in Docker anymore
-
 **********************************
 Can I use pierone from homeoffice?
 **********************************
@@ -67,12 +55,6 @@ I get following error Message: RRSet with DNS name "my.team" and type CNAME, Set
 ********************************************************************************************************************************************************************************
 
 You probably have a previous record in Route53 (e.g. created by AWS Minion), just set the Time To Live (TTL) to "20" for all records (Senza uses TTL of 20 by default)
-
-*****************************************************************************************************************************
-How can i add the new relic licence key file to my docker image? or can i assume that it will be provided by the Taupage AMI? 
-*****************************************************************************************************************************
-
-E.g. for pharos we used the KMS service to encrypt the key. Here the repo: https://stash.zalando.net/projects/ASA/repos/strategy-architecture-management/browse/pharos-webapp. So the application is the only one how can read the key.
 
 ***********************************************************************
 What means "EC2 is out of capacity for c3.4xlarge in availability zone"
