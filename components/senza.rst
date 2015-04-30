@@ -239,7 +239,7 @@ Senza::WeightedDnsElasticLoadBalancer
 
 The **WeightedDnsElasticLoadBalancer** component type creates one HTTPs ELB resource with Route 53 weighted domains.
 The SSL certificate name used by the ELB can either be given (``SSLCertificateId``) or is autodetected.
-The default Route53 hosted zone is used for the domain name.
+You can specify the main domain (``MainDomain``) or the default Route53 hosted zone is used for the domain name.
 
 .. code-block:: yaml
 
@@ -249,6 +249,20 @@ The default Route53 hosted zone is used for the domain name.
           HTTPPort: 8080
           SecurityGroups:
             - app-myapp-lb
+
+The WeightedDnsElasticLoadBalancer component supports the following configuration properties:
+
+``HTTPPort``
+    The HTTP port used by the EC2 instances.
+``HealthCheckPath``
+    HTTP path to use for health check (must return 200), e.g. "/health"
+``SecurityGroups``
+    List of security groups to use for the ELB. The security groups must allow SSL traffic.
+``MainDomain``
+    Main domain to use, e.g. "myapp.example.org"
+``VersionDomain``
+    Version domain to use, e.g. "myapp-1.example.org"
+
 
 
 .. _AWS CloudFormation templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
