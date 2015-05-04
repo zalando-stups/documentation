@@ -100,6 +100,26 @@ Put the eval line into your :file:`.bashrc`:
 
     $ echo 'eval "$(_SENZA_COMPLETE=source senza)"' >> ~/.bashrc
 
+
+Controlling Command Output
+--------------------------
+
+The Senza CLI supports three different output formats:
+
+``text``
+    Default ANSI-colored output for human users.
+``json``
+    JSON output of tables for scripting.
+``tsv``
+    Print tables as `tab-separated values (TSV)`_.
+
+JSON is best for handling the output programmatically via various languages or `jq`_ (a command-line JSON processor). The text format is easy for humans to read, and "tsv" format works well with traditional Unix text processing tools, such as sed, grep, and awk:
+
+.. code-block:: bash
+
+    $ senza list --output json | jq .
+    $ senza instances my-stack --output tsv | awk -F\\t '{ print $6 }'
+
 .. _senza-definition:
 
 Senza Definition
@@ -266,3 +286,5 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 
 
 .. _AWS CloudFormation templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
+.. _tab-separated values (TSV): https://en.wikipedia.org/wiki/Tab-separated_values
+.. _jq: https://stedolan.github.io/jq/
