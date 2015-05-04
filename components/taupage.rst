@@ -73,8 +73,7 @@ configuration format::
      - 22
 
    logentries_account_key: 12345-ACCOUNT-12345-KEY
-   logentries_hostname: custom_hostname_for_webinterface
-   logentries_tokenid: 123456-TOKENID-123456
+   logentries_token_id: 123456-TOKENID-123456
 
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
@@ -197,16 +196,7 @@ And the Agent will follow these logs:
 You can get your Account Key from the Logentries Webinterface under /Account/Profile
 
 
-
-
-logentries_hostname:
---------------------
-
-**(optional)**
-
-Custom Name for the Host, this name will be displayed in the Logentries Webinterface.
-
-logentries_tokenid
+logentries_token_id
 ------------------
 
 **(optional)**
