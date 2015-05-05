@@ -75,6 +75,8 @@ configuration format::
    logentries_account_key: 12345-ACCOUNT-12345-KEY
    logentries_token_id: 123456-TOKENID-123456
 
+   scalyr_account_key: 12345-ACCOUNTKEY-12234
+
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
 to easily pass Taupage options when deploying with Senza.
@@ -197,7 +199,7 @@ You can get your Account Key from the Logentries Webinterface under /Account/Pro
 
 
 logentries_token_id
-------------------
+-------------------
 
 **(optional)**
 
@@ -211,6 +213,15 @@ For Example:
 
 Afterwards you get the **LogToken** and this token you have to set in the yaml file.
 
+scalyr_account_key
+------------------
+
+**(optional)**
+
+If you provide the Scalyr AccountKey in the .yaml file, the Agent of scaylr will be installed and follow this logs:
+
+  * /var/log/syslog
+  * /var/log/auth.log
 
 Runtime environment
 +++++++++++++++++++
