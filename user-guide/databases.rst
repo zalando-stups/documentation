@@ -30,10 +30,10 @@ Assumptions
 
 **Bastion host**
 
-* your bastion host is available at ``odd.myteam.example.org``
+* your bastion host is available at ``odd-eu-west-1.myteam.example.org``
 * your bastion host knows your SSH public key
 
-  - you can use :ref:`piu` to request access to any other EC2 instance before proceeding with the tutorial
+  - you can use :ref:`piu` to request access to the bastion host before proceeding with the tutorial (use ``piu odd-eu-west-1.myteam.example.org reason``).
 
 * your bastion host's security group permits **inbound traffic on port 22 from your local IP** address
   (should already be in place)
@@ -48,16 +48,16 @@ Dig a tunnel
 
   .. code::
 
-     $ ssh -L 63333:mydb.1234abcd.eu-west-1.rds.amazonaws.com:5432 odd.myteam.example.org
+     $ ssh -L 63333:mydb.1234abcd.eu-west-1.rds.amazonaws.com:5432 odd-eu-west-1.myteam.example.org
 
   * the option ``-L`` opens the tunnel
   * ``63333`` can be replaced by any free port on your local machine. It specifies your end of the tunnel.
   * ``mydb.1234abcd.eu-west-1.rds.amazonaws.com:5432`` is of course the endpoint of the example db instance and the
     other end of the tunnel. We can use the internal DNS name here, because it is from the bastion host's perspective
-  * The last argument ``odd.myteam.example.org`` is the SSH host, we will use as entrance into our VPC and from there
+  * The last argument ``odd-eu-west-1.myteam.example.org`` is the SSH host, we will use as entrance into our VPC and from there
     hop to the desired instance.
 
-* Now your console should look like any ordinary SSH session on ``odd.myteam.example.org`` with the small difference
+* Now your console should look like any ordinary SSH session on ``odd-eu-west-1.myteam.example.org`` with the small difference
   that, as long as you keep the session alive, the tunnel will also be there. There is nothing more work here.
 * Open a new shell and try it out: (**Do not close the ssh connection!**)
 
