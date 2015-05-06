@@ -82,7 +82,7 @@ You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScaling
 to easily pass Taupage options when deploying with Senza.
 
 application_id:
------------------
+---------------
 
 **(required)**
 
@@ -222,6 +222,10 @@ If you provide the Scalyr AccountKey in the .yaml file, the Agent of scaylr will
 
   * /var/log/syslog
   * /var/log/auth.log
+
+Our integration also provide two Attributes you can search on Scalyr **$appname** and **$appversion**.
+
+This attributes are filled with ``application_id`` (**$appname**) and ``application_version`` (**$appversion**)
 
 Runtime environment
 +++++++++++++++++++
