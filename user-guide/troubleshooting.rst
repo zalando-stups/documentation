@@ -37,3 +37,15 @@ After getting :ref:`ssh-access` to your EC2 instance (running the Taupage AMI), 
 .. code-block:: bash
 
     $ grep docker /var/log/syslog
+
+
+No internet connection (connection timeouts) on EC2 instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you get connection timeouts on your EC2 instance, e.g. the Docker image download or SSH access fails (cannot download public SSH key from :ref:`even`):
+
+* If your EC2 instance runs in a **DMZ subnet**: instances in DMZ subnets have no internet connection unless you assign a public IP.
+  Usually you should start instances in internal subnets only and only use ELBs in the DMZ subnets.
+* If your EC2 instance runs in an **Internal subnet**: check that your subnet routing table and NAT instance is working correctly.
+
+Also check your instance's security group whether it allows outbound traffic.
