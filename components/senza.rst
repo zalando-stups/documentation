@@ -231,7 +231,7 @@ This component supports the following configuration properties:
 ``Image``
     AMI to use, defaults to ``LatestTaupageImage``.
 ``ElasticLoadBalancer``
-    Name of the ELB resource.
+    Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
 ``TaupageConfig``
     Taupage AMI config, see :ref:`taupage` for details.
     At least the properties ``runtime`` ("Docker") and ``source`` (Docker image) are required.
@@ -288,3 +288,4 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 .. _AWS CloudFormation templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
 .. _tab-separated values (TSV): https://en.wikipedia.org/wiki/Tab-separated_values
 .. _jq: https://stedolan.github.io/jq/
+.. _"ELB" health check type for the auto scaling group: http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html
