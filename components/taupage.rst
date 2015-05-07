@@ -51,6 +51,10 @@ configuration format::
 
    root: false
 
+   volumes:
+     # attach EBS with "Name" tag "FooBar"
+     FooBar: /dev/sdh
+
    mounts:
      /var/lib/zookeeper-logs:
        devices:
