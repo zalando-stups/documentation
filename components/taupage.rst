@@ -73,25 +73,6 @@ configuration format::
        erase_on_boot: false
        filesystem: ext4
 
-=======
-     
-     FooBar: /dev/sdh
-
-   mounts:
-     /var/lib/zookeeper-logs:
-       devices:
-         - /dev/sdb
-       erase_on_boot: true
-       filesystem: ext3 # default fs is ext4
-
-     /var/lib/zookeeper-data:
-       devices:
-         - /dev/sdc
-         - /dev/sdd
-       raid_mode: 0 # Software RAID is not supported yet.
-       erase_on_boot: true
->>>>>>> master
-
    notify_cfn:
      stack: pharos
      resource: WebServerGroup
