@@ -81,6 +81,8 @@ configuration format::
 
    scalyr_account_key: 12345-ACCOUNTKEY-12234
 
+   mint_bucket: my-s3-mint-bucket
+
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
 to easily pass Taupage options when deploying with Senza.
