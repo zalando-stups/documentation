@@ -8,3 +8,4 @@ How to install and configure the STUPS platform.
    :maxdepth: 1
 
    aws-account-setup
+   account-configuration

@@ -29,7 +29,7 @@ The Taupage AMI uses the official cloud-init project to receive user configurati
 not use the normal user data mimetypes (no #cloud-config, shell scripts, file uploads, URL lists, ...) but only our own
 configuration format::
 
-   #zalando-ami-config
+   #taupage-ami-config
 
    application_id: my-nginx-test-app
    application_version: "1.0"
@@ -53,31 +53,44 @@ configuration format::
 
    volumes:
      ebs:
-       /dev/sdf: taupage-ami-test-vol1
-       /dev/sdg: taupage-ami-test-vol2
-       /dev/sdh: taupage-ami-test-vol3
-       /dev/sdi: taupage-ami-test-vol4
+       # attach EBS volume with "Name" tag "foo"
+       /dev/sdf: foo
+       # attach EBS volume with "Name" tag "bar"
+       /dev/sdg: bar
 
      raid:
+       # Defines RAID0 volume with the attached devices above (note the different device names)
        /dev/md/sampleraid0:
          level: 0
          devices:
            - /dev/xvdf
            - /dev/xvdg
-       /dev/md/sampleraid1:
-         level: 1
-         devices:
-           - /dev/xvdh
-           - /dev/xvdi
 
    mounts:
+     # Define a mountpoint for the above RAID volume which should be re-used without reformatting
      /some_volume:
        partition: /dev/md/sampleraid0
        erase_on_boot: false
        filesystem: ext4
-     /other_volume:
-       partition: /dev/md/sampleraid1
 
+=======
+     
+     FooBar: /dev/sdh
+
+   mounts:
+     /var/lib/zookeeper-logs:
+       devices:
+         - /dev/sdb
+       erase_on_boot: true
+       filesystem: ext3 # default fs is ext4
+
+     /var/lib/zookeeper-data:
+       devices:
+         - /dev/sdc
+         - /dev/sdd
+       raid_mode: 0 # Software RAID is not supported yet.
+       erase_on_boot: true
+>>>>>>> master
 
    notify_cfn:
      stack: pharos
@@ -86,12 +99,19 @@ configuration format::
    ssh_ports:
      - 22
 
+   logentries_account_key: 12345-ACCOUNT-12345-KEY
+   logentries_token_id: 123456-TOKENID-123456
+
+   scalyr_account_key: 12345-ACCOUNTKEY-12234
+
+   mint_bucket: my-s3-mint-bucket
+
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
 to easily pass Taupage options when deploying with Senza.
 
 application_id:
------------------
+---------------
 
 **(required)**
 
@@ -238,6 +258,59 @@ ssh_ports:
 List of SSH server ports. This option allows using alternative TCP ports for the OpenSSH server.
 This is useful if an application (runtime container) wants to use the default SSH port.
 
+logentries_account_key:
+-----------------------
+
+**(optional)**
+
+If you specify the Account Key from you logentries account, the Logentries Agent will be registered with your Account.
+And the Agent will follow these logs:
+
+  * /var/log/syslog
+  * /var/log/auth.log
+
+You can get your Account Key from the Logentries Webinterface under /Account/Profile
+
+
+logentries_token_id
+-------------------
+
+**(optional)**
+
+You have to create a new "Manual Log" in the Webinterface.
+
+For Example:
+
+  * Create a new "Manual Log"
+  * LogSet = APPLICATIONNAME
+  * Log Name = APPLICATIONNAME-VERSION
+
+Afterwards you get the **LogToken** and this token you have to set in the yaml file.
+
+scalyr_account_key
+------------------
+
+**(optional)**
+
+If you provide the Scalyr AccountKey in the .yaml file, the Agent of scaylr will be installed and follow this logs:
+
+  * /var/log/syslog
+  * /var/log/auth.log
+
+Our integration also provide two Attributes you can search on Scalyr **$appname** and **$appversion**.
+
+This attributes are filled with ``application_id`` (**$appname**) and ``application_version`` (**$appversion**)
+
+Runtime environment
++++++++++++++++++++
+
+By default, your application will run as an unprivileged user, see the 'root' option.
+
+Taupage integrates :ref:`berry` and exposes the credentials file to your application. Your application will have access
+to the environment variable 'CREDENTIALS_FILE', which points to a local file, containing the 'credentials.json' JSON of
+the :ref:`mint` API. This way, you can authenticate yourself to your IAM solution to for example obtain own access
+tokens.
+
 AMI internals
 +++++++++++++
 
@@ -267,6 +340,12 @@ TODO
 
 * auditd logs all access
 * all logs, including application logs (docker logs) are streamed to central logging service and rotated
+
+Docker application logging
+--------------------------
+
+Application logs by Docker containers are streamed to syslog via Docker's logging driver for syslog as described
+in the Docker documentation: https://docs.docker.com/reference/run/#logging-driver-syslog
 
 Managed SSH access
 ------------------

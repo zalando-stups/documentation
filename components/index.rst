@@ -21,3 +21,4 @@ Components
    taupage
    twintip
    yourturn
+   fullstop

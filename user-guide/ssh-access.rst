@@ -8,7 +8,7 @@ Every team member can get access to any of the team's EC2 instances by using the
 
 .. code-block:: bash
 
-    $ pip3 install --upgrade stups-piu
+    $ sudo pip3 install --upgrade stups-piu
     $ # assumptions: region is Ireland, team name is "myteam", private EC2 instance has IP "172.31.146.1"
     $ piu 172.31.146.1 "Troubleshoot problem XY"
     # enter even URL (e.g. https://even.stups.example.org)
@@ -33,3 +33,10 @@ You can overwrite settings on the command line:
 
     All user actions are logged for auditing reasons, therefore all **SSH sessions must be kept free of
     any sensitive and/or personal information**.
+
+SSH Access Revocation
+=====================
+
+SSH access will automatically be revoked by :ref:`even` after the request's lifetime (default: 60 minutes) expired.
+You can specify a non-default lifetime by using Piu's ``-t`` option.
+

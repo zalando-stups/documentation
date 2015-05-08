@@ -8,6 +8,20 @@ Senza
 
 See the :ref:`deployment` section for details on how to deploy applications using Senza, :ref:`pierone` and :ref:`taupage`.
 
+Installation
+============
+
+Install or upgrade to the latest version of Senza (|senza-pypi-version|) with PIP:
+
+.. |senza-pypi-version| image:: https://img.shields.io/pypi/v/stups-senza.svg
+   :target: https://pypi.python.org/pypi/stups-senza/
+   :alt: Latest PyPI version
+
+.. code-block:: bash
+
+    $ sudo pip3 install --upgrade stups-senza
+
+
 Command Line Usage
 ==================
 
@@ -46,6 +60,13 @@ There are a few commands to get more detailed information about stacks:
     $ senza events myapp.yaml 1    # list all CF events
     $ senza instances myapp.yaml 1 # list EC2 instances and IPs
 
+Traffic can be routed via Route53 DNS to your new stack:
+
+.. code-block:: bash
+
+    $ senza traffic myapp.yaml      # show traffic distribution
+    $ senza traffic myapp.yaml 2 50 # give version 2 50% of traffic
+
 Stacks can be deleted when they are no longer used:
 
 .. code-block:: bash
@@ -79,6 +100,26 @@ Put the eval line into your :file:`.bashrc`:
 
     $ echo 'eval "$(_SENZA_COMPLETE=source senza)"' >> ~/.bashrc
 
+
+Controlling Command Output
+--------------------------
+
+The Senza CLI supports three different output formats:
+
+``text``
+    Default ANSI-colored output for human users.
+``json``
+    JSON output of tables for scripting.
+``tsv``
+    Print tables as `tab-separated values (TSV)`_.
+
+JSON is best for handling the output programmatically via various languages or `jq`_ (a command-line JSON processor). The text format is easy for humans to read, and "tsv" format works well with traditional Unix text processing tools, such as sed, grep, and awk:
+
+.. code-block:: bash
+
+    $ senza list --output json | jq .
+    $ senza instances my-stack --output tsv | awk -F\\t '{ print $6 }'
+
 .. _senza-definition:
 
 Senza Definition
@@ -102,6 +143,20 @@ A minimal Senza definition without any Senza components would look like:
 
 During evaluation of the definition, mustache templating is applied with access to the rendered definition,
 including the SenzaInfo, SenzaComponents and Arguments key (containing all given arguments).
+
+Senza Info
+----------
+
+The ``SenzaInfo`` key must always be present in the definition YAML and configures global Senza behavior.
+
+Available properties for the ``SenzaInfo`` section are:
+
+``StackName``
+    The stack name (required).
+``OperatorTopicId``
+    Optional SNS topic name or ARN for Cloud Formation notifications. This can used for example to send notifications about deployments to a mailing list.
+``Parameters``
+    Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
 
 
 Senza Components
@@ -139,6 +194,8 @@ Example usage:
       - Configuration:
           Type: Senza::StupsAutoConfiguration
 
+.. _senza-taupage-auto-scaling-group:
+
 Senza::TaupageAutoScalingGroup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -167,12 +224,39 @@ This component supports the following configuration properties:
     The EC2 instance type to use.
 ``SecurityGroups``
     List of security groups to associate the EC2 instances with. Each list item can be either an existing security group name or ID.
+``IamInstanceProfile``
+    ARN of the IAM instance profile to use. You can either use "IamInstanceProfile" or "IamRoles", but not both.
 ``IamRoles``
     List of IAM role names to use for the automatically created instance profile.
+``Image``
+    AMI to use, defaults to ``LatestTaupageImage``.
 ``ElasticLoadBalancer``
-    Name of the ELB resource.
+    Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
+``HealthCheckType``
+    How the auto scaling group should perform instance health checks. Value can be either "EC2" or "ELB".
+    Default is "ELB" if ``ElasticLoadBalancer`` is set and "EC2" otherwise.
+``HealthCheckGracePeriod``
+    The length of time in seconds after a new EC2 instance comes into service that Auto Scaling starts checking its health.
 ``TaupageConfig``
     Taupage AMI config, see :ref:`taupage` for details.
+    At least the properties ``runtime`` ("Docker") and ``source`` (Docker image) are required.
+    Usually you will want to specify ``ports`` and ``environment`` too.
+``AutoScaling``
+    Map of auto scaling properties, see below.
+
+``AutoScaling`` properties are:
+
+``Minimum``
+    Minimum number of instances to spawn.
+``Maximum``
+    Maximum number of instances to spawn.
+``MetricType``
+    Metric to do auto scaling on, only supported value is ``CPU``
+``ScaleUpThreshold``
+    On which value of the metric to scale up. For the "CPU" metric: a value of 70 would mean 70% CPU usage.
+``ScaleDownThreshold``
+    On which value of the metric to scale down. For the "CPU" metric: a value of 40 would mean 40% CPU usage.
+
 
 
 Senza::WeightedDnsElasticLoadBalancer
@@ -180,7 +264,7 @@ Senza::WeightedDnsElasticLoadBalancer
 
 The **WeightedDnsElasticLoadBalancer** component type creates one HTTPs ELB resource with Route 53 weighted domains.
 The SSL certificate name used by the ELB can either be given (``SSLCertificateId``) or is autodetected.
-The default Route53 hosted zone is used for the domain name.
+You can specify the main domain (``MainDomain``) or the default Route53 hosted zone is used for the domain name.
 
 .. code-block:: yaml
 
@@ -191,5 +275,22 @@ The default Route53 hosted zone is used for the domain name.
           SecurityGroups:
             - app-myapp-lb
 
+The WeightedDnsElasticLoadBalancer component supports the following configuration properties:
+
+``HTTPPort``
+    The HTTP port used by the EC2 instances.
+``HealthCheckPath``
+    HTTP path to use for health check (must return 200), e.g. "/health"
+``SecurityGroups``
+    List of security groups to use for the ELB. The security groups must allow SSL traffic.
+``MainDomain``
+    Main domain to use, e.g. "myapp.example.org"
+``VersionDomain``
+    Version domain to use, e.g. "myapp-1.example.org"
+
+
 
 .. _AWS CloudFormation templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
+.. _tab-separated values (TSV): https://en.wikipedia.org/wiki/Tab-separated_values
+.. _jq: https://stedolan.github.io/jq/
+.. _"ELB" health check type for the auto scaling group: http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html

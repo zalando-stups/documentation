@@ -5,10 +5,30 @@ Deployment
 ==========
 
 The :ref:`senza` command line tools allows deploying application stacks.
+This page will guide you through the steps necessary to deploy
+a Docker-based application with Senza.
+
+Prerequisites
+=============
+
+First install Python 3.4 on your PC (Ubuntu 14.04 already has it installed, use Homebrew on Mac).
+
+.. Note::
+
+    OS X users may need to set their locale environment to UTF-8 with::
+
+        export LC_ALL=en_US.utf-8
+        export LANG=en_US.utf-8
+
+Senza and Mai (required for AWS credentials) can be installed from PyPI using PIP:
 
 .. code-block:: bash
 
     $ sudo pip3 install --upgrade stups-mai stups-senza
+
+
+Prepare the deployment artifact
+===============================
 
 First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
 
@@ -19,6 +39,9 @@ First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
     $ # which must be in your Docker image!
     $ docker build -t pierone.stups.example.org/myteam/myapp:0.1 .
     $ docker push pierone.stups.example.org/myteam/myapp:0.1
+
+Create a new Senza definition
+=============================
 
 In order to call AWS endpoints and to create the Cloud Formation stack, we need to login with :ref:`mai`:
 
@@ -43,6 +66,9 @@ This can be done conveniently with the ``senza init`` command:
 Use the "webapp" template and choose the default answers to get a ready-to-use hello world application.
 Senza will also create the necessary security groups for you.
 
+Deploying your application with Senza
+=====================================
+
 Now we can create the application's Cloud Formation stack with Senza:
 
 .. code-block:: bash
@@ -58,6 +84,24 @@ The stack creation will take some time, we can use the ``events`` command to mon
     $ senza events myapp.yaml 1 --watch=2
 
 The ``--watch`` option tells Senza to refresh the display every 2 seconds until we press ``CTRL-C``.
+
+The "events" command will eventually show ``CREATE_COMPLETE`` for the ``CloudFormation::Stack`` resource if everything went well.
+
+Read the section :ref:`ssh-access` on how to get shell access to your EC2 instances (if needed).
+
+Routing traffic to your application
+===================================
+
+Your new application stack should be accessible via the version domain, e.g. "myapp-1.example.org".
+You can use the version domain to verify that your application is working (e.g. via automated regression tests).
+
+Eventually you want to route "real" traffic via the main domain (e.g. "myapp.example.org") to your new application stack.
+This can be done via Senza`s "traffic" command:
+
+.. code-block:: bash
+
+    $ senza traffic myapp.yaml 1 100 # route 100% traffic to version 1
+
 
 
 .. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html

@@ -20,7 +20,7 @@ Docker
 
 * Use Docker environment variables (``-e KEY=val``) for static configuration (e.g. database connection)
 * Log to STDOUT and rely on the host system to do log shipping
-* Do not mutate Docker tags, i.e. treat all Docker tags ("versions") as immutable and always push a new tag for a new application version (immutable tags might be enforced in the registry in the future)
+* Do not mutate Docker tags, i.e. treat all Docker tags ("versions") as immutable and always push a new tag for a new application version (immutable tags are enforced by the :ref:`pierone` registry)
 
 The final application deployment artifact (Docker image) must contain a ``scm-source.json`` file in the root directory.
 This meta file is in JSON format and must reference the SCM source location the Docker image was built from.
