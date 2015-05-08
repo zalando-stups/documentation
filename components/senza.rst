@@ -234,7 +234,7 @@ This component supports the following configuration properties:
     Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
 ``HealthCheckType``
     How the auto scaling group should perform instance health checks. Value can be either "EC2" or "ELB".
-    Default is "ELB" if ``ElasticLoadBalancer`` is set and "EC" otherwise.
+    Default is "ELB" if ``ElasticLoadBalancer`` is set and "EC2" otherwise.
 ``HealthCheckGracePeriod``
     The length of time in seconds after a new EC2 instance comes into service that Auto Scaling starts checking its health.
 ``TaupageConfig``
