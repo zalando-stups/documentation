@@ -232,6 +232,11 @@ This component supports the following configuration properties:
     AMI to use, defaults to ``LatestTaupageImage``.
 ``ElasticLoadBalancer``
     Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
+``HealthCheckType``
+    How the auto scaling group should perform instance health checks. Value can be either "EC2" or "ELB".
+    Default is "ELB" if ``ElasticLoadBalancer`` is set and "EC" otherwise.
+``HealthCheckGracePeriod``
+    The length of time in seconds after a new EC2 instance comes into service that Auto Scaling starts checking its health.
 ``TaupageConfig``
     Taupage AMI config, see :ref:`taupage` for details.
     At least the properties ``runtime`` ("Docker") and ``source`` (Docker image) are required.
