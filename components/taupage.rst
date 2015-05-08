@@ -51,18 +51,33 @@ configuration format::
 
    root: false
 
-   mounts:
-     /var/lib/zookeeper-logs:
-       devices:
-         - /dev/sdb
-       erase_on_boot: true
+   volumes:
+     ebs:
+       /dev/sdf: taupage-ami-test-vol1
+       /dev/sdg: taupage-ami-test-vol2
+       /dev/sdh: taupage-ami-test-vol3
+       /dev/sdi: taupage-ami-test-vol4
 
-     /var/lib/zookeeper-data:
-       devices:
-         - /dev/sdc
-         - /dev/sdd
-       raid_mode: 0
-       erase_on_boot: true
+     raid:
+       /dev/md/sampleraid0:
+         level: 0
+         devices:
+           - /dev/xvdf
+           - /dev/xvdg
+       /dev/md/sampleraid1:
+         level: 1
+         devices:
+           - /dev/xvdh
+           - /dev/xvdi
+
+   mounts:
+     /some_volume:
+       partition: /dev/md/sampleraid0
+       erase_on_boot: false
+       filesystem: ext4
+     /other_volume:
+       partition: /dev/md/sampleraid1
+
 
    notify_cfn:
      stack: pharos
@@ -148,14 +163,59 @@ root:
 Specifies, if the container has to run as root. By default, containers run as an unprivileged user. See the
 **capabilities_add** and prefer it always. This is only the last resort.
 
+volumes:
+--------
+
+**(optional)**
+
+Allows you to configure volumes that can later be mounted. Volumes accepts two sub-configurations - **ebs** and **raid**.
+
+The EBS sub-configuration expects key-value pairs of device name to EBS volumes (the Name tag is used to match the volume names).
+Sample EBS volume configuration::
+
+     ebs:
+       /dev/sdf: solr-repeater-volume
+
+The RAID sub-configuration allows you to describe RAID volumes by specifying the device name, usually /dev/md/your-raid-name and
+all of the required RAID definitions. You need to provide the RAID **level** and a collection of, at least, 2 devices to build your
+RAID volume. The amount of devices is dependant on the RAID level. See http://en.wikipedia.org/wiki/Standard_RAID_levels#Comparison
+Sample RAID volume configuration::
+
+     raid:
+       /dev/md/solr-repeater:
+         level: 5
+         devices:
+           - /dev/xvdf
+           - /dev/xvdg
+           - /dev/xvdh
+
+.. NOTE::
+   EBS volumes are always attached first. This way you can use them in your RAID definitions. Depending on your instance
+   virtualization type, the final device names can be slightly different. Please refer to:
+       http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
+       http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
+
 mounts:
 -------
 
 **(optional)**
 
-A map of mount targets and device configurations. A device configuration has **device** to reference the root device
-node and a **erase_on_boot** flag if the device should be partitioned and formatted on every boot (of not, the AMI expects and mounts
-partition 1 from the device but partitions a new empty device).
+A map of mount targets and their configurations. A mount target configuration has a **partition** to reference the volume, which can be
+defined in the **volumes** section. It is possible to specify a **erase_on_boot** flag which determines is such partition should always
+be initialized on boot. This setting defaults to false. Whenever a partition is initialized is will be formatted using the **filesystem**
+setting. If unspecified it will be formatted as ext4. If the **root** setting is false (that's the default) the filesystem will be
+initialized with the internal unpriviledged user as its owner. This allows the **runtime** application to use the volume for read and write.
+
+Sample mounts configuration::
+
+   mounts:
+     /data/solr:
+       partition: /dev/md/solr-repeater
+       erase_on_boot: false
+
+.. WARNING::
+   Volumes without any partitions are initialized, even if **erase_on_boot** is set to False. Currently this check is done using extended
+   filesystem tools and it was only tested against partitions using ext2, ext3 or ext4.
 
 notify_cfn:
 -----------
