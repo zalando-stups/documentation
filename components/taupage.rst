@@ -169,17 +169,28 @@ volumes:
 
 **(optional)**
 
-Allows you to configure volumes that can later be mounted. Volumes accepts two sub-configurations - **ebs** and **raid**.
+Allows you to configure volumes that can later be mounted. Volumes accepts two sub-configurations - **EBS** and **RAID**.
 
-The EBS sub-configuration expects key-value pairs of device name to EBS volumes (the Name tag is used to match the volume names).
+EBS
+^^^
+
+The EBS sub-configuration expects key-value pairs of device name to EBS volumes. The "Name" tag is used to find the volumes.
+
 Sample EBS volume configuration::
 
      ebs:
        /dev/sdf: solr-repeater-volume
+       /dev/sdg: backup-volume
 
-The RAID sub-configuration allows you to describe RAID volumes by specifying the device name, usually /dev/md/your-raid-name and
-all of the required RAID definitions. You need to provide the RAID **level** and a collection of, at least, 2 devices to build your
-RAID volume. The amount of devices is dependant on the RAID level. See http://en.wikipedia.org/wiki/Standard_RAID_levels#Comparison
+RAID
+^^^^
+
+The RAID sub-configuration allows you to describe RAID volumes by specifying the device name, usually */dev/md/your-raid-name*, and
+all of the required RAID definitions.
+
+You need to provide the RAID **level** and a collection of, at least, 2 **devices** to build your
+RAID volume. The amount of devices is dependent on the RAID level. See http://en.wikipedia.org/wiki/Standard_RAID_levels#Comparison
+
 Sample RAID volume configuration::
 
      raid:
@@ -191,10 +202,12 @@ Sample RAID volume configuration::
            - /dev/xvdh
 
 .. NOTE::
-   EBS volumes are always attached first. This way you can use them in your RAID definitions. Depending on your instance
-   virtualization type, the final device names can be slightly different. Please refer to:
-       http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
-       http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
+   EBS volumes are always attached first. This way you can use them in your RAID definitions.
+
+   Depending on your instance virtualisation type, the final device names can be slightly different. Please refer to:
+
+       * `AWS EC2 Block Device Mapping <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html>`_
+       * `AWS EC2 Device Naming on Linux Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html>`_
 
 mounts:
 -------
@@ -203,9 +216,11 @@ mounts:
 
 A map of mount targets and their configurations. A mount target configuration has a **partition** to reference the volume, which can be
 defined in the **volumes** section. It is possible to specify a **erase_on_boot** flag which determines is such partition should always
-be initialized on boot. This setting defaults to false. Whenever a partition is initialized is will be formatted using the **filesystem**
-setting. If unspecified it will be formatted as ext4. If the **root** setting is false (that's the default) the filesystem will be
-initialized with the internal unpriviledged user as its owner. This allows the **runtime** application to use the volume for read and write.
+be initialized on boot. This setting defaults to false.
+
+Whenever a partition is initialized is will be formatted using the **filesystem** setting. If unspecified it will be formatted as ext4.
+If the **root** setting is false (that's the default) the filesystem will be initialized with the internal unprivileged user as its owner.
+This allows the **runtime** application to use the volume for read and write.
 
 Sample mounts configuration::
 
@@ -215,8 +230,9 @@ Sample mounts configuration::
        erase_on_boot: false
 
 .. WARNING::
-   Volumes without any partitions are initialized, even if **erase_on_boot** is set to False. Currently this check is done using extended
-   filesystem tools and it was only tested against partitions using ext2, ext3 or ext4.
+   Volumes without any partitions are initialized, even if **erase_on_boot** is set to False.
+
+   Currently this check is done using extended filesystem tools and it was only tested against partitions using ext2, ext3 or ext4.
 
 notify_cfn:
 -----------
