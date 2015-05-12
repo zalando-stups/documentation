@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="833.20892"
+   height="334.21817"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="application-stack.svg">
+  <title
+     id="title4841">Application Stack</title>
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3879"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path3876"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="360.28648"
+     inkscape:cy="186.22511"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1176"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4583"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="5px"
+       spacingy="5px"
+       originx="-8.4707199px"
+       originy="-668.26839px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Application Stack</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Henning Jacobs</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Zalando SE</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>elb</rdf:li>
+            <rdf:li>ec2</rdf:li>
+            <rdf:li>docker</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description></dc:description>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-8.4707199,-49.875622)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)"
+       d="M 400.67502,103.65638 282.17274,181.8838"
+       id="path3870"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#f58536;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.99559104;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0"
+       width="132.21332"
+       height="81.295975"
+       x="18.968515"
+       y="292.30002" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="24.285715"
+       y="307.14789"
+       id="text4546"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4548"
+         x="24.285715"
+         y="307.14789"
+         style="font-size:11px">EC2 Instance</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:0.39215686;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0-5-2"
+       width="123.68526"
+       height="55.625076"
+       x="22.97072"
+       y="314.14728" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="30.927849"
+       y="339.22348"
+       id="text4546-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4548-4"
+         x="30.927849"
+         y="339.22348"
+         style="font-size:11px;text-align:start;text-anchor:start">Docker</tspan><tspan
+         sodipodi:role="line"
+         x="30.927849"
+         y="352.97348"
+         style="font-size:11px;text-align:start;text-anchor:start"
+         id="tspan4571">mydockerapp:0.1</tspan></text>
+    <g
+       id="g4594"
+       transform="translate(160,0)">
+      <rect
+         style="fill:#f58536;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.99559104;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect4596"
+         width="132.21332"
+         height="81.295975"
+         x="18.968515"
+         y="292.30002" />
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="24.285715"
+         y="307.14789"
+         id="text4598"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4600"
+           x="24.285715"
+           y="307.14789"
+           style="font-size:11px">EC2 Instance</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:0.39215686;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect4602"
+         width="123.68526"
+         height="55.625076"
+         x="22.97072"
+         y="314.14728" />
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="30.927849"
+         y="339.22348"
+         id="text4604"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4606"
+           x="30.927849"
+           y="339.22348"
+           style="font-size:11px;text-align:start;text-anchor:start">Docker</tspan><tspan
+           sodipodi:role="line"
+           x="30.927849"
+           y="352.97348"
+           style="font-size:11px;text-align:start;text-anchor:start"
+           id="tspan4608">mydockerapp:0.1</tspan></text>
+    </g>
+    <g
+       transform="translate(320,0)"
+       id="g4610">
+      <rect
+         y="292.30002"
+         x="18.968515"
+         height="81.295975"
+         width="132.21332"
+         id="rect4612"
+         style="fill:#f58536;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.99559104;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4614"
+         y="307.14789"
+         x="24.285715"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:11px"
+           y="307.14789"
+           x="24.285715"
+           id="tspan4616"
+           sodipodi:role="line">EC2 Instance</tspan></text>
+      <rect
+         y="314.14728"
+         x="22.97072"
+         height="55.625076"
+         width="123.68526"
+         id="rect4618"
+         style="fill:#ffffff;fill-opacity:0.39215686;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4620"
+         y="339.22348"
+         x="30.927849"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:11px;text-align:start;text-anchor:start"
+           y="339.22348"
+           x="30.927849"
+           id="tspan4622"
+           sodipodi:role="line">Docker</tspan><tspan
+           id="tspan4624"
+           style="font-size:11px;text-align:start;text-anchor:start"
+           y="352.97348"
+           x="30.927849"
+           sodipodi:role="line">mydockerapp:0.1</tspan></text>
+    </g>
+    <g
+       id="g4730">
+      <g
+         transform="translate(520,0)"
+         id="g4626">
+        <rect
+           y="292.30002"
+           x="18.968515"
+           height="81.295975"
+           width="132.21332"
+           id="rect4628"
+           style="fill:#f58536;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.99559104;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4630"
+           y="307.14789"
+           x="24.285715"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><tspan
+             style="font-size:11px"
+             y="307.14789"
+             x="24.285715"
+             id="tspan4632"
+             sodipodi:role="line">EC2 Instance</tspan></text>
+        <rect
+           y="314.14728"
+           x="22.97072"
+           height="55.625076"
+           width="123.68526"
+           id="rect4634"
+           style="fill:#ffffff;fill-opacity:0.39215686;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4636"
+           y="339.22348"
+           x="30.927849"
+           style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><tspan
+             style="font-size:11px;text-align:start;text-anchor:start"
+             y="339.22348"
+             x="30.927849"
+             id="tspan4638"
+             sodipodi:role="line">Docker</tspan><tspan
+             id="tspan4640"
+             style="font-size:11px;text-align:start;text-anchor:start"
+             y="352.97348"
+             x="30.927849"
+             sodipodi:role="line">mydockerapp:0.8</tspan></text>
+      </g>
+      <g
+         id="g4642"
+         transform="translate(680,0)">
+        <rect
+           style="fill:#f58536;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.99559104;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4644"
+           width="132.21332"
+           height="81.295975"
+           x="18.968515"
+           y="292.30002" />
+        <text
+           xml:space="preserve"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="24.285715"
+           y="307.14789"
+           id="text4646"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4648"
+             x="24.285715"
+             y="307.14789"
+             style="font-size:11px">EC2 Instance</tspan></text>
+        <rect
+           style="fill:#ffffff;fill-opacity:0.39215686;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4650"
+           width="123.68526"
+           height="55.625076"
+           x="22.97072"
+           y="314.14728" />
+        <text
+           xml:space="preserve"
+           style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="30.927849"
+           y="339.22348"
+           id="text4652"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4654"
+             x="30.927849"
+             y="339.22348"
+             style="font-size:11px;text-align:start;text-anchor:start">Docker</tspan><tspan
+             sodipodi:role="line"
+             x="30.927849"
+             y="352.97348"
+             style="font-size:11px;text-align:start;text-anchor:start"
+             id="tspan4656">mydockerapp:0.8</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g4748">
+      <g
+         transform="translate(63.397898,-2.7373352)"
+         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g4694">
+        <rect
+           style="fill:#367ef5;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect2985"
+           width="115.96976"
+           height="41.877113"
+           x="123.6924"
+           y="190.5013" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text4681"
+           y="207.59952"
+           x="181.14285"
+           style="font-size:11px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><tspan
+             y="207.59952"
+             x="181.14285"
+             id="tspan4683"
+             sodipodi:role="line">ELB Load Balancer</tspan><tspan
+             y="221.34952"
+             x="181.14285"
+             sodipodi:role="line"
+             id="tspan4692">app-myapp-0-1</tspan></text>
+      </g>
+      <g
+         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(503.3979,-2.7373352)"
+         id="g4700">
+        <rect
+           y="190.5013"
+           x="123.6924"
+           height="41.877113"
+           width="115.96976"
+           id="rect4702"
+           style="fill:#367ef5;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="181.14285"
+           y="207.59952"
+           id="text4704"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4706"
+             x="181.14285"
+             y="207.59952">ELB Load Balancer</tspan><tspan
+             id="tspan4708"
+             sodipodi:role="line"
+             x="181.14285"
+             y="221.34952">app-myapp-0-2</tspan></text>
+      </g>
+    </g>
+    <rect
+       style="fill:#36f563;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4712"
+       width="125.58265"
+       height="41.847149"
+       x="402.28384"
+       y="60.375622" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4714"
+       y="77.362183"
+       x="465.0752"
+       style="font-size:11px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="77.362183"
+         x="465.0752"
+         id="tspan4716"
+         sodipodi:role="line">Route 53 DNS</tspan><tspan
+         y="91.112183"
+         x="465.0752"
+         sodipodi:role="line"
+         id="tspan4718">myapp.example.org</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4760"
+       d="M 528.17274,103.65638 646.67502,181.8838"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4762"
+       d="m 238.66769,233.33883 -98.54353,53.72298"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)"
+       d="M 238.66769,233.33883 250,287.36218"
+       id="path4764"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4766"
+       d="M 238.66769,233.33883 355,287.36218"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)"
+       d="M 686.66769,233.33883 735,287.36218"
+       id="path4770"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4772"
+       d="M 686.66769,233.33883 635,287.36218"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)" />
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:italic;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
+       x="284.1955"
+       y="128.70216"
+       id="text4774"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4776"
+         x="284.1955"
+         y="128.70216">90% Traffic</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4778"
+       y="128.70216"
+       x="583"
+       style="font-size:11px;font-style:italic;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
+       xml:space="preserve"><tspan
+         y="128.70216"
+         x="583"
+         id="tspan4780"
+         sodipodi:role="line">10% Traffic</tspan></text>
+    <g
+       id="g4828"
+       transform="translate(4,0)">
+      <path
+         transform="matrix(0.79742053,0,0,0.79388819,28.536967,35.265689)"
+         d="m 350,269.86218 c 0,6.90356 -38.0558,12.5 -85,12.5 -46.9442,0 -85,-5.59644 -85,-12.5 0,-6.90356 38.0558,-12.5 85,-12.5 46.9442,0 85,5.59644 85,12.5 z"
+         sodipodi:ry="12.5"
+         sodipodi:rx="85"
+         sodipodi:cy="269.86218"
+         sodipodi:cx="265"
+         id="path4794"
+         style="fill:#ffffff;fill-opacity:0.78431373;stroke:#9e9e9e;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <text
+         xml:space="preserve"
+         style="font-size:10px;font-style:italic;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
+         x="192.09706"
+         y="252.26488"
+         id="text4790"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4792"
+           x="192.09706"
+           y="252.26488">Auto Scaling Group</tspan></text>
+    </g>
+    <g
+       transform="translate(444,0)"
+       id="g4833">
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:0.78431373;stroke:#9e9e9e;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path4835"
+         sodipodi:cx="265"
+         sodipodi:cy="269.86218"
+         sodipodi:rx="85"
+         sodipodi:ry="12.5"
+         d="m 350,269.86218 c 0,6.90356 -38.0558,12.5 -85,12.5 -46.9442,0 -85,-5.59644 -85,-12.5 0,-6.90356 38.0558,-12.5 85,-12.5 46.9442,0 85,5.59644 85,12.5 z"
+         transform="matrix(0.79742053,0,0,0.79388819,28.536967,35.265689)" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4837"
+         y="252.26488"
+         x="192.09706"
+         style="font-size:10px;font-style:italic;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
+         xml:space="preserve"><tspan
+           y="252.26488"
+           x="192.09706"
+           id="tspan4839"
+           sodipodi:role="line">Auto Scaling Group</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -8,6 +8,22 @@ The :ref:`senza` command line tools allows deploying application stacks.
 This page will guide you through the steps necessary to deploy
 a Docker-based application with Senza.
 
+Senza was primarily designed to deploy immutable stacks of web applications:
+
+.. image:: images/application-stack.svg
+
+Each immutable stack (application version) is a Cloud Formation stack
+with a load balancer (ELB), an auto scaling group and a
+versioned DNS domain.
+Traffic can be routed to different application versions by changing DNS weights in Route53.
+
+Deploying a new immutable application stack generally involves:
+
+* building your application artifact (e.g. uber jar)
+* creating a Docker image
+* creating the Cloud Formation stack with Senza (``senza create``)
+* routing traffic to the new stack (``senza traffic``)
+
 Prerequisites
 =============
 
