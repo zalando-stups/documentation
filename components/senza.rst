@@ -241,6 +241,8 @@ This component supports the following configuration properties:
     Taupage AMI config, see :ref:`taupage` for details.
     At least the properties ``runtime`` ("Docker") and ``source`` (Docker image) are required.
     Usually you will want to specify ``ports`` and ``environment`` too.
+``AssociatePublicIpAddress``
+    Whether to associate EC2 instances with a public IP address. This boolean value (true/false) is false by default.
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
