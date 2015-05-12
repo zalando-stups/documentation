@@ -36,4 +36,4 @@ The STUPS platform was created to facilitate the **one AWS account per team** se
 
 
 .. [#f1] Not all AWS services/products are properly integrated with IAM, e.g. the Elastic Load Balancing (ELB) service only allows global granting of ELB creation.
-.. [#f2] Team B might hit AWS service limits for production applications because team A spinned up too many instances for performance testing.
+.. [#f2] Team B might hit AWS service limits for production applications because team A spun up too many instances for performance testing.
