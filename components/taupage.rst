@@ -71,7 +71,15 @@ configuration format::
      /some_volume:
        partition: /dev/md/sampleraid0
        erase_on_boot: false
-       filesystem: ext4
+       filesystem: ext4 # Default filesystem is ext4
+       
+     # An example for a non RAID configuration, which mounts regular devices on your EC2 instance
+     /data:
+       partition: /dev/xvdb
+       erase_on_boot: true
+     /data1:
+       partition: /dev/xvdc
+       filesystem: ext3
 
    notify_cfn:
      stack: pharos
