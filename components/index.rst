@@ -10,6 +10,7 @@ Components
 
    berry
    even
+   fullstop
    kio
    mai
    mint
@@ -21,4 +22,4 @@ Components
    taupage
    twintip
    yourturn
-   fullstop
+   zign
