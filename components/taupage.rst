@@ -218,7 +218,7 @@ Sample RAID volume configuration::
        * `AWS EC2 Device Naming on Linux Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html>`_
 
 mounts:
--------
+-------i
 
 **(optional)**
 
@@ -315,6 +315,14 @@ Taupage integrates :ref:`berry` and exposes the credentials file to your applica
 to the environment variable 'CREDENTIALS_FILE', which points to a local file, containing the 'credentials.json' JSON of
 the :ref:`mint` API. This way, you can authenticate yourself to your IAM solution to for example obtain own access
 tokens.
+
+Sending application mails
++++++++++++++++++++++++++
+
+Mails which should be sent from applications can be sent out directly via Amazon SES.
+The only thing you need to do is create an IAM user and receive SMTP credentials. This can be done directly in the SES menu.
+Amazon already provides an example for Java: http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-using-smtp-java.html
+
 
 AMI internals
 +++++++++++++
