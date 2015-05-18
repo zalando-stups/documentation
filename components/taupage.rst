@@ -218,7 +218,7 @@ Sample RAID volume configuration::
        * `AWS EC2 Device Naming on Linux Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html>`_
 
 mounts:
--------i
+-------
 
 **(optional)**
 
