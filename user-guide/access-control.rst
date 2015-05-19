@@ -14,9 +14,11 @@ OAuth 2.0 concepts
 
 .. image:: access-control/oauth2.png
 
-OAuth 2.0 is a security standard, that focuses on the delegation of permissions. With some conventions it can also
+`OAuth 2.0 is a security standard`_, that focuses on the delegation of permissions. With some conventions it can also
 provide authentication and authorization for you. To understand OAuth, you need to understand the 4 basic roles that
 take part in OAuth flows:
+
+.. _OAuth 2.0 is a security standard: http://oauth.net/2/
 
 Resource Owner
 --------------
@@ -50,7 +52,7 @@ any permission checks.
 Authorization Server
 --------------------
 
-The authorization server is the central trusted authority of your ecosystem, which can authenicate resource owners,
+The authorization server is the central trusted authority of your ecosystem, which can authenticate resource owners,
 manage the delegation process and validate that permission delegations are valid.
 
 Roles Overview
@@ -58,7 +60,38 @@ Roles Overview
 
 .. image:: access-control/roles.svg
 
-TODO: grant types w/ flows, links to further documentation, roles can mix in one application
+Abstract OAuth 2.0 Flow
+-----------------------
+
+This is not a real flow but should give you a basic understanding of how OAuth works. In this example, a shoe search
+application can search for shoes for a customer and add them to the customer's whishlist. The customer is obviously
+the resource owner of her whishlist. We also have a whishlist service that stores the customer's whishlist, which
+is the resource server and the shoe search application is the client who wants to store shoes on behalf of the
+customer.
+
+#. The customer searches for new shoes in the show search application and finds a new pair. The customer clicks on
+   the "save in my whishlist" button.
+#. The shoe search application will now redirect the customer to the customer's authorization server with the
+   information to which page to come back if the customer authorized the action. The shoe search application also
+   transmits, which scopes it needs - in this case, the "whishlist.write" scope.
+#. The customer will land on the login screen of his authorization server, put in her password and agree, that the
+   shoe search application can have the "whishlist.write" scope. After agreeing, the authorization server will
+   redirect the customer back to the previously submitted page of the shoe search application, including a proof,
+   that the customer agreed.
+#. The shoe search application can now take the proof and submit it along with the "store whishlist" call to the
+   whishlist service. 
+#. The whishlist service can take the submitted proof and validate it by sending it to the authorization server.
+   If the authorization server confirms the validity of the proof, the whishlist service can go on and store the
+   shoe in the customer's whishlist.
+
+Which role has my application?
+------------------------------
+
+Actually, your application can fulfill every role. It can be a resource server, a client and also a resource owner.
+It is also not unlikely, that your application fulfills multiple roles at once. For example, for service-to-service
+authorization, where no human can be involved, your application will be resource owner and client at once in order
+to create access tokens for itself. You should always try to be a client only and only work with delegated
+permissions as that frees you have doing authorization of any kind on your own or handling credentials.
 
 --------------
 STUPS concepts
@@ -234,12 +267,124 @@ the session information. Asking for this information as a resource server alread
 of your two steps: if the token is invalid, you won't get back this information. The second step is now custom logic
 on your site: interpreting the result.
 
+In STUPS, we are using the convention, that every scope also has an associated attribute with the same name. This
+means if you are requesting a "foobar" scope, the tokeninfo will contain an attribute "foobar: true" if the token
+has the permission for foobar. Else the attribute might be false or non-existant. That way, the terms "permission"
+and "scope" are somehow interchangeable.
 
+Some pseudo code:
+
+.. code-block:: java
+
+    // get token from authorization header of incoming request
+    token = request.getHeader("Authorization").substring("Bearer ".length());
+
+    // get tokeninfo and check if token is valid
+    response = http.get("https://auth.example.com/oauth2/tokeninfo?access_token=" + token);
+    if (response.status != 200) {
+        throw new UnauthorizedException("invalid token");
+    }
+
+    // check if the permission is actually true
+    tokeninfo = response.body;
+    if (tokeninfo.get("write_access") != true) {
+        throw new UnauthorizedException("you lack the required permission");
+    }
+
+    // check if accessing owners resource
+    if (tokeninfo.get("uid") != resource.owner) {
+        throw new UnauthorizedException("the requested resource does not belong to you");
+    }
+
+    // finally, the token is valid, it has the write permission and the resource really
+    // belongs to the user, execute request
+    write(resource, requestt);
 
 
 Implementing a client: Asking resource owners for permission
 ------------------------------------------------------------
 
+Client implementations are the hardest part in OAuth 2.0. We really encourage you to use an existing library for
+your programming language - there are plenty of them. There are three commonly used grant types (grant types
+are a synonym for flows):
+
+#. `Authorization Code Grant`_
+    * This should be the default whenever you want to implement a client. It is the most secure way to do OAuth 2.0.
+      You will need a client ID and a client secret to use this grant type. When you get your credentials via
+      :ref:`mint`, you will also get these client credentials in the "client.json".
+#. `Implicit Grant`_
+    * This grant type is meant for situations, where you are not in control of the client's environment and it is
+      defacto untrusted. This is primarly the case for JavaScript only webapps or mobile applications. In both cases
+      does the client code reside on a foreign device. Therefor the client code and configuration is not secret.
+      This grant type should only be used in those two cases. Try to use the Authorization Code Grant whenever
+      possible. As the configuration cannot be considered secure, your client will also only require a client ID
+      and not a client secret.
+#. `Resource Owner Password Credentials Grant`_
+    * There are only two use cases for the password grant. The password grant enables a client to use the resource
+      owner's password directly to create tokens with it. This means, that your client really has to get the password
+      of the owner - the main case you want to avoid normally with OAuth.
+        * The first use case of the password grant is around user convinience. Especially non technical people will
+          get scared and loose trust if they get redirected to other pages to enter their passwords. Especially in
+          a shop environment, you do not want to loose conversion rate by disturbing the user experience. It is
+          also not desirable to ask a customer to grant some permissions. In this case, a shop frontend can act
+          as the customer on behalf of him. The frontend will ask and get the password of the customer and can then
+          create tokens on behalf of her. As the user's password will get into the hands of your application, this
+          should be avoided as much as possible because you also have to duplicate all the security measurements
+          again that are also done in your authorization server.
+        * The second use case is using service users as resource owners. See the next topic about using own
+          permissions.
+
+.. _Authorization Code Grant: https://tools.ietf.org/html/rfc6749#section-4.1
+.. _Implicit Grant: https://tools.ietf.org/html/rfc6749#section-4.2
+.. _Resource Owner Password Credentials Grant: https://tools.ietf.org/html/rfc6749#section-4.3
+
 Implementing a client: Using own permissions
 --------------------------------------------
 
+STUPS support service-to-service authorization via OAuth 2.0. This is useful in batch jobs, where you do not
+have the possibility to ask the resource owner for permission to access his data. This means, that your application
+itself has to somehow authenticate itself, so that a resource server can grant access. For this, :ref:`mint` will
+automatically create service users for you. These service users have an own identity and also an own username and
+password that you can read in your "user.json". You can assign this user permissions via :ref:`yourturn`. A
+typical permission would look like "sales_order.read_all".
+
+Via the previously mentioned "password grant" can you now create access tokens for yourself with your own
+credentials and permissions. Instead of complex redirect flows like with humans, it is very simple to create a
+token if you have the password of the resource owner (yourself in this case):
+
+.. code-block:: bash
+
+    $ cat > request.json << "EOF"
+    {
+        "grant_type": "password",
+        "username": "my-username",
+        "password": "my-password",
+        "scope" "uid sales_order.read_all"
+    }
+    EOF
+
+    $ curl -X POST -u my-client-id:my-client-secret -d @request.json \
+        "https://auth.example.com/oauth2/access_token?realm=services"
+
+You will get back an access token that will result in the following tokeninfo if you check it:
+
+.. code-block:: json
+
+    {
+      "expires_in": 3515,
+      "token_type": "Bearer",
+      "realm": "services",
+      "scope": [
+        "uid",
+        "sales_order.read_all"
+      ],
+      "grant_type": "password",
+      "uid": "my-username",
+      "sales_order.read_all": true,
+      "access_token": "4b70510f-be1d-4f0f-b4cb-edbca2c79d41"
+   }
+
+That way, you can create access token for your own service user and access other applications with it. If you
+look carefully at the request JSON, you will see, that you also provide the scopes, that should actually be in
+the token. That way, you can create tokens with the minimal set of permissions that you delegate. It is a good
+practice to create custom tokens per use case, so that you never expose more permissions than are actually required.
