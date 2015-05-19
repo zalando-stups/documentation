@@ -323,6 +323,8 @@ Mails which should be sent from applications can be sent out directly via Amazon
 The only thing you need to do is create an IAM user and receive SMTP credentials. This can be done directly in the SES menu.
 Amazon already provides an example for Java: http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-using-smtp-java.html
 
+In order to use SES for sending out mails into the world, you need to request a limit increase (100 = 50k mails/day) to get
+your account out of the sandbox mode.
 
 AMI internals
 +++++++++++++
