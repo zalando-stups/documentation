@@ -89,7 +89,6 @@ configuration format::
      - 22
 
    logentries_account_key: 12345-ACCOUNT-12345-KEY
-   logentries_token_id: 123456-TOKENID-123456
 
    scalyr_account_key: 12345-ACCOUNTKEY-12234
 
@@ -273,24 +272,11 @@ And the Agent will follow these logs:
 
   * /var/log/syslog
   * /var/log/auth.log
+  * /var/log/audit.log
+  * /var/log/application.log
 
 You can get your Account Key from the Logentries Webinterface under /Account/Profile
 
-
-logentries_token_id
--------------------
-
-**(optional)**
-
-You have to create a new "Manual Log" in the Webinterface.
-
-For Example:
-
-  * Create a new "Manual Log"
-  * LogSet = APPLICATIONNAME
-  * Log Name = APPLICATIONNAME-VERSION
-
-Afterwards you get the **LogToken** and this token you have to set in the yaml file.
 
 scalyr_account_key
 ------------------
@@ -301,10 +287,16 @@ If you provide the Scalyr AccountKey in the .yaml file, the Agent of scaylr will
 
   * /var/log/syslog
   * /var/log/auth.log
+  * /var/log/audit.log
+  * /var/log/application.log
 
-Our integration also provide two Attributes you can search on Scalyr **$appname** and **$appversion**.
+Our integration also provide some Attributes you can search on Scalyr.
 
-This attributes are filled with ``application_id`` (**$appname**) and ``application_version`` (**$appversion**)
+  * **$application_id**
+  * **$application_version**
+  * **$stack**
+  * **$source**
+  * **$image**
 
 Runtime environment
 +++++++++++++++++++
