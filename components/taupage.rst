@@ -35,7 +35,7 @@ configuration format::
    application_version: "1.0"
 
    runtime: Docker
-   source: dockerfiles/nginx:latest
+   source: "pierone.example.org/myteam/nginx:1.0"
 
    ports:
      80: 80
@@ -72,7 +72,7 @@ configuration format::
        partition: /dev/md/sampleraid0
        erase_on_boot: false
        filesystem: ext4 # Default filesystem is ext4
-       
+
      # An example for a non RAID configuration, which mounts regular devices on your EC2 instance
      /data:
        partition: /dev/xvdb

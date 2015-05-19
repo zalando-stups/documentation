@@ -212,7 +212,7 @@ The **TaupageAutoScalingGroup** component type creates one AWS AutoScalingGroup 
           ElasticLoadBalancer: AppLoadBalancer
           TaupageConfig:
             runtime: Docker
-            source: foobar/myapp:1.0
+            source: pierone.example.org/foobar/myapp:1.0
             ports:
               8080: 8080
             environment:
