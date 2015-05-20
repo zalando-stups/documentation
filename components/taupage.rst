@@ -17,7 +17,7 @@ Using the Taupage AMI
 ---------------------
 
 There is currently no internal tooling but you can find the Taupage AMIs in your EC2 UI. They are maintained by the
-Platform team and regularly updated with the newest security fixes and configuration improvements.
+STUPS team and regularly updated with the newest security fixes and configuration improvements.
 
 .. NOTE::
    The process of updating the AMI is not established nor discussed yet!
