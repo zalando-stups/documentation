@@ -12,9 +12,8 @@ will enable teams to deploy 'what they want' as long as they package it in a Doc
 set up to have an optimal configuration including managed SSH access, audit logging, log collection, monitoring and
 reviewed security additions.
 
----------------------
 Using the Taupage AMI
----------------------
+++++++++++++++++++++++
 
 There is currently no internal tooling but you can find the Taupage AMIs in your EC2 UI. They are maintained by the
 STUPS team and regularly updated with the newest security fixes and configuration improvements.
@@ -22,8 +21,8 @@ STUPS team and regularly updated with the newest security fixes and configuratio
 .. NOTE::
    The process of updating the AMI is not established nor discussed yet!
 
-How to configure the AMI
-++++++++++++++++++++++++
+How to configure the AMI (configuration example)
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 The Taupage AMI uses the official cloud-init project to receive user configuration. Different to the standard, you can
 not use the normal user data mimetypes (no #cloud-config, shell scripts, file uploads, URL lists, ...) but only our own
@@ -97,6 +96,9 @@ configuration format::
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
 to easily pass Taupage options when deploying with Senza.
+
+Configuration option explanation
+++++++++++++++++++++++++++++++++
 
 application_id:
 ---------------
