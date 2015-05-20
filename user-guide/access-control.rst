@@ -73,7 +73,7 @@ customer.
    the "save in my whishlist" button.
 #. The shoe search application will now redirect the customer to the customer's authorization server with the
    information to which page to come back if the customer authorized the action. The shoe search application also
-   transmits, which scopes it needs - in this case, the "whishlist.write" scope.
+   transmits which scopes it needs. Think of scopes as "permission to access a certain set of a resource's data" - in this case it transmits the "whishlist.write" scope.
 #. The customer will land on the login screen of his authorization server, put in her password and agree, that the
    shoe search application can have the "whishlist.write" scope. After agreeing, the authorization server will
    redirect the customer back to the previously submitted page of the shoe search application, including a proof,
