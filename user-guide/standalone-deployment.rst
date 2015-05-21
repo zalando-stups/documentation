@@ -156,6 +156,9 @@ If you have a Scalyr account, you can easily tell Taupage to stream all applicat
 * Get the Scalyr account key from the Scalyr web ui (you can find the account key for example on the "Help" -> "Install Scalyr Agent" page)
 * Insert a new line below "source: stups/hello-world..." containing "scalyr_account_key: <YOUR SCALYR ACCOUNT KEY>"
 
+After deploying, your server's Syslog (``/var/log/syslog``) and application output (``/var/log/application.log``) will be available in the Scalyr web UI:
+
+.. image:: images/scalyr-hello-world-syslog.png
 
 
 
