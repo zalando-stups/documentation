@@ -76,6 +76,11 @@ Senza uses the AWS CLI's configuration file to know the AWS region you want to d
 
 We will assume you have the AWS credentials and region (we use "us-east-1" in this example) correctly set for the remainder of this section.
 
+.. Note::
+
+    The public Taupage AMI (named "Taupage-Public-AMI-*") used in this section is currently only available in US East (N. Virginia) and EU (Ireland),
+    i.e. other regions will not work (however, you can create your own private Taupage AMI anywhere).
+
 Let's try out that Senza can call our AWS API:
 
 .. code-block:: bash
