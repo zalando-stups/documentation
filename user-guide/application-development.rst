@@ -6,7 +6,7 @@ To be written...
 
 * Applications should be developed as microservices which focus on small tasks.
 * Applications should follow the `Twelve-Factor App Principle`_.
-* Application APIs shoud be RESTful
+* Application APIs should be RESTful
 * Applications must be deployed as Docker artifacts
 
 
