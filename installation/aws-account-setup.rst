@@ -14,7 +14,7 @@ AWS - Account Setup
 
 Only the public "DMZ" subnets have a direct connection to the internet.  The communication with other teams is only possible over the internet.
 Instances in a Private subnet can only talk to the internet via a **NAT-Instance**.
-The **NAT-instances** are in multiple Availbilty Zones (AZ), therefore every **PRIVATE SUBNET** can communicate to the Internet.
+The **NAT-instances** are in multiple Availability Zones (AZ), therefore every **PRIVATE SUBNET** can communicate to the Internet.
 
 If a Team want to talk to another Team they have to do this from the **PRIVATE SUBNET** over the Internet.
 Because only the private subnet has the Elastic IP's for outgoing traffic.
