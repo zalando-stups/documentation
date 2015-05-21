@@ -64,25 +64,25 @@ Abstract OAuth 2.0 Flow
 -----------------------
 
 This is not a real flow but should give you a basic understanding of how OAuth works. In this example, a shoe search
-application can search for shoes for a customer and add them to the customer's whishlist. The customer is obviously
-the resource owner of her whishlist. We also have a whishlist service that stores the customer's whishlist, which
+application can search for shoes for a customer and add them to the customer's wishlist. The customer is obviously
+the resource owner of her wishlist. We also have a wishlist service that stores the customer's wishlist, which
 is the resource server and the shoe search application is the client who wants to store shoes on behalf of the
 customer.
 
 #. The customer searches for new shoes in the show search application and finds a new pair. The customer clicks on
-   the "save in my whishlist" button.
+   the "save in my wishlist" button.
 #. The shoe search application will now redirect the customer to the customer's authorization server with the
    information to which page to come back if the customer authorized the action. The shoe search application also
-   transmits, which scopes it needs - in this case, the "whishlist.write" scope.
+   transmits, which scopes it needs - in this case, the "wishlist.write" scope.
 #. The customer will land on the login screen of his authorization server, put in her password and agree, that the
-   shoe search application can have the "whishlist.write" scope. After agreeing, the authorization server will
+   shoe search application can have the "wishlist.write" scope. After agreeing, the authorization server will
    redirect the customer back to the previously submitted page of the shoe search application, including a proof,
    that the customer agreed.
-#. The shoe search application can now take the proof and submit it along with the "store whishlist" call to the
-   whishlist service. 
-#. The whishlist service can take the submitted proof and validate it by sending it to the authorization server.
-   If the authorization server confirms the validity of the proof, the whishlist service can go on and store the
-   shoe in the customer's whishlist.
+#. The shoe search application can now take the proof and submit it along with the "store wishlist" call to the
+   wishlist service. 
+#. The wishlist service can take the submitted proof and validate it by sending it to the authorization server.
+   If the authorization server confirms the validity of the proof, the wishlist service can go on and store the
+   shoe in the customer's wishlist.
 
 Which role has my application?
 ------------------------------
@@ -108,7 +108,7 @@ Resource Types
 --------------
 
 Resource types are a categorization of your resources. A typical resource type might be a "sales order" or
-"creditcard". The actual resource will then later be an actual creditcard or sales order.
+"creditcard". The actual resource will then later be an actual credit card or sales order.
 
 Resource types define, who can own resources of this type. This is typically one user group like "customers" but
 can also be multiple ones like "customers" and "employees". It is also possible to define no resource owner at all
@@ -118,7 +118,7 @@ Scopes
 ------
 
 Scopes define the type of access permission you have to a resource. They are always bound to a resource type. You
-can define scopes like "creditcard.read" and "creditcard.write", symbolizing read or write access to creditcard
+can define scopes like "creditcard.read" and "creditcard.write", symbolizing read or write access to credit card
 information. Since in the real world, we cannot always ask the resource owner to grant us his permission to access
 his resource, we have to distinguish between permissions that a resource owner can grant and permissions, that
 special applications can obtain.
@@ -314,7 +314,7 @@ are a synonym for flows):
       :ref:`mint`, you will also get these client credentials in the "client.json".
 #. `Implicit Grant`_
     * This grant type is meant for situations, where you are not in control of the client's environment and it is
-      defacto untrusted. This is primarly the case for JavaScript only webapps or mobile applications. In both cases
+      de facto untrusted. This is primarily the case for JavaScript only web apps or mobile applications. In both cases
       does the client code reside on a foreign device. Therefor the client code and configuration is not secret.
       This grant type should only be used in those two cases. Try to use the Authorization Code Grant whenever
       possible. As the configuration cannot be considered secure, your client will also only require a client ID
@@ -323,8 +323,8 @@ are a synonym for flows):
     * There are only two use cases for the password grant. The password grant enables a client to use the resource
       owner's password directly to create tokens with it. This means, that your client really has to get the password
       of the owner - the main case you want to avoid normally with OAuth.
-        * The first use case of the password grant is around user convinience. Especially non technical people will
-          get scared and loose trust if they get redirected to other pages to enter their passwords. Especially in
+        * The first use case of the password grant is around user convenience. Especially non technical people will
+          get scared and lose trust if they get redirected to other pages to enter their passwords. Especially in
           a shop environment, you do not want to loose conversion rate by disturbing the user experience. It is
           also not desirable to ask a customer to grant some permissions. In this case, a shop frontend can act
           as the customer on behalf of him. The frontend will ask and get the password of the customer and can then
