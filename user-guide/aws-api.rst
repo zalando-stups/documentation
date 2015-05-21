@@ -67,7 +67,7 @@ Policy configuration:
       ]
     }
 
-if the role is also used by an application, to retrive via Instance Profile the credentials,
+if the role is also used by an application, to retrieve via Instance Profile the credentials,
 then you should also add the ec2 service:
 
 .. code-block:: json
