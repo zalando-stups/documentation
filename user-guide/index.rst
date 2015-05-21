@@ -14,3 +14,4 @@ How to use the STUPS platform.
    aws-api
    databases
    troubleshooting
+   standalone-deployment
