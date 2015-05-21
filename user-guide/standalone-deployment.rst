@@ -121,6 +121,12 @@ Senza init will ask you a bunch of question, for our "Hello World" example, you 
 
 The selected "webapp" template already takes care of creating the necessary security groups ("app-hello-world*") and IAM role ("app-hello-world").
 
+Before we continue, we need to apply a tiny change to our Senza definition in order to deploy to the default AWS VPC (all public subnets):
+
+.. code-block:: bash
+
+    $ sed -i 's/AssociatePublicIpAddress:\s*false/AssociatePublicIpAddress: true/' helloworld.yaml
+
 We can check the generated Cloud Formation JSON by running ``senza print`` on our newly generated Senza definition:
 
 .. code-block:: bash
@@ -155,6 +161,79 @@ Our Senza ``list`` command output should now look different:
     Stack Name │Ver.│Status            │Created│Description
     hello-world v1   CREATE_IN_PROGRESS 16s ago Hello World (ImageVersion: 0.1)
 
+
+We can watch (``-w``) the Cloud Formation stack creation events:
+
+.. code-block:: bash
+
+    $ senza events hello-world -w 2
+    Stack Name │Ver.│Resource Type                     │Resource ID             │Status            │Status Reason              │Event Time
+    hello-world v1   CloudFormation::Stack              hello-world-v1           CREATE_IN_PROGRESS User Initiated                  2m ago
+    hello-world v1   ElasticLoadBalancing::LoadBalancer AppLoadBalancer          CREATE_IN_PROGRESS                                 2m ago
+    hello-world v1   IAM::InstanceProfile               AppServerInstanceProfile CREATE_IN_PROGRESS                                 2m ago
+    hello-world v1   IAM::InstanceProfile               AppServerInstanceProfile CREATE_IN_PROGRESS Resource creation Initiated     2m ago
+    hello-world v1   ElasticLoadBalancing::LoadBalancer AppLoadBalancer          CREATE_IN_PROGRESS Resource creation Initiated     2m ago
+    hello-world v1   ElasticLoadBalancing::LoadBalancer AppLoadBalancer          CREATE_COMPLETE                                    2m ago
+    hello-world v1   Route53::RecordSet                 MainDomain               CREATE_IN_PROGRESS                                 2m ago
+    hello-world v1   Route53::RecordSet                 VersionDomain            CREATE_IN_PROGRESS                                 2m ago
+    hello-world v1   Route53::RecordSet                 VersionDomain            CREATE_IN_PROGRESS Resource creation Initiated     2m ago
+    hello-world v1   Route53::RecordSet                 MainDomain               CREATE_IN_PROGRESS Resource creation Initiated     2m ago
+    hello-world v1   IAM::InstanceProfile               AppServerInstanceProfile CREATE_COMPLETE                                   13s ago
+    hello-world v1   AutoScaling::LaunchConfiguration   AppServerConfig          CREATE_IN_PROGRESS                                11s ago
+    hello-world v1   AutoScaling::LaunchConfiguration   AppServerConfig          CREATE_IN_PROGRESS Resource creation Initiated    10s ago
+    hello-world v1   AutoScaling::LaunchConfiguration   AppServerConfig          CREATE_COMPLETE                                    9s ago
+    hello-world v1   AutoScaling::AutoScalingGroup      AppServer                CREATE_IN_PROGRESS                                 6s ago
+    hello-world v1   AutoScaling::AutoScalingGroup      AppServer                CREATE_IN_PROGRESS Resource creation Initiated     5s ago
+
+Finally our stack listing should show "CREATE_COMPLETE" in green letters:
+
+.. code-block:: bash
+
+    $ senza li
+    Stack Name │Ver.│Status         │Created│Description
+    hello-world v1   CREATE_COMPLETE  6m ago Hello World (ImageVersion: 0.1)
+
+We can check our created domains:
+
+.. code-block:: bash
+
+    $ senza domains
+    Stack Name │Ver.│Resource ID  │Domain                          │Weight│Type │Value                                             │Create Time
+    hello-world v1   VersionDomain hello-world-v1.stups.example.org        CNAME hello-world-v1-7873266.us-east-1.elb.amazonaws.com      4m ago
+    hello-world v1   MainDomain    hello-world.stups.example.org    0      CNAME hello-world-v1-7873266.us-east-1.elb.amazonaws.com      4m ago
+
+Checking that our new "Hello World" application was successfully deployed and is responding:
+
+.. code-block:: bash
+
+    $ curl https://hello-world-v1.stups.example.org/
+    "Hello World!"
+
+
+If you just created a hosted zone without nameserver delegation and your SSL cert is only self-signed, we can still check our application
+by using the ELB domain name and ignoring CA validation (``--insecure``):
+
+.. code-block:: bash
+
+    $ curl --insecure https://hello-world-v1-7873266.us-east-1.elb.amazonaws.com/
+    "Hello World!"
+
+As soon as we are happy with our new version, we can route traffic via the main domain:
+
+.. code-block:: bash
+
+    $ senza traffic hello-world v1 100
+    Calculating new weights.. OK
+    Stack Name │Version│Identifier    │Old Weight%│Delta│Compensation│New Weight%│Current
+    hello-world v1      hello-world-v1         0.0 100.0                    100.0 <
+    Setting weights for hello-world.stups.example.org... OK
+
+After the usual DNS propagation delays, we should be able to have our "Hello World" application running on the main domain:
+
+.. code-block:: bash
+
+    $ curl https://hello-world.stups.example.org/
+    "Hello World!"
 
 
 
