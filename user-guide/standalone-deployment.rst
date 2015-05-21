@@ -146,6 +146,18 @@ We can check the generated Cloud Formation JSON by running ``senza print`` on ou
     # long Cloud Formation JSON after here...
 
 
+Optional: Configuring Application Logging
+=========================================
+
+The Taupage AMI supports logentries_ and Scalyr_ as logging providers.
+
+If you have a Scalyr account, you can easily tell Taupage to stream all application logs to Scalyr:
+
+* Get the Scalyr account key from the Scalyr web ui (you can find the account key for example on the "Help" -> "Install Scalyr Agent" page)
+* Insert a new line below "source: stups/hello-world..." containing "scalyr_account_key: <YOUR SCALYR ACCOUNT KEY>"
+
+
+
 
 Deploying a new Senza Application Stack
 =======================================
@@ -157,6 +169,11 @@ Let's deploy a new immutable application stack using our Senza definition:
     $ senza create helloworld.yaml v1 0.1 # first parameter is stack version, second is Docker image tag
     Generating Cloud Formation template.. OK
     Creating Cloud Formation stack hello-world-v1.. OK
+
+.. Note::
+
+    By using the Docker image version tag "0.1", we tell Senza to deploy the Docker image "stups/hello-world:0.1"
+    from `public Docker Hub`_.
 
 Our Senza ``list`` command output should now look different:
 
@@ -240,5 +257,9 @@ After the usual DNS propagation delays, we should be able to have our "Hello Wor
     $ curl https://hello-world.stups.example.org/
     "Hello World!"
 
+That's all for now!
 
 
+.. _public Docker Hub: https://registry.hub.docker.com/u/stups/hello-world/
+.. _logentries: https://logentries.com/
+.. _Scalyr: https://www.scalyr.com/
