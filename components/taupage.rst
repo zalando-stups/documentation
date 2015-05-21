@@ -131,7 +131,7 @@ source:
 
 **(required)**
 
-The source, the configured runtime uses to fetch your delpoyment artifact. For Docker, this is the Docker image.
+The source, the configured runtime uses to fetch your deployment artifact. For Docker, this is the Docker image.
 Usually this will point to a Docker image stored in :ref:`pierone`.
 
 ports:
@@ -269,7 +269,7 @@ logentries_account_key:
 
 **(optional)**
 
-If you specify the Account Key from you logentries account, the Logentries Agent will be registered with your Account.
+If you specify the Account Key from your logentries account, the Logentries Agent will be registered with your Account.
 And the Agent will follow these logs:
 
   * /var/log/syslog
@@ -331,7 +331,7 @@ Hardening
 TODO
 
 * Kernel grsecurity, PAX?
-* Resrictive file permissions (no unused SUID bins etc)
+* Restrictive file permissions (no unused SUID bins etc)
 * Unused users and groups removed
 * Unused daemons disabled
 * Zalando CA preinstalled
