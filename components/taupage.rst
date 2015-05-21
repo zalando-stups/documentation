@@ -362,3 +362,10 @@ Managed SSH access
 SSH access is managed with the :ref:`even` SSH access granting service. The AMI is set up to have automatic integration. Your
 SSH key pair choice on AWS will be ignored - temporary access can only be gained via the granting service. All user
 actions are logged for auditing reasons. See the :ref:`ssh-access` section in the User's Guide for details.
+
+Building your own AMI
++++++++++++++++++++++
+
+You can build your own Taupage AMI using the code from the repository on GitHub https://github.com/zalando-stups/taupage
+In the repository you will find a configuration (config-stups-example.sh) file which you'll have to adjust to your needs.
+
