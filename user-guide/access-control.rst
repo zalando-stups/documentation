@@ -275,25 +275,29 @@ and "scope" are somehow interchangeable.
 Some pseudo code:
 
 .. code-block:: java
-
+    // check that token exists on the request
+    if (request.getHeader("Authorization") == null) {
+      // return 401 without error information
+      throw new UnauthorizedException(401);
+    }
     // get token from authorization header of incoming request
     token = request.getHeader("Authorization").substring("Bearer ".length());
 
     // get tokeninfo and check if token is valid
     response = http.get("https://auth.example.com/oauth2/tokeninfo?access_token=" + token);
     if (response.status != 200) {
-        throw new UnauthorizedException("invalid token");
+        throw new UnauthorizedException(401, "invalid token");
     }
 
     // check if the permission is actually true
     tokeninfo = response.body;
     if (tokeninfo.get("write_access") != true) {
-        throw new UnauthorizedException("you lack the required permission");
+        throw new UnauthorizedException(403, "you lack the required permission");
     }
 
     // check if accessing owners resource
     if (tokeninfo.get("uid") != resource.owner) {
-        throw new UnauthorizedException("the requested resource does not belong to you");
+        throw new UnauthorizedException(403, "the requested resource does not belong to you");
     }
 
     // finally, the token is valid, it has the write permission and the resource really
