@@ -220,7 +220,7 @@ For this resource type, we define the following scopes:
     * Summary: grants read access to all orders
     * [x] Application Scope
 
-With this information published, everyone can now check based on those permissions.
+With this information published, every resource server can now grant access based on those permissions.
 
 Implementing a resource server
 ------------------------------
