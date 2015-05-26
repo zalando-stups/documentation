@@ -17,7 +17,7 @@ This leads to choosing the **one AWS account per team** setup, because:
 * AWS IAM policies do not properly constrain teams to only their resources in one big AWS account [#f1]_
 * AWS service limits do not allow independent teams to work isolated in one big AWS account [#f2]_
 
-This setup requires tooling to foster team autononmy while complying with company regulations:
+This setup requires tooling to foster team autonomy while complying with company regulations:
 
 * multiple AWS accounts need to be easily manageable
 * compliance rules dictate that all changes to production systems need to be audited ("traceability")

@@ -62,6 +62,11 @@ An example implementation on how to generate the ``scm-source.json`` file with B
     # finally write hand-crafted JSON to scm-source.json
     echo '{"url": "git:'$URL'", "revision": "'$REV'", "author": "'$USER'", "status": "'$STATUS'"}' > scm-source.json
 
+There are plugins for Leiningen_ and Node_ that can automatically generate this file for you.
+
+.. _Leiningen: https://github.com/zalando-stups/lein-scm-source
+.. _Node: https://github.com/zalando-stups/node-scm-source
+
 Logging
 =======
 

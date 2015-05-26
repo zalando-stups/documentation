@@ -85,7 +85,7 @@ Stacks can be deleted when they are no longer used:
 Bash Completion
 ---------------
 
-The programmable completion feature in Bash permits typing a partial command, then pressing the :kbd:`[Tab]` key to auto-complete the command sequence.
+The programmable completion feature in Bash permits typing a partial command, then pressing the :kbd:`[Tab]` key to autocomplete the command sequence.
 If multiple completions are possible, then :kbd:`[Tab]` lists them all.
 
 To activate bash completion for the Senza CLI, just run:

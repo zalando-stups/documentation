@@ -16,7 +16,7 @@ Using the Taupage AMI
 ++++++++++++++++++++++
 
 There is currently no internal tooling but you can find the Taupage AMIs in your EC2 UI. They are maintained by the
-STUPS team and regularly updated with the newest security fixes and configuration improvements.
+STUPS team and regularly updated with the most recent security fixes and configuration improvements.
 
 .. NOTE::
    The process of updating the AMI is not established nor discussed yet!
@@ -131,7 +131,7 @@ source:
 
 **(required)**
 
-The source, the configured runtime uses to fetch your delpoyment artifact. For Docker, this is the Docker image.
+The source, the configured runtime uses to fetch your deployment artifact. For Docker, this is the Docker image.
 Usually this will point to a Docker image stored in :ref:`pierone`.
 
 ports:
@@ -269,7 +269,7 @@ logentries_account_key:
 
 **(optional)**
 
-If you specify the Account Key from you logentries account, the Logentries Agent will be registered with your Account.
+If you specify the Account Key from your logentries account, the Logentries Agent will be registered with your Account.
 And the Agent will follow these logs:
 
   * /var/log/syslog
@@ -331,7 +331,7 @@ Hardening
 TODO
 
 * Kernel grsecurity, PAX?
-* Resrictive file permissions (no unused SUID bins etc)
+* Restrictive file permissions (no unused SUID bins etc)
 * Unused users and groups removed
 * Unused daemons disabled
 * Zalando CA preinstalled
@@ -362,3 +362,10 @@ Managed SSH access
 SSH access is managed with the :ref:`even` SSH access granting service. The AMI is set up to have automatic integration. Your
 SSH key pair choice on AWS will be ignored - temporary access can only be gained via the granting service. All user
 actions are logged for auditing reasons. See the :ref:`ssh-access` section in the User's Guide for details.
+
+Building your own AMI
++++++++++++++++++++++
+
+You can build your own Taupage AMI using the code from the repository on GitHub https://github.com/zalando-stups/taupage
+In the repository you will find a configuration (config-stups-example.sh) file which you'll have to adjust to your needs.
+

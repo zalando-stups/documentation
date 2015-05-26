@@ -18,6 +18,11 @@ Every team member can get access to any of the team's EC2 instances by using the
 
 .. Tip::
 
+    Use the ``--clip`` option to copy the output of piu to your clipboard.
+    On Linux it requires the package ``xclip``. On OSX it works out of the box.
+
+.. Tip::
+
     Use ``senza instances`` to quickly get the IP address of your EC2 instance.
     See the :ref:`Senza reference <senza>` for details.
 
