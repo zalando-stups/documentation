@@ -116,8 +116,23 @@ This can be done via Senza`s "traffic" command:
 
 .. code-block:: bash
 
-    $ senza traffic myapp.yaml 1 100 # route 100% traffic to version 1
+    $ senza traffic myapp.yaml 1 100 # route 100% traffic to stack version 1
 
+Use ``dig`` to check whether the DNS settings are already updated:
 
+.. code-block:: bash
+
+    $ dig myapp-1.example.org
+    > ;; ANSWER SECTION:
+      myapp.exmaple.org. 20	IN	CNAME	myapp-1-123456789.eu-west-1.elb.amazonaws.com.
+    $ # ^ this is good, myapp.example.org redirects to myapp-1.example.org
+
+Depending on your physical location there might be a bunch of DNS caches between you and Amazon.
+Since they do not update quickly you can enforce to check the AMZN DNS.
+Look up the address of the nameservers in your AWS account (Route 53 -> example.org Hosted Zone Details -> Nameservers), they look like ``ns-123.awsdns-55.com``.
+
+.. code-block:: bash
+
+    $ dig myapp-1.example.org @ns-123.awsdns-55.com
 
 .. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
