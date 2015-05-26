@@ -275,6 +275,7 @@ and "scope" are somehow interchangeable.
 Some pseudo code:
 
 .. code-block:: java
+
     // check that token exists on the request
     if (request.getHeader("Authorization") == null) {
       // return 401 without error information
