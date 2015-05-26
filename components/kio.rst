@@ -25,5 +25,6 @@ information. Mainly the deployment artifact that corresponds to your version.
 
 Depending on the criticality of your software, you might need to get certain approvals that have to be added to Kio.
 :ref:`fullstop` will regularly check your servers and your data in Kio and report violations.
+Kio will delete approvals for a version when you update it.
 
 All those steps can be done in :ref:`fullstop` for humans or via REST APIs.
