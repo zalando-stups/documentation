@@ -73,7 +73,7 @@ customer.
    the "save in my wishlist" button.
 #. The shoe search application will now redirect the customer to the customer's authorization server with the
    information to which page to come back if the customer authorized the action. The shoe search application also
-   transmits, which scopes it needs - in this case, the "wishlist.write" scope.
+   transmits which scopes it needs. Think of scopes as "permission to access a certain set of a resource's data" - in this case it transmits the "whishlist.write" scope.
 #. The customer will land on the login screen of his authorization server, put in her password and agree, that the
    shoe search application can have the "wishlist.write" scope. After agreeing, the authorization server will
    redirect the customer back to the previously submitted page of the shoe search application, including a proof,
@@ -259,7 +259,7 @@ look like the following example:
 
     Authorization: Bearer 4b70510f-be1d-4f0f-b4cb-edbca2c79d41
 
-If the header is not set, return a 401 status code to signal, that you require an access token.
+If the header is not set, return a 401 status code to signal that you require an access token. Consult the `Bearer Token RFC <https://tools.ietf.org/html/rfc6750#section-3.1/>`_ for a detailed explanation of what errors should look like and what status code you should return.
 
 Using this access token as above to query the "tokeninfo" endpoint will return the token's associated session
 information. In general, everyone can take an access token and ask the "tokeninfo" endpoint to send back
