@@ -79,7 +79,7 @@ customer.
    redirect the customer back to the previously submitted page of the shoe search application, including a proof,
    that the customer agreed.
 #. The shoe search application can now take the proof and submit it along with the "store wishlist" call to the
-   wishlist service. 
+   wishlist service.
 #. The wishlist service can take the submitted proof and validate it by sending it to the authorization server.
    If the authorization server confirms the validity of the proof, the wishlist service can go on and store the
    shoe in the customer's wishlist.
@@ -313,31 +313,32 @@ Client implementations are the hardest part in OAuth 2.0. We really encourage yo
 your programming language - there are plenty of them. There are three commonly used grant types (grant types
 are a synonym for flows):
 
-#. `Authorization Code Grant`_
-    * This should be the default whenever you want to implement a client. It is the most secure way to do OAuth 2.0.
-      You will need a client ID and a client secret to use this grant type. When you get your credentials via
-      :ref:`mint`, you will also get these client credentials in the "client.json".
-#. `Implicit Grant`_
-    * This grant type is meant for situations, where you are not in control of the client's environment and it is
-      de facto untrusted. This is primarily the case for JavaScript only web apps or mobile applications. In both cases
-      does the client code reside on a foreign device. Therefor the client code and configuration is not secret.
-      This grant type should only be used in those two cases. Try to use the Authorization Code Grant whenever
-      possible. As the configuration cannot be considered secure, your client will also only require a client ID
-      and not a client secret.
-#. `Resource Owner Password Credentials Grant`_
-    * There are only two use cases for the password grant. The password grant enables a client to use the resource
-      owner's password directly to create tokens with it. This means, that your client really has to get the password
-      of the owner - the main case you want to avoid normally with OAuth.
-        * The first use case of the password grant is around user convenience. Especially non technical people will
-          get scared and lose trust if they get redirected to other pages to enter their passwords. Especially in
-          a shop environment, you do not want to loose conversion rate by disturbing the user experience. It is
-          also not desirable to ask a customer to grant some permissions. In this case, a shop frontend can act
-          as the customer on behalf of him. The frontend will ask and get the password of the customer and can then
-          create tokens on behalf of her. As the user's password will get into the hands of your application, this
-          should be avoided as much as possible because you also have to duplicate all the security measurements
-          again that are also done in your authorization server.
-        * The second use case is using service users as resource owners. See the next topic about using own
-          permissions.
+`Authorization Code Grant`_
+    This should be the default whenever you want to implement a client. It is the most secure way to do OAuth 2.0.
+    You will need a client ID and a client secret to use this grant type. When you get your credentials via
+    :ref:`mint`, you will also get these client credentials in the "client.json".
+`Implicit Grant`_
+    This grant type is meant for situations, where you are not in control of the client's environment and it is
+    de facto untrusted. This is primarily the case for JavaScript only web apps or mobile applications. In both cases
+    does the client code reside on a foreign device. Therefor the client code and configuration is not secret.
+    This grant type should only be used in those two cases. Try to use the Authorization Code Grant whenever
+    possible. As the configuration cannot be considered secure, your client will also only require a client ID
+    and not a client secret.
+`Resource Owner Password Credentials Grant`_
+    There are only two use cases for the password grant. The password grant enables a client to use the resource
+    owner's password directly to create tokens with it. This means, that your client really has to get the password
+    of the owner - the main case you want to avoid normally with OAuth.
+
+    * The first use case of the password grant is around user convenience. Especially non technical people will
+      get scared and lose trust if they get redirected to other pages to enter their passwords. Especially in
+      a shop environment, you do not want to loose conversion rate by disturbing the user experience. It is
+      also not desirable to ask a customer to grant some permissions. In this case, a shop frontend can act
+      as the customer on behalf of him. The frontend will ask and get the password of the customer and can then
+      create tokens on behalf of her. As the user's password will get into the hands of your application, this
+      should be avoided as much as possible because you also have to duplicate all the security measurements
+      again that are also done in your authorization server.
+    * The second use case is using service users as resource owners. See the next topic about using own
+      permissions.
 
 .. _Authorization Code Grant: https://tools.ietf.org/html/rfc6749#section-4.1
 .. _Implicit Grant: https://tools.ietf.org/html/rfc6749#section-4.2
