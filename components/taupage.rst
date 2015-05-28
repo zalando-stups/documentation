@@ -40,6 +40,9 @@ configuration format::
      80: 80
      443: 443
 
+   health_check_port: 80
+   health_check_path: /
+
    environment:
      STAGE: production
 
