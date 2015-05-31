@@ -32,7 +32,19 @@ The STUPS platform was created to facilitate the **one AWS account per team** se
  * by logging all human SSH access (:ref:`even` & :ref:`odd`)
 * applications are secured via OAuth (:ref:`mint` & :ref:`berry`)
 
+Traceability
+============
 
+How to trace software changes from a running EC2 instance back to the specification:
+
+* The running EC2 instance (running :ref:`taupage` AMI) can be queried for its user data.
+* The Taupage user data YAML contains the Docker image (immutable in :ref:`pierone`) and the application ID and version
+* The Docker image contains the SCM source information via ``scm-source.json``. Pier One provides a special REST endpoint to retrieve the SCM source information for any conforming Docker image.
+* The :ref:`kio` application registry contains either the specification for the application version directly or the used ticket system.
+* The SCM commit references specification tickets from the configured ticket system (if a ticket system is used)
+
+.. image:: images/stups-traceability.png
+   :alt: How STUPS ensures that software changes can be traced back
 
 
 .. [#f1] Not all AWS services/products are properly integrated with IAM, e.g. the Elastic Load Balancing (ELB) service only allows global granting of ELB creation.
