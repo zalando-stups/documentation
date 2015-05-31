@@ -6,6 +6,9 @@ The STUPS platform is a set of tools and components
 to provide a convenient and audit-compliant Platform-as-a-Service (PaaS) for multiple autonomous teams
 on top of Amazon Web Services (AWS).
 
+.. image:: images/stups-platform.png
+   :alt: STUPS: a platform on top of Amazon Web Services
+
 STUPS provides the needed components to deploy immutable stacks of Docker applications on AWS:
 
 * an **application registry** to register applications and their endpoints (:ref:`kio`)
