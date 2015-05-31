@@ -21,8 +21,12 @@ Deploying a new immutable application stack generally involves:
 
 * building your application artifact (e.g. uber jar)
 * creating a Docker image
+* pushing the Docker image to the :ref:`pierone` Docker registry
 * creating the Cloud Formation stack with Senza (``senza create``)
 * routing traffic to the new stack (``senza traffic``)
+
+.. image:: images/senza-deployment.png
+   :alt: Deploying an application with Senza and Pier One
 
 Prerequisites
 =============
@@ -36,11 +40,23 @@ First install Python 3.4 on your PC (Ubuntu 14.04 already has it installed, use 
         export LC_ALL=en_US.utf-8
         export LANG=en_US.utf-8
 
-Senza and Mai (required for AWS credentials) can be installed from PyPI using PIP:
+All required STUPS command line tools can be conveniently installed from PyPI using PIP:
 
 .. code-block:: bash
 
-    $ sudo pip3 install --upgrade stups-mai stups-senza
+    $ sudo pip3 install --upgrade stups
+
+You will need the following information at hand:
+
+* Pier One Docker registry URL (we will use https://pierone.stups.example.org here)
+* SAML identity provider URL (for federated AWS login with :ref:`Mai`)
+
+  * your SAML username and password
+
+* OAuth Token service URL (to acquire OAuth tokens, e.g. for Pier One)
+
+  * your OAuth realm's username and password
+
 
 
 Prepare the deployment artifact
@@ -54,6 +70,7 @@ First deploy the application's artifact (Docker image) to :ref:`pierone`, e.g.:
     $ # please remember to generate the "scm-source.json",
     $ # which must be in your Docker image!
     $ docker build -t pierone.stups.example.org/myteam/myapp:0.1 .
+    $ pierone login # login to Pier One using OAuth
     $ docker push pierone.stups.example.org/myteam/myapp:0.1
 
 Create a new Senza definition
