@@ -106,7 +106,7 @@ Now we can create the application's Cloud Formation stack with Senza:
 
 .. code-block:: bash
 
-    $ senza create myapp.yaml 1 0.1
+    $ senza create myapp.yaml 1 0.1 # will create stack version "1"
 
 .. Note:: The last parameter is a custom parameter "ImageVersion" defined in the SenzaInfo/Parameters section of the above definition YAML.
 
