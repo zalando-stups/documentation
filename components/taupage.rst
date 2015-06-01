@@ -230,15 +230,14 @@ A map of mount targets and their configurations. A mount target configuration ha
 defined in the **volumes** section. It is possible to specify a **erase_on_boot** flag which determines is such partition should always
 be initialized on boot. This setting defaults to false.
 
-Whenever a partition is initialized is will be formatted using the **filesystem** setting. If unspecified it will be formatted as ext4.
-If the **root** setting is false (that's the default) the filesystem will be initialized with the internal unprivileged user as its owner.
-This allows the **runtime** application to use the volume for read and write.
+Whenever a partition is initialized is will be formatted using the **filesystem** setting. If unspecified it will be formatted as ext4. If **options** setting is specified, its value will be provided to the command to mount the partition. If the **root** setting is false (that's the default) the filesystem will be initialized with the internal unprivileged user as its owner. The mount point permissions are set to provide read and write access to group and others in all cases. This allows the **runtime** application to use the volume for read and write.
 
 Sample mounts configuration::
 
    mounts:
      /data/solr:
        partition: /dev/md/solr-repeater
+       options: noatime,nodiratime,nobarrier
        erase_on_boot: false
 
 .. WARNING::
