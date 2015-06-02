@@ -316,7 +316,7 @@ Runtime environment
 By default, your application will run as an unprivileged user, see the 'root' option.
 
 Taupage integrates :ref:`berry` and exposes the credentials file to your application. Your application will have access
-to the environment variable 'CREDENTIALS_FILE', which points to a local file, containing the 'credentials.json' JSON of
+to the environment variable 'CREDENTIALS_DIR', which points to a local directory, containing the 'user.json' and 'client.json' of
 the :ref:`mint` API. This way, you can authenticate yourself to your IAM solution to for example obtain own access
 tokens.
 
@@ -378,4 +378,3 @@ Building your own AMI
 
 You can build your own Taupage AMI using the code from the repository on GitHub https://github.com/zalando-stups/taupage
 In the repository you will find a configuration (config-stups-example.sh) file which you'll have to adjust to your needs.
-
