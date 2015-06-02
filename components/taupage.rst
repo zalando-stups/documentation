@@ -93,6 +93,7 @@ configuration format::
    logentries_account_key: 12345-ACCOUNT-12345-KEY
 
    scalyr_account_key: 12345-ACCOUNTKEY-12234
+   scalyr_application_log_parser: customParser
 
    mint_bucket: my-s3-mint-bucket
 
@@ -301,6 +302,13 @@ Our integration also provide some Attributes you can search on Scalyr.
   * **$stack**
   * **$source**
   * **$image**
+
+scalyr_application_log_parser
+-----------------------------
+
+**(optional)**
+
+If the application.log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
 
 Runtime environment
 +++++++++++++++++++
