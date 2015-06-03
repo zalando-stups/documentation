@@ -22,4 +22,4 @@ Install or upgrade to the latest version of Zign (|zign-pypi-version|) with PIP:
 How to use
 ==========
 
-See the section :ref:`access-control-helpful-tooling` on how to retrieve access tokens with Zign.
+See the section :ref:`access-control-helpful-tooling` on how to retrieve access tokens with Zign. 
