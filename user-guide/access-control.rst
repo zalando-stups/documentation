@@ -164,6 +164,7 @@ In the next steps, we will implement the handling of "sales orders" data in your
 might be owned by customers and employees. We want to distinguish read and write access and we also need
 a batch job, that analyses all the orders.
 
+.. _access-control-helpful-tooling:
 
 Helpful tooling
 ---------------
