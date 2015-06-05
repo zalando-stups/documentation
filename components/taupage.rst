@@ -338,7 +338,7 @@ By default, your application will run as an unprivileged user, see the 'root' op
 
 Taupage integrates :ref:`berry` and exposes the credentials file to your application. Your application will have access
 to the environment variable 'CREDENTIALS_DIR', which points to a local directory, containing the 'user.json' and 'client.json' of
-the :ref:`mint` API. This way, you can authenticate yourself to your IAM solution to for example obtain own access
+the :ref:`mint` API. This way, you can authenticate yourself to your own IAM solution so that it can obtain its own access
 tokens.
 
 Sending application mails
