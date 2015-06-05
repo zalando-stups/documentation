@@ -10,12 +10,14 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1107.2858"
-   height="608.74945"
+   width="1231.5344"
+   height="608.74939"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="stups-components.svg">
+  <title
+     id="title24860">STUPS Components Overview</title>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -23,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="694.21519"
-     inkscape:cy="382.45319"
+     inkscape:zoom="1.4"
+     inkscape:cx="736.28664"
+     inkscape:cy="155.31745"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -40,8 +42,8 @@
      fit-margin-bottom="10"
      fit-margin-right="10">
     <inkscape:grid
-       originy="-79.428643px"
-       originx="70.142848px"
+       originy="-79.428732px"
+       originx="194.39161px"
        type="xygrid"
        id="grid5063"
        empspacing="5"
@@ -267,6 +269,30 @@
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          transform="scale(-0.6,-0.6)" />
     </marker>
+    <clipPath
+       id="SVGID_2_-3">
+      <use
+         height="1052.3622"
+         width="744.09448"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_29_"
+         overflow="visible"
+         id="use24546" />
+    </clipPath>
+    <clipPath
+       id="SVGID_4_-3">
+      <use
+         height="1052.3622"
+         width="744.09448"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         xlink:href="#SVGID_31_"
+         overflow="visible"
+         id="use24570" />
+    </clipPath>
   </defs>
   <metadata
      id="metadata7">
@@ -276,7 +302,32 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title>STUPS Components Overview</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Henning Jacobs</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>(c) Zalando SE</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Zalando SE</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:language>English</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>stups</rdf:li>
+            <rdf:li>aws</rdf:li>
+            <rdf:li>docker</rdf:li>
+            <rdf:li>cloud formation</rdf:li>
+            <rdf:li>oauth2</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -284,11 +335,23 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(70.142848,-364.18411)">
+     transform="translate(194.39161,-364.18411)">
+    <path
+       style="fill:none;stroke:#646464;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2MendL)"
+       d="m 859.67357,897.68632 72.72948,0"
+       id="path24696"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        sodipodi:nodetypes="cc"
        style="fill:none;stroke:#646464;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2MendL)"
-       d="m -30.104208,783.25775 98.858578,0"
+       d="M 99.792587,450.55411 -132.01745,644.15415"
+       id="path21970"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#646464;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2MendL)"
+       d="m -134.43004,674.2282 0,60.47278"
        id="path21956"
        inkscape:connector-curvature="0" />
     <path
@@ -486,15 +549,20 @@
       <text
          sodipodi:linespacing="125%"
          id="text5065-9-5-1"
-         y="684.88068"
+         y="674.29327"
          x="309.92184"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
-           style="font-size:14px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
-           y="684.88068"
+           style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+           y="674.29327"
            x="309.92184"
            id="tspan5067-5-5-3"
-           sodipodi:role="line">Pier One CLI</tspan></text>
+           sodipodi:role="line">Pier One</tspan><tspan
+           style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+           y="694.29327"
+           x="309.92184"
+           sodipodi:role="line"
+           id="tspan24880">CLI</tspan></text>
     </g>
     <g
        id="g5069-3-8-3-2"
@@ -618,7 +686,7 @@
     </g>
     <g
        id="g5069-3-8-3-2-9-0-4-8-1"
-       transform="translate(-319.99438,-2.394821)">
+       transform="translate(-319.19019,-2.394821)">
       <rect
          ry="0"
          y="653.32843"
@@ -666,7 +734,7 @@
     </g>
     <g
        id="g5069-3-8-3-2-9-0-4-8-1-8"
-       transform="translate(-194.13725,-2.394821)">
+       transform="translate(-194.13723,-2.394821)">
       <rect
          ry="0"
          y="653.32843"
@@ -726,15 +794,20 @@
       <text
          sodipodi:linespacing="125%"
          id="text5065-9-5-1-4"
-         y="684.88068"
+         y="674.15265"
          x="309.92184"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
-           style="font-size:11px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
-           y="684.88068"
+           style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+           y="674.15265"
            x="309.92184"
            id="tspan5067-5-5-3-1"
-           sodipodi:role="line">Seven Seconds</tspan></text>
+           sodipodi:role="line">Seven</tspan><tspan
+           style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+           y="694.15265"
+           x="309.92184"
+           sodipodi:role="line"
+           id="tspan24878">Seconds</tspan></text>
     </g>
     <g
        id="g5486"
@@ -832,7 +905,7 @@
        y="518.35913"
        transform="translate(0,308.2677)" />
     <g
-       transform="translate(-319.99438,104.89089)"
+       transform="translate(-444.24314,-2.394821)"
        id="g8341">
       <rect
          style="fill:#ff6900;fill-opacity:1;stroke:none"
@@ -862,23 +935,23 @@
          id="g11174">
         <polygon
            id="polygon11176"
-           points="32.465,62.639 24.238,63.795 50.135,71.564 50.25,67.102 "
+           points="50.25,67.102 32.465,62.639 24.238,63.795 50.135,71.564 "
            style="fill:#b7ca9d" />
         <polygon
            id="polygon11178"
-           points="50.135,28.435 50.25,33.214 32.465,37.359 24.238,36.204 "
+           points="24.238,36.204 50.135,28.435 50.25,33.214 32.465,37.359 "
            style="fill:#3c4929" />
         <polygon
            id="polygon11180"
-           points="67.535,62.639 75.762,63.795 49.865,71.564 49.75,67.102 "
+           points="49.75,67.102 67.535,62.639 75.762,63.795 49.865,71.564 "
            style="fill:#b7ca9d" />
         <polygon
            id="polygon11182"
-           points="49.865,28.435 49.75,33.214 67.535,37.359 75.762,36.204 "
+           points="75.762,36.204 49.865,28.435 49.75,33.214 67.535,37.359 "
            style="fill:#3c4929" />
         <polygon
            id="polygon11184"
-           points="32.465,37.36 32.465,62.639 24.238,63.795 24.238,36.204 "
+           points="24.238,36.204 32.465,37.36 32.465,62.639 24.238,63.795 "
            style="fill:#759c3e" />
         <path
            id="path11186"
@@ -887,7 +960,7 @@
            style="fill:#4b612c" />
         <polygon
            id="polygon11188"
-           points="67.535,37.36 67.535,62.639 75.762,63.795 75.762,36.204 "
+           points="75.762,36.204 67.535,37.36 67.535,62.639 75.762,63.795 "
            style="fill:#4b612c" />
         <path
            id="path11190"
@@ -923,14 +996,14 @@
              id="g15915">
             <polygon
                id="polygon15917"
-               points="77.188,33.388 77.358,32.671 77.358,34.999 77.188,35.714 "
+               points="77.188,35.714 77.188,33.388 77.358,32.671 77.358,34.999 "
                style="fill:#8c3323" />
           </g>
           <g
              id="g15919">
             <polygon
                id="polygon15921"
-               points="22.642,32.671 22.812,33.388 22.812,35.714 22.642,34.999 "
+               points="22.642,34.999 22.642,32.671 22.812,33.388 22.812,35.714 "
                style="fill:#8c3323" />
           </g>
           <g
@@ -973,14 +1046,14 @@
              id="g15939">
             <polygon
                id="polygon15941"
-               points="68.241,71.587 77.188,33.388 77.188,35.714 68.241,73.909 "
+               points="68.241,73.909 68.241,71.587 77.188,33.388 77.188,35.714 "
                style="fill:#8c3323" />
           </g>
           <g
              id="g15943">
             <polygon
                id="polygon15945"
-               points="22.812,33.388 31.761,71.587 31.761,73.909 22.812,35.714 "
+               points="22.812,35.714 22.812,33.388 31.761,71.587 31.761,73.909 "
                style="fill:#8c3323" />
           </g>
           <g
@@ -1176,14 +1249,14 @@
              id="g18138">
             <polygon
                id="polygon18140"
-               points="55.051,54.766 50.875,54.766 50.875,52.365 55.664,52.139 "
+               points="55.664,52.139 55.051,54.766 50.875,54.766 50.875,52.365 "
                style="fill:#737678" />
           </g>
           <g
              id="g18142">
             <polygon
                id="polygon18144"
-               points="49.129,54.766 44.951,54.766 44.164,52.139 49.129,52.365 "
+               points="49.129,52.365 49.129,54.766 44.951,54.766 44.164,52.139 "
                style="fill:#737678" />
           </g>
           <g
@@ -2027,65 +2100,65 @@
            id="tspan20844">User API</tspan></text>
     </g>
     <g
-       transform="translate(65.714282,736.36382)"
+       transform="translate(-184.39161,736.36382)"
        id="CloudTrail">
       <g
          id="g21855">
         <polygon
            style="fill:#4b612c"
-           points="21.991,42.512 20.185,42.69 20.185,34.199 21.991,33.656 "
+           points="20.185,34.199 21.991,33.656 21.991,42.512 20.185,42.69 "
            id="polygon21857" />
         <polygon
            style="fill:#759c3e"
-           points="28.669,34.53 21.991,33.639 21.991,42.504 28.669,42.802 "
+           points="21.991,42.504 28.669,42.802 28.669,34.53 21.991,33.639 "
            id="polygon21859" />
         <polygon
            style="fill:#3c4929"
-           points="28.669,42.802 26.722,42.958 20.185,42.69 21.991,42.512 "
+           points="20.185,42.69 21.991,42.512 28.669,42.802 26.722,42.958 "
            id="polygon21861" />
         <polygon
            style="fill:#4b612c"
-           points="21.991,51.488 20.185,51.309 20.185,59.801 21.991,60.344 "
+           points="20.185,59.801 21.991,60.344 21.991,51.488 20.185,51.309 "
            id="polygon21863" />
         <polygon
            style="fill:#759c3e"
-           points="28.669,59.471 21.991,60.361 21.991,51.496 28.669,51.197 "
+           points="21.991,51.496 28.669,51.197 28.669,59.471 21.991,60.361 "
            id="polygon21865" />
         <polygon
            style="fill:#b7ca9d"
-           points="28.669,51.197 26.722,51.041 20.185,51.309 21.991,51.488 "
+           points="20.185,51.309 21.991,51.488 28.669,51.197 26.722,51.041 "
            id="polygon21867" />
         <polygon
            style="fill:#4b612c"
-           points="26.153,27.615 31.185,25.732 31.185,41.663 26.153,42.04 "
+           points="31.185,41.663 26.153,42.04 26.153,27.615 31.185,25.732 "
            id="polygon21869" />
         <polygon
            style="fill:#759c3e"
-           points="40.92,28.017 31.185,25.902 31.185,41.684 40.92,42.107 "
+           points="31.185,41.684 40.92,42.107 40.92,28.017 31.185,25.902 "
            id="polygon21871" />
         <polygon
            style="fill:#3c4929"
-           points="40.92,42.107 35.55,42.512 26.153,42.04 31.186,41.537 "
+           points="26.153,42.04 31.186,41.537 40.92,42.107 35.55,42.512 "
            id="polygon21873" />
         <polygon
            style="fill:#4b612c"
-           points="26.153,66.258 31.185,68.125 31.185,52.334 26.153,51.961 "
+           points="31.185,52.334 26.153,51.961 26.153,66.258 31.185,68.125 "
            id="polygon21875" />
         <polygon
            style="fill:#759c3e"
-           points="40.92,66.107 31.185,68.242 31.185,52.32 40.92,51.893 "
+           points="31.185,52.32 40.92,51.893 40.92,66.107 31.185,68.242 "
            id="polygon21877" />
         <polygon
            style="fill:#b7ca9d"
-           points="40.92,51.893 35.55,51.488 26.153,51.961 31.186,52.463 "
+           points="26.153,51.961 31.186,52.463 40.92,51.893 35.55,51.488 "
            id="polygon21879" />
         <polygon
            style="fill:#759c3e"
-           points="79.815,67.943 49.991,82.855 49.991,10.856 79.815,25.767 "
+           points="49.991,10.856 79.815,25.767 79.815,67.943 49.991,82.855 "
            id="polygon21881" />
         <polygon
            style="fill:#4b612c"
-           points="37.392,76.555 49.991,82.855 49.991,10.856 37.392,17.156 "
+           points="49.991,10.856 37.392,17.156 37.392,76.555 49.991,82.855 "
            id="polygon21883" />
       </g>
     </g>
@@ -2125,5 +2198,345 @@
          x="858.28571"
          y="426.25595"
          style="font-size:16px;font-weight:bold;fill:#646464;fill-opacity:1;-inkscape-font-specification:Sans Bold">Admins</tspan></text>
+    <g
+       transform="translate(927.14236,847.64789)"
+       id="Layer_1-9">
+      <g
+         id="g24534">
+        <g
+           enable-background="new    "
+           id="g24536">
+          <g
+             id="g24538">
+            <defs
+               id="defs24540">
+              <path
+                 inkscape:connector-curvature="0"
+                 id="SVGID_29_"
+                 d="m 85.227,58.71 v 2.615 c 0,5.852 -6.381,11.779 -14.258,11.779 v -2.611 c 7.877,0 14.258,-5.931 14.258,-11.783 z" />
+            </defs>
+            <use
+               height="1052.3622"
+               width="744.09448"
+               y="0"
+               x="0"
+               style="fill:#737678;overflow:visible"
+               xlink:href="#SVGID_29_"
+               overflow="visible"
+               id="use24543" />
+            <clipPath
+               id="clipPath24608">
+              <use
+                 height="1052.3622"
+                 width="744.09448"
+                 y="0"
+                 x="0"
+                 style="overflow:visible"
+                 xlink:href="#SVGID_29_"
+                 overflow="visible"
+                 id="use24610" />
+            </clipPath>
+            <g
+               clip-path="url(#SVGID_2_-3)"
+               enable-background="new    "
+               id="g24548">
+              <path
+                 style="fill:#737678"
+                 inkscape:connector-curvature="0"
+                 d="m 85.227,58.71 v 2.615 c 0,0.398 -0.029,0.797 -0.088,1.195 v -2.615 c 0.058,-0.396 0.088,-0.795 0.088,-1.195"
+                 id="path24550" />
+              <path
+                 style="fill:#737678"
+                 inkscape:connector-curvature="0"
+                 d="m 85.139,59.905 v 2.615 c -0.07,0.498 -0.188,0.992 -0.346,1.48 v -2.613 c 0.158,-0.49 0.275,-0.984 0.346,-1.482"
+                 id="path24552" />
+              <path
+                 style="fill:#737678"
+                 inkscape:connector-curvature="0"
+                 d="m 84.793,61.388 v 2.613 c -0.201,0.633 -0.475,1.254 -0.807,1.859 v -2.617 c 0.332,-0.601 0.606,-1.222 0.807,-1.855"
+                 id="path24554" />
+              <path
+                 style="fill:#737678"
+                 inkscape:connector-curvature="0"
+                 d="m 83.986,63.243 v 2.617 c -2.227,4.029 -7.217,7.244 -13.018,7.244 v -2.611 c 5.802,0 10.792,-3.217 13.018,-7.25"
+                 id="path24556" />
+            </g>
+          </g>
+          <g
+             id="g24558">
+            <polygon
+               style="fill:#737678"
+               points="29.016,73.104 27.834,69.538 70.969,70.493 70.969,73.104 "
+               id="polygon24560" />
+          </g>
+          <g
+             id="g24562">
+            <defs
+               id="defs24564">
+              <path
+                 inkscape:connector-curvature="0"
+                 id="SVGID_31_"
+                 d="m 29.016,70.493 v 2.611 c -7.861,0 -14.242,-5.928 -14.242,-11.779 V 58.71 c -10e-4,5.852 6.38,11.783 14.242,11.783 z" />
+            </defs>
+            <use
+               height="1052.3622"
+               width="744.09448"
+               y="0"
+               x="0"
+               style="fill:#737678;overflow:visible"
+               xlink:href="#SVGID_31_"
+               overflow="visible"
+               id="use24567" />
+            <clipPath
+               id="clipPath24623">
+              <use
+                 height="1052.3622"
+                 width="744.09448"
+                 y="0"
+                 x="0"
+                 style="overflow:visible"
+                 xlink:href="#SVGID_31_"
+                 overflow="visible"
+                 id="use24625" />
+            </clipPath>
+            <g
+               clip-path="url(#SVGID_4_-3)"
+               enable-background="new    "
+               id="g24572">
+              <path
+                 style="fill:#737678"
+                 inkscape:connector-curvature="0"
+                 d="m 29.016,70.493 v 2.611 c -7.861,0 -14.242,-5.928 -14.242,-11.779 V 58.71 c -10e-4,5.852 6.38,11.783 14.242,11.783"
+                 id="path24574" />
+            </g>
+          </g>
+          <g
+             id="g24576">
+            <path
+               style="fill:#c5c6c7"
+               inkscape:connector-curvature="0"
+               d="m 41.887,26.896 c 7.316,0 13.605,4.34 16.428,10.566 1.469,-0.998 3.246,-1.59 5.16,-1.59 4.955,0 8.961,3.893 9.125,8.771 7.1,0.592 12.627,7.439 12.627,12.883 v 1.184 c 0,5.852 -6.381,11.783 -14.258,11.783 H 29.016 c -7.861,0 -14.242,-5.932 -14.242,-11.783 v -1.184 c 0,-4.512 3.787,-10.711 9.125,-12.248 0,-0.162 -0.025,-0.338 -0.025,-0.512 -10e-4,-9.878 8.064,-17.87 18.013,-17.87 z"
+               id="path24578" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24698"
+       y="941.112"
+       x="976.43976"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;fill:#646464;fill-opacity:1;-inkscape-font-specification:Sans Bold"
+         y="941.112"
+         x="976.43976"
+         id="tspan24700"
+         sodipodi:role="line">Logging</tspan><tspan
+         style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;fill:#646464;fill-opacity:1;-inkscape-font-specification:Sans Bold"
+         y="961.112"
+         x="976.43976"
+         sodipodi:role="line"
+         id="tspan24702">Provider</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-48.865074"
+       y="789.18414"
+       id="text24704"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan24708"
+         sodipodi:role="line"
+         x="-48.865074"
+         y="789.18414"
+         style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;fill:#646464;fill-opacity:1;-inkscape-font-specification:Sans Bold">Cloud Trail</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="534.75562"
+       y="734.54303"
+       id="text24704-9"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan24708-2"
+         sodipodi:role="line"
+         x="534.75562"
+         y="734.54303"
+         style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;fill:#646464;fill-opacity:1;-inkscape-font-specification:Sans Bold">Cloud</tspan><tspan
+         sodipodi:role="line"
+         x="534.75562"
+         y="754.54303"
+         style="font-size:16px;font-weight:bold;text-align:center;text-anchor:middle;fill:#646464;fill-opacity:1;-inkscape-font-specification:Sans Bold"
+         id="tspan24733">Formation</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24735"
+       y="528.47192"
+       x="-30.582794"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         id="tspan24739"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:end;text-anchor:end;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="528.47192"
+         x="-30.582794"
+         sodipodi:role="line">get</tspan><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:end;text-anchor:end;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="548.47192"
+         x="-30.582794"
+         sodipodi:role="line"
+         id="tspan24858">violations</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24735-3"
+       y="585.66937"
+       x="692.0199"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         id="tspan24739-5"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="585.66937"
+         x="692.0199"
+         sodipodi:role="line">get</tspan><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="605.66937"
+         x="692.0199"
+         sodipodi:role="line"
+         id="tspan24764">token</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24735-3-6"
+       y="585.66937"
+       x="557.00629"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="585.66937"
+         x="557.00629"
+         sodipodi:role="line"
+         id="tspan24764-6">create</tspan><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="605.66937"
+         x="557.00629"
+         sodipodi:role="line"
+         id="tspan24792">stack</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="396.39203"
+       y="585.66937"
+       id="text24794"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan24798"
+         sodipodi:role="line"
+         x="396.39203"
+         y="585.66937"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic">request</tspan><tspan
+         sodipodi:role="line"
+         x="396.39203"
+         y="605.66937"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         id="tspan24802">SSH access</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24804"
+       y="584.4389"
+       x="250.90976"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="584.4389"
+         x="250.90976"
+         sodipodi:role="line"
+         id="tspan24812">SAML</tspan><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="604.4389"
+         x="250.90976"
+         sodipodi:role="line"
+         id="tspan24820">login</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="840.85913"
+       y="584.57953"
+       id="text24822"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan24826"
+         sodipodi:role="line"
+         x="840.85913"
+         y="584.57953"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic">list</tspan><tspan
+         sodipodi:role="line"
+         x="840.85913"
+         y="604.57953"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         id="tspan24830">images</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24832"
+       y="864.39185"
+       x="266.08234"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         id="tspan24836"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:center;text-anchor:middle;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="864.39185"
+         x="266.08234"
+         sodipodi:role="line">rotate</tspan><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:center;text-anchor:middle;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="884.39185"
+         x="266.08234"
+         sodipodi:role="line"
+         id="tspan24840">passwords</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text24842"
+       y="779.539"
+       x="839.849"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         id="tspan24846"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="779.539"
+         x="839.849"
+         sodipodi:role="line">docker</tspan><tspan
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         y="799.539"
+         x="839.849"
+         sodipodi:role="line"
+         id="tspan24850">pull</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="29.953445"
+       y="599.18262"
+       id="text24852"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="29.953445"
+         y="599.18262"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         id="tspan24854">manage</tspan><tspan
+         sodipodi:role="line"
+         x="29.953445"
+         y="619.18262"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         id="tspan24856">apps</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="595.89716"
+       y="782.56952"
+       id="text24864"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="595.89716"
+         y="782.56952"
+         style="font-size:16px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#5a5a5a;fill-opacity:1;-inkscape-font-specification:Sans Italic"
+         id="tspan24872">launch instance</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path24874"
+       d="m 568.38378,765.78454 40.54247,48.48732"
+       style="fill:none;stroke:#646464;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2MendL)"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
