@@ -169,6 +169,27 @@ capabilities_drop:
 A list of capabilities to drop of the execution (without the CAP_ prefix). See
 http://man7.org/linux/man-pages/man7/capabilities.7.html for available capabilities.
 
+hostname:
+-----------------
+
+**(optional)**
+
+TBD, Users can define hostname by themselves
+
+networking:
+------------------
+
+**(optional)**
+
+A type of networking to tell how docker networks a container. See
+https://docs.docker.com/articles/networking/#how-docker-networks-a-container for detail.
+
+Options are:
+  * bridge (default)
+  * host
+  * container:NAME_or_ID
+  * none
+
 root:
 -----
 
