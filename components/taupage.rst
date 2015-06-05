@@ -399,3 +399,5 @@ Building your own AMI
 
 You can build your own Taupage AMI using the code from the repository on GitHub https://github.com/zalando-stups/taupage
 In the repository you will find a configuration (config-stups-example.sh) file which you'll have to adjust to your needs.
+
+See :ref:`taupage-ami-creation` for details.

@@ -1,8 +1,10 @@
+.. _taupage-ami-creation:
+
 ====================
 Taupage AMI Creation
 ====================
 
-How to build a new private Taupage AMI.
+How to build a new private :ref:`taupage` AMI.
 
 .. code-block:: bash
 
