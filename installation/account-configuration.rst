@@ -26,7 +26,7 @@ Next copy the minimal example configuration file to a new location and edit it:
 
 Now run Seven Seconds on your new AWS account:
 
-.. code-block::
+.. code-block:: bash
 
     $ sevenseconds configure myconfig.yaml myaccount
 
