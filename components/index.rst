@@ -3,6 +3,9 @@ Components
 ==========
 
 
+.. image:: images/stups-components.svg
+   :alt: STUPS components overview
+
 .. NOTE: components should be sorted alphabetically here
 
 .. toctree::
