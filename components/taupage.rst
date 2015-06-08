@@ -183,7 +183,7 @@ networking:
 **(optional)**
 
 A type of networking to tell how docker networks a container. See
-https://docs.docker.com/articles/networking/#how-docker-networks-a-container for detail.
+https://docs.docker.com/articles/networking/#how-docker-networks-a-container for details.
 
 Options are:
   * bridge (default)
