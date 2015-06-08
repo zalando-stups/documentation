@@ -207,7 +207,6 @@ privileged:
 The container will run with --privileged option.
 See http://developerblog.redhat.com/2014/11/06/introducing-a-super-privileged-container-concept/ for more detail.
 
-
 volumes:
 --------
 
