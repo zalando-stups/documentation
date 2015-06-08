@@ -6,7 +6,7 @@ STUPS Documentation
    :target: https://readthedocs.org/projects/stups/?badge=latest
    :alt: Documentation Status
 
-The STUPS documentation is available on http://stups.readthedocs.org/
+The STUPS documentation is available on http://docs.stups.io/
 
 Local Usage
 ===========
