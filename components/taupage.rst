@@ -52,6 +52,7 @@ configuration format::
      - NET_ADMIN
 
    root: false
+   privileged: false
 
    volumes:
      ebs:
@@ -197,6 +198,15 @@ root:
 
 Specifies, if the container has to run as root. By default, containers run as an unprivileged user. See the
 **capabilities_add** and prefer it always. This is only the last resort.
+
+privileged:
+-----------
+
+**(optional, default: false)**
+
+The container will run with --privileged option.
+See http://developerblog.redhat.com/2014/11/06/introducing-a-super-privileged-container-concept/ for more detail.
+
 
 volumes:
 --------
