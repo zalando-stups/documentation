@@ -6,7 +6,10 @@ Fullstop
 
 The latest documentation is available in the `Fullstop github project`_ page.
 
+Fullstop Aws overview
 .. image:: images/fullstop.png
+Fullstop Architecture overview
+.. image:: images/fullstop-architecture.png
 
 Aim of the project is to enrich CloudTrail log events.
 
