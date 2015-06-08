@@ -45,6 +45,9 @@ configuration format::
 
    environment:
      STAGE: production
+     # environment variable values starting with "aws:kms:"
+     # automatically are decrypted by Taupage
+     MY_DB_PASSWORD: "aws:kms:v5V2bMGRgg2yTHXm5Fn..."
 
    capabilities_add:
      - NET_BIND_SERVICE
@@ -152,7 +155,8 @@ environment:
 
 **(optional)**
 
-A map of environment variables to set.
+A map of environment variables to set. Environment variable values starting with "aws:kms:" are automatically decrypted by Taupage using KMS (IAM role needs to allow decryption with the used KMS key).
+
 
 capabilities_add:
 -----------------
@@ -318,14 +322,14 @@ scalyr_account_key
 
 **(optional)**
 
-If you provide the Scalyr AccountKey in the .yaml file, the Agent of scaylr will be installed and follow this logs:
+If you provide the Scalyr AccountKey in the .yaml file, the agent of Scaylr will be installed and will follow these logs:
 
   * /var/log/syslog
   * /var/log/auth.log
   * /var/log/audit.log
   * /var/log/application.log
 
-Our integration also provide some Attributes you can search on Scalyr.
+Our integration also provides some attributes you can search on Scalyr:
 
   * **$application_id**
   * **$application_version**
