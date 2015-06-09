@@ -366,7 +366,7 @@ token if you have the password of the resource owner (yourself in this case):
         "grant_type": "password",
         "username": "my-username",
         "password": "my-password",
-        "scope" "uid sales_order.read_all"
+        "scope": "uid sales_order.read_all"
     }
     EOF
 
