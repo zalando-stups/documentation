@@ -63,7 +63,7 @@ user.json:
 
     {
         "application_username": "abc",
-        "application_password": "xyz",
+        "application_password": "xyz"
     }
 
 client.json:
