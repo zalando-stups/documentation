@@ -1,10 +1,10 @@
 .. _even:
 
 ====
-Even
+even
 ====
 
-**Even** allows requesting SSH access to EC2 instances.
+**even** allows requesting SSH access to EC2 instances.
 
 How to use
 ==========

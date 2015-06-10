@@ -1,10 +1,10 @@
 .. _odd:
 
 ===
-Odd
+odd
 ===
 
-**Odd** is the SSH bastion host which allows connecting to private EC2 instances from the outside world.
+**odd** is the SSH bastion host which allows connecting to private EC2 instances from the outside world.
 
 How to use
 ==========

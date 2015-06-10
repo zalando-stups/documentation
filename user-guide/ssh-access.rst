@@ -31,7 +31,7 @@ You can overwrite settings on the command line:
 
 .. code-block:: bash
 
-    $ piu 172.31.1.1 test -O odd-eu-west-1.myotherteam.example.org 
+    $ piu 172.31.1.1 test -O odd-eu-west-1.myotherteam.example.org
 
 
 .. Caution::
@@ -44,4 +44,20 @@ SSH Access Revocation
 
 SSH access will automatically be revoked by :ref:`even` after the request's lifetime (default: 60 minutes) expired.
 You can specify a non-default lifetime by using Piu's ``-t`` option.
+
+Listing Access Requests
+=======================
+
+The :ref:`even` SSH access granting service stores all access requests and their status in a database.
+This information is exposed via REST and can be shown using Piu's "list-access-requests" command.
+
+All current and historic access requests can be listed on the command line:
+
+.. code-block:: bash
+
+    $ piu list                   # list the most recent requests to my odd host
+    $ piu list -u jdoe -O '*'    # list most recent requests by user "jdoe"
+    $ piu list -O '*' -s GRANTED # show all active access requests
+
+
 

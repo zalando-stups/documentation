@@ -1,10 +1,10 @@
 .. _mint:
 
 ====
-Mint
+mint
 ====
 
-**Mint** is STUPS' secret distributor and rotator. Its main task is to constantly rotate service passwords or API keys
+**mint** is STUPS' secret distributor and rotator. Its main task is to constantly rotate service passwords or API keys
 and provide the secrets to the actual applications.
 
 How it works

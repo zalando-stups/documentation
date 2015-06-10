@@ -1,10 +1,10 @@
 .. _berry:
 
 =====
-Berry
+berry
 =====
 
-**Berry** is the counterpart for :ref:`mint`. It is a small agent, that runs on a server and continuously checks for
+**berry** is the counterpart for :ref:`mint`. It is a small agent, that runs on a server and continuously checks for
 password changes of an application's service user. Berry downloads the application's OAuth credentials from the given Mint S3 bucket into the specified credentials directory.
 The application needs to periodically refresh its credentials from the credentials directory.
 

@@ -1,16 +1,16 @@
 .. _fullstop:
 
-========
-Fullstop
-========
+=========
+fullstop.
+=========
 
 The latest documentation is available in the `Fullstop github project`_ page.
 
-Fullstop AWS overview
+fullstop. AWS overview
 
 .. image:: images/fullstop.png
 
-Fullstop Architecture overview
+fullstop. Architecture overview
 
 .. image:: images/fullstop-architecture.png
 
