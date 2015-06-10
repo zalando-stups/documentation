@@ -31,7 +31,7 @@ You can overwrite settings on the command line:
 
 .. code-block:: bash
 
-    $ piu -O odd-eu-west-1.myotherteam.example.org 172.31.1.1 test
+    $ piu 172.31.1.1 test -O odd-eu-west-1.myotherteam.example.org 
 
 
 .. Caution::
