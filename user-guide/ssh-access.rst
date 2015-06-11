@@ -26,7 +26,7 @@ Every team member can get access to any of the team's EC2 instances by using the
     Use ``senza instances`` to quickly get the IP address of your EC2 instance.
     See the :ref:`Senza reference <senza>` for details.
 
-Piu will remember the URL of :ref:`even` and the hostname of :ref:`odd` in the local config file (``~/.config/piu/piu.yaml`` on Linux).
+Più will remember the URL of :ref:`even` and the hostname of :ref:`odd` in the local config file (``~/.config/piu/piu.yaml`` on Linux).
 You can overwrite settings on the command line:
 
 .. code-block:: bash
@@ -43,13 +43,13 @@ SSH Access Revocation
 =====================
 
 SSH access will automatically be revoked by :ref:`even` after the request's lifetime (default: 60 minutes) expired.
-You can specify a non-default lifetime by using Piu's ``-t`` option.
+You can specify a non-default lifetime by using Più's ``-t`` option.
 
 Listing Access Requests
 =======================
 
 The :ref:`even` SSH access granting service stores all access requests and their status in a database.
-This information is exposed via REST and can be shown using Piu's "list-access-requests" command.
+This information is exposed via REST and can be shown using Più's "list-access-requests" command.
 
 All current and historic access requests can be listed on the command line:
 

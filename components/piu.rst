@@ -1,15 +1,15 @@
 .. _piu:
 
 ===
-Piu
+Più
 ===
 
-**Piu** is the command line client for the :ref:`even` SSH access granting service.
+**Più** is the command line client for the :ref:`even` SSH access granting service.
 
 Installation
 ============
 
-Install or upgrade to the latest version of Piu (|piu-pypi-version|) with PIP:
+Install or upgrade to the latest version of Più (|piu-pypi-version|) with PIP:
 
 .. |piu-pypi-version| image:: https://img.shields.io/pypi/v/stups-piu.svg
    :target: https://pypi.python.org/pypi/stups-piu/
@@ -22,4 +22,4 @@ Install or upgrade to the latest version of Piu (|piu-pypi-version|) with PIP:
 How to use
 ==========
 
-See the section :ref:`ssh-access` on how to get SSH access to EC2 instances with Piu.
+See the section :ref:`ssh-access` on how to get SSH access to EC2 instances with Più.
