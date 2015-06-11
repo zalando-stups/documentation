@@ -191,7 +191,7 @@ https://docs.docker.com/articles/networking/#how-docker-networks-a-container for
 
 Options are:
   * bridge (default)
-  * host
+  * host (This option also passes the hostname/instance name to the Docker container)
   * container:NAME_or_ID
   * none
 
