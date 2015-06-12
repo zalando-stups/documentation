@@ -2,6 +2,37 @@
 Troubleshooting
 ===============
 
+Senza stack creation fails with Cloud Formation ValidationError
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If Senza throws a Cloud Formation "ValidationError" at you when runnning ``senza create``, you can use ``senza print`` to debug the problem:
+
+.. code-block:: bash
+
+    $ senza create myapp.yaml 1 0.1
+    {"Error":{"Code":"ValidationError","Message":"Template error: Mapping named 'LoadBalancerSubnets' is not present in the 'Mappings' section of template.","Type":"Sender"},"RequestId":"..."}
+
+    $ senza print myapp.yaml 1 0.1 # first parameter is stack version, second is Docker image tag
+    {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "Hello World (ImageVersion: 0.1)",
+        "Mappings": {
+            "Images": {
+            ...
+    # long Cloud Formation JSON after here...
+
+You can always do ``senza print`` to look at the generated Cloud Formation JSON.
+The ``print`` command does the same as the ``create`` command, but it just prints the CF JSON.
+
+.. Tip::
+    You can use the `jq`_ command-line JSON processor to pretty-print the generated JSON:
+
+    .. code-block:: bash
+
+        $ senza print helloworld.yaml v1 1.0 | jq .
+
+.. _jq: https://stedolan.github.io/jq/
+
+
 Permission issues when running Docker container on Taupage AMI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you get permission issues (e.g. ``chown: changing ownership of foobar: Operation not permitted``) when running your Docker image on Taupage,
