@@ -243,6 +243,8 @@ This component supports the following configuration properties:
     Usually you will want to specify ``ports`` and ``environment`` too.
 ``AssociatePublicIpAddress``
     Whether to associate EC2 instances with a public IP address. This boolean value (true/false) is false by default.
+``BlockDeviceMappings``
+    Spcify additional EBS Devices you want to attach to the nodes. See for Option Map below.
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
@@ -259,8 +261,18 @@ This component supports the following configuration properties:
 ``ScaleDownThreshold``
     On which value of the metric to scale down. For the "CPU" metric: a value of 40 would mean 40% CPU usage.
 
+``BlockDeviceMappings`` properties are:
 
+``DeviceName``
+    For example: /dev/xvdk
+``Ebs``
+    Map of EBS Options, see below.
+    
 
+``Ebs`` properties are:
+
+``VolumeSize``
+    How Much GB should this EBS have?
 Senza::WeightedDnsElasticLoadBalancer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
