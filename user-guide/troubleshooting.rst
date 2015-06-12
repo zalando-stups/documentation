@@ -30,7 +30,6 @@ The ``print`` command does the same as the ``create`` command, but it just print
 
         $ senza print helloworld.yaml v1 1.0 | jq .
 
-.. _jq: https://stedolan.github.io/jq/
 
 
 Senza stack is rolled back automatically (status ROLLBACK_COMPLETE)
@@ -54,6 +53,11 @@ If your freshly created Senza stack keeps get rolled back by Cloud Formation aft
 
     $ senza create myapp.yaml 1 0.1 --disable-rollback
     # stack and EC2 instance(s) will stay up
+
+.. Tip::
+    Usually you can avoid SSH access and ``--disable--rollback`` by using a logging provider to see the :ref:`taupage` syslog messages.
+    The Taupage AMI supports logentries_ and Scalyr_ as logging providers.
+
 
 By disabling the automatic Cloud Formation rollback-on-failure, you can troubleshoot the problem on the EC2 instance via SSH.
 See the :ref:`ssh-access` section on how to "ssh" into your EC2 instance (running Taupage AMI).
@@ -114,3 +118,7 @@ If you get connection timeouts on your EC2 instance, e.g. the Docker image downl
 * If your EC2 instance runs in an **Internal subnet**: check that your subnet routing table and NAT instance is working correctly.
 
 Also check your instance's security group whether it allows outbound traffic.
+
+.. _jq: https://stedolan.github.io/jq/
+.. _logentries: https://logentries.com/
+.. _Scalyr: https://www.scalyr.com/
