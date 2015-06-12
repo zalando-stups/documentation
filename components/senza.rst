@@ -241,7 +241,7 @@ This component supports the following configuration properties:
     Taupage AMI config, see :ref:`taupage` for details.
     At least the properties ``runtime`` ("Docker") and ``source`` (Docker image) are required.
     Usually you will want to specify ``ports`` and ``environment`` too.
-``AssociatePublicIpAddress
+``AssociatePublicIpAddress``
     Whether to associate EC2 instances with a public IP address. This boolean value (true/false) is false by default.
 ``BlockDeviceMappings``
     Spcify additional EBS Devices you want to attach to the nodes. See for Option Map below.
