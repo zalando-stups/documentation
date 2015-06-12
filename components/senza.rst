@@ -73,6 +73,13 @@ Stacks can be deleted when they are no longer used:
 
     $ senza delete myapp.yaml 1
 
+Available Taupage AMIs and all other used AMIs can be listed to check whether old, outdated images are still in-use or if a new Taupage AMI is available:
+
+.. code-block:: bash
+
+    $ senza images
+
+
 .. Tip::
 
     All commands and subcommands can be abbreviated, i.e. the following lines are equivalent:
@@ -267,7 +274,7 @@ This component supports the following configuration properties:
     For example: /dev/xvdk
 ``Ebs``
     Map of EBS Options, see below.
-    
+
 
 ``Ebs`` properties are:
 
