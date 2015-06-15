@@ -39,6 +39,9 @@ configuration format::
    ports:
      80: 80
      443: 443
+     8301: 8301
+     8301/udp: 8301
+     8600: 8600/upd
 
    health_check_port: 80
    health_check_path: /
@@ -147,8 +150,13 @@ ports:
 
 **(optional, default: no ports open)**
 
-A map of all ports that have to be opened from the container. The key is the original port in your container and its
-value is the public server port to open.
+A map of all ports that have to be opened from the container. The key is the public server port to open and its value is the original port in your container. By default only TCP ports are opened. If you want to open UDP ports, you have to specify UDP protocol as a part of value or key:
+
+   ports:
+     8301: 8301  # open 8301 tcp port
+     8301/udp: 8301  # open 8301 udp port
+     8600: 8600/upd  # open 8600 udp port
+
 
 environment:
 ------------
