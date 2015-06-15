@@ -81,6 +81,16 @@ We will assume you have the AWS credentials and region (we use "us-east-1" in th
     The public Taupage AMI (named "Taupage-Public-AMI-*") used in this section is currently only available in US East (N. Virginia) and EU (Ireland),
     i.e. other regions will not work (however, you can create your own private Taupage AMI anywhere).
 
+    You can check the available Taupage AMIs with Senza's "images" command, e.g.:
+
+    .. code-block:: bash
+
+        $ senza images # list available and used Taupage AMIs
+        ID          │Name                              │Owner       │Description                                       │Stacks       │Inst.#│Created
+        ami-989e8ef0 Taupage-Public-AMI-20150512-181649 123456789123 [Copied ami-99412bee from eu-west-1] Taupage-Pub.. hello-world-4      1 34d ago
+        ami-ad8272c6 Taupage-Public-AMI-20150615-111503 123456789123 STUPS' Taupage AMI with Docker runtime                                0 45m ago
+
+
 Let's try out that Senza can call our AWS API:
 
 .. code-block:: bash
