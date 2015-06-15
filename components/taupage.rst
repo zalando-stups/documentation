@@ -150,7 +150,7 @@ ports:
 
 **(optional, default: no ports open)**
 
-A map of all ports that have to be opened from the container. The key is the public server port to open and its value is the original port in your container. By default only TCP ports are opened. If you want to open UDP ports, you have to specify UDP protocol as a part of value or key:
+A map of all ports that have to be opened from the container. The key is the public server port to open and its value is the original port in your container. By default only TCP ports are opened. If you want to open UDP ports, you have to specify UDP protocol as a part of value or key::
 
    ports:
      8301: 8301  # open 8301 tcp port
