@@ -97,6 +97,8 @@ configuration format::
    ssh_ports:
      - 22
 
+   ssh_gateway_ports: no
+
    logentries_account_key: 12345-ACCOUNT-12345-KEY
 
    scalyr_account_key: 12345-ACCOUNTKEY-12234
@@ -308,6 +310,14 @@ ssh_ports:
 
 List of SSH server ports. This option allows using alternative TCP ports for the OpenSSH server.
 This is useful if an application (runtime container) wants to use the default SSH port.
+
+ssh_gateway_ports:
+------------------
+
+**(optional)**
+
+Adds `GatewayPorts` config line to sshd_config which specifies whether remote hosts are allowed to connect to local forwarded ports.
+This is useful with value "yes" for example: `GatewayPorts yes` if reverse tunnel to the Taupage instance is needed.
 
 logentries_account_key:
 -----------------------
