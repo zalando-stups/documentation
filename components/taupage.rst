@@ -286,9 +286,8 @@ Sample mounts configuration::
        erase_on_boot: false
 
 .. WARNING::
-   Volumes without any partitions are initialized, even if **erase_on_boot** is set to False.
+   Volumes that are supposed to be re-used, regardless of the instance lifecycle, should be initialized in some other way out of this scope. If the **erase_on_boot** flag is True it will always be initialized making this options a bit useless.
 
-   Currently this check is done using extended filesystem tools and it was only tested against partitions using ext2, ext3 or ext4.
 
 notify_cfn:
 -----------
