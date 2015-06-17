@@ -286,7 +286,8 @@ Sample mounts configuration::
        erase_on_boot: false
 
 .. WARNING::
-   Volumes that are supposed to be re-used, regardless of the instance lifecycle, should be initialized in some other way out of this scope. If the **erase_on_boot** flag is True it will always be initialized making this options a bit useless.
+   Volumes that are supposed to be re-used (and not follow the instance lifecycle) should be initialized in some other way, for ex., attaching it to another running instance and performing the required steps there only once.
+   If the **erase_on_boot** flag is True it will always be initialized making this options a bit useless.
 
 
 notify_cfn:
