@@ -287,7 +287,7 @@ Sample mounts configuration::
 
 .. WARNING::
    Volumes that are supposed to be re-used (and not follow the instance lifecycle) should be initialized in some other way, for ex., attaching it to another running instance and performing the required steps there only once.
-   If the **erase_on_boot** flag is True it will always be initialized making this options a bit useless.
+   If the **erase_on_boot** flag is True it will always be initialized. Trying to reuse EBS volumes with this flag is a bit useless.
 
 
 notify_cfn:
