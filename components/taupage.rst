@@ -147,6 +147,9 @@ source:
 The source, the configured runtime uses to fetch your deployment artifact. For Docker, this is the Docker image.
 Usually this will point to a Docker image stored in :ref:`pierone`.
 
+.. NOTE::
+   Taupage will use the OAuth2 credentials of the application set in **application_id** to authenticate the download of the (Docker) image.
+
 ports:
 ------
 
