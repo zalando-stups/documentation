@@ -10,3 +10,4 @@ How to install and configure the STUPS platform.
    aws-account-setup
    account-configuration
    taupage-ami-creation
+   service-deployments
