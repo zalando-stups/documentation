@@ -8,7 +8,7 @@ Walkthrough
 
 
 This walkthrough should show all steps for one sample application from birth to death.
-Please see the other sections in the User's Guide for more information about specific topics.
+Please see the other sections in the :ref:`user-guide` for more information about specific topics.
 
 Install STUPS command line tools.
 
@@ -33,13 +33,22 @@ Find out your mint bucket.
 
 .. code-block:: bash
 
-    $ aws s3 # TODO
+    $ aws s3 ls | grep mint
+    2015-06-17 12:14:27 exampleorg-stups-mint-123456789123-eu-west-1
 
-Register your app in Kio, remember your app ID.
+Register your app in Kio by using the YOUR TURN developer console in your browser ("yourturn.stups.example.org").
+Remember your application ID (we use "sample" here).
 
-Configure your app's mint bucket.
+Configure your application's mint bucket (click on the "Access Control" button on your app's page in YOUR TURN).
 
 This will trigger the mint worker to write your app credentials to your mint bucket.
+Wait for the first credentials to appear:
+
+.. code-block:: bash
+
+    $ aws s3 ls s3://exampleorg-stups-mint-123456789123-eu-west-1
+    # there should be a new folder for your application
+
 
 Create a new Senza definition by doing senza init.
 
@@ -47,9 +56,10 @@ Create a new Senza definition by doing senza init.
 
     $ senza init sample.yaml
 
-Enter your app ID and mint bucket.
+Choose the "webapp" template. Enter your application ID "sample" and mint bucket "exampleorg-stups-mint-123456789123-eu-west-1".
 
-Add your Scalyr account key.
+Lookup your Scalyr account key in the Scalyr web UI.
+Add the Scalyr account key into the Senza definition YAML file.
 
 Create your stack.
 
@@ -57,16 +67,17 @@ Create your stack.
 
     $ senza create sample.yaml
 
-Senza will generate CF JSON
-CF stack is created
-ASG launches Taupage instance
-Taupage starts Scalyr agent
-Taupage runs berry to download app credentials
-Taupage pushes Taupage config userdata to fullstop.
-Taupage pulls Docker image from Pier One using the app credentials
-Taupage starts the Docker container
-Taupage signals CFN
-Wait for completion.
+* Senza will generate CF JSON
+* CF stack is created
+* ASG launches Taupage instance
+* Taupage starts Scalyr agent
+* Taupage runs berry to download app credentials
+* Taupage pushes Taupage config userdata to fullstop.
+* Taupage pulls Docker image from Pier One using the app credentials
+* Taupage starts the Docker container
+* Taupage signals CFN
+
+Wait for completion by watching the Senza status output.
 
 .. code-block:: bash
 
