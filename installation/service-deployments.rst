@@ -17,6 +17,21 @@ You will need the STUPS and AWS command line tools in order to install the STUPS
 
     $ sudo pip3 install --upgrade stups awscli
 
+As the service components depend on each other, you will have to deploy them in a certain order:
+
+* the :ref:`oauth2-provider-deploy` is required (at least indirectly) by all other services, so set it up first
+* the :ref:`token-service-deploy` is used by the :ref:`taupage` base AMI
+* the :ref:`team-service-deploy` is used by all services implementing team permissions (e.g. :ref:`even` and :ref:`pierone`)
+* the :ref:`user-service-deploy` is required by the "even" SSH access granting service
+* :ref:`even-deploy` allows SSH access for troubleshooting, so deploy it before the remaining services
+* :ref:`pierone-deploy` is used to store all Docker images, so deploy it next
+* TODO: when to bootstrap "mint" and OAuth2 credentials?
+
+
+
+
+.. _oauth2-provider-deploy:
+
 OAuth2 Provider
 ===============
 
@@ -24,6 +39,8 @@ Setting up the OAuth2 provider is highly vendor specific, please refer to your O
 
 We provide a `mock OAuth2 authorization server`_.
 
+
+.. _token-service-deploy:
 
 Token Service
 =============
@@ -39,6 +56,8 @@ Try out the Token Service with :ref:`zign`:
 .. code-block:: bash
 
     $ zign token
+
+.. _team-service-deploy:
 
 Team Service
 ============
@@ -56,6 +75,8 @@ Try out the Team Service with curl:
     [{..}, ..]
     $ curl -H "Authorization: Bearer $tok" https://team-service.stups.example.org/user/jdoe
     [{..}, ..]
+
+.. _user-service-deploy:
 
 User Service
 ============
