@@ -209,7 +209,28 @@ TODO
 YOUR TURN
 ==========
 
-TODO
+**YOUR TURN** is STUPS' developer console. It is a pure Javascript application including a very small backend. Currently it depends on the following STUPS services:
+
+* Kio
+* Twintip
+* mint
+* essentials
+* Pier One
+* fullstop.
+
+You also need:
+
+* an IAM solution that issues OAuth2 access tokens
+* a team service
+
+(See also the STUPS mocks for these.)
+
+Copy the example Senza definition YAML and change the environment variables accordingly.
+
+.. code-block:: bash
+
+    $ wget -O yourturn.yaml https://raw.githubusercontent.com/zalando-stups/yourturn/master/example-senza.yaml
+    $ vim yourturn.yaml
 
 fullstop.
 =========
