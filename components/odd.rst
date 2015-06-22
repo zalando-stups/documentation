@@ -16,3 +16,8 @@ SSH access granting flow
 ========================
 
 Details about the SSH access granting flow are described on the :ref:`even` page.
+
+Installation
+============
+
+The "odd" bastion host is automatically set up in every STUPS AWS account by :ref:`sevenseconds`.

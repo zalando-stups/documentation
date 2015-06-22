@@ -30,3 +30,8 @@ of granting SSH access to a single odd SSH bastion host.
 #. the forced command on odd adds the user "jdoe" to the system and writes the ``authorized_keys`` file
 #. the user "jdoe" finally logs into the odd host using his personal SSH key
 
+Installation
+============
+
+See the :ref:`STUPS Installation Guide section on even <even-deploy>` for details about deploying the "even" SSH access granting service into your AWS account.
+

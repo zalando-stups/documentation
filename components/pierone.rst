@@ -50,3 +50,9 @@ For example, you can list all your team artifacts:
 
     $ pierone artifacts myteam
 
+
+Installation
+============
+
+See the :ref:`STUPS Installation Guide section on Pier One <pierone-deploy>` for details about deploying Pier One into your AWS account.
+

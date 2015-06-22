@@ -28,3 +28,9 @@ Depending on the criticality of your software, you might need to get certain app
 Kio will delete approvals for a version when you update it.
 
 All those steps can be done in :ref:`fullstop` for humans or via REST APIs.
+
+Installation
+============
+
+See the :ref:`STUPS Installation Guide section on Kio <kio-deploy>` for details about deploying the Kio application registry into your AWS account.
+

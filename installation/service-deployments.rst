@@ -178,6 +178,8 @@ Try pushing a Docker image.
     $ docker push pierone.stups.example.org/myteam/busybox:0.1
 
 
+.. _kio-deploy:
+
 Kio
 ===
 **Kio** is STUPS' application registry.
