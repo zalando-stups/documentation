@@ -105,6 +105,8 @@ configuration format::
    scalyr_account_key: 12345-ACCOUNTKEY-12234
    scalyr_application_log_parser: customParser
 
+   newrelic_license_key: 12345-ACCOUNTKEY-12234
+
    mint_bucket: my-s3-mint-bucket
 
 Provide this configuration as your user-data during launch of your EC2 instance.
@@ -373,6 +375,13 @@ scalyr_application_log_parser
 **(optional)**
 
 If the application.log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
+
+newrelic_license_key
+--------------------
+
+**(optional)**
+
+If you provide the NewRelic license key in the .yaml file, the newrelic-sysmond will be set up.
 
 Runtime environment
 +++++++++++++++++++
