@@ -59,6 +59,7 @@ configuration format::
 
    root: false
    privileged: false
+   readonly: false
 
    volumes:
      ebs:
@@ -222,7 +223,15 @@ privileged:
 **(optional, default: false)**
 
 The container will run with --privileged option.
-See https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-and-lxc-configuration for more detail.
+See https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-and-lxc-configuration for more details.
+
+readonly:
+-----------
+
+**(optional, default: false)**
+
+The container will run with --read-only option.
+Mount the container's root filesystem as read only.
 
 volumes:
 --------
