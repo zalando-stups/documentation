@@ -120,6 +120,19 @@ The ``--watch`` option tells Senza to refresh the display every 2 seconds until 
 
 The "events" command will eventually show ``CREATE_COMPLETE`` for the ``CloudFormation::Stack`` resource if everything went well.
 
+Senza allows printing the EC2 instance console output to help debugging boot problems:
+
+.. code-block:: bash
+
+    $ senza console myapp.yaml 1 # print last 25 lines of console output for every instance
+    $ senza console 172.31.1.2   # print last 25 lines of console output for a single instance
+
+.. Note::
+
+    Please note that the EC2 instance console output is **not a live stream**, i.e. the posted output is not continuously updated;
+    only when it is "likely" to be of the most value. This includes shortly after instance boot, after reboot, and when the instance terminates.
+    See `Getting Console Output and Rebooting Instances`_ in the AWS docs for details.
+
 Read the section :ref:`ssh-access` on how to get shell access to your EC2 instances (if needed).
 
 Routing traffic to your application
@@ -153,3 +166,4 @@ Look up the address of the nameservers in your AWS account (Route 53 -> example.
     $ dig myapp-1.example.org @ns-123.awsdns-55.com
 
 .. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+.. _Getting Console Output and Rebooting Instances: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html

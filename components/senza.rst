@@ -59,6 +59,8 @@ There are a few commands to get more detailed information about stacks:
     $ senza resources myapp.yaml 1 # list all CF resources
     $ senza events myapp.yaml 1    # list all CF events
     $ senza instances myapp.yaml 1 # list EC2 instances and IPs
+    $ senza console myapp.yaml 1   # get EC2 console output for all stack instances
+    $ senza console 172.31.1.2     # get EC2 console output for single instance
 
 Traffic can be routed via Route53 DNS to your new stack:
 
@@ -280,6 +282,7 @@ This component supports the following configuration properties:
 
 ``VolumeSize``
     How Much GB should this EBS have?
+
 Senza::WeightedDnsElasticLoadBalancer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
