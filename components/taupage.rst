@@ -253,6 +253,31 @@ Sample EBS volume configuration::
        /dev/sdf: solr-repeater-volume
        /dev/sdg: backup-volume
 
+
+.. NOTE::
+   You also have to create a **IAM Role** for this. Resource can be "*" or the ARN of the Volume ( arn:aws:ec2:region:account:volume/volume-id ).
+
+
+
+IAM-Role::
+
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Sid": "TaupageVolumeAccess",
+           "Effect": "Allow",
+           "Action": [
+               "ec2:AttachVolume",
+               "ec2:DescribeVolumes"
+           ],
+           "Resource": [
+               "*"
+           ]
+         }
+       ]
+     }
+
 RAID
 ^^^^
 
