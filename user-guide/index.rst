@@ -16,5 +16,6 @@ How to use the STUPS platform.
    access-control
    aws-api
    databases
+   storage
    troubleshooting
    standalone-deployment
