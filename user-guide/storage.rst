@@ -85,3 +85,8 @@ The resulting Senza definition YAML might look like:
               /data:
                 partition: /dev/xvdf
 
+
+.. Note::
+
+    You either need to format the EBS volume manually the first time or use the "erase_on_boot" Taupage option.
+
