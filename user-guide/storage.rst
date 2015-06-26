@@ -57,3 +57,31 @@ Add the needed IAM policy to allow attaching the EBS volume:
     aws iam put-role-policy --role-name "app-hello-world" \
         --policy-name "AllowUsingEBS" --policy-document "file://$PERMISSIONS_POLICY"
 
+Change the Senza definition ("hello-world.yaml") to mount the EBS volume:
+
+* Add "AvailabilityZones: [eu-west-1a]" below "Type: Senza::StupsAutoConfiguration"
+* Add "volumes" and "mounts" below the "TaupageConfig" section
+
+The resulting Senza definition YAML might look like:
+
+.. code-block:: yaml
+
+    SenzaComponents:
+      - Configuration:
+          Type: Senza::StupsAutoConfiguration
+          AvailabilityZones: [eu-west-1a] # use EBS volume's AZ
+
+      - AppServer:
+          Type: Senza::TaupageAutoScalingGroup
+          # ...
+          TaupageConfig:
+            runtime: Docker
+            source: "..."
+            # ...
+            volumes:
+              ebs:
+                /dev/sdf: my-volume
+            mounts:
+              /data:
+                partition: /dev/xvdf
+
