@@ -203,6 +203,12 @@ Example usage:
       - Configuration:
           Type: Senza::StupsAutoConfiguration
 
+This component supports the following configuration properties:
+
+``AvailabilityZones``
+    Optional list of AZ names (e.g. "eu-west-1a") to filter subnets by.
+    This option is relevant for attaching EBS volumes as they are bound to availability zones.
+
 .. _senza-taupage-auto-scaling-group:
 
 Senza::TaupageAutoScalingGroup
