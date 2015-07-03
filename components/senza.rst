@@ -311,6 +311,8 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
     The HTTP port used by the EC2 instances.
 ``HealthCheckPath``
     HTTP path to use for health check (must return 200), e.g. "/health"
+``HealthCheckPort``
+    Optional. Port used for the health check. Defaults to ``HTTPPort``.
 ``SecurityGroups``
     List of security groups to use for the ELB. The security groups must allow SSL traffic.
 ``MainDomain``
