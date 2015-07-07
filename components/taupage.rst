@@ -299,6 +299,7 @@ Sample RAID volume configuration::
 
 .. NOTE::
    EBS volumes are always attached first. This way you can use them in your RAID definitions.
+   But it doesn't necessarily makes sense to use them in a RAID configuration, since AWS already mirrors them internally.
 
    Depending on your instance virtualisation type, the final device names can be slightly different. Please refer to:
 
