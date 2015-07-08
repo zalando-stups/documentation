@@ -107,6 +107,8 @@ configuration format::
 
    newrelic_account_key: 12345-ACCOUNTKEY-12234
 
+   ruxit_account_key: 12345-ACCOUNTKEY-1234
+
    mint_bucket: my-s3-mint-bucket
 
 Provide this configuration as your user-data during launch of your EC2 instance.
@@ -191,14 +193,14 @@ A list of capabilities to drop of the execution (without the CAP_ prefix). See
 http://man7.org/linux/man-pages/man7/capabilities.7.html for available capabilities.
 
 hostname:
------------------
+---------
 
 **(optional)**
 
 TBD, Users can define hostname by themselves
 
 networking:
-------------------
+-----------
 
 **(optional)**
 
@@ -369,7 +371,6 @@ And the Agent will follow these logs:
 
   * /var/log/syslog
   * /var/log/auth.log
-  * /var/log/audit.log
   * /var/log/application.log
 
 You can get your Account Key from the Logentries Webinterface under /Account/Profile
@@ -384,7 +385,6 @@ If you provide the Scalyr AccountKey in the .yaml file, the agent of Scaylr will
 
   * /var/log/syslog
   * /var/log/auth.log
-  * /var/log/audit.log
   * /var/log/application.log
 
 Our integration also provides some attributes you can search on Scalyr:
@@ -408,6 +408,13 @@ newrelic_account_key
 **(optional)**
 
 If you provide the NewRelic license key in the .yaml file, the newrelic-sysmond will be set up.
+
+ruxit_account_key
+-----------------
+
+**(optional)**
+
+If you have an Ruxit Account you can add here your TOKENID for the RuxitAgent.
 
 Runtime environment
 +++++++++++++++++++
