@@ -34,7 +34,7 @@ Find out your mint bucket.
 .. code-block:: bash
 
     $ aws s3 ls | grep mint
-    2015-06-17 12:14:27 exampleorg-stups-mint-123456789123-eu-west-1
+    2015-06-17 12:14:27 mint-example-bucket
 
 Register your app in Kio by using the YOUR TURN developer console in your browser ("yourturn.stups.example.org").
 Remember your application ID (we use "sample" here).
@@ -46,7 +46,7 @@ Wait for the first credentials to appear:
 
 .. code-block:: bash
 
-    $ aws s3 ls s3://exampleorg-stups-mint-123456789123-eu-west-1
+    $ aws s3 ls s3://mint-example-bucket
     # there should be a new folder for your application
 
 
@@ -56,7 +56,7 @@ Create a new Senza definition by doing senza init.
 
     $ senza init sample.yaml
 
-Choose the "webapp" template. Enter your application ID "sample" and mint bucket "exampleorg-stups-mint-123456789123-eu-west-1".
+Choose the "webapp" template. Enter your application ID "sample" and mint bucket "mint-example-bucket".
 
 Lookup your Scalyr account key in the Scalyr web UI.
 Add the Scalyr account key into the Senza definition YAML file.

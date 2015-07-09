@@ -40,7 +40,7 @@ The ``/webapps/myapp/berry.yaml`` file might look like:
 
     ---
     application_id: myapp
-    mint_bucket: example-mint-123456789-eu-central-1
+    mint_bucket: mint-example-bucket
     region: eu-central-1
 
 The ``/etc/aws-creds-by-app`` file might look like:
@@ -66,7 +66,7 @@ An example IAM policy might look like:
                 "Action": [
                     "s3:GetObject"
                 ],
-                "Resource": "arn:aws:s3:::example-mint-123456789-eu-central-1/myapp/*"
+                "Resource": "arn:aws:s3:::mint-example-bucket/myapp/*"
             }
         ]
     }
