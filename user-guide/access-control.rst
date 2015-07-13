@@ -170,7 +170,7 @@ Helpful tooling
 ---------------
 
 Before starting to integrate OAuth 2.0 in your application, you should install :ref:`zign`. Zign is a
-command line tool, that allows you to easily create OAUth 2.0 access tokens for yourself. This is especially
+command line tool, that allows you to easily create OAuth 2.0 access tokens for yourself. This is especially
 helpful for testing resource servers.
 
 .. code-block:: bash
@@ -191,6 +191,20 @@ You can name tokens, so that you can access them repeatedly without authenticati
     $ zign list
     $ zign token -n testing
 
+.. Tip::
+
+    You will probably often want to do HTTP requests with Zign access tokens. It's easier to use `HTTPie`_ with the `Zign HTTPie plugin`_ instead of ``curl``:
+
+    .. code-block:: bash
+
+        $ sudo pip3 install --upgrade httpie-zign
+        $ mkdir -p ~/.httpie && echo '{"default_options": ["--auth-type=zign"]}' > ~/.httpie/config.json
+        $ zign token -n mytok
+        $ http -a mytok: https://example.org/oauth-secured-api
+
+
+.. _HTTPie: https://pypi.python.org/pypi/httpie
+.. _Zign HTTPie plugin: https://pypi.python.org/pypi/httpie-zign
 
 Preparation of global meta data
 -------------------------------
