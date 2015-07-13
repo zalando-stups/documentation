@@ -95,6 +95,11 @@ configuration format::
      stack: pharos
      resource: WebServerGroup
 
+   # configure cloudwatch logs agent (logfile --> log-group mapping)
+   cloudwatch_logs:
+     /var/log/syslog: my-syslog-loggroup
+     /var/log/application.log: my-application-loggroup
+
    ssh_ports:
      - 22
 
@@ -344,6 +349,23 @@ worked or not (else, it will run into a timeout, waiting for notifications to ar
 If you would use the example stack
 http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/example-templates-autoscaling.html
 the resource name would be **WebServerGroup**.
+
+cloudwatch_logs:
+----------------
+
+**(optional)**
+
+Will configure the awslogs agent to stream logfiles to AWS Cloudwatch Logs service. One needs to define a mapping of logfiles to their destination loggroups.
+There will be a stream for each instance in each configured logfile/loggroup.
+
+Documentation for Cloudwatch Logs:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html
+
+Example:
+   cloudwatch_logs:
+     /var/log/application.log: my-application-loggroup
+
+Will configure the awslogs daemon to stream the /var/log/application.log file into the my-application-loggroup.
 
 ssh_ports:
 ----------
