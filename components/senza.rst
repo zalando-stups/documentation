@@ -168,6 +168,7 @@ Available properties for the ``SenzaInfo`` section are:
     Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
 
 .. code-block:: yaml
+
     # basic information for generating and executing this definition
     SenzaInfo:
       StackName: hello-world
