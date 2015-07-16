@@ -167,6 +167,47 @@ Available properties for the ``SenzaInfo`` section are:
 ``Parameters``
     Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
 
+.. code-block:: yaml
+    # basic information for generating and executing this definition
+    SenzaInfo:
+      StackName: hello-world
+      Parameters:
+        - ApplicationId:
+            Description: "Application ID from kio"
+        - ImageVersion:
+            Description: "Docker image version of hello-world."
+        - MintBucket:
+            Description: "Mint bucket for your team"
+    # a list of senza components to apply to the definition
+    SenzaComponents:
+      # this basic configuration is required for the other components
+      - Configuration:
+          Type: Senza::StupsAutoConfiguration # auto-detect network setup
+      # will create a launch configuration and auto scaling group with scaling triggers
+      - AppServer:
+          Type: Senza::TaupageAutoScalingGroup
+          InstanceType: t2.micro
+          SecurityGroups:
+            - app-{{Arguments.ApplicationId}}
+          IamRoles:
+            - app-{{Arguments.ApplicationId}}
+          AssociatePublicIpAddress: false # change for standalone deployment in default VPC
+          TaupageConfig:
+            application_version: "{{Arguments.ImageVersion}}"
+            runtime: Docker
+            source: "stups/hello-world:{{Arguments.ImageVersion}}"
+            mint_bucket: "{{Arguments.MintBucket}}"
+
+.. code-block:: bash
+
+    $ senza create example.yaml 3
+    Usage: __main__.py create [OPTIONS] DEFINITION VERSION [PARAMETER]...
+
+    Error: Missing parameter "ApplicationId"
+    $ senza create example.yaml 3 example latest mint-bucket
+    Generating Cloud Formation template.. OK
+    Creating Cloud Formation stack hello-world-3.. OK
+
 
 Senza Components
 ----------------
