@@ -463,31 +463,6 @@ AMI internals
 
 This section gives you an overview of customization, the Taupage AMI contains on top of the Ubuntu Cloud Images.
 
-Hardening
----------
-
-TODO
-
-* Kernel grsecurity, PAX?
-* Restrictive file permissions (no unused SUID bins etc)
-* Unused users and groups removed
-* Unused daemons disabled
-* Zalando CA preinstalled
-* Weak crypto algorithms disabled (SSH)
-* Unused packages removed
-* No passwords for users
-* iptables preconfigured with only specified ports + ssh open
-* hardened network settings (sysctl)
-* disabled IPv6 (not possible in AWS anyways)
-
-Auditing & Logs
----------------
-
-TODO
-
-* auditd logs all access
-* all logs, including application logs (docker logs) are streamed to central logging service and rotated
-
 Docker application logging
 --------------------------
 
