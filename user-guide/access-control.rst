@@ -267,7 +267,7 @@ Your output should look like the following JSON:
       "access_token": "4b70510f-be1d-4f0f-b4cb-edbca2c79d41"
    }
 
-In you application, you need to get the access token from the HTTP Authorization header. The authorization header should
+In your application, you need to get the access token from the HTTP Authorization header. The authorization header should
 look like the following example:
 
 .. code-block:: text
@@ -282,10 +282,8 @@ the session information. Asking for this information as a resource server alread
 of your two steps: if the token is invalid, you won't get back this information. The second step is now custom logic
 on your site: interpreting the result.
 
-In STUPS, we are using the convention, that every scope also has an associated attribute with the same name. This
-means if you are requesting a "foobar" scope, the tokeninfo will contain an attribute "foobar: true" if the token
-has the permission for foobar. Else the attribute might be false or non-existant. That way, the terms "permission"
-and "scope" are somehow interchangeable.
+In STUPS, we are using the convention, that every requested and granted scope appears in the "scope" array property in
+the tokeninfo response.
 
 Some pseudo code:
 
@@ -307,7 +305,7 @@ Some pseudo code:
 
     // check if the permission is actually true
     tokeninfo = response.body;
-    if (tokeninfo.get("write_access") != true) {
+    if (tokeninfo.get("scope").contains("write_access") != true) {
         throw new UnauthorizedException(403, "you lack the required permission");
     }
 
@@ -318,7 +316,7 @@ Some pseudo code:
 
     // finally, the token is valid, it has the write permission and the resource really
     // belongs to the user, execute request
-    write(resource, requestt);
+    write(resource, request);
 
 
 Implementing a client: Asking resource owners for permission
@@ -401,7 +399,6 @@ You will get back an access token that will result in the following tokeninfo if
       ],
       "grant_type": "password",
       "uid": "my-username",
-      "sales_order.read_all": true,
       "access_token": "4b70510f-be1d-4f0f-b4cb-edbca2c79d41"
    }
 
