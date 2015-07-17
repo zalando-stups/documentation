@@ -171,7 +171,7 @@ Usually this will point to a Docker image stored in :ref:`pierone`.
      Taupage will not try to authenticate the download.
 
 dockercfg:
--------
+----------
 
 **(optional)**
 
@@ -182,7 +182,7 @@ Example:
   dockercfg:
     "https://hub.docker.com":
       auth: <base64 encoded user:password>
-      
+
       email: mail@example.org
 
 ports:

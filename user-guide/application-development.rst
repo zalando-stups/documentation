@@ -18,6 +18,7 @@ Docker
   * `Zalando Ubuntu Docker base image`_
   * `Zalando OpenJDK Docker base image`_
   * `Zalando Python Docker base image`_
+  * `Zalando Node Docker base image`_
 
 * Use Docker environment variables (``-e KEY=val``) for static configuration (e.g. database connection)
 * Log to STDOUT and rely on the host system to do log shipping
@@ -79,3 +80,4 @@ Application logs must not contain any personal and/or sensitive information such
 .. _Zalando Ubuntu Docker base image: https://registry.hub.docker.com/u/zalando/ubuntu/
 .. _Zalando OpenJDK Docker base image: https://registry.hub.docker.com/u/zalando/openjdk/
 .. _Zalando Python Docker base image: https://registry.hub.docker.com/u/zalando/python/
+.. _Zalando Node Docker base image: https://registry.hub.docker.com/u/zalando/node/
