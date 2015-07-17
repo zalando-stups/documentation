@@ -110,6 +110,8 @@ configuration format::
 
    ssh_gateway_ports: no
 
+   etcd_discovery_domain: etcd.myteam.example.org
+
    logentries_account_key: 12345-ACCOUNT-12345-KEY
 
    scalyr_account_key: 12345-ACCOUNTKEY-12234
@@ -407,6 +409,16 @@ ssh_gateway_ports:
 
 Adds `GatewayPorts` config line to sshd_config which specifies whether remote hosts are allowed to connect to local forwarded ports.
 This is useful with value "yes" for example: `GatewayPorts yes` if reverse tunnel to the Taupage instance is needed.
+
+etcd_discovery_domain:
+----------------------
+
+**(optional)**
+
+DNS domain for etcd cluster discovery. Taupage will start a local etcd proxy if the ``etcd_discovery_domain`` is specified.
+The proxy's HTTP endpoint is passed in the ``ETCD_URL`` environment variable to the application, i.e. ``curl $ETCD_URL/v2/keys`` should work.
+You need a running etcd cluster for this option to work.
+
 
 logentries_account_key:
 -----------------------
