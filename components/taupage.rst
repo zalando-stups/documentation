@@ -182,6 +182,7 @@ Example:
   dockercfg:
     "https://hub.docker.com":
       auth: <base64 encoded user:password>
+      
       email: mail@example.org
 
 ports:
