@@ -36,6 +36,11 @@ configuration format::
    runtime: Docker
    source: "pierone.example.org/myteam/nginx:1.0"
 
+   dockercfg:
+     "https://hub.docker.com":
+       auth: foo1234
+       email: mail@example.org
+
    ports:
      80: 80
      443: 443
@@ -158,7 +163,27 @@ The source, the configured runtime uses to fetch your deployment artifact. For D
 Usually this will point to a Docker image stored in :ref:`pierone`.
 
 .. NOTE::
-   Taupage will use the OAuth2 credentials of the application set in **application_id** to authenticate the download of the (Docker) image.
+   If the registry part of source contains 'pierone':
+     Taupage assumes it needs to pull the image from Pierone and uses OAuth2 credentials of the application set in **application_id** to authenticate the download of the (Docker) image. This requires a Mint/Berry setup and Pierone indeed.
+   If there is a dockercfg config key in the taupage.yaml:
+     Taupage uses the credentials from dockercfg to do basic auth against a registry.
+   If there is neither pierone nor dockercfg:
+     Taupage will not try to authenticate the download.
+
+dockercfg:
+-------
+
+**(optional)**
+
+The intended content of ~/.dockercfg on a Taupage instance. This allows to configure authentication for non-Pierone registries which require basic auth.
+The following example shows a configuration for private docker hub protected with basic auth. 'auth' must contain a base64 encoded string in '<user>:<password>' format.
+
+Example:
+  dockercfg:
+    "https://hub.docker.com":
+      auth: <base64 encoded user:password>
+      
+      email: mail@example.org
 
 ports:
 ------
