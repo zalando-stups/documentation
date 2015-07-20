@@ -89,7 +89,7 @@ Test stack.
 
     $ curl -v https://sample-1.myteam.example.org/
 
-Route traffic to your new stack.
+Route 100% traffic to your new stack version 1.
 
 .. code-block:: bash
 
