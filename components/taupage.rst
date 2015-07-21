@@ -119,8 +119,6 @@ configuration format::
 
    newrelic_account_key: 12345-ACCOUNTKEY-12234
 
-   ruxit_account_key: 12345-ACCOUNTKEY-1234
-
    mint_bucket: my-s3-mint-bucket
 
 Provide this configuration as your user-data during launch of your EC2 instance.
@@ -471,13 +469,6 @@ newrelic_account_key
 **(optional)**
 
 If you provide the NewRelic license key in the .yaml file, the newrelic-sysmond will be set up.
-
-ruxit_account_key
------------------
-
-**(optional)**
-
-If you have an Ruxit Account you can add here your TOKENID for the RuxitAgent.
 
 Runtime environment
 +++++++++++++++++++
