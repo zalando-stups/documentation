@@ -56,7 +56,7 @@ All current and historic access requests can be listed on the command line:
 .. code-block:: bash
 
     $ piu list                   # list the most recent requests to my odd host
-    $ piu list -u jdoe -O '*'    # list most recent requests by user "jdoe"
+    $ piu list -U jdoe -O '*'    # list most recent requests by user "jdoe"
     $ piu list -O '*' -s GRANTED # show all active access requests
 
 
