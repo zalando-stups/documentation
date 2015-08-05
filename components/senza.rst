@@ -209,6 +209,26 @@ Available properties for the ``SenzaInfo`` section are:
     Generating Cloud Formation template.. OK
     Creating Cloud Formation stack hello-world-3.. OK
 
+The parameters can also be specified by name, which might come handy in
+complex scenarios with sizeable number of parameters, and also to make the
+command line more easily readable, for example:
+
+.. code-block:: bash
+
+    $ senza create example.yaml 3 example MintBucket=<mint-bucket> ImageVersion=latest
+
+Here, the ``ApplicationId`` is given as a positional parameter, then the two
+other parameters follow specified by their names.  The named parameters on the
+command line can be given in any order, but no positional parameter is allowed
+to follow the named ones.
+
+.. Note::
+
+   The ``name=value`` named parameters are split on first ``=`` which makes it
+   possible to still include a literal ``=`` in the value part.  This also
+   means that if you have to include it in the parameter value, you need to
+   pass this parameter with the name, to prevent ``senza`` from treating the
+   part of the parameter value before the first ``=`` as the parameter name.
 
 Senza Components
 ----------------
