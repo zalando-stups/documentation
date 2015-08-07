@@ -237,7 +237,7 @@ Any parameter may be given a default value using ``DefaultValue`` attribute.
 If a parameter was not specified on the command line (either as positional or
 named one), the default value is used.  It makes sense to always put all
 parameters which have a default value at the bottom of the parameter
-definition list, otherwise one will be forced to specify the all the following
+definition list, otherwise one will be forced to specify all the following
 parameters using a ``name=value`` as there would be no way to map them to
 proper position.
 
