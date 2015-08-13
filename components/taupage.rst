@@ -207,7 +207,7 @@ A map of environment variables to set. Environment variable values starting with
 
 To create a key on kms see `here <http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html>`_.
 After this, `install the kmsclient <https://github.com/zalando/kmsclient>`_ and follow the instructions to encrypt a value using the created key.
-Following this, add the encrypted value to the environment variable in the format "aws:kms:<encryptd_value>"
+Following this, add the encrypted value to the environment variable in the format "aws:kms:<encrypted_value>"
 
 Example::
 
