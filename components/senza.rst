@@ -241,6 +241,20 @@ definition list, otherwise one will be forced to specify all the following
 parameters using a ``name=value`` as there would be no way to map them to
 proper position.
 
+Mappings
+--------
+
+Mappings are essentially key-value pairs and behave exactly as `CloudFormation Mappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html>`_. Use Mappings for ``Images``, ``ServerSubnets`` or ``LoadBalancerSubnets``. An Example:
+
+.. code-block:: yaml
+
+   Mappings:
+      Images:
+         eu-west-1:
+            MyImage: "ami-123123"
+   # (..)
+   Image: MyImage
+
 Senza Components
 ----------------
 
@@ -317,7 +331,7 @@ This component supports the following configuration properties:
 ``IamRoles``
     List of IAM role names to use for the automatically created instance profile.
 ``Image``
-    AMI to use, defaults to ``LatestTaupageImage``.
+    AMI to use, defaults to ``LatestTaupageImage``. If you want to use a different AMI, you have to create a Mapping for it.
 ``ElasticLoadBalancer``
     Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
 ``HealthCheckType``
