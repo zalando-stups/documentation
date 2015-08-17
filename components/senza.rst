@@ -181,7 +181,7 @@ Available properties for the ``SenzaInfo`` section are:
             Description: "Mint bucket for your team"
         - GreetingText:
             Description: "The greeting to be displayed"
-            DefaultValue: "Hello, world!"
+            Default: "Hello, world!"
     # a list of senza components to apply to the definition
     SenzaComponents:
       # this basic configuration is required for the other components
@@ -233,7 +233,7 @@ to follow the named ones.
    pass this parameter with the name, to prevent ``senza`` from treating the
    part of the parameter value before the first ``=`` as the parameter name.
 
-Any parameter may be given a default value using ``DefaultValue`` attribute.
+Any parameter may be given a default value using ``Default`` attribute.
 If a parameter was not specified on the command line (either as positional or
 named one), the default value is used.  It makes sense to always put all
 parameters which have a default value at the bottom of the parameter
