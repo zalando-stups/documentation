@@ -50,6 +50,7 @@ configuration format::
 
    health_check_port: 80
    health_check_path: /
+   health_check_timeout_seconds: 60
 
    environment:
      STAGE: production
@@ -196,6 +197,14 @@ A map of all ports that have to be opened from the container. The key is the pub
      8301: 8301  # open 8301 tcp port
      8301/udp: 8301  # open 8301 udp port
      8600: 8600/upd  # open 8600 udp port
+
+health_check_path:
+------------------
+
+**(optional)**
+
+HTTP path to check for status code 200. Taupage will wait at most ``health_check_timeout_seconds`` (default: 60) until the health check endpoint becomes OK.
+The health check port is using the first port from ``ports`` or can be overwritten with ``health_check_port``.
 
 
 environment:
