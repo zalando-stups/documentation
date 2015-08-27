@@ -289,7 +289,7 @@ The container will run with --read-only option.
 Mount the container's root filesystem as read only.
 
 keep_instance_users:
------------
+--------------------
 
 **(optional, default: false)**
 
