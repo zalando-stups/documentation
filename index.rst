@@ -16,6 +16,7 @@ Contents:
    installation/index
    user-guide/index
    components/index
+   appendix/index
 
 
 Indices and tables
