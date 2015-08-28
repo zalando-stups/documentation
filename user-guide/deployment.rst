@@ -165,5 +165,16 @@ Look up the address of the nameservers in your AWS account (Route 53 -> example.
 
     $ dig myapp-1.example.org @ns-123.awsdns-55.com
 
+ASCIIcast
+=========
+
+View the following asciicast to see how a manual deployment looks like with :ref:`pierone` and :ref:`senza`.
+Use the player's fullscreen mode to get the full terminal width:
+
+.. raw:: html
+
+    <script type="text/javascript" src="https://asciinema.org/a/25668.js" id="asciicast-25668" async></script>
+
+
 .. _AWS CLI docs: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 .. _Getting Console Output and Rebooting Instances: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html

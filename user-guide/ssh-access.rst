@@ -39,6 +39,12 @@ You can overwrite settings on the command line:
     All user actions are logged for auditing reasons, therefore all **SSH sessions must be kept free of
     any sensitive and/or personal information**.
 
+Check the asciicast how using :ref:`piu` looks like:
+
+.. raw:: html
+
+    <script type="text/javascript" src="https://asciinema.org/a/25671.js" id="asciicast-25671" async></script>
+
 SSH Access Revocation
 =====================
 
