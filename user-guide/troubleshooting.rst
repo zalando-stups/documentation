@@ -55,7 +55,7 @@ If your freshly created Senza stack keeps get rolled back by Cloud Formation aft
     # stack and EC2 instance(s) will stay up
 
 .. Tip::
-    Usually you can avoid SSH access and ``--disable--rollback`` by using a logging provider to see the :ref:`taupage` syslog messages.
+    Usually you can avoid SSH access and ``--disable-rollback`` by using a logging provider to see the :ref:`taupage` syslog messages.
     The Taupage AMI supports logentries_ and Scalyr_ as logging providers.
 
 
