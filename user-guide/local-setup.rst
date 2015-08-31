@@ -36,6 +36,12 @@ Mac
 
 You can either use Homebrew or MacPorts to install Python 3.4 on Mac OS X.
 
+Install Python 3 using Homebrew (pip3 already comes with this package)
+
+.. code-block:: bash
+
+    $ brew install python3
+
 OS X users may need to set their locale environment to UTF-8 with::
 
     export LC_ALL=en_US.utf-8
