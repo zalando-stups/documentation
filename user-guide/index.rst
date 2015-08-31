@@ -9,6 +9,7 @@ How to use the STUPS platform.
 .. toctree::
    :maxdepth: 1
 
+   local-setup
    walkthrough
    application-development
    deployment

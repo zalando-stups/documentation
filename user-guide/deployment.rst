@@ -40,6 +40,8 @@ First install Python 3.4 on your PC (Ubuntu 14.04 already has it installed, use 
         export LC_ALL=en_US.utf-8
         export LANG=en_US.utf-8
 
+Please check the section :ref:`local-setup` for details regarding installing necessary packages.
+
 All required STUPS command line tools can be conveniently installed from PyPI using PIP:
 
 .. code-block:: bash
