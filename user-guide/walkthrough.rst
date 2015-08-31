@@ -10,6 +10,8 @@ Walkthrough
 This walkthrough should show all steps for one sample application from birth to death.
 Please see the other sections in the :ref:`user-guide` for more information about specific topics.
 
+Please read :ref:`local-setup` to make sure you installed Python and Docker correctly.
+
 Install STUPS command line tools.
 
 .. code-block:: bash
