@@ -66,6 +66,7 @@ configuration format::
    root: false
    privileged: false
    read_only: false
+   mount_var_log: false
    keep_instance_users: false
 
    volumes:
@@ -287,6 +288,13 @@ read_only:
 
 The container will run with --read-only option.
 Mount the container's root filesystem as read only.
+
+mount_var_log:
+-----------
+
+**(optional, default: false)**
+
+This will mount /var/log into the Docker container as read-only.
 
 keep_instance_users:
 --------------------
