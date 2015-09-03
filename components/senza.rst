@@ -167,6 +167,93 @@ Available properties for the ``SenzaInfo`` section are:
 ``Parameters``
     Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
 
+.. code-block:: yaml
+
+    # basic information for generating and executing this definition
+    SenzaInfo:
+      StackName: hello-world
+      Parameters:
+        - ApplicationId:
+            Description: "Application ID from kio"
+        - ImageVersion:
+            Description: "Docker image version of hello-world."
+        - MintBucket:
+            Description: "Mint bucket for your team"
+        - GreetingText:
+            Description: "The greeting to be displayed"
+            Default: "Hello, world!"
+    # a list of senza components to apply to the definition
+    SenzaComponents:
+      # this basic configuration is required for the other components
+      - Configuration:
+          Type: Senza::StupsAutoConfiguration # auto-detect network setup
+      # will create a launch configuration and auto scaling group with scaling triggers
+      - AppServer:
+          Type: Senza::TaupageAutoScalingGroup
+          InstanceType: t2.micro
+          SecurityGroups:
+            - app-{{Arguments.ApplicationId}}
+          IamRoles:
+            - app-{{Arguments.ApplicationId}}
+          AssociatePublicIpAddress: false # change for standalone deployment in default VPC
+          TaupageConfig:
+            application_version: "{{Arguments.ImageVersion}}"
+            runtime: Docker
+            source: "stups/hello-world:{{Arguments.ImageVersion}}"
+            mint_bucket: "{{Arguments.MintBucket}}"
+
+.. code-block:: bash
+
+    $ senza create example.yaml 3
+    Usage: __main__.py create [OPTIONS] DEFINITION VERSION [PARAMETER]...
+
+    Error: Missing parameter "ApplicationId"
+    $ senza create example.yaml 3 example latest mint-bucket
+    Generating Cloud Formation template.. OK
+    Creating Cloud Formation stack hello-world-3.. OK
+
+The parameters can also be specified by name, which might come handy in
+complex scenarios with sizeable number of parameters, and also to make the
+command line more easily readable, for example:
+
+.. code-block:: bash
+
+    $ senza create example.yaml 3 example MintBucket=<mint-bucket> ImageVersion=latest
+
+Here, the ``ApplicationId`` is given as a positional parameter, then the two
+other parameters follow specified by their names.  The named parameters on the
+command line can be given in any order, but no positional parameter is allowed
+to follow the named ones.
+
+.. Note::
+
+   The ``name=value`` named parameters are split on first ``=`` which makes it
+   possible to still include a literal ``=`` in the value part.  This also
+   means that if you have to include it in the parameter value, you need to
+   pass this parameter with the name, to prevent ``senza`` from treating the
+   part of the parameter value before the first ``=`` as the parameter name.
+
+Any parameter may be given a default value using ``Default`` attribute.
+If a parameter was not specified on the command line (either as positional or
+named one), the default value is used.  It makes sense to always put all
+parameters which have a default value at the bottom of the parameter
+definition list, otherwise one will be forced to specify all the following
+parameters using a ``name=value`` as there would be no way to map them to
+proper position.
+
+Mappings
+--------
+
+Mappings are essentially key-value pairs and behave exactly as `CloudFormation Mappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html>`_. Use Mappings for ``Images``, ``ServerSubnets`` or ``LoadBalancerSubnets``. An Example:
+
+.. code-block:: yaml
+
+   Mappings:
+      Images:
+         eu-west-1:
+            MyImage: "ami-123123"
+   # (..)
+   Image: MyImage
 
 Senza Components
 ----------------
@@ -244,7 +331,7 @@ This component supports the following configuration properties:
 ``IamRoles``
     List of IAM role names to use for the automatically created instance profile.
 ``Image``
-    AMI to use, defaults to ``LatestTaupageImage``.
+    AMI to use, defaults to ``LatestTaupageImage``. If you want to use a different AMI, you have to create a Mapping for it.
 ``ElasticLoadBalancer``
     Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
 ``HealthCheckType``
@@ -311,6 +398,8 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
     The HTTP port used by the EC2 instances.
 ``HealthCheckPath``
     HTTP path to use for health check (must return 200), e.g. "/health"
+``HealthCheckPort``
+    Optional. Port used for the health check. Defaults to ``HTTPPort``.
 ``SecurityGroups``
     List of security groups to use for the ELB. The security groups must allow SSL traffic.
 ``MainDomain``

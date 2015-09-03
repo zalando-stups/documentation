@@ -39,6 +39,12 @@ You can overwrite settings on the command line:
     All user actions are logged for auditing reasons, therefore all **SSH sessions must be kept free of
     any sensitive and/or personal information**.
 
+Check the asciicast how using :ref:`piu` looks like:
+
+.. raw:: html
+
+    <script type="text/javascript" src="https://asciinema.org/a/25671.js" id="asciicast-25671" async></script>
+
 SSH Access Revocation
 =====================
 
@@ -56,7 +62,7 @@ All current and historic access requests can be listed on the command line:
 .. code-block:: bash
 
     $ piu list                   # list the most recent requests to my odd host
-    $ piu list -u jdoe -O '*'    # list most recent requests by user "jdoe"
+    $ piu list -U jdoe -O '*'    # list most recent requests by user "jdoe"
     $ piu list -O '*' -s GRANTED # show all active access requests
 
 

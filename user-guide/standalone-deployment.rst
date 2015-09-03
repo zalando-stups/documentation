@@ -121,7 +121,7 @@ We need to create a new Senza definition YAML file to deploy our "Hello World" a
     HTTP port [8080]:
     HTTP health check path [/]:
     EC2 instance type [t2.micro]:
-    Mint S3 bucket name [example-stups-mint-123456789123-us-east-1]:
+    Mint S3 bucket name [mint-example-bucket]:
     Checking security group app-hello-world.. OK
     Security group app-hello-world does not exist. Do you want Senza to create it now? [Y/n]:
     Checking security group app-hello-world-lb.. OK

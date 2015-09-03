@@ -22,7 +22,9 @@ This endpoint has to return the following JSON discovery document:
     }
 
 * The **schema_url** can be an absolute path or full URL to the schema's definition file. The schema has to be given in
-  JSON.
+  JSON. The TWINTIP crawler will send a valid OAuth2 access token with scope "uid", when requesting the schema url.
+  That means, you can (and should) protect your schema in case it contains sensitive information (which applies to most
+  non-open-source applications).
 * The **schema_type** is the type of definition to expect from the schema_url. Only well supported currently is
   'swagger-2.0'.
 * The **ui_url** is optional and can point to a human-friendly UI with which you can discover the API in more detail,

@@ -47,6 +47,9 @@ You can either use Homebrew or MacPorts to install Python 3.4 on Mac OS X.
 Homebrew
 --------
 
+=======
+You can either use Homebrew or MacPorts to install Python 3.4 on Mac OS X.
+
 Install Python 3 using Homebrew (pip3 already comes with this package)
 
 .. code-block:: bash
@@ -111,6 +114,14 @@ That should do it.
 
 Docker
 ------
+=======
+OS X users may need to set their locale environment to UTF-8 with::
+
+    export LC_ALL=en_US.utf-8
+    export LANG=en_US.utf-8
+
+You can put these two commands in your local shell initialization script, e.g. ``.bashrc``.
+>>>>>>> d554e968f6cf311ff2464bc8a36756105b8a4e86
 
 Install Docker on Mac according to the `Docker on Mac installation instructions`_.
 

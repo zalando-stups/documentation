@@ -170,7 +170,7 @@ Helpful tooling
 ---------------
 
 Before starting to integrate OAuth 2.0 in your application, you should install :ref:`zign`. Zign is a
-command line tool, that allows you to easily create OAUth 2.0 access tokens for yourself. This is especially
+command line tool, that allows you to easily create OAuth 2.0 access tokens for yourself. This is especially
 helpful for testing resource servers.
 
 .. code-block:: bash
@@ -191,6 +191,20 @@ You can name tokens, so that you can access them repeatedly without authenticati
     $ zign list
     $ zign token -n testing
 
+.. Tip::
+
+    You will probably often want to do HTTP requests with Zign access tokens. It's easier to use `HTTPie`_ with the `Zign HTTPie plugin`_ instead of ``curl``:
+
+    .. code-block:: bash
+
+        $ sudo pip3 install --upgrade httpie-zign
+        $ mkdir -p ~/.httpie && echo '{"default_options": ["--auth-type=zign"]}' > ~/.httpie/config.json
+        $ zign token -n mytok
+        $ http -a mytok: https://example.org/oauth-secured-api
+
+
+.. _HTTPie: https://pypi.python.org/pypi/httpie
+.. _Zign HTTPie plugin: https://pypi.python.org/pypi/httpie-zign
 
 Preparation of global meta data
 -------------------------------
@@ -253,7 +267,7 @@ Your output should look like the following JSON:
       "access_token": "4b70510f-be1d-4f0f-b4cb-edbca2c79d41"
    }
 
-In you application, you need to get the access token from the HTTP Authorization header. The authorization header should
+In your application, you need to get the access token from the HTTP Authorization header. The authorization header should
 look like the following example:
 
 .. code-block:: text
@@ -268,10 +282,8 @@ the session information. Asking for this information as a resource server alread
 of your two steps: if the token is invalid, you won't get back this information. The second step is now custom logic
 on your site: interpreting the result.
 
-In STUPS, we are using the convention, that every scope also has an associated attribute with the same name. This
-means if you are requesting a "foobar" scope, the tokeninfo will contain an attribute "foobar: true" if the token
-has the permission for foobar. Else the attribute might be false or non-existant. That way, the terms "permission"
-and "scope" are somehow interchangeable.
+In STUPS, we are using the convention, that every requested and granted scope appears in the "scope" array property in
+the tokeninfo response.
 
 Some pseudo code:
 
@@ -293,7 +305,7 @@ Some pseudo code:
 
     // check if the permission is actually true
     tokeninfo = response.body;
-    if (tokeninfo.get("write_access") != true) {
+    if (tokeninfo.get("scope").contains("write_access") != true) {
         throw new UnauthorizedException(403, "you lack the required permission");
     }
 
@@ -304,7 +316,7 @@ Some pseudo code:
 
     // finally, the token is valid, it has the write permission and the resource really
     // belongs to the user, execute request
-    write(resource, requestt);
+    write(resource, request);
 
 
 Implementing a client: Asking resource owners for permission
@@ -387,7 +399,6 @@ You will get back an access token that will result in the following tokeninfo if
       ],
       "grant_type": "password",
       "uid": "my-username",
-      "sales_order.read_all": true,
       "access_token": "4b70510f-be1d-4f0f-b4cb-edbca2c79d41"
    }
 

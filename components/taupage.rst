@@ -36,6 +36,11 @@ configuration format::
    runtime: Docker
    source: "pierone.example.org/myteam/nginx:1.0"
 
+   dockercfg:
+     "https://hub.docker.com":
+       auth: foo1234
+       email: mail@example.org
+
    ports:
      80: 80
      443: 443
@@ -45,6 +50,7 @@ configuration format::
 
    health_check_port: 80
    health_check_path: /
+   health_check_timeout_seconds: 60
 
    environment:
      STAGE: production
@@ -60,6 +66,8 @@ configuration format::
    root: false
    privileged: false
    read_only: false
+   mount_var_log: false
+   keep_instance_users: false
 
    volumes:
      ebs:
@@ -95,10 +103,17 @@ configuration format::
      stack: pharos
      resource: WebServerGroup
 
+   # configure cloudwatch logs agent (logfile --> log-group mapping)
+   cloudwatch_logs:
+     /var/log/syslog: my-syslog-loggroup
+     /var/log/application.log: my-application-loggroup
+
    ssh_ports:
      - 22
 
    ssh_gateway_ports: no
+
+   etcd_discovery_domain: etcd.myteam.example.org
 
    logentries_account_key: 12345-ACCOUNT-12345-KEY
 
@@ -151,7 +166,27 @@ The source, the configured runtime uses to fetch your deployment artifact. For D
 Usually this will point to a Docker image stored in :ref:`pierone`.
 
 .. NOTE::
-   Taupage will use the OAuth2 credentials of the application set in **application_id** to authenticate the download of the (Docker) image.
+   If the registry part of source contains 'pierone':
+     Taupage assumes it needs to pull the image from Pierone and uses OAuth2 credentials of the application set in **application_id** to authenticate the download of the (Docker) image. This requires a Mint/Berry setup and Pierone indeed.
+   If there is a dockercfg config key in the taupage.yaml:
+     Taupage uses the credentials from dockercfg to do basic auth against a registry.
+   If there is neither pierone nor dockercfg:
+     Taupage will not try to authenticate the download.
+
+dockercfg:
+----------
+
+**(optional)**
+
+The intended content of ~/.dockercfg on a Taupage instance. This allows to configure authentication for non-Pierone registries which require basic auth.
+The following example shows a configuration for private docker hub protected with basic auth. 'auth' must contain a base64 encoded string in '<user>:<password>' format.
+
+Example:
+  dockercfg:
+    "https://hub.docker.com":
+      auth: <base64 encoded user:password>
+
+      email: mail@example.org
 
 ports:
 ------
@@ -165,6 +200,14 @@ A map of all ports that have to be opened from the container. The key is the pub
      8301/udp: 8301  # open 8301 udp port
      8600: 8600/upd  # open 8600 udp port
 
+health_check_path:
+------------------
+
+**(optional)**
+
+HTTP path to check for status code 200. Taupage will wait at most ``health_check_timeout_seconds`` (default: 60) until the health check endpoint becomes OK.
+The health check port is using the first port from ``ports`` or can be overwritten with ``health_check_port``.
+
 
 environment:
 ------------
@@ -173,6 +216,17 @@ environment:
 
 A map of environment variables to set. Environment variable values starting with "aws:kms:" are automatically decrypted by Taupage using KMS (IAM role needs to allow decryption with the used KMS key).
 
+To create a key on kms see `here <http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html>`_.
+After this, `install the kmsclient <https://github.com/zalando/kmsclient>`_ and follow the instructions to encrypt a value using the created key.
+Following this, add the encrypted value to the environment variable in the format "aws:kms:<encrypted_value>"
+
+Example::
+
+    environment:
+      STAGE: production
+      # environment variable values starting with "aws:kms:"
+      # automatically are decrypted by Taupage
+      MY_DB_PASSWORD: "aws:kms:v5V2bMGRgg2yTHXm5Fn..."
 
 capabilities_add:
 -----------------
@@ -191,14 +245,14 @@ A list of capabilities to drop of the execution (without the CAP_ prefix). See
 http://man7.org/linux/man-pages/man7/capabilities.7.html for available capabilities.
 
 hostname:
------------------
+---------
 
 **(optional)**
 
 TBD, Users can define hostname by themselves
 
 networking:
-------------------
+-----------
 
 **(optional)**
 
@@ -234,6 +288,23 @@ read_only:
 
 The container will run with --read-only option.
 Mount the container's root filesystem as read only.
+
+mount_var_log:
+-----------
+
+**(optional, default: false)**
+
+This will mount /var/log into the Docker container as read-only.
+
+keep_instance_users:
+--------------------
+
+**(optional, default: false)**
+
+This option allows you to keep the users on the instance, created by AWS.
+The ubuntu user, it's authorized_keys and the root users authorized_keys will be deleted.
+Access to the instances will be granted via Even&Odd.
+See https://docs.stups.io/en/latest/user-guide/ssh-access.html for more.
 
 volumes:
 --------
@@ -299,6 +370,7 @@ Sample RAID volume configuration::
 
 .. NOTE::
    EBS volumes are always attached first. This way you can use them in your RAID definitions.
+   But it doesn't necessarily makes sense to use them in a RAID configuration, since AWS already mirrors them internally.
 
    Depending on your instance virtualisation type, the final device names can be slightly different. Please refer to:
 
@@ -342,6 +414,23 @@ If you would use the example stack
 http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/example-templates-autoscaling.html
 the resource name would be **WebServerGroup**.
 
+cloudwatch_logs:
+----------------
+
+**(optional)**
+
+Will configure the awslogs agent to stream logfiles to AWS Cloudwatch Logs service. One needs to define a mapping of logfiles to their destination loggroups.
+There will be a stream for each instance in each configured logfile/loggroup.
+
+Documentation for Cloudwatch Logs:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html
+
+Example:
+   cloudwatch_logs:
+     /var/log/application.log: my-application-loggroup
+
+Will configure the awslogs daemon to stream the /var/log/application.log file into the my-application-loggroup.
+
 ssh_ports:
 ----------
 
@@ -358,6 +447,20 @@ ssh_gateway_ports:
 Adds `GatewayPorts` config line to sshd_config which specifies whether remote hosts are allowed to connect to local forwarded ports.
 This is useful with value "yes" for example: `GatewayPorts yes` if reverse tunnel to the Taupage instance is needed.
 
+etcd_discovery_domain:
+----------------------
+
+**(optional)**
+
+DNS domain for `etcd`_ cluster discovery. Taupage will start a local etcd proxy if the ``etcd_discovery_domain`` is specified.
+The proxy's HTTP endpoint is passed in the ``ETCD_URL`` environment variable to the application, i.e. ``curl $ETCD_URL/v2/keys/`` should `list all keys`_.
+You need a running `etcd cluster with DNS registration`_ for this option to work.
+
+.. _etcd: https://coreos.com/etcd/
+.. _list all keys: https://coreos.com/etcd/docs/latest/api.html#listing-a-directory
+.. _etcd cluster with DNS registration: https://github.com/zalando/spilo/tree/master/etcd-cluster-appliance
+
+
 logentries_account_key:
 -----------------------
 
@@ -368,7 +471,6 @@ And the Agent will follow these logs:
 
   * /var/log/syslog
   * /var/log/auth.log
-  * /var/log/audit.log
   * /var/log/application.log
 
 You can get your Account Key from the Logentries Webinterface under /Account/Profile
@@ -383,7 +485,6 @@ If you provide the Scalyr AccountKey in the .yaml file, the agent of Scaylr will
 
   * /var/log/syslog
   * /var/log/auth.log
-  * /var/log/audit.log
   * /var/log/application.log
 
 Our integration also provides some attributes you can search on Scalyr:
@@ -432,31 +533,6 @@ AMI internals
 +++++++++++++
 
 This section gives you an overview of customization, the Taupage AMI contains on top of the Ubuntu Cloud Images.
-
-Hardening
----------
-
-TODO
-
-* Kernel grsecurity, PAX?
-* Restrictive file permissions (no unused SUID bins etc)
-* Unused users and groups removed
-* Unused daemons disabled
-* Zalando CA preinstalled
-* Weak crypto algorithms disabled (SSH)
-* Unused packages removed
-* No passwords for users
-* iptables preconfigured with only specified ports + ssh open
-* hardened network settings (sysctl)
-* disabled IPv6 (not possible in AWS anyways)
-
-Auditing & Logs
----------------
-
-TODO
-
-* auditd logs all access
-* all logs, including application logs (docker logs) are streamed to central logging service and rotated
 
 Docker application logging
 --------------------------
