@@ -48,7 +48,13 @@ All required STUPS command line tools can be conveniently installed from PyPI us
 
     $ sudo pip3 install --upgrade stups
 
-You will need the following information at hand:
+If your STUPS administrator has set up autoconfig, all CLI tools should get configured with a single command:
+
+.. code-block:: bash
+
+    $ stups configure
+
+Otherwise, you will need the following information at hand:
 
 * Pier One Docker registry URL (we will use https://pierone.stups.example.org here)
 * SAML identity provider URL (for federated AWS login with :ref:`Mai`)

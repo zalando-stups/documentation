@@ -12,11 +12,12 @@ Please see the other sections in the :ref:`user-guide` for more information abou
 
 Please read :ref:`local-setup` to make sure you installed Python and Docker correctly.
 
-Install STUPS command line tools.
+Install STUPS command line tools and configure them.
 
 .. code-block:: bash
 
     $ sudo pip3 install --upgrade stups
+    $ stups configure
 
 Build the sample artifact.
 
