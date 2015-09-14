@@ -124,6 +124,12 @@ configuration format::
 
    mint_bucket: my-s3-mint-bucket
 
+   #configure logrotate for application.log
+   application_logrotate_filesize: 10M
+   application_logrotate_period: daily
+   application_logrotate_rotate: 4
+
+
 Provide this configuration as your user-data during launch of your EC2 instance.
 You can use the ``TaupageConfig`` section of :ref:`senza`'s ``TaupageAutoScalingGroup``
 to easily pass Taupage options when deploying with Senza.
@@ -508,6 +514,33 @@ newrelic_account_key
 **(optional)**
 
 If you provide the NewRelic license key in the .yaml file, the newrelic-sysmond will be set up.
+
+application_logrotate_*
+-----------------------
+
+**(optional)**
+
+These are settings how logrotate will rotate your application.log file.
+
+
+    **examples**::
+
+        application_logrotate_filesize: 10M
+        application_logrotate_period: weekly
+        application_logrotate_rotate: 4
+
+    **explanation**:
+
+  * **application_logrotate_filesize**
+     * Log files are rotated when they grow bigger than size bytes, but not before the additionally specified time interval.
+     * **Default: size is not set**
+  * **application_logrotate_period**
+     * the time interval when logs will be rotated, currently only Daily, weekly, monthly is possible.
+     * **Default: weekly**
+  * **application_logrotate_rotate**
+     * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
+     * **Default: 4**
+
 
 Runtime environment
 +++++++++++++++++++
