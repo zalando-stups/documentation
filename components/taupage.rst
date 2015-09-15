@@ -525,8 +525,8 @@ These are settings how logrotate will rotate your application.log file.
 
     **examples**::
 
-        application_logrotate_filesize: 10M
-        application_logrotate_period: weekly
+        application_logrotate_size: 10M
+        application_logrotate_interval: weekly
         application_logrotate_rotate: 4
 
     **explanation**:
