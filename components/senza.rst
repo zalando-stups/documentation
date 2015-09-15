@@ -382,6 +382,8 @@ Senza::WeightedDnsElasticLoadBalancer
 The **WeightedDnsElasticLoadBalancer** component type creates one HTTPs ELB resource with Route 53 weighted domains.
 The SSL certificate name used by the ELB can either be given (``SSLCertificateId``) or is autodetected.
 You can specify the main domain (``MainDomain``) or the default Route53 hosted zone is used for the domain name.
+By default, an internal load balancer is created. This is different from the AWS default behaviour. To create an internet-facing
+ELB, explicitly set the ``Scheme`` to ``internet-facing``.
 
 .. code-block:: yaml
 
@@ -406,6 +408,8 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
     Main domain to use, e.g. "myapp.example.org"
 ``VersionDomain``
     Version domain to use, e.g. "myapp-1.example.org"
+``Scheme``
+    The load balancer scheme. Either ``internal`` or ``internet-facing``. Defaults to ``internal``.
 
 
 
