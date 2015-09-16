@@ -33,5 +33,21 @@ by all other accounts in order to perform this operations.
 
 .. image:: images/fullstop-cross-account-role.png
 
+Command Line Client
+===================
+
+Fullstop comes with a convenience command line client:
+
+.. code-block:: bash
+
+    $ sudo pip3 install --upgrade stups
+    $ zign token -n fullstop
+
+For example, you can list all recent violations across all AWS accounts:
+
+.. code-block:: bash
+
+    $ fullstop violations --since 7d -l 50
+
 .. _cross-account role: http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-walkthrough-crossacct.html
 .. _Fullstop github project: https://github.com/zalando-stups/fullstop
