@@ -125,8 +125,8 @@ configuration format::
    mint_bucket: my-s3-mint-bucket
 
    #configure logrotate for application.log
-   application_logrotate_filesize: 10M
-   application_logrotate_period: daily
+   application_logrotate_size: 10M
+   application_logrotate_interval: daily
    application_logrotate_rotate: 4
 
 
