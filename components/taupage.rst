@@ -476,9 +476,10 @@ logentries_account_key:
 
 **(optional)**
 
-If you specify the Account Key from your logentries account, the Logentries Agent will be registered with your Account.
 .. NOTE::
    You can also use AWS KMS to encrypt your Logentries account key. See in the example above.
+
+If you specify the Account Key from your logentries account, the Logentries Agent will be registered with your Account.
 And the Agent will follow these logs:
 
   * /var/log/syslog
