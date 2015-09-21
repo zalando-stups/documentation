@@ -477,6 +477,8 @@ logentries_account_key:
 **(optional)**
 
 If you specify the Account Key from your logentries account, the Logentries Agent will be registered with your Account.
+.. NOTE::
+   You can also use AWS KMS to encrypt your Logentries account key. See in the example above.
 And the Agent will follow these logs:
 
   * /var/log/syslog
@@ -490,6 +492,9 @@ scalyr_account_key
 ------------------
 
 **(optional)**
+
+.. NOTE::
+   You can also use AWS KMS to encrypt your Scalyr account key. See in the example above.
 
 If you provide the Scalyr AccountKey in the .yaml file, the agent of Scaylr will be installed and will follow these logs:
 
