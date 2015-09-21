@@ -116,8 +116,12 @@ configuration format::
    etcd_discovery_domain: etcd.myteam.example.org
 
    logentries_account_key: 12345-ACCOUNT-12345-KEY
+   # AWS KMS encryption available. Example:
+   logentries_account_key: "aws:kms:v5V2bMGRgg2yTHXm5Fn..."
 
    scalyr_account_key: 12345-ACCOUNTKEY-12234
+   # AWS KMS encryption available. Example:
+   scalyr_account_key: "aws:kms:v5V2bMGRgg2yTHXm5Fn..."
    scalyr_application_log_parser: customParser
 
    newrelic_account_key: 12345-ACCOUNTKEY-12234
