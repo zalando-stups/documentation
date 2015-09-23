@@ -325,6 +325,9 @@ enhanced_cloudwatch_metrics: true:
 
 This option allows you to enable enhanced Cloudwatch metrics, such as memory and disk space, which are out of the box not enabled.
 
+.. NOTE::
+   This requires the AWS IAM policy "cloudwatch:PutMetricData".
+
 volumes:
 --------
 
