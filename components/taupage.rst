@@ -308,14 +308,7 @@ mount_var_log:
 
 This will mount /var/log into the Docker container as read-only.
 
-enhanced_cloudwatch_metrics: true:
---------------------
-
-**(optional, default: false)**
-
-This option allows you to enable enhanced Cloudwatch metrics, such as memory and disk space, which are out of the box not enabled.
-
-enhanced_cloudwatch_metrics: true:
+keep_instance_users: true:
 --------------------
 
 **(optional, default: false)**
@@ -324,6 +317,13 @@ This option allows you to keep the users on the instance, created by AWS.
 The ubuntu user, it's authorized_keys and the root users authorized_keys will be deleted.
 Access to the instances will be granted via Even&Odd.
 See https://docs.stups.io/en/latest/user-guide/ssh-access.html for more.
+
+enhanced_cloudwatch_metrics: true:
+--------------------
+
+**(optional, default: false)**
+
+This option allows you to enable enhanced Cloudwatch metrics, such as memory and disk space, which are out of the box not enabled.
 
 volumes:
 --------
