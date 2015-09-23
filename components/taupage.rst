@@ -68,6 +68,7 @@ configuration format::
    read_only: false
    mount_var_log: false
    keep_instance_users: false
+   enhanced_cloudwatch_metrics: true
 
    volumes:
      ebs:
@@ -132,6 +133,7 @@ configuration format::
    application_logrotate_size: 10M
    application_logrotate_interval: daily
    application_logrotate_rotate: 4
+   
 
 
 Provide this configuration as your user-data during launch of your EC2 instance.
@@ -306,7 +308,14 @@ mount_var_log:
 
 This will mount /var/log into the Docker container as read-only.
 
-keep_instance_users:
+enhanced_cloudwatch_metrics: true:
+--------------------
+
+**(optional, default: false)**
+
+This option allows you to enable enhanced Cloudwatch metrics, such as memory and disk space, which are out of the box not enabled.
+
+enhanced_cloudwatch_metrics: true:
 --------------------
 
 **(optional, default: false)**
