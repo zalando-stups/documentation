@@ -121,7 +121,6 @@ OS X users may need to set their locale environment to UTF-8 with::
     export LANG=en_US.utf-8
 
 You can put these two commands in your local shell initialization script, e.g. ``.bashrc``.
->>>>>>> d554e968f6cf311ff2464bc8a36756105b8a4e86
 
 Install Docker on Mac according to the `Docker on Mac installation instructions`_.
 
