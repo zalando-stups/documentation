@@ -5,7 +5,7 @@ Appliances
 ==========
 
 There are a number of 3rd party appliances available for STUPS.
-Most appliances provide a readily
+Most appliances provide readily usable :ref:`senza` definitions and pre-built Docker images.
 
 ==========  ===========
 Name        Description
