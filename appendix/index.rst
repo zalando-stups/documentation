@@ -11,3 +11,4 @@ Collection of helpful tools and links.
 
    docker-base-images
    oauth-integrations
+   appliances
