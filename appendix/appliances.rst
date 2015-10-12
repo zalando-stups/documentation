@@ -10,6 +10,7 @@ Most appliances provide readily usable :ref:`senza` definitions and pre-built Do
 ==========  ===========
 Name        Description
 ==========  ===========
+Buku_       Kafka appliance
 Cassandra_  Cassandra appliance
 etcd_       etcd cluster appliance
 Exhibitor_  Runs an Exhibitor-managed ZooKeeper cluster using S3 for backups and automatic node discovery.
@@ -17,6 +18,7 @@ Spark_      Spark appliance
 Spilo_      HA PostgreSQL appliance
 ==========  ===========
 
+.. _Buku: https://github.com/zalando/saiki-buku
 .. _Cassandra: https://github.com/zalando/stups-cassandra
 .. _etcd: https://github.com/zalando/stups-etcd-cluster
 .. _Exhibitor: https://github.com/zalando/exhibitor-appliance
