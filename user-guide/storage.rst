@@ -20,7 +20,7 @@ Create an EBS volume with a unique "Name" tag, e.g. "my-volume":
 
 .. code-block:: bash
 
-    $ aws ec2 create-volume --availability-zone eu-west-1 --size 2 # GiB
+    $ aws ec2 create-volume --availability-zone eu-west-1a --size 2 # GiB
     {
         "Size": 2,
         "Encrypted": false,
