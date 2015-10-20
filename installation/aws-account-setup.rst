@@ -25,7 +25,7 @@ The other Team can grant access to this IP's, for example in a Security Group of
    * Communication between teams goes over the **public network**
    * NAT-Instances get **Elastic IP's**
       * every team got 3 Public IP's to communicate to the Internet
-      * Other Teams can use these IP's to grant access to there Instances (mostly **ELB**)
+      * Other Teams can use these IP's to grant access to their Instances (mostly **ELB**)
    * We will setup 2 different types of subnets **DMZ** and **Internal**
    * **Every Team** got the same default Network **172.31.0.0/16**
       * therefore no **VPN-Tunnel** or **VPC-Peering** is possible between teams
