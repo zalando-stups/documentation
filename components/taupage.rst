@@ -318,7 +318,7 @@ The ubuntu user, it's authorized_keys and the root users authorized_keys will be
 Access to the instances will be granted via Even&Odd.
 See https://docs.stups.io/en/latest/user-guide/ssh-access.html for more.
 
-enhanced_cloudwatch_metrics: true:
+enhanced_cloudwatch_metrics: true
 --------------------
 
 **(optional, default: false)**
