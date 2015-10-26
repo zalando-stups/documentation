@@ -67,6 +67,7 @@ configuration format::
    privileged: false
    read_only: false
    mount_var_log: false
+   mount_certs: false
    keep_instance_users: false
    enhanced_cloudwatch_metrics: true
 
@@ -307,6 +308,13 @@ mount_var_log:
 **(optional, default: false)**
 
 This will mount /var/log into the Docker container as read-only.
+
+mount_certs:
+-----------
+
+**(optional, default: false)**
+
+This will mount /etc/ssl/certs into the Docker container as read-only.
 
 keep_instance_users: true:
 --------------------
