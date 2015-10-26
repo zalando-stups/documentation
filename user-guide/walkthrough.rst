@@ -19,7 +19,7 @@ Install STUPS command line tools and configure them.
     $ sudo pip3 install --upgrade stups
     $ stups configure
 
-Build the sample artifact.
+Build the sample artifact using your own Dockerfile.
 
 .. code-block:: bash
 
