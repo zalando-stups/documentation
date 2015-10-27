@@ -57,6 +57,8 @@ Add the needed IAM policy to allow attaching the EBS volume:
     aws iam put-role-policy --role-name "app-hello-world" \
         --policy-name "AllowUsingEBS" --policy-document "file://$PERMISSIONS_POLICY"
 
+A fresh volume needs to be formatted before using it ( [ebs-using-volumes](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html) ). Otherwise you may run into issues like [_You must specify the file type_](https://forums.aws.amazon.com/thread.jspa?messageID=450413).
+
 Change the Senza definition ("hello-world.yaml") to mount the EBS volume:
 
 * Add "AvailabilityZones: [eu-west-1a]" below "Type: Senza::StupsAutoConfiguration"
