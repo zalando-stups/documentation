@@ -9,19 +9,23 @@ CloudWatch Metrics
 
 The most basic monitoring can be achieved by the out-of-the-box `AWS CloudWatch`_ metrics.
 CloudWatch monitoring is automatically enabled for EC2 instances deployed with :ref:`senza`.
+It contains following information:
+* CPU Utilization
+* Network traffic
+* Disk throughput / operations per second - only for ephemeral storage, EBS volumes are not included
 
 Taupage Monitoring Features
 ===========================
 
 The :ref:`taupage` AMI supports a few features for enhanced monitoring:
 
-* Enhanced CloudWatch metrics to monitor memory and diskspace: enable with ``enhanced_cloudwatch_metrics`` property in Taupage config
+* Enhanced CloudWatch metrics to monitor memory and diskspace: enable with ``enhanced_cloudwatch_metrics`` property in Taupage config (this allows monitoring RAM usage and root filesystem on EBS)
 * `Prometheus Node Exporter`_ to export system metrics: the Prometheus Node Exporter is automatically started on every Taupage EC2 instance on port 9100
 
 ZMON
 ====
 
-The `ZMON Zalando monitoring tool`_ can be deployed into each AWS account to allow cross-team monitoring and dashboards.
+The `ZMON Zalando monitoring tool`_ can be deployed into each AWS account to allow cross-team monitoring and dashboards. Make sure that ZMON appliance is allowed by security groups to connect to port 9100 of monitored instances.
 
 
 
