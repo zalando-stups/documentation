@@ -65,6 +65,7 @@ configuration format::
 
    root: false
    privileged: false
+   docker_daemon_access: false
    read_only: false
    mount_var_log: false
    mount_certs: false
@@ -293,6 +294,16 @@ privileged:
 
 The container will run with --privileged option.
 See https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-and-lxc-configuration for more details.
+**Warning: this has serious security implications that you must understand and consider!**
+
+docker_daemon_access:
+-----------
+
+**(optional, default: false)**
+
+Mount the /var/run/docker.sock into the running container. This way, you are able to use and control
+the Docker daemon of the host system. **Warning: this has serious security implications that you must
+understand and consider!**
 
 read_only:
 -----------
