@@ -64,8 +64,17 @@ An example implementation on how to generate the ``scm-source.json`` file with B
     # finally write hand-crafted JSON to scm-source.json
     echo '{"url": "git:'$URL'", "revision": "'$REV'", "author": "'$USER'", "status": "'$STATUS'"}' > scm-source.json
 
-There are plugins for Leiningen_ and Node_ that can automatically generate this file for you.
+There is a simple `scm-source Python command line script`_ available on PyPI_ to make it more convenient:
 
+.. code-block:: bash
+
+    $ sudo pip3 install -U scm-source
+    $ scm-source  # generate scm-source.json in current directory
+
+There are also plugins for Leiningen_ and Node_ that can automatically generate this file for you.
+
+.. _scm-source Python command line script: https://github.com/zalando-stups/python-scm-source
+.. _PyPI: https://pypi.python.org/pypi/scm-source
 .. _Leiningen: https://github.com/zalando-stups/lein-scm-source
 .. _Node: https://github.com/zalando-stups/node-scm-source
 
