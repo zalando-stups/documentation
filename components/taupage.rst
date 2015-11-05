@@ -572,11 +572,11 @@ These are settings how logrotate will rotate your application.log file.
 
     **explanation**:
 
-  * **application_logrotate_filesize**
+  * **application_logrotate_size**
      * Log files are rotated when they grow bigger than size bytes. If size is followed by M, the size if assumed to be in megabytes. If the G suffix is used, the size is in gigabytes. If the k is used, the size is in kilobytes. So size 100, size 100k, and size 100M are all valid.
      * **Default: size is not set**
-  * **application_logrotate_period**
-     * the time interval when logs will be rotated, currently only daily, weekly, monthly, yearly is possible.
+  * **application_logrotate_interval**
+     * the time interval when logs will be rotated: hourly, daily, weekly, monthly, yearly is possible.
      * **Default: weekly**
   * **application_logrotate_rotate**
      * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
