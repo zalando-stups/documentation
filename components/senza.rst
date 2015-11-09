@@ -41,7 +41,7 @@ You can disable the automatic Cloud Formation rollback-on-failure in order to do
 
 .. code-block:: bash
 
-    $ senza create --disable-rollback myerroneous-stack.yaml 1
+    $ senza create --disable-rollback myerroneous-stack.yaml 1 0.1-SNAPSHOT
 
 Stacks can be listed using the ``list`` command:
 
