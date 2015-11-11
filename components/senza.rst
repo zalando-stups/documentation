@@ -407,7 +407,8 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 ``MainDomain``
     Main domain to use, e.g. "myapp.example.org"
 ``VersionDomain``
-    Version domain to use, e.g. "myapp-1.example.org"
+    Version domain to use, e.g. "myapp-1.example.org". You can use the usual templating feature to integrate the stack version, e.g.
+    ``myapp-{{SenzaInfo.StackVersion}}.example.org``.
 ``Scheme``
     The load balancer scheme. Either ``internal`` or ``internet-facing``. Defaults to ``internal``.
 
