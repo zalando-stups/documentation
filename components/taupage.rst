@@ -496,6 +496,9 @@ etcd_discovery_domain:
 DNS domain for `etcd`_ cluster discovery. Taupage will start a local etcd proxy if the ``etcd_discovery_domain`` is specified.
 The proxy's HTTP endpoint is passed in the ``ETCD_URL`` environment variable to the application, i.e. ``curl $ETCD_URL/v2/keys/`` should `list all keys`_.
 You need a running `etcd cluster with DNS registration`_ for this option to work.
+All Nodes wich have the  ``etcd_discovery_domain`` set will be dynamically added and removed to the ``taupage`` key in the etcd service:
+
+   curl $ETCD_URL/v2/keys/taupage
 
 .. _etcd: https://coreos.com/etcd/
 .. _list all keys: https://coreos.com/etcd/docs/latest/api.html#listing-a-directory
