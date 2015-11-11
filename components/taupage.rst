@@ -135,7 +135,7 @@ configuration format::
    application_logrotate_size: 10M
    application_logrotate_interval: daily
    application_logrotate_rotate: 4
-   
+
 
 
 Provide this configuration as your user-data during launch of your EC2 instance.
@@ -498,7 +498,9 @@ The proxy's HTTP endpoint is passed in the ``ETCD_URL`` environment variable to 
 You need a running `etcd cluster with DNS registration`_ for this option to work.
 All Nodes wich have the  ``etcd_discovery_domain`` set will be dynamically added and removed to the ``taupage`` key in the etcd service:
 
-   curl $ETCD_URL/v2/keys/taupage
+.. code-block:: bash
+
+    $ curl $ETCD_URL/v2/keys/taupage
 
 .. _etcd: https://coreos.com/etcd/
 .. _list all keys: https://coreos.com/etcd/docs/latest/api.html#listing-a-directory
