@@ -411,6 +411,9 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
     ``myapp-{{SenzaInfo.StackVersion}}.example.org``.
 ``Scheme``
     The load balancer scheme. Either ``internal`` or ``internet-facing``. Defaults to ``internal``.
+``SSLCertificateId``
+    Name of the uploaded SSL/TLS server certificate to use, e.g. ``myapp-example-org-letsencrypt``.
+    You can check available IAM server certificates with :code:`aws iam list-server-certificates`.
 
 
 
