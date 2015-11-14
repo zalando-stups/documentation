@@ -16,6 +16,7 @@ etcd_       etcd cluster appliance
 Exhibitor_  Runs an Exhibitor-managed ZooKeeper cluster using S3 for backups and automatic node discovery.
 Spark_      Spark appliance
 Spilo_      HA PostgreSQL appliance
+Stups2go_   Go_ Continuous Delivery service
 ==========  ===========
 
 .. _Buku: https://github.com/zalando/saiki-buku
@@ -24,4 +25,6 @@ Spilo_      HA PostgreSQL appliance
 .. _Exhibitor: https://github.com/zalando/exhibitor-appliance
 .. _Spark: https://github.com/zalando/spark-appliance
 .. _Spilo: https://github.com/zalando/spilo
+.. _Stups2go: https://github.com/zalando/stups2go
+.. _Go: http://www.go.cd/
 
