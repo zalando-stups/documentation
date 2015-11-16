@@ -7,7 +7,8 @@ This section will cover the most frequent maintenance tasks you will face when r
 Finding the latest Taupage AMI
 ==============================
 
-You should regularly (at least every month) check your running stacks for Taupage updates. Senza provides the convenience "images" command to see all used and most recent Taupage AMIs in your AWS account.
+You should regularly (at least every month) check your running stacks for :ref:`Taupage` updates.
+:ref:`Senza` provides the convenience ``images`` command to see all used and most recent Taupage AMIs in your AWS account.
 
 .. code-block:: bash
 
@@ -20,11 +21,18 @@ Updating Taupage AMI
 ====================
 
 Senza allows updating launch configurations of running Cloud Formation stacks to use the latest Taupage AMI.
-senza patch mystack 1 --image=latest
-The patch command will not affect any running EC2 instances, but all new instances launched in the respective Auto Scaling Group of mystack will now use the latest Taupage AMI.
 
-The senza respawn-instances command allows performing a rolling update of all EC2 instances in the Auto Scaling Group.
-The command will terminate running instances and thus should only be run on stateless application stacks.
+.. code-block:: bash
+
+    $ senza patch mystack 1 --image=latest
+
+The ``patch`` command will not affect any running EC2 instances, but all new instances launched in the respective Auto Scaling Group of mystack will now use the latest Taupage AMI.
+
+The Senza ``respawn-instances`` command allows performing a rolling update of all EC2 instances in the Auto Scaling Group.
+
+.. caution::
+
+    The ``respawn-instances`` command will **terminate** running instances and thus should only be run on **stateless application stacks**.
 
 .. code-block:: bash
 
@@ -42,21 +50,21 @@ The process of respawn-instances is as follows:
 
 This process allows updating to the latest Taupage AMI without any downtime as long as:
 
-* The application is stateless, i.e. Instances can be terminated without losing data.
+* The application is **stateless**, i.e. EC2 instances can be terminated without losing data.
 * The ELB has connection draining enabled, i.e. instance termination waits for all in-flight requests to complete
 
 Updating Docker Image
 =====================
 
 You can update the launch configuration's user data (Taupage YAML) to use a different Docker image.
-Afterwards you can use the respawn-instances command to apply the change to all instances.
+Afterwards you can use the ``respawn-instances`` command to apply the change to all instances.
 
 Please note that we generally recommend to use the Immutable Stack approach for stateless applications. We consider patching the Docker Image in  launch configurations only for "emergency" hot deploys where every minute counts. Deploying immutable stacks via fully automated Continuous Delivery pipelines is considered best practice.
 
 Redeploying odd
 ================
 
-The odd SSH bastion host is running a standard Taupage image and should be updated regularly. The odd setup differs from usual application deployments as it runs in a public DMZ subnet and uses a public Elastic IP
+The :ref:`odd` SSH bastion host is running a standard Taupage image and should be updated regularly. The odd setup differs from usual application deployments as it runs in a public DMZ subnet and uses a public Elastic IP
 To redeploy the odd SSH bastion host, you have to:
 
 * start a new odd instance with the same launch configuration into one of the DMZ subnets.
