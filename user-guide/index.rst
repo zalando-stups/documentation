@@ -19,5 +19,6 @@ How to use the STUPS platform.
    databases
    storage
    monitoring
+   maintenance
    troubleshooting
    standalone-deployment
