@@ -128,6 +128,14 @@ The ``--watch`` option tells Senza to refresh the display every 2 seconds until 
 
 The "events" command will eventually show ``CREATE_COMPLETE`` for the ``CloudFormation::Stack`` resource if everything went well.
 
+Senza also provides a ``wait`` command to wait for the stack creation to complete successfully:
+
+.. code-block:: bash
+
+    $ senza wait myapp.yaml 1
+
+The ``wait`` command is useful for automated scripts (e.g. in delivery pipelines) to actively wait for the deployment to finish.
+
 Senza allows printing the EC2 instance console output to help debugging boot problems:
 
 .. code-block:: bash
