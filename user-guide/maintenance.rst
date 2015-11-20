@@ -56,7 +56,12 @@ This process allows updating to the latest Taupage AMI without any downtime as l
 Updating Docker Image
 =====================
 
-You can update the launch configuration's user data (Taupage YAML) to use a different Docker image.
+You can update the launch configuration's user data (Taupage YAML) to use a different Docker image:
+
+.. code-block:: bash
+
+    $ senza patch mystack 1 --user-data 'source: pierone.example.org/myteam/myart:1.2'
+
 Afterwards you can use the ``respawn-instances`` command to apply the change to all instances.
 
 Please note that we generally recommend to use the Immutable Stack approach for stateless applications. We consider patching the Docker Image in  launch configurations only for "emergency" hot deploys where every minute counts. Deploying immutable stacks via fully automated Continuous Delivery pipelines is considered best practice.
