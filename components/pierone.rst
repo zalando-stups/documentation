@@ -49,6 +49,13 @@ For example, you can list all your team artifacts:
 .. code-block:: bash
 
     $ pierone artifacts myteam
+    
+You can use the ``latest`` command to see the latest (by creation time) tag for a given artifact:
+
+.. code-block:: bash
+
+    $ pierone latest myteam myapp
+    1.8.5
 
 
 Installation
