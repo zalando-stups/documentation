@@ -11,7 +11,7 @@ How to use the STUPS platform.
 
    local-setup
    walkthrough
-   how-to
+   hello-world
    key-encryption
    application-development
    deployment
