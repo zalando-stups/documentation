@@ -160,13 +160,13 @@ Wait for completion by watching the Senza status output.
 
 .. code-block:: bash
 
-    $ senza status deploy-definition.yaml -w 2
+    $ senza status deploy-definition.yaml -W
 
 or senza events:
 
 .. code-block:: bash
 
-    $ senza events deploy-definition.yaml 1 -w 2
+    $ senza events deploy-definition.yaml 1 -W
 
 .. Important::
 
@@ -190,7 +190,7 @@ Get instance IP:
 
     $ senza instances zalando-cheat-sheet-generator
 
-Let us piu to the Odd bation host:
+Let us piu to the Odd bastion host:
 
 .. code-block:: bash
 
