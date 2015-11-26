@@ -1,0 +1,65 @@
+.. _key-encryption:
+
+==============
+Key Encryption
+==============
+
+Would you like to encrypt your password?
+
+This procedure is the same for all password (DB, log provider, ...) you will encrypt.
+
+* Login into aws console.
+* Open the IAM service.
+* Click on Role and find the name of your application role (normally app-<application-name>)
+* Now go back, or click on the left hand side on encryption keys.
+
+.. Caution::
+
+    Select the right region!!!
+
+* Click on create key
+* Add an alias and a description
+* Next step
+* For key administrator add Shibboleth-PowerUser and remove the key deletion option
+* Next step
+* For key usage permission add Shibboleth-PowerUser and the role name of your app (normally app-<application-name>)
+* Now you are done!
+
+You will see that your key get's an arn (Amazon resource name):
+
+.. code-block:: bash
+
+    arn:aws:kms:eu-west-1:<account-id>:key/<kms-key-id>
+
+Now we can proceed with the encryption of our password:
+
+Let's test if all works:
+
+.. code-block:: bash
+
+    # 1. Encrypt and save the binary content to a file:
+    $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text | base64 -D > /tmp/encrypted
+
+.. code-block:: bash
+
+    # 2. Then feed this encrypted content back to decrypt.  Note that the Plaintext that comes back is base64 encoded so we need to decode this.
+    $ echo "Decrypted is: $(aws kms decrypt --ciphertext-blob fileb:///tmp/encrypted  --output text --query Plaintext | base64 -D)"
+
+If all works we can now repeat the first step without the base64 encryption:
+
+.. code-block:: bash
+
+    $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text
+
+and here is our encrypted pwd.
+
+.. Important::
+
+    You can use the Taupage decription functionality, that allows you to define in senza yaml your property as encrypted.
+    Taupage will then decrypt the password for you and set the unencrypted value on the same property, for your application.
+
+    To do that define the value in the yaml as:
+
+        .. code-block:: bash
+
+            `aws:kms:<here-the-encryption-result>`

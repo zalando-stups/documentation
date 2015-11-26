@@ -11,6 +11,8 @@ How to use the STUPS platform.
 
    local-setup
    walkthrough
+   how-to
+   key-encryption
    application-development
    deployment
    ssh-access

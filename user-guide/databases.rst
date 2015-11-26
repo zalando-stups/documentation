@@ -40,6 +40,7 @@ Assumptions
 * your bastion host's security group permits **outbound traffic on the db port to your internal instances**
   (should already be in place)
 
+.. _dig-a-tunnel:
 
 Dig a tunnel
 ------------
