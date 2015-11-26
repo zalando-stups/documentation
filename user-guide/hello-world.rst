@@ -106,12 +106,6 @@ Wait for the first credentials to appear:
 
 Deploy!
 
-This will configure your system:
-
-.. code-block:: bash
-
-    $ stups configure
-
 List aws account:
 
 .. code-block:: bash
