@@ -79,6 +79,8 @@ You can test your Docker image locally with ``docker run -u 998 ...``.
 Usually all apps (especially JVM-based applications) should be able to run as non-root.
 Sadly most Docker images from the official Docker Hub assume running as root.
 
+It is recommended to grant appropriate (world) permissions to files inside your Docker image if needed.
+Stateless applications usually have no need to write to disk, using the ``read_only: true`` Taupage config option is recommended.
 
 If you really need to run your Docker container as ``root``, you can use the ``root: true`` Taupage config option.
 See the :ref:`Taupage reference <taupage>` for details.
