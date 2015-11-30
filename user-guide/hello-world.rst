@@ -181,7 +181,7 @@ Test stack.
 
 .. Important::
 
-    This will not works! Because of the missing OAUTH2 we have created an internal LB.
+    This will not work! Because of the missing OAUTH2 we have created an internal LB.
     To test it we will need to :ref:`follow the same guide as for a DB connection <dig-a-tunnel>` and than try again.
 
 Get instance IP:
