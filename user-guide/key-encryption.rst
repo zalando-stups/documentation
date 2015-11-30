@@ -4,18 +4,18 @@
 Key Encryption
 ==============
 
-Would you like to encrypt your password?
+Would you like to encrypt your password or other sensitive configurations?
 
-This procedure is the same for all password (DB, log provider, ...) you will encrypt.
+This procedure is the same for all passwords (DB, log provider, ...) you will encrypt.
 
-* Login into aws console.
+* Login into AWS console.
 * Open the IAM service.
 * Click on Role and find the name of your application role (normally app-<application-name>)
 * Now go back, or click on the left hand side on encryption keys.
 
 .. Caution::
 
-    Select the right region!!!
+    Select the right region!
 
 * Click on create key
 * Add an alias and a description
@@ -25,7 +25,7 @@ This procedure is the same for all password (DB, log provider, ...) you will enc
 * For key usage permission add Shibboleth-PowerUser and the role name of your app (normally app-<application-name>)
 * Now you are done!
 
-You will see that your key get's an arn (Amazon resource name):
+You will see that your key get's an ARN (Amazon resource name):
 
 .. code-block:: bash
 
@@ -51,15 +51,15 @@ If all works we can now repeat the first step without the base64 encryption:
 
     $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text
 
-and here is our encrypted pwd.
+and here is our encrypted password.
 
 .. Important::
 
-    You can use the Taupage decription functionality, that allows you to define in senza yaml your property as encrypted.
-    Taupage will then decrypt the password for you and set the unencrypted value on the same property, for your application.
+    You can use the :ref:`taupage` decryption functionality, that allows you to define in :ref:`senza` YAML your property as encrypted.
+    Taupage will then decrypt the password for you and set the unencrypted value on the same property for your application.
 
-    To do that define the value in the yaml as:
+    To do that define the value in the YAML as:
 
-        .. code-block:: bash
+        .. code-block:: yaml
 
-            `aws:kms:<here-the-encryption-result>`
+            my_secret: "aws:kms:<here-the-encryption-result>"

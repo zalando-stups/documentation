@@ -26,16 +26,15 @@ First of all clone this example project:
 .. code-block:: bash
 
     $ git clone git@github.com:zalando-stups/zalando-cheat-sheet-generator.git
+    $ cd zalando-cheat-sheet-generator
 
-Create this new application in yourturn:
+Create this new application using the :ref:`yourturn` web frontend:
 
 .. code-block:: bash
 
     https://yourturn.stups.example.org
 
-Now you will need to create the ``scm-source.json`` file that refer your docker image to a specific git revision number.
-
-Here more information :ref:`scm-source-json`.
+Now you will need to create the :ref:`scm-source-json` file that links your Docker image to a specific git revision number.
 
 .. code-block:: bash
 
@@ -45,10 +44,10 @@ Let's start the application and see if all works:
 
 .. code-block:: bash
 
-    $ python -m http.server 8000
+    $ python3 -m http.server 8000
     http://localhost:8000/index.html?schema=schema/stups.json
 
-Nice! Let's build the docker images:
+Nice! Let's build the Docker images:
 
 Build with the Dockerfile in the repo.
 
@@ -56,7 +55,7 @@ Build with the Dockerfile in the repo.
 
     $ docker build -t pierone.stups.example.org/<your-team>/zalando-cheat-sheet-generator:0.1 .
 
-And now see if is listed locally:
+And now see if it is listed locally:
 
 .. code-block:: bash
 
@@ -69,21 +68,21 @@ Let's also try if the docker images works!
     $ docker run -it pierone.stups.example.org/<your-team>/zalando-cheat-sheet-generator:0.1
     # and test with this url: http://localhost:8000/index.html?schema=schema/stups.json
 
-If all works, we are ready to login in pierone and push it.
+If all works, we are ready to login in :ref:`pierone` and push it.
 
 .. code-block:: bash
 
     $ pierone login
     $ docker push pierone.stups.example.org/<your-team>/zalando-cheat-sheet-generator:0.1
 
-Let's check if we can find it in the pierone repository (login needed if your token expired):
+Let's check if we can find it in the Pier One repository (login needed if your token expired):
 
 .. code-block:: bash
 
     $ pierone login
     $ pierone tags <your-team> zalando-cheat-sheet-generator
 
-Now let's create the version in yourturn for the application created:
+Now let's create the version in YOUR TURN for the application created:
 
 .. code-block:: bash
 
@@ -101,19 +100,19 @@ Wait for the first credentials to appear:
 
 Deploy!
 
-List aws account:
+List AWS account:
 
 .. code-block:: bash
 
     $ mai list
 
-Login via console to your aws account:
+Login via console to your AWS account:
 
 .. code-block:: bash
 
     $ mai login <account-name>
 
-Create a senza definition file for that:
+Create a :ref:`senza` definition file for that:
 
 .. code-block:: bash
 
@@ -128,14 +127,14 @@ Create a senza definition file for that:
 * Use the default mint bucket
 
 .. Caution::
-    Take the internal LB! We have no OAUTH2 configured!!!
+    Take the internal LB! We have no OAUTH2 configured!
 
 * and let senza create the security group and IAM role for us.
 
 After this, you can also add a log provider or other configuration,
 if you like to encrypt your password check this :ref:`guide <key-encryption>`.
 
-Create your stack.
+Create your Cloud Formation stack.
 
 .. code-block:: bash
 
@@ -185,7 +184,7 @@ Get instance IP:
 
     $ senza instances zalando-cheat-sheet-generator
 
-Let us piu to the Odd bastion host:
+Let us :ref:`piu` to the :ref:`odd` bastion host:
 
 .. code-block:: bash
 
