@@ -334,6 +334,7 @@ This component supports the following configuration properties:
     AMI to use, defaults to ``LatestTaupageImage``. If you want to use a different AMI, you have to create a Mapping for it.
 ``ElasticLoadBalancer``
     Name of the ELB resource. Specifying the ELB resource will automatically use the `"ELB" health check type for the auto scaling group`_.
+    This property also allows attaching multiple load balancers to the Auto Scaling Group by using a list instead of string, e.g. ``ElasticLoadBalancer: [LB1, LB2]``.
 ``HealthCheckType``
     How the auto scaling group should perform instance health checks. Value can be either "EC2" or "ELB".
     Default is "ELB" if ``ElasticLoadBalancer`` is set and "EC2" otherwise.
