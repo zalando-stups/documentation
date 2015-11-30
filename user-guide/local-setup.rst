@@ -9,7 +9,7 @@ This section describes how to set up your local machine to use the STUPS tools.
 In general you will need:
 
 * Python 3.4
-* Docker 1.7+
+* Docker 1.9+
 
 Linux
 =====
@@ -108,7 +108,7 @@ Nearly there. Now set the correct path since MacPorts does not install python3 u
     ''
     $ export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH
     $which python3
-    /opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/python3 
+    /opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/python3
 
 That should do it.
 
