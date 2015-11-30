@@ -6,14 +6,9 @@ Hello world
 
     Please read :ref:`local-setup` to make sure you installed Python and Docker correctly.
 
-    Some hints:
-
-    .. code-block:: bash
-
-        * docker - 1.9
-        * python 3 (export LC_ALL=en_US.utf-8 export LANG=en_US.utf-8)
-        * sudo pip3 install -U stups -> will install all stups cli tools
-            * this will not include zmon ( sudo pip3 install --upgrade zmon-cli )
+    * Docker needs to be version 1.9 or higher
+    * Python 3.4 or higher including pip is required
+    * Make sure your console environment is UTF-8 (``export LC_ALL=en_US.utf-8; export LANG=en_US.utf-8``)
 
 
 This guide should show all steps for one sample application from birth to death.
