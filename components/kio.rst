@@ -29,6 +29,29 @@ Kio will delete approvals for a version when you update it.
 
 All those steps can be done in :ref:`fullstop` for humans or via REST APIs.
 
+Command Line Client
+===================
+
+Kio comes with a convenience command line client:
+
+.. code-block:: bash
+
+    $ sudo pip3 install --upgrade stups
+    $ stups configure # will configure Kio URL too
+
+For example, you can list all your app versions:
+
+.. code-block:: bash
+
+    $ kio ver li myapp
+
+You can also create and approve new application versions:
+
+.. code-block:: bash
+
+    $ kio ver create myapp 1.0 docker://pierone.example.org/myteam/myapp:1.0
+    $ kio ver approve myapp 1.0
+
 Installation
 ============
 
