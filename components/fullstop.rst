@@ -47,7 +47,7 @@ For example, you can list all recent violations across all AWS accounts:
 
 .. code-block:: bash
 
-    $ fullstop violations --since 7d -l 50
+    $ fullstop list-violations --since 7d -l 50
 
 .. _cross-account role: http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-walkthrough-crossacct.html
 .. _Fullstop github project: https://github.com/zalando-stups/fullstop
