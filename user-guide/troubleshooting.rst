@@ -98,6 +98,13 @@ If you get a "Permission denied (publickey)" error, check that your local SSH ke
     $ ssh-add -l
     # this should list your private key(s) (e.g. id_rsa)
 
+You might also try to login to the final EC2 instance using the "root" user as Taupage falls back to "root" in case of disk full:
+
+.. code-block:: bash
+
+    $ ssh -A jdoe@odd-..
+    $ ssh root@172.31..
+
 
 How to read Docker logs on EC2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
