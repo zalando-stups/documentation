@@ -38,5 +38,5 @@ ZMON allows parsing the Prometheus metrics using the the `"http().prometheus()" 
 .. _AWS CloudWatch: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html
 .. _Prometheus Node Exporter: https://github.com/prometheus/node_exporter
 .. _ZMON Zalando monitoring tool: https://github.com/zalando/zmon
-.. _"cloudwatch()" check command: http://zmon.readthedocs.org/en/latest/check-commands.html#cloudwatch
-.. _"http().prometheus()" check command: http://zmon.readthedocs.org/en/latest/check-commands.html#prometheus
+.. _"cloudwatch()" check command: http://zmon.readthedocs.org/en/latest/user/check-commands.html#cloudwatch
+.. _"http().prometheus()" check command: http://zmon.readthedocs.org/en/latest/user/check-commands.html#prometheus
