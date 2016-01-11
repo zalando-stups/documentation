@@ -25,7 +25,7 @@ First of all clone this example project:
 
 .. code-block:: bash
 
-    $ git clone git@github.com:zalando-stups/zalando-cheat-sheet-generator.git
+    $ git clone https://github.com/zalando-stups/zalando-cheat-sheet-generator.git
     $ cd zalando-cheat-sheet-generator
 
 Create this new application using the :ref:`yourturn` web frontend:
