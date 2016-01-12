@@ -415,6 +415,8 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 ``SSLCertificateId``
     Name of the uploaded SSL/TLS server certificate to use, e.g. ``myapp-example-org-letsencrypt``.
     You can check available IAM server certificates with :code:`aws iam list-server-certificates`.
+    
+Additionally, you can specify any of the `valid AWS Cloud Formation ELB properties`_ (e.g. to overwrite ``Listeners``).
 
 
 
@@ -422,3 +424,4 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 .. _tab-separated values (TSV): https://en.wikipedia.org/wiki/Tab-separated_values
 .. _jq: https://stedolan.github.io/jq/
 .. _"ELB" health check type for the auto scaling group: http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html
+.. _valid AWS Cloud Formation ELB properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
