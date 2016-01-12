@@ -65,7 +65,7 @@ Let's also try if the docker images works!
 
 .. code-block:: bash
 
-    $ docker run -it pierone.stups.example.org/<your-team>/zalando-cheat-sheet-generator:0.1
+    $ docker run -p 8000:8000 -it pierone.stups.example.org/<your-team>/zalando-cheat-sheet-generator:0.1
     # and test with this url: http://localhost:8000/index.html?schema=schema/stups.json
 
 If all works, we are ready to login in :ref:`pierone` and push it.
@@ -98,6 +98,13 @@ Wait for the first credentials to appear:
     $ aws s3 ls s3://mint-example-bucket
     # there should be a new folder for your application
 
+Note for linux: please don't install awscli using apt-get.  use
+
+.. code-block:: bash
+    sudo pip3 install --upgrade awscli
+
+instead.
+
 Deploy!
 
 List AWS account:
@@ -112,11 +119,11 @@ Login via console to your AWS account:
 
     $ mai login <account-name>
 
-Create a :ref:`senza` definition file for that:
+Create a :ref:`senza` definition file for that (using the region you are on):
 
 .. code-block:: bash
 
-    $ senza init deploy-definition.yaml
+    $ senza init --region eu-west-1 deploy-definition.yaml
 
 * Choose the "webapp" template.
 * Enter the application ID "zalando-cheat-sheet-generator"
@@ -129,8 +136,21 @@ Create a :ref:`senza` definition file for that:
 .. Caution::
     Take the internal LB! We have no OAUTH2 configured!
 
-* and let senza create the security group and IAM role for us.
+* and let senza create the security groups and IAM role for us.
 
+Note: if you don't want to specify the region with every senza call, run
+
+.. code-block:: bash
+    aws configure
+
+or add
+
+.. code-block::
+    [default]
+    region=eu-west-1
+
+to ~/.aws/config
+ 
 After this, you can also add a log provider or other configuration,
 if you like to encrypt your password check this :ref:`guide <key-encryption>`.
 
@@ -178,7 +198,7 @@ Test stack.
     This will not work! Because of the missing OAUTH2 we have created an internal LB.
     To test it we will need to :ref:`follow the same guide as for a DB connection <dig-a-tunnel>` and than try again.
 
-Get instance IP:
+Get instance IP and use it in the ssh call below:
 
 .. code-block:: bash
 
