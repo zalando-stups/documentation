@@ -135,6 +135,8 @@ configuration format::
    application_logrotate_size: 10M
    application_logrotate_interval: daily
    application_logrotate_rotate: 4
+   
+   rsyslog_max_message_size: 4K
 
 
 
@@ -587,6 +589,13 @@ These are settings how logrotate will rotate your application.log file.
      * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
      * **Default: 4**
 
+rsyslog_max_message_size
+--------------------
+
+**(optional)**
+
+You can set a custom value for the maximum size of syslog.
+You can find more about it here: http://www.rsyslog.com/doc/v8-stable/configuration/global/index.html
 
 Runtime environment
 +++++++++++++++++++
