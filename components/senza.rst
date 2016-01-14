@@ -62,6 +62,15 @@ There are a few commands to get more detailed information about stacks:
     $ senza console myapp.yaml 1   # get EC2 console output for all stack instances
     $ senza console 172.31.1.2     # get EC2 console output for single instance
 
+Most commands take so-called `STACK_REF` arguments, you can either use an existing Senza definition YAML file (as shown above)
+or use the stack's name and version:
+
+.. code-block:: bash
+
+    $ senza inst            # all instances, no STACK_REF argument given
+    $ senza inst mystack    # list instances for all versions of "mystack"
+    $ senza inst mystack 1  # only list instances for "mystack" version "1"
+
 Traffic can be routed via Route53 DNS to your new stack:
 
 .. code-block:: bash
@@ -74,6 +83,7 @@ Stacks can be deleted when they are no longer used:
 .. code-block:: bash
 
     $ senza delete myapp.yaml 1
+    $ senza del mystack          # shortcut: delete the only version of "mystack"
 
 Available Taupage AMIs and all other used AMIs can be listed to check whether old, outdated images are still in-use or if a new Taupage AMI is available:
 
@@ -415,7 +425,7 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 ``SSLCertificateId``
     Name of the uploaded SSL/TLS server certificate to use, e.g. ``myapp-example-org-letsencrypt``.
     You can check available IAM server certificates with :code:`aws iam list-server-certificates`.
-    
+
 Additionally, you can specify any of the `valid AWS Cloud Formation ELB properties`_ (e.g. to overwrite ``Listeners``).
 
 
