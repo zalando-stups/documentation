@@ -114,7 +114,7 @@ After getting :ref:`ssh-access` to your EC2 instance (running the Taupage AMI), 
 
 .. code-block:: bash
 
-    $ grep docker /var/log/syslog
+    $ less -n /var/log/application.log
 
 
 No internet connection (connection timeouts) on EC2 instance
