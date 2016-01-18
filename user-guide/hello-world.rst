@@ -101,6 +101,7 @@ Wait for the first credentials to appear:
 Note for linux: please don't install awscli using apt-get.  use
 
 .. code-block:: bash
+
     sudo pip3 install --upgrade awscli
 
 instead.
@@ -141,11 +142,13 @@ Create a :ref:`senza` definition file for that (using the region you are on):
 Note: if you don't want to specify the region with every senza call, run
 
 .. code-block:: bash
+
     aws configure
 
 or add
 
 .. code-block::
+
     [default]
     region=eu-west-1
 
