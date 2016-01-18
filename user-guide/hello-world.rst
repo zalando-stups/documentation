@@ -147,13 +147,13 @@ Note: if you don't want to specify the region with every senza call, run
 
 or add
 
-.. code-block::
+.. code-block:: bash
 
     [default]
     region=eu-west-1
 
 to ~/.aws/config
- 
+
 After this, you can also add a log provider or other configuration,
 if you like to encrypt your password check this :ref:`guide <key-encryption>`.
 
