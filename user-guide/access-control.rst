@@ -26,7 +26,7 @@ Resource Owner
 The resource owner is typically a human (but doesn't have to be) that owns a resource (data). The resource owner should
 be the only one, who can grant access to his resources.
 
-A typical resource owner is a customer, who is owner of his orders in a shop. Only he should decide, who can access his
+A typical resource owner is a customer, who is the owner of his orders in a shop. Only he should decide, who can access his
 order information. Another example is an employee who owns his salary information.
 
 A resource owner is everything, that can authenticate with the authorization server. This can include other services
@@ -37,7 +37,7 @@ Resource Server
 
 A resource server is a service, that stores data of resource owners and has to protect them. It is typically a REST CRUD
 API, that provides access to certain information. The resource server will deny every access to a resource as long as it
-does not get a valid proof, that the resource owner allows the access. Resource server mostly don't have much logic
+does not get a valid proof, that the resource owner allows the access. Resource server mostly doesn't have much logic
 besides validation.
 
 Client
@@ -46,8 +46,8 @@ Client
 A client is a tool or service, that a resource owner wants to use to read or modify his resources. In order to get
 access to the resource owner's resource, the client can ask the resource owner for his consent. If the resource owner
 gives his consent, the client will get a proof that it can forward to the resource server in order to access the
-resource. Clients contain some business logic which requires access to resources. They should themself not require
-any permission checks.
+resource. Clients contain some business logic which requires access to resources. They should not require
+any permission checks themselves.
 
 Authorization Server
 --------------------
@@ -73,7 +73,7 @@ customer.
    the "save in my wishlist" button.
 #. The shoe search application will now redirect the customer to the customer's authorization server with the
    information to which page to come back if the customer authorized the action. The shoe search application also
-   transmits which scopes it needs. Think of scopes as "permission to access a certain set of a resource's data" - in this case it transmits the "whishlist.write" scope.
+   transmits which scopes it needs. Think of scopes as "permission to access a certain set of a resources' data" - in this case it transmits the "whishlist.write" scope.
 #. The customer will land on the login screen of his authorization server, put in her password and agree, that the
    shoe search application can have the "wishlist.write" scope. After agreeing, the authorization server will
    redirect the customer back to the previously submitted page of the shoe search application, including a proof,
@@ -91,7 +91,7 @@ Actually, your application can fulfill every role. It can be a resource server, 
 It is also not unlikely, that your application fulfills multiple roles at once. For example, for service-to-service
 authorization, where no human can be involved, your application will be resource owner and client at once in order
 to create access tokens for itself. You should always try to be a client only and only work with delegated
-permissions as that frees you have doing authorization of any kind on your own or handling credentials.
+permissions as that frees you from doing authorization of any kind on your own or handling credentials.
 
 --------------
 STUPS concepts
@@ -156,7 +156,7 @@ Application integration
 
 The following sections will give you a detailed technical introduction of how to implement the important OAuth 2.0
 roles with your application. You either implement a resource server or a client, depending on what you want to
-do. Those roles are strictly separated in their part the play in access control. This does not necessarily mean,
+do. Those roles are strictly separated by the part they play in access control. This does not necessarily mean,
 that your application itself only implements one role. Depending on your use cases, some flows require your
 application to be a client, some require it to act as a resource server.
 
@@ -332,8 +332,8 @@ are a synonym for flows):
     :ref:`mint`, you will also get these client credentials in the "client.json".
 `Implicit Grant`_
     This grant type is meant for situations, where you are not in control of the client's environment and it is
-    de facto untrusted. This is primarily the case for JavaScript only web apps or mobile applications. In both cases
-    does the client code reside on a foreign device. Therefor the client code and configuration is not secret.
+    de facto untrusted. This is primarily the case for JavaScript only web apps or mobile applications. In both cases 
+    the client code resides on a foreign device. Therefore the client code and configuration is not secret.
     This grant type should only be used in those two cases. Try to use the Authorization Code Grant whenever
     possible. As the configuration cannot be considered secure, your client will also only require a client ID
     and not a client secret.
@@ -363,11 +363,11 @@ Implementing a client: Using own permissions
 STUPS support service-to-service authorization via OAuth 2.0. This is useful in batch jobs, where you do not
 have the possibility to ask the resource owner for permission to access his data. This means, that your application
 itself has to somehow authenticate itself, so that a resource server can grant access. For this, :ref:`mint` will
-automatically create service users for you. These service users have an own identity and also an own username and
+automatically create service users for you. These service users have their own identity and also username and
 password that you can read in your "user.json". You can assign this user permissions via :ref:`yourturn`. A
 typical permission would look like "sales_order.read_all".
 
-Via the previously mentioned "password grant" can you now create access tokens for yourself with your own
+Via the previously mentioned "password grant" you can now create access tokens for yourself with your own
 credentials and permissions. Instead of complex redirect flows like with humans, it is very simple to create a
 token if you have the password of the resource owner (yourself in this case):
 
@@ -402,7 +402,7 @@ You will get back an access token that will result in the following tokeninfo if
       "access_token": "4b70510f-be1d-4f0f-b4cb-edbca2c79d41"
    }
 
-That way, you can create access token for your own service user and access other applications with it. If you
-look carefully at the request JSON, you will see, that you also provide the scopes, that should actually be in
+This way, you can create access token for your own service user and access other applications with it. If you
+look carefully at the request JSON, you will see that you also provide the scopes, that should actually be in
 the token. That way, you can create tokens with the minimal set of permissions that you delegate. It is a good
 practice to create custom tokens per use case, so that you never expose more permissions than are actually required.
