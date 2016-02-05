@@ -59,15 +59,17 @@ You can use the ``latest`` command to see the latest (by creation time) tag for 
 
 
 How to configure
-================
+----------------
 
-* Linux:
+The command line client uses the OS' default configuration location.
+
+Linux:
 
 .. code-block:: bash
 
     $ cat ~/.config/pierone.yaml
 
-* Mac:
+Mac:
 
 .. code-block:: bash
 
