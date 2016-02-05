@@ -23,3 +23,18 @@ How to use
 ==========
 
 See the section :ref:`ssh-access` on how to get SSH access to EC2 instances with Più.
+
+How to configure
+================
+
+* Linux:
+
+.. code-block:: bash
+
+    $ cat ~/.config/piu.yaml
+
+* Mac:
+
+.. code-block:: bash
+
+    $ cat ~/Library/Application\ Support/piu/piu.yaml

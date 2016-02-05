@@ -49,7 +49,7 @@ For example, you can list all your team artifacts:
 .. code-block:: bash
 
     $ pierone artifacts myteam
-    
+
 You can use the ``latest`` command to see the latest (by creation time) tag for a given artifact:
 
 .. code-block:: bash
@@ -58,8 +58,23 @@ You can use the ``latest`` command to see the latest (by creation time) tag for 
     1.8.5
 
 
+How to configure
+================
+
+* Linux:
+
+.. code-block:: bash
+
+    $ cat ~/.config/pierone.yaml
+
+* Mac:
+
+.. code-block:: bash
+
+    $ cat ~/Library/Application\ Support/pierone/pierone.yaml
+
+
 Installation
 ============
 
 See the :ref:`STUPS Installation Guide section on Pier One <pierone-deploy>` for details about deploying Pier One into your AWS account.
-
