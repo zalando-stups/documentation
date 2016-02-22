@@ -361,18 +361,34 @@ This component supports the following configuration properties:
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
+**AutoScaling**
+
 ``AutoScaling`` properties are:
 
 ``Minimum``
     Minimum number of instances to spawn.
 ``Maximum``
     Maximum number of instances to spawn.
+``SuccessRequires``:
+    During startup of the stack, define when your ASG is considered healthy by CloudFormation. Defaults to one healthy instance within 15 minutes. To change it to 4 healthy instances within 1 hour, 20 minutes and 30 seconds pass "4 within 1h20m30s" (you can omit hours/minutes/seconds as you please). Values that look like integers will be used as healthy instance count, e.g. "2" would be interpreted as 2 healthy instances within the default timeout of 15 minutes.
 ``MetricType``
-    Metric to do auto scaling on, only supported value is ``CPU``
+    Metric to do auto scaling on, must either be ``CPU``, ``NetworkIn`` or ``NetworkOut``.
 ``ScaleUpThreshold``
-    On which value of the metric to scale up. For the "CPU" metric: a value of 70 would mean 70% CPU usage.
+    On which value of the metric to scale up. For the "CPU" metric: a value of 70 would mean 70% CPU usage. For network metrics a value of 100 would mean 100 bytes, but you can pass the unit (KB/GB/TB), e.g. "100 GB".
 ``ScaleDownThreshold``
-    On which value of the metric to scale down. For the "CPU" metric: a value of 40 would mean 40% CPU usage.
+    On which value of the metric to scale down. For the "CPU" metric: a value of 40 would mean 40% CPU usage. For network metrics a value of 2 would mean 2 bytes, but you can pass the unit (KB/GB/TB), e.g. "2 GB".
+``ScalingAdjustment``
+    How many instances are added/removed per scaling action. Defaults to 1.
+``Cooldown``:
+    After a scaling action occured, do not scale again for this amount of time in seconds. Defaults to 60 (one minute).
+``Statistic``
+    Which statistic to track in order to decide when scaling thresholds are met. Defaults to "Average", can also be "SampleCount", "Sum", "Minimum", "Maximum".
+``Period``
+    Period over which statistic is calculated (in seconds), defaults to 300 (five minutes).
+``EvaluationPeriods``
+    The number of periods over which data is compared to the specified threshold. Defaults to 2.
+
+**BlockDeviceMappings**
 
 ``BlockDeviceMappings`` properties are:
 
