@@ -17,7 +17,7 @@ Pier One is fully Docker compliant. You can push Docker images using the normal 
 .. code-block:: bash
 
     $ sudo pip3 install --upgrade stups-pierone
-    $ pierone login # configures ~/.dockercfg
+    $ pierone login # configures ~/.docker/config.json
     $ docker build -t pierone.stups.example.com/your-team-id/myapp:0.1 .
     $ docker push pierone.stups.example.com/your-team-id/myapp:0.1
 
