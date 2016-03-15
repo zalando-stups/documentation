@@ -23,6 +23,12 @@ You will need the PIP package manager to install STUPS tools:
 
 Install Docker on Ubuntu according to the `Docker on Ubuntu installation instructions`_.
 
+Install the aws-cli
+
+.. code-block:: bash
+
+    $ sudo pip3 install --upgrade awscli
+    
 Check that everything works by running:
 
 .. code-block:: bash
@@ -123,6 +129,12 @@ OS X users may need to set their locale environment to UTF-8 with::
 You can put these two commands in your local shell initialization script, e.g. ``.bashrc``.
 
 Install Docker on Mac according to the `Docker on Mac installation instructions`_.
+
+Install the aws-cli
+
+.. code-block:: bash
+
+    $ brew install awscli
 
 Check that everything works by running:
 
