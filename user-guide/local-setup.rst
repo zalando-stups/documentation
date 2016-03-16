@@ -55,7 +55,6 @@ You can either use Homebrew or MacPorts to install Python 3.4 on Mac OS X.
 Homebrew
 --------
 
-=======
 You can either use Homebrew or MacPorts to install Python 3.4 on Mac OS X.
 
 Install Python 3 using Homebrew (pip3 already comes with this package)
@@ -63,8 +62,6 @@ Install Python 3 using Homebrew (pip3 already comes with this package)
 .. code-block:: bash
 
     $ brew install python3
-
-
 
 
 MacPorts
