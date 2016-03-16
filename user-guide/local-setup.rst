@@ -43,8 +43,9 @@ Mac
 Local Environment
 -----------------
 
-OS X users may need to set their locale environment to UTF-8 with::
+OS X users may need to set their locale environment to UTF-8::
 
+    # You can put these two commands in your local shell initialization script, e.g. ~/.bashrc or ~/.zhsrc
     export LC_ALL=en_US.utf-8
     export LANG=en_US.utf-8
 
@@ -63,7 +64,7 @@ Install Python 3 using Homebrew (pip3 already comes with this package)
     $ brew install python3
 
 
-You can put these two commands in your local shell initialization script, e.g. ``.bashrc``.
+
 
 MacPorts
 --------
