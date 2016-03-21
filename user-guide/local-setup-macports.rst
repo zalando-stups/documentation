@@ -1,10 +1,10 @@
 .. _local-setup-macports:
 
-===============================
-Installing Python with MacPorts
-===============================
+========
+MacPorts
+========
 
-Using MacPorts things are a little different. First check if you have the correct Python version installed.
+When installing Python with MacPorts things are a little different. First check if you have the correct Python version installed.
 
 .. code-block:: bash
 
