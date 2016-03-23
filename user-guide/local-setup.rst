@@ -50,8 +50,8 @@ OS X users may need to set their locale environment to UTF-8::
     export LC_ALL=en_US.utf-8
     export LANG=en_US.utf-8
 
-Homebrew
---------
+Install Python and Docker
+-------------------------
 
 You can either use Homebrew or :ref:`local-setup-macports` to install Python 3.4 on Mac OS X.
 
@@ -61,12 +61,7 @@ Install Python 3 using Homebrew (pip3 already comes with this package)
 
     $ brew install python3
 
-Docker
-------
-
-Install Docker on Mac according to the `Docker on Mac installation instructions`_.
-
-Install the aws-cli
+Install Docker on Mac according to the `Docker on Mac installation instructions`_, then install the aws commandline tool.
 
 .. code-block:: bash
 
