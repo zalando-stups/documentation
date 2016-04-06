@@ -41,13 +41,36 @@ Fullstop comes with a convenience command line client:
 .. code-block:: bash
 
     $ sudo pip3 install --upgrade stups
-    $ zign token -n fullstop
 
-For example, you can list all recent violations across all AWS accounts:
+First configure your Fullstop CLI for your AWS account IDs:
+
+.. code-block:: bash
+
+    $ fullstop configure
+    # enter Fullstop URL and your AWS account IDs
+
+For example, you can list all recent violations in your configured AWS accounts:
 
 .. code-block:: bash
 
     $ fullstop list-violations --since 7d -l 50
+
+Resolving Violations
+--------------------
+
+You can resolve batches of violations with the ``resolve-violations`` command which has similar
+filtering/matching options as ``list-violations``.
+
+.. code-block:: bash
+
+    $ fullstop resolve-violations -t <VIOLATION-TYPE> -l 100 --since 7d '<comment>'
+
+Parts of the meta field can also be matched for more finegrained control, for example:
+
+.. code-block:: bash
+
+    $ fullstop resolve-violations -t APPLICATION_NOT_PRESENT_IN_KIO -m application_id=myapp 'Forgot to register correct application ID in Kio'
+
 
 .. _cross-account role: http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-walkthrough-crossacct.html
 .. _Fullstop github project: https://github.com/zalando-stups/fullstop
