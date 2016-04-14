@@ -222,7 +222,7 @@ health_check_path:
 **(optional)**
 
 HTTP path to check for status code 200. Taupage will wait at most ``health_check_timeout_seconds`` (default: 60) until the health check endpoint becomes OK.
-The health check port is using the first port from ``ports`` or can be overwritten with ``health_check_port``.
+The health check port is using the port from ``ports`` or can be overwritten with ``health_check_port``.
 
 
 environment:
