@@ -76,7 +76,33 @@ Mac:
     $ cat ~/Library/Application\ Support/pierone/pierone.yaml
 
 
+Using the CLI for Service Users
+-------------------------------
+
+The Pier One command line client automatically tries to use "service" tokens if
+the right environment variables are set:
+
+``OAUTH2_ACCESS_TOKEN_URL``
+    URL of the OAuth2 token endpoint, e.g. https://token.services.example.org/oauth2/access_token
+``CREDENTIALS_DIR``
+    Path to the OAuth2 service user credentials (``user.json`` and ``client.json``)
+
+See the `Python tokens library`_ for more information.
+
+Example how the CLI can be used in a CI/CD build pipeline:
+
+.. code-block:: bash
+
+    # NOTE: both of these environment variables are automatically set by the Taupage AMI
+    export OAUTH2_ACCESS_TOKEN_URL=https://token.services.example.org/oauth2/access_token
+    export CREDENTIALS_DIR=/meta/credentials
+    pierone login --url pierone.example.org  # will write ~/.docker/config.json
+    docker push pierone.example.org/myteam/myartifact:cd${BUILD_NUMBER}
+
+
 Installation
 ============
 
 See the :ref:`STUPS Installation Guide section on Pier One <pierone-deploy>` for details about deploying Pier One into your AWS account.
+
+.. _Python tokens library: https://github.com/zalando-stups/python-tokens
