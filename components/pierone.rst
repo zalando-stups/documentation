@@ -34,6 +34,16 @@ You can use the "-SNAPSHOT" tag suffix for mutable test artifacts:
     $ docker tag some-other-image-id pierone.stups.example.org/teamid/myapp:0.1-SNAPSHOT
     $ docker push pierone.stups.example.org/teamid/myapp:0.1-SNAPSHOT # works!
 
+Permissions
+===========
+
+Pier One allows you to push Docker images based on team permissions.
+Pushing to "pierone.stups.example.org/myteam/myapp:1.0" is allowed if at least one of the following is true:
+
+* You are pushing with your own user (employee) credentials and you belong to the team "myteam".
+* A service user (application registered in Kio) is pushing and the OAuth token has the "application.write" scope and the service user (application) is assigned to the team "myteam".
+* A service user is pushing and the OAuth token has the "application.write_all" scope.
+
 Command Line Client
 ===================
 
