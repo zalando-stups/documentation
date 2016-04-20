@@ -89,12 +89,15 @@ the right environment variables are set:
 
 See the `Python tokens library`_ for more information.
 
+The service user needs to have the "application.write" scope granted.
+You can assign the "application.write" scope to the service user (e.g. CI/CD application) in :ref:`yourturn`.
+
 Example how the CLI can be used in a CI/CD build pipeline:
 
 .. code-block:: bash
 
-    # NOTE: both of these environment variables are automatically set by the Taupage AMI
     export OAUTH2_ACCESS_TOKEN_URL=https://token.services.example.org/oauth2/access_token
+    # NOTE: CREDENTIALS_DIR is already automatically set by the Taupage AMI
     export CREDENTIALS_DIR=/meta/credentials
     pierone login --url pierone.example.org  # will write ~/.docker/config.json
     docker push pierone.example.org/myteam/myartifact:cd${BUILD_NUMBER}
