@@ -96,10 +96,12 @@ Example how the CLI can be used in a CI/CD build pipeline:
 
 .. code-block:: bash
 
+    # OAUTH2_ACCESS_TOKEN_URL must point to the correct OAuth2 token endpoint for service users
     export OAUTH2_ACCESS_TOKEN_URL=https://token.services.example.org/oauth2/access_token
     # NOTE: CREDENTIALS_DIR is already automatically set by the Taupage AMI
     export CREDENTIALS_DIR=/meta/credentials
     pierone login --url pierone.example.org  # will write ~/.docker/config.json
+    # pushing to the "myteam" repo will only work if "myteam" is assigned to the service user (application)
     docker push pierone.example.org/myteam/myartifact:cd${BUILD_NUMBER}
 
 
