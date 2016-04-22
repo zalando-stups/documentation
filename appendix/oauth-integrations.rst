@@ -26,12 +26,15 @@ Tokens_                        A Java library that keeps OAuth 2.0
                                Allows securing resource servers implemented with Spring,
                                as well as building API clients, that access
                                OAuth2-protected resources, using Spring's RestTemplate.
+`Spring Social ZAuth`_         Spring-Social support for Zalando OAuth provider.
+
+                               Allows securing UI frontends via OAuth Authorization Code redirect flow.
 Zign_                          Command line client to generate OAuth2 access tokens
 `HTTPie Zign`_                 HTTPie_ plugin to use Zign OAuth2 tokens
 `Chrome OAuth Bearer Plugin`_  Chrome browser plugin to inject OAuth 2 bearer tokens into
                                outgoing HTTP requests (Authorization header).
 `Ginoauth2`_                   OAuth2 middleware to use with Gin Framework.
-  
+
 ============================== ===========
 
 .. _Connexion: https://github.com/zalando/connexion
@@ -40,6 +43,7 @@ Zign_                          Command line client to generate OAuth2 access tok
 .. _Python Tokens: https://github.com/zalando-stups/python-tokens
 .. _Spring Boot Tokens: https://github.com/zalando-stups/spring-boot-zalando-stups-tokens
 .. _Spring OAuth2 Support: https://github.com/zalando-stups/stups-spring-oauth2-support
+.. _Spring Social ZAuth: https://github.com/zalando/spring-social-zauth
 .. _Zign: https://github.com/zalando-stups/zign
 .. _HTTPie: https://pypi.python.org/pypi/httpie
 .. _HTTPie Zign: https://github.com/zalando-stups/httpie-zign
