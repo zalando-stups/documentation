@@ -444,6 +444,45 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 
 Additionally, you can specify any of the `valid AWS Cloud Formation ELB properties`_ (e.g. to overwrite ``Listeners``).
 
+Cross-Stack References
+======================
+
+Traditional CloudFormation templates only allow to reference resouces that are located in the same template. This can be
+quite limiting. To compensate Senza selectively supports special *cross-stack references* in some places in your template, e.g. in `SecurityGroups` and `IamRoles`:
+
+.. code-block:: yaml
+
+    AppServer:
+      Type: Senza::TaupageAutoScalingGroup
+      InstanceType: c4.xlarge
+      SecurityGroups:
+        - Stack: base-1
+          LogicalId: ApplicationSecurityGroup
+      IamRoles:
+        - Stack: base-1
+          LogicalId: ApplicationRole
+
+These references allow for having an additional special stack per application that defines common security groups and IAM roles that are shared across different versions (in contrast to using `senza init`).
+
+Another use case for cross-stack references if one needs to access outputs from other stacks inside the `TaupageConfig`:
+
+
+.. code-block:: yaml
+
+   # database.yaml
+   ..
+   Outputs:
+     DatabaseHost:
+      Value:
+        "Fn::GetAtt": [Database, Endpoint.Address]
+
+   # service.yaml
+   ..
+   TaupageConfig:
+     environment:
+       DB_HOST:
+         Stack: exchange-rate-database-2
+         Output: DatabaseHost
 
 
 .. _AWS CloudFormation templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
