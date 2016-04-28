@@ -452,7 +452,7 @@ quite limiting. To compensate Senza selectively supports special *cross-stack re
 
 .. code-block:: yaml
 
-    AppServer:
+   AppServer:
       Type: Senza::TaupageAutoScalingGroup
       InstanceType: c4.xlarge
       SecurityGroups:
@@ -473,8 +473,8 @@ Another use case for cross-stack references if one needs to access outputs from 
    ..
    Outputs:
      DatabaseHost:
-      Value:
-        "Fn::GetAtt": [Database, Endpoint.Address]
+       Value:
+         "Fn::GetAtt": [Database, Endpoint.Address]
 
    # service.yaml
    ..
