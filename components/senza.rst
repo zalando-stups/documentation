@@ -78,6 +78,11 @@ Traffic can be routed via Route53 DNS to your new stack:
     $ senza traffic myapp.yaml      # show traffic distribution
     $ senza traffic myapp.yaml 2 50 # give version 2 50% of traffic
 
+.. WARNING::
+   Some clients use connection pools which - by default - reuse connections as long there are requests to be processed. In this case `senza traffic` won't result in any redirection of the traffic, unfortunately. To force such clients to switch traffic from one stack to the other you might choose to make manually the load balancer of the old stack unavailable, e.g. by changing the port of the load balance listener. This switches traffic entirely. But switching traffic slowy is only possible for NEW connections.
+
+   It is to recommended to monitor behaviour of clients during traffic switch and if necessary to ask them to reconfigure their connection pools.
+
 Stacks can be deleted when they are no longer used:
 
 .. code-block:: bash
