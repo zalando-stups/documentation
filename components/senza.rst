@@ -79,7 +79,7 @@ Traffic can be routed via Route53 DNS to your new stack:
     $ senza traffic myapp.yaml 2 50 # give version 2 50% of traffic
 
 .. WARNING::
-   Some clients use connection pools which - by default - reuse connections as long as there are requests to be processed. In this case `senza traffic` won't result in any redirection of the traffic, unfortunately. To force such clients to switch traffic from one stack to the other you might want to manually disable the load balancer (ELB) of the old stack, e.g. by changing the ELB listener port. This switches traffic entirely. Switching traffic slowly (via weighted DNS records) is only possible for NEW connections.
+   Some clients use connection pools which - by default - reuse connections as long as there are requests to be processed. In this case ``senza traffic`` won't result in any redirection of the traffic, unfortunately. To force such clients to switch traffic from one stack to the other you might want to manually disable the load balancer (ELB) of the old stack, e.g. by changing the ELB listener port. This switches traffic entirely. Switching traffic slowly (via weighted DNS records) is only possible for NEW connections.
 
    It is recommended to monitor the behavior of clients during traffic switching and if necessary to ask them to reconfigure their connection pools.
 
