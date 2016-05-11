@@ -197,6 +197,8 @@ Available properties for the ``SenzaInfo`` section are:
         - GreetingText:
             Description: "The greeting to be displayed"
             Default: "Hello, world!"
+            MinLength: "1"
+            MaxLength: "16"
     # a list of senza components to apply to the definition
     SenzaComponents:
       # this basic configuration is required for the other components
@@ -247,6 +249,21 @@ to follow the named ones.
    means that if you have to include it in the parameter value, you need to
    pass this parameter with the name, to prevent ``senza`` from treating the
    part of the parameter value before the first ``=`` as the parameter name.
+
+It is possible to pass any of the supported `CloudFormation Properties <http://
+docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+parameters-section-structure.html>`_ such as ``AllowedPattern``, ``AllowedValues``,
+``MinLength``, ``MaxLength`` and many others. Senza itself will not enforce these
+but CloudFormation will evaluate the generated template and raise an exception 
+if any of the Properties is not met. For example:
+
+.. code-block:: bash
+
+    $ senza create example.yaml 3 example latest mint-bucket "Way too long greeting"
+    Generating Cloud Formation template.. OK
+    Creating Cloud Formation stack hello-world-3.. EXCEPTION OCCURRED: An error occurred (ValidationError) when calling the CreateStack operation: Parameter 'GreetingText' must contain at most 15 characters
+    Traceback (most recent call last):
+    [...]
 
 Any parameter may be given a default value using ``Default`` attribute.
 If a parameter was not specified on the command line (either as positional or
