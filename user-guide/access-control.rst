@@ -202,9 +202,37 @@ You can name tokens, so that you can access them repeatedly without authenticati
         $ zign token -n mytok
         $ http -a mytok: https://example.org/oauth-secured-api
 
+Zign will create an access token for your personal user (realm "/employee") by default, but it can also be used to create service tokens ("/services" realm) by providing
+the service user's credentials and setting the correct environment variables:
+
+.. code-block:: bash
+
+    $ sudo pip3 install -U stups-berry stups-zign  # install CLI tools
+    $ berry -m mint-example-bucket -a myapp --once . # download OAuth credentials for application "myapp" from S3
+    $ export OAUTH2_ACCESS_TOKEN_URL=https://token.services.example.org/oauth2/access_token?realm=/services
+    $ export CREDENTIALS_DIR=.  # user.json and client.json were downloaded into the current directory
+    $ zign token -n myapp pets.write  # request service token with "pets.write" scope
+
+Zign uses the `Python Tokens`_ library under the hood to create the service token.
+You can also use it directly from your Python script:
+
+.. code-block:: python
+
+    #!/usr/bin/env python3
+
+    import tokens
+
+    # by default will use OAUTH2_ACCESS_TOKEN_URL and CREDENTIALS_DIR environment variables
+    tokens.configure()
+    tokens.manage('myapp', ['uid', 'pets.write'])
+    my_token = tokens.get('myapp')
+    # ... do something with my_token :-)
+
+
 
 .. _HTTPie: https://pypi.python.org/pypi/httpie
 .. _Zign HTTPie plugin: https://pypi.python.org/pypi/httpie-zign
+.. _Python Tokens: https://github.com/zalando-stups/python-tokens
 
 Preparation of global meta data
 -------------------------------
