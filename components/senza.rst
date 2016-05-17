@@ -53,7 +53,7 @@ Stacks can be listed using the ``list`` command:
     $ senza list --all              # list all stacks (including deleted ones)
     $ senza list "suite-.*" 1       # list stacks starting with "suite" and with version "1"
     $ senza list ".*" 42            # list all stacks  with version "42"
-    $ senza list mystack ".*-test"  # list all stacks for "mystack" with version ending in "-test"
+    $ senza list mystack ".*test"  # list all stacks for "mystack" with version ending in "test"
 
 There are a few commands to get more detailed information about stacks:
 
@@ -77,7 +77,7 @@ applications and versions:
     $ senza inst mystack 1          # only list instances for "mystack" version "1"
     $ senza inst "suite-.*" 1       # list instances starting with "suite" and with version "1"
     $ senza inst ".*" 42            # list all instances  with version "42"
-    $ senza inst mystack ".*-test"  # list all instances for "mystack" with version ending in "-test"
+    $ senza inst mystack ".*test"  # list all instances for "mystack" with version ending in "test"
 
 Traffic can be routed via Route53 DNS to your new stack:
 
