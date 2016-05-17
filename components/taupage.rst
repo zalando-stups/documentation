@@ -135,7 +135,7 @@ configuration format::
    application_logrotate_size: 10M
    application_logrotate_interval: daily
    application_logrotate_rotate: 4
-   
+
    rsyslog_max_message_size: 4K
 
 
@@ -556,12 +556,20 @@ scalyr_application_log_parser
 
 If the application.log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
 
-newrelic_account_key
---------------------
+appdynamics_application
+-----------------------
 
 **(optional)**
 
-If you provide the NewRelic license key in the .yaml file, the newrelic-sysmond will be set up.
+If the AppDynamics Agent is integrated in Taupage you can enable AppDyanmics with this variable and set your AppDynamics ApplicationName.
+
+appdynamics_machineagent_tiername
+---------------------------------
+
+**(optional)**
+
+If you want to use Log-shipping without a App-Agent from AppDynamics you have to set the Tiername for the MachineAgent manually with this variable.
+
 
 application_logrotate_*
 -----------------------
