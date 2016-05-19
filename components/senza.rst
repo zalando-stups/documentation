@@ -47,10 +47,13 @@ Stacks can be listed using the ``list`` command:
 
 .. code-block:: bash
 
-    $ senza list myapp.yaml       # list only active stacks for myapp
-    $ senza list myapp.yaml --all # list stacks for myapp (also deleted ones)
-    $ senza list                  # list all active stacks
-    $ senza list --all            # list all stacks (including deleted ones)
+    $ senza list myapp.yaml         # list only active stacks for myapp
+    $ senza list myapp.yaml --all   # list stacks for myapp (also deleted ones)
+    $ senza list                    # list all active stacks
+    $ senza list --all              # list all stacks (including deleted ones)
+    $ senza list "suite-.*" 1       # list stacks starting with "suite" and with version "1"
+    $ senza list ".*" 42            # list all stacks  with version "42"
+    $ senza list mystack ".*test"  # list all stacks for "mystack" with version ending in "test"
 
 There are a few commands to get more detailed information about stacks:
 
@@ -62,14 +65,19 @@ There are a few commands to get more detailed information about stacks:
     $ senza console myapp.yaml 1   # get EC2 console output for all stack instances
     $ senza console 172.31.1.2     # get EC2 console output for single instance
 
-Most commands take so-called `STACK_REF` arguments, you can either use an existing Senza definition YAML file (as shown above)
-or use the stack's name and version:
+Most commands take so-called `STACK_REF` arguments, you can either use an
+existing Senza definition YAML file (as shown above) or use the stack's name
+and version, you can also use regular expressions to match multiple
+applications and versions:
 
 .. code-block:: bash
 
-    $ senza inst            # all instances, no STACK_REF argument given
-    $ senza inst mystack    # list instances for all versions of "mystack"
-    $ senza inst mystack 1  # only list instances for "mystack" version "1"
+    $ senza inst                    # all instances, no STACK_REF argument given
+    $ senza inst mystack            # list instances for all versions of "mystack"
+    $ senza inst mystack 1          # only list instances for "mystack" version "1"
+    $ senza inst "suite-.*" 1       # list instances starting with "suite" and with version "1"
+    $ senza inst ".*" 42            # list all instances  with version "42"
+    $ senza inst mystack ".*test"  # list all instances for "mystack" with version ending in "test"
 
 Traffic can be routed via Route53 DNS to your new stack:
 
