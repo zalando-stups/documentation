@@ -322,6 +322,13 @@ mount_var_log:
 
 This will mount /var/log into the Docker container as read-only.
 
+mount_custom_log:
+-----------
+
+**(optional, default: false)**
+
+This will mount /var/log/custom into the Docker container as read-write. 
+
 mount_certs:
 -----------
 
