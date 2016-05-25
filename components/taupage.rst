@@ -68,6 +68,7 @@ configuration format::
    docker_daemon_access: false
    read_only: false
    mount_var_log: false
+   mount_custom_log: false
    mount_certs: false
    keep_instance_users: false
    enhanced_cloudwatch_metrics: true
@@ -320,14 +321,14 @@ mount_var_log:
 
 **(optional, default: false)**
 
-This will mount /var/log into the Docker container as read-only.
+This will mount /var/log into the Docker container /var/log-host as read-only.
 
 mount_custom_log:
 -----------
 
 **(optional, default: false)**
 
-This will mount /var/log/custom into the Docker container as read-write.
+This will mount /var/log-custom into the Docker container /var/log as read-write.
 
 mount_certs:
 -----------
