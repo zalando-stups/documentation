@@ -327,7 +327,7 @@ mount_custom_log:
 
 **(optional, default: false)**
 
-This will mount /var/log/custom into the Docker container as read-write. 
+This will mount /var/log/custom into the Docker container as read-write.
 
 mount_certs:
 -----------
@@ -575,7 +575,7 @@ appdynamics_machineagent_tiername
 
 **(optional)**
 
-If you want to use Log-shipping without a App-Agent from AppDynamics you have to set the Tiername for the MachineAgent manually with this variable.
+If you want to use log shipping without an App-Agent from AppDynamics you have to set the Tiername for the MachineAgent manually with this variable.
 
 
 application_logrotate_*
