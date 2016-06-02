@@ -578,6 +578,13 @@ appdynamics_machineagent_tiername
 
 If you want to use log shipping without an App-Agent from AppDynamics you have to set the Tiername for the MachineAgent manually with this variable.
 
+appdynamics_include_scala_classes
+---------------------------------
+
+**(optional)**
+
+If you have issues to see correlation on AppDynamics and you are using scala/akka/play then you should include necessary classes which are exclude by default.
+
 
 application_logrotate_*
 -----------------------
