@@ -583,7 +583,7 @@ appdynamics_include_scala_classes
 
 **(optional)**
 
-If you have issues to see correlation on AppDynamics and you are using scala/akka/play then you should include necessary classes which are exclude by default.
+If you have issues to see correlation on AppDynamics and you are using scala/akka/play then you should include necessary classes which are excluded by default.
 
 
 application_logrotate_*
