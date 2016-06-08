@@ -43,6 +43,13 @@ You can disable the automatic Cloud Formation rollback-on-failure in order to do
 
     $ senza create --disable-rollback myerroneous-stack.yaml 1 0.1-SNAPSHOT
 
+You can pass parameters from yaml file.
+
+.. code-block:: bash
+
+    $ senza create --parameter-file parameters.yaml myapp.yaml 1 0.1-SNAPSHOT
+
+
 Stacks can be listed using the ``list`` command:
 
 .. code-block:: bash
@@ -280,6 +287,26 @@ parameters which have a default value at the bottom of the parameter
 definition list, otherwise one will be forced to specify all the following
 parameters using a ``name=value`` as there would be no way to map them to
 proper position.
+
+There is an option to pass parameters from file. The file needs to be formatted in yaml.
+
+.. code-block:: bash
+
+    $ senza create --parameter-file parameters.yaml example.yaml 3 1.0-SNAPSHOT
+
+Here is an example of a parameter file.
+
+.. code-block:: yaml
+
+   ApplicationId: example-app-id
+   MintBucket: your-mint-bucket
+
+You can also combine parameter file and parameters from command line, but you can't have same parameter twice. It can't exist both on file and command line.
+
+.. code-block:: bash
+
+    $ senza create --parameter-file parameters.yaml example.yaml 3 1.0-SNAPSHOT Param=Example1
+
 
 Mappings
 --------
