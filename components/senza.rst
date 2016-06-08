@@ -301,7 +301,7 @@ Here is an example of a parameter file.
    ApplicationId: example-app-id
    MintBucket: your-mint-bucket
 
-You can also combine parameter file and parameters from command line, but you can't have same parameter twice. It can't exist both on file and command line.
+You can also combine parameter file and parameters from command line, but you can't have same parameter twice. The parameter can't exist both on file and command line.
 
 .. code-block:: bash
 
