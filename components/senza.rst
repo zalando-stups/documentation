@@ -269,7 +269,7 @@ It is possible to pass any of the supported `CloudFormation Properties <http://
 docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
 parameters-section-structure.html>`_ such as ``AllowedPattern``, ``AllowedValues``,
 ``MinLength``, ``MaxLength`` and many others. Senza itself will not enforce these
-but CloudFormation will evaluate the generated template and raise an exception 
+but CloudFormation will evaluate the generated template and raise an exception
 if any of the Properties is not met. For example:
 
 .. code-block:: bash
@@ -307,6 +307,21 @@ You can also combine parameter file and parameters from command line, but you ca
 
     $ senza create --parameter-file parameters.yaml example.yaml 3 1.0-SNAPSHOT Param=Example1
 
+AccountInfo
+-----------
+
+The following properties are also available in Senza templates.
+
+``{{AccountInfo.Region}}`` : the AWS region where the stack is created. Ex: 'eu-central-1'.
+Note: in many places of a template, `{"Ref" : "AWS::Region"}` can also be used.
+
+``{{AccountInfo.AccountAlias}}`` : the alias name of the AWS account: ex: 'super-team1-account'
+
+``{{AccountInfo.AccountID}}`` : the AWS account id: ex: '353272323354'
+
+``{{AccountInfo.TeamID}}`` : the team ID. Ex: 'super-team1'.
+
+``{{AccountInfo.Domain}}`` : the AWS account domain: Ex: super-team1.net
 
 Mappings
 --------
