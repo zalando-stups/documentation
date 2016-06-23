@@ -15,6 +15,10 @@ Every team member can get access to any of the team's EC2 instances by using the
     # enter odd hostname "odd-eu-west-1.myteam.example.org"
     $ ssh -A odd-eu-west-1.myteam.example.org # agent-forwarding must be used!
     $ ssh 172.31.146.1 # jump from bastion to private instance
+    
+.. Tip::
+
+    Use the ``--connect`` flag to directly connect to the EC2 instance so you do not need to execute the SSH command yourself.
 
 .. Tip::
 
