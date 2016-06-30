@@ -429,7 +429,7 @@ This component supports the following configuration properties:
 ``AssociatePublicIpAddress``
     Whether to associate EC2 instances with a public IP address. This boolean value (true/false) is false by default.
 ``BlockDeviceMappings``
-    Spcify additional EBS Devices you want to attach to the nodes. See for Option Map below.
+    Specify additional EBS Devices you want to attach to the nodes. See for Option Map below.
 ``AutoScaling``
     Map of auto scaling properties, see below.
 
