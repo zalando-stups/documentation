@@ -511,8 +511,8 @@ The WeightedDnsElasticLoadBalancer component supports the following configuratio
 ``Scheme``
     The load balancer scheme. Either ``internal`` or ``internet-facing``. Defaults to ``internal``.
 ``SSLCertificateId``
-    Name of the uploaded SSL/TLS server certificate to use, e.g. ``myapp-example-org-letsencrypt``.
-    You can check available IAM server certificates with :code:`aws iam list-server-certificates`.
+    Name or ARN ID of the uploaded SSL/TLS server certificate to use, e.g. ``myapp-example-org-letsencrypt`` or ``arn:aws:acm:eu-central-1:123123123:certificate/abcdefgh-ijkl-mnop-qrst-uvwxyz012345``.
+    You can check available IAM server certificates with :code:`aws iam list-server-certificates`. For ACM Certificate you must use :code:`aws acm list-certificates`
 
 Additionally, you can specify any of the `valid AWS Cloud Formation ELB properties`_ (e.g. to overwrite ``Listeners``).
 
