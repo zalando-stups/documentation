@@ -46,7 +46,7 @@ Local Environment
 OS X users may need to set their locale environment to UTF-8::
 
     # You can put these two commands in your local shell initialization script
-    # e.g. ~/.bashrc or ~/.zhsrc
+    # e.g. ~/.bashrc or ~/.zshrc
     export LC_ALL=en_US.utf-8
     export LANG=en_US.utf-8
 
