@@ -91,14 +91,8 @@ Now let's create the version in YOUR TURN for the application created:
 Configure your application's mint bucket (click on the "Access Control" button on your app's page in YOUR TURN).
 
 This will trigger the mint worker to write your app credentials to your mint bucket.
-Wait for the first credentials to appear:
 
-.. code-block:: bash
 
-    $ aws s3 ls s3://mint-example-bucket
-    # there should be a new folder for your application
-
-Deploy!
 
 List AWS account:
 
@@ -111,6 +105,16 @@ Login via console to your AWS account:
 .. code-block:: bash
 
     $ mai login <account-name>
+
+
+Wait for the first credentials to appear:
+
+.. code-block:: bash
+
+    $ aws s3 ls s3://mint-example-bucket
+    # there should be a new folder for your application
+
+Deploy!
 
 Create a :ref:`senza` definition file for that (using the region you are on):
 
