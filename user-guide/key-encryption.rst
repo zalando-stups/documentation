@@ -10,7 +10,7 @@ This procedure is the same for all passwords (DB, log provider, ...) you will en
 
 * Login into AWS console.
 * Open the IAM service.
-* Click on Role and find the name of your application role (normally app-<application-name>)
+* Click on Role and find the name of your application role (normally app-<application-name>). NOTE: If there is no role for your application, this can be generated for you by ``senza`` when running ``senza init``.
 * Now go back, or click on the left hand side on encryption keys.
 
 .. Caution::
