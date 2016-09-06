@@ -15,7 +15,7 @@ Every team member can get access to any of the team's EC2 instances by using the
     # enter odd hostname "odd-eu-west-1.myteam.example.org"
     $ ssh -A odd-eu-west-1.myteam.example.org # agent-forwarding must be used!
     $ ssh 172.31.146.1 # jump from bastion to private instance
-    
+
 .. Tip::
 
     Use the ``--connect`` flag to directly connect to the EC2 instance so you do not need to execute the SSH command yourself.
@@ -49,6 +49,21 @@ Check the asciicast how using :ref:`piu` looks like:
 
     <script type="text/javascript" src="https://asciinema.org/a/25671.js" id="asciicast-25671" async></script>
 
+Copying Files
+=============
+
+As all access to an EC2 instance has to go through the :ref:`odd` SSH jump host,
+copying files from and to the EC2 instance appears unnecessary hard at first.
+
+Luckily OpenSSH's ``scp`` supports jump hosts with the ``ProxyCommand`` configuration option:
+
+.. code-block:: bash
+
+    $ scp -o ProxyCommand="ssh -W %h:%p odd-eu-west-1.myteam.example.org" mylocalfile.txt 172.31.146.1:
+
+See also the `OpenSSH Cookbook on Proxies and Jump Hosts`_.
+
+
 SSH Access Revocation
 =====================
 
@@ -71,3 +86,5 @@ All current and historic access requests can be listed on the command line:
 
 
 
+
+.. _OpenSSH Cookbook on Proxies and Jump Hosts: https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Proxies_and_Jump_Hosts
