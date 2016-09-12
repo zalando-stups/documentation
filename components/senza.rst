@@ -485,6 +485,10 @@ up to the current price of an on demand instance you can search `AWS
 instance prices`_ list. This block will buy a c4.large instance for up
 to $0.134 per hour.
 
+``SpotPrice``
+    Maximum amount of US dollars you want to spent per hour for
+    a given instance type.
+
 .. code-block:: yaml
 
    SenzaComponents:
@@ -583,4 +587,4 @@ Another use case for cross-stack references if one needs to access outputs from 
 .. _"ELB" health check type for the auto scaling group: http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html
 .. _valid AWS Cloud Formation ELB properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
 .. _AWS spot instance: https://aws.amazon.com/de/ec2/spot/
-.. _AWS instance prices: http://www.ec2instances.info/?region=eu-central-1
+.. _AWS instance prices: http://www.ec2instances.info/
