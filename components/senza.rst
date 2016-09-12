@@ -477,6 +477,28 @@ This component supports the following configuration properties:
 ``VolumeSize``
     How Much GB should this EBS have?
 
+**SpotPrice**
+
+To save money you can choose to use `AWS spot instance`_, instead of
+using on demand instances. To choose the right instance type and pay
+up to the current price of an on demand instance you can search `AWS
+instance prices`_ list. This block will buy a c4.large instance for up
+to $0.134 per hour.
+
+``SpotPrice``
+    Maximum amount of US dollars you want to spent per hour for
+    a given instance type.
+
+.. code-block:: yaml
+
+   SenzaComponents:
+     # will create a launch configuration and auto scaling group with scaling triggers
+     - AppServer:
+      Type: Senza::TaupageAutoScalingGroup
+      InstanceType: c4.large
+      SpotPrice: 0.134
+
+
 Senza::WeightedDnsElasticLoadBalancer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -564,3 +586,5 @@ Another use case for cross-stack references if one needs to access outputs from 
 .. _jq: https://stedolan.github.io/jq/
 .. _"ELB" health check type for the auto scaling group: http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html
 .. _valid AWS Cloud Formation ELB properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
+.. _AWS spot instance: https://aws.amazon.com/de/ec2/spot/
+.. _AWS instance prices: http://www.ec2instances.info/
