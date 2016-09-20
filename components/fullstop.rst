@@ -65,11 +65,17 @@ filtering/matching options as ``list-violations``.
 
     $ fullstop resolve-violations -t <VIOLATION-TYPE> -l 100 --since 7d '<comment>'
 
+Filtering by applications / versions is also possible. Multiple values must be comma-separated:
+
+.. code-block:: bash
+
+    $ fullstop resolve-violations -t <VIOLATION-TYPE> --applications my-app --application-versions 1.0,1.1 '<comment>'
+
 Parts of the meta field can also be matched for more finegrained control, for example:
 
 .. code-block:: bash
 
-    $ fullstop resolve-violations -t APPLICATION_NOT_PRESENT_IN_KIO -m application_id=myapp 'Forgot to register correct application ID in Kio'
+    $ fullstop resolve-violations -t WRONG_AMI -m ami_name=another-ami 'My boss wants me to do this'
 
 
 .. _cross-account role: http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-walkthrough-crossacct.html
