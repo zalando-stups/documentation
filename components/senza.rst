@@ -444,9 +444,9 @@ This component supports the following configuration properties:
     Minimum number of instances to spawn.
 ``Maximum``
     Maximum number of instances to spawn.
-``DesiredCapacity```
+``DesiredCapacity``
     Desired number of instances to spawn.
-``SuccessRequires``:
+``SuccessRequires``
     During startup of the stack, define when your ASG is considered healthy by CloudFormation. Defaults to one healthy instance within 15 minutes. To change it to 4 healthy instances within 1 hour, 20 minutes and 30 seconds pass "4 within 1h20m30s" (you can omit hours/minutes/seconds as you please). Values that look like integers will be used as healthy instance count, e.g. "2" would be interpreted as 2 healthy instances within the default timeout of 15 minutes.
 ``MetricType``
     Metric to do auto scaling on. This will create automatic Alarms in Cloudwatch for you. If supplied, must be either ``CPU``, ``NetworkIn`` or ``NetworkOut``. If not supplied, you're Auto Scaling Group will not dynamically scale and you have to define you're own alerts.
