@@ -38,3 +38,10 @@ How to configure
 .. code-block:: bash
 
     $ cat ~/Library/Application\ Support/piu/piu.yaml
+
+An example configuration:
+
+.. code-block:: json
+
+{even_url: 'https://even.example.com', odd_host: 'odd-eu-west-1.example.com'}
+
