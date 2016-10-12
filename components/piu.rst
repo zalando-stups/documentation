@@ -41,7 +41,7 @@ How to configure
 
 An example configuration:
 
-.. code-block:: json
+.. code-block:: yaml
 
     {even_url: 'https://even.example.com', odd_host: 'odd-eu-west-1.example.com'}
 
