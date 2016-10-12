@@ -43,5 +43,5 @@ An example configuration:
 
 .. code-block:: json
 
-{even_url: 'https://even.example.com', odd_host: 'odd-eu-west-1.example.com'}
+    {even_url: 'https://even.example.com', odd_host: 'odd-eu-west-1.example.com'}
 
