@@ -34,6 +34,7 @@ Zign_                          Command line client to generate OAuth2 access tok
 `Chrome OAuth Bearer Plugin`_  Chrome browser plugin to inject OAuth 2 bearer tokens into
                                outgoing HTTP requests (Authorization header).
 `Ginoauth2`_                   OAuth2 middleware to use with Gin Framework.
+`Node-tokens`_                 Like zalando-stups/tokens, but for Node.js
 
 ============================== ===========
 
@@ -50,3 +51,4 @@ Zign_                          Command line client to generate OAuth2 access tok
 .. _Taupage: taupage
 .. _Chrome OAuth Bearer Plugin: https://github.com/zalando/chrome-oauth-bearer-plugin
 .. _Ginoauth2: https://github.com/zalando-techmonkeys/gin-oauth2
+.. _Node-tokens: https://github.com/zalando-stups/node-tokens
