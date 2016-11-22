@@ -15,13 +15,7 @@ To be written...
 Docker
 ======
 
-* Use the existing Zalando Ubuntu base images which already include the Zalando CA:
-
-  * `Zalando Ubuntu Docker base image`_
-  * `Zalando OpenJDK Docker base image`_
-  * `Zalando Python Docker base image`_
-  * `Zalando Node Docker base image`_
-
+* Use one the existing :ref:`docker-base-images`.
 * Use Docker environment variables (``-e KEY=val``) for static configuration (e.g. database connection)
 * Log to STDOUT and rely on the host system to do log shipping
 * Do not mutate Docker tags, i.e. treat all Docker tags ("versions") as immutable and always push a new tag for a new application version (immutable tags are enforced by the :ref:`pierone` registry)
@@ -93,7 +87,3 @@ Application logs must not contain any personal and/or sensitive information such
 
 
 .. _Twelve-Factor App Principle: http://12factor.net/
-.. _Zalando Ubuntu Docker base image: https://registry.hub.docker.com/u/zalando/ubuntu/
-.. _Zalando OpenJDK Docker base image: https://registry.hub.docker.com/u/zalando/openjdk/
-.. _Zalando Python Docker base image: https://registry.hub.docker.com/u/zalando/python/
-.. _Zalando Node Docker base image: https://registry.hub.docker.com/u/zalando/node/

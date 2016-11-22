@@ -16,6 +16,13 @@ Python_   Python 3.4/3.5 base images
 Node.js_  Node.js base image
 ========= ===========
 
+You can find the latest Docker image version using the :ref:`pierone` CLI, e.g.:
+
+.. code-block:: bash
+
+    $ latest=$(pierone latest stups openjdk --url registry.opensource.zalan.do)
+    $ docker pull registry.opensource.zalan.do/stups/openjdk:$latest
+
 .. _Ubuntu: https://github.com/zalando/docker-ubuntu
 .. _OpenJDK: https://github.com/zalando/docker-openjdk
 .. _Python: https://github.com/zalando/docker-python
