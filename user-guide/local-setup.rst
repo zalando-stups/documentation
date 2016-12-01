@@ -9,7 +9,7 @@ This section describes how to set up your local machine to use the STUPS tools.
 In general you will need:
 
 * Python 3.4
-* Docker 1.9+
+* Docker 1.11+
 
 Linux
 =====
