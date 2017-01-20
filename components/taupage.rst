@@ -465,7 +465,7 @@ This tag will be removed by Taupage to ensure that the partition is not erased i
 
 .. NOTE::
    If you have specified the tag **Taupage:erase-on-boot** you also need to allow the actions **ec2:DescribeTags** and **ec2:DeleteTags** in the policy document of the IAM role associated with your instance.
-   See example policy iamEraseOnBootTag_.
+   See :ref:`example policy <iamEraseOnBootTag>`.
 
 Whenever a partition is initialized is will be formatted using the **filesystem** setting. If unspecified it will be formatted as ext4. If **options** setting is specified, its value will be provided to the command to mount the partition. If the **root** setting is false (that's the default) the filesystem will be initialized with the internal unprivileged user as its owner. The mount point permissions are set to provide read and write access to group and others in all cases. This allows the **runtime** application to use the volume for read and write.
 
