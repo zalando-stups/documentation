@@ -381,7 +381,9 @@ Sample EBS volume configuration::
 
 
 
-IAM-Role::
+IAM-Role:
+
+.. code-block:: yaml
 
      {
        "Version": "2012-10-17",
@@ -402,7 +404,9 @@ IAM-Role::
 
 .. _iamEraseOnBootTag:
 
-IAM-Role for use with **Taupage:erase-on-boot** tag on the EBS volume::
+IAM-Role for use with **Taupage:erase-on-boot** tag on the EBS volume:
+
+.. code-block:: yaml
 
      {
        "Version": "2012-10-17",
