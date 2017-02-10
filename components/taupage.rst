@@ -381,7 +381,9 @@ Sample EBS volume configuration::
 
 
 
-IAM-Role::
+IAM-Role:
+
+.. code-block:: yaml
 
      {
        "Version": "2012-10-17",
@@ -400,6 +402,30 @@ IAM-Role::
        ]
      }
 
+.. _iamEraseOnBootTag:
+
+IAM-Role for use with **Taupage:erase-on-boot** tag on the EBS volume:
+
+.. code-block:: yaml
+
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Sid": "TaupageVolumeAccess",
+           "Effect": "Allow",
+           "Action": [
+               "ec2:AttachVolume",
+               "ec2:DescribeVolumes",
+               "ec2:DescribeTags",
+               "ec2:DeleteTags"
+           ],
+           "Resource": [
+               "*"
+           ]
+         }
+       ]
+     }
 RAID
 ^^^^
 
@@ -434,8 +460,16 @@ mounts:
 **(optional)**
 
 A map of mount targets and their configurations. A mount target configuration has a **partition** to reference the volume, which can be
-defined in the **volumes** section. It is possible to specify a **erase_on_boot** flag which determines is such partition should always
-be initialized on boot. This setting defaults to false.
+defined in the **volumes** section. It is possible to specify a **erase_on_boot** flag.
+
+* If it is set to **true** such partition will always be initialized on boot.
+* If this flag is set to **false** such partition will never be initialized by Taupage.
+* If this flag is not specified and partition refers to an EBS volume which has a tag **Taupage:erase-on-boot** with the value **True** then the partition will be initialized.
+This tag will be removed by Taupage to ensure that the partition is not erased in case the EC2 instance is restarted or the volume is attached to a different EC2 instance.
+
+.. NOTE::
+   If you have specified the tag **Taupage:erase-on-boot** you also need to allow the actions **ec2:DescribeTags** and **ec2:DeleteTags** in the policy document of the IAM role associated with your instance.
+   See :ref:`example policy <iamEraseOnBootTag>`.
 
 Whenever a partition is initialized is will be formatted using the **filesystem** setting. If unspecified it will be formatted as ext4. If **options** setting is specified, its value will be provided to the command to mount the partition. If the **root** setting is false (that's the default) the filesystem will be initialized with the internal unprivileged user as its owner. The mount point permissions are set to provide read and write access to group and others in all cases. This allows the **runtime** application to use the volume for read and write.
 
@@ -446,10 +480,6 @@ Sample mounts configuration::
        partition: /dev/md/solr-repeater
        options: noatime,nodiratime,nobarrier
        erase_on_boot: false
-
-.. WARNING::
-   Volumes that are supposed to be re-used (and not follow the instance lifecycle) should be initialized in some other way, for ex., attaching it to another running instance and performing the required steps there only once.
-   If the **erase_on_boot** flag is True it will always be initialized. Trying to reuse EBS volumes with this flag is a bit useless.
 
 
 notify_cfn:
