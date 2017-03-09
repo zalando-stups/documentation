@@ -15,18 +15,18 @@ How it works
 Step 0
 ------
 
-A developer has to define, in which AWS account, the credentials of his application should get distributed to.
+A developer has to specify which AWS account the credentials of his application should get distributed to.
 
 Step 1 + 2
 ----------
 
-At first, mint makes sure, that for every registered application has an own 'service user' in the IAM solution. It then
+At first, mint makes sure that every registered application has its own 'service user' in the IAM solution. It then
 also deletes all users that are either inactive or do not even exist in Kio.
 
 Step 3 + 4
 ----------
 
-mint will regularly rotate the passwords and OAuth 2.0 credentials for all service user's. The new secrets are then
+mint will regularly rotate the passwords and OAuth 2.0 credentials for all service users. The new secrets are then
 stored in S3 buckets in the owning team's AWS accounts, where each registered application has one directory. mint
 has write access to those directories for updating the secrets but no read access.
 
@@ -45,8 +45,8 @@ The following picture demonstrates the exchange over S3:
 API for applications
 ====================
 
-mint stores all credentials of an application in a directory in S3. At first, you have to know in which S3 bucket mint
-stores everything. Knowing that, you can construct the correct URLs to it:
+mint stores all credentials of an application in a directory in S3. If you know in which S3 bucket mint
+stores everything, you can construct the correct URLs to it:
 
 * https://mints-s3-bucket.amazonaws.com/my-app-id/user.json
 * https://mints-s3-bucket.amazonaws.com/my-app-id/client.json
