@@ -128,6 +128,9 @@ configuration format::
    scalyr_account_key: "aws:kms:v5V2bMGRgg2yTHXm5Fn..."
    scalyr_application_log_parser: customParser
 
+   appdynamics_application: APPLICATION_ID
+   appdynamics_enable_logging: true
+
    newrelic_account_key: 12345-ACCOUNTKEY-12234
 
    mint_bucket: my-s3-mint-bucket
@@ -584,6 +587,14 @@ appdynamics_include_scala_classes
 **(optional)**
 
 If you have issues to see correlation on AppDynamics and you are using scala/akka/play then you should include necessary classes which are excluded by default.
+
+
+appdynamics_enable_logging
+---------------------------------
+
+**(optional)**
+
+Set this to true if you want to push logs to AppDynamics. Pushing logs to AppD is disabled per default.
 
 
 application_logrotate_*
