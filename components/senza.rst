@@ -197,6 +197,8 @@ Available properties for the ``SenzaInfo`` section are:
 ``Parameters``
     Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
 
+.. Note:: By default any HTML entities within a parameter will be escaped, this may cause some unexpected behaviour. In the event you need to workaround this use three braces either side of your argument evaluation e.g. ``{{{Arguments.ApplicationId}}}``
+
 .. code-block:: yaml
 
     # basic information for generating and executing this definition
