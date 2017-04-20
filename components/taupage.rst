@@ -688,3 +688,22 @@ You can build your own Taupage AMI using the code from the repository on GitHub 
 In the repository you will find a configuration (config-stups-example.sh) file which you'll have to adjust to your needs.
 
 See :ref:`taupage-ami-creation` for details.
+
+
+Using Nvidia gpus with nvidia-docker
++++++++++++++++++++++
+If gpu device files are found on the host the usage of nvidia-docker is triggered automatically. This has the benefit that drivers are automatically mounted into the docker container (there is no need to install identical drivers in the container).
+
+Some requirements:
+
+  * gpu instances must be available in the zone of your stups team account (eg: eu-west-1)
+  * use a cuda base image from nvidias docker hub: https://hub.docker.com/r/nvidia/cuda/
+  * if you are are installing cuda yourself take care of putting correct labels to the dockerfile: https://github.com/NVIDIA/nvidia-docker/wiki/Image-inspection#nvidia-docker
+  
+To check if your gpus are available you can add an comand to your docker file:
+
+    CMD nvidia-smi
+    
+After that you can use piu to log in to your instance and check the application log. There you should an output like:
+
+
