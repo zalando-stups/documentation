@@ -704,6 +704,9 @@ To check if your gpus are available you can add an comand to your docker file:
 
     CMD nvidia-smi
     
-After that you can use piu to log in to your instance and check the application log. There you should an output like:
+After that you can use piu to log in to your instance and check the application log.
+
+   cat /var/log/application.log
+
 
 
