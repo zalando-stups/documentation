@@ -24,3 +24,4 @@ How to use the STUPS platform.
    maintenance
    troubleshooting
    standalone-deployment
+   gpu-hello-world
