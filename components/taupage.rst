@@ -696,10 +696,10 @@ Taupage supports the use of NVIDIA CUDA-enabled GPUs if these are available on t
 
 .. NOTE::
   * It is not required to install the NVIDIA drivers in the Docker image as these are supplied by `nvidia-docker`.
-  * The CUDA driver and runtime versions must be compatible (see: https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#requirements).
+  * The CUDA driver and runtime versions must be compatible (see: `requirements <https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#requirements>`_).
 
 Some further points to note for using GPU computing in a Docker container running in Taupage:
 
   * GPU instances must be available in the AWS region where your application will be run (e.g.: `eu-west-1`).
-  * Ideally, the Docker image being run should be based on an NVIDIA CUDA image (https://hub.docker.com/r/nvidia/cuda/). This is not a strict requirement, but does simplify development. A non-complete list of images is maintained at https://github.com/NVIDIA/nvidia-docker/wiki/List-of-available-images.
-  * If custom Docker images are being used, consult the page at https://github.com/NVIDIA/nvidia-docker/wiki/Image-inspection#nvidia-docker for notes on image labels used by `nvidia-docker`.
+  * Ideally, the Docker image being run should be based on an `NVIDIA CUDA image <https://hub.docker.com/r/nvidia/cuda/>`_. This is not a strict requirement, but does simplify development. A non-complete list of images is maintained `here <https://github.com/NVIDIA/nvidia-docker/wiki/List-of-available-images>`_.
+  * If custom Docker images are being used, consult the `Image inspection page <https://github.com/NVIDIA/nvidia-docker/wiki/Image-inspection#nvidia-docker>`_ for notes on image labels used by `nvidia-docker`.
