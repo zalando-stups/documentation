@@ -689,24 +689,17 @@ In the repository you will find a configuration (config-stups-example.sh) file w
 
 See :ref:`taupage-ami-creation` for details.
 
+Support for NVIDIA GPUs
++++++++++++++++++++++++
 
-Using Nvidia gpus with nvidia-docker
-+++++++++++++++++++++
-If gpu device files are found on the host the usage of nvidia-docker is triggered automatically. This has the benefit that drivers are automatically mounted into the docker container (there is no need to install identical drivers in the container).
+Taupage supports the use of NVIDIA CUDA-enabled GPUs if these are available on the EC2 host (e.g. G2 or P2 instances). In this case, `nvidia-docker` (https://github.com/NVIDIA/nvidia-docker) is used as a drop-in replacement for Docker. This creates a Docker volume which contains the CUDA driver files installed on the host. This volume, as well as the required NVIDIA device nodes, are mounted into the running container allowing GPU-enabled applications to be run.
 
-Some requirements:
+.. NOTE::
+  * It is not required to install the NVIDIA drivers in the Docker image as these are supplied by `nvidia-docker`.
+  * The CUDA driver and runtime versions must be compatible (see: https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#requirements).
 
-  * gpu instances must be available in the zone of your stups team account (eg: eu-west-1)
-  * use a cuda base image from nvidias docker hub: https://hub.docker.com/r/nvidia/cuda/
-  * if you are are installing cuda yourself take care of putting correct labels to the dockerfile: https://github.com/NVIDIA/nvidia-docker/wiki/Image-inspection#nvidia-docker
-  
-To check if your gpus are available you can add an comand to your docker file:
+Some further points to note for using GPU computing in a Docker container running in Taupage:
 
-    CMD nvidia-smi
-    
-After that you can use piu to log in to your instance and check the application log.
-
-   cat /var/log/application.log
-
-
-
+  * GPU instances must be available in the AWS region where your application will be run (e.g.: `eu-west-1`).
+  * Ideally, the Docker image being run should be based on an NVIDIA CUDA image (https://hub.docker.com/r/nvidia/cuda/). This is not a strict requirement, but does simplify development. A non-complete list of images is maintained at https://github.com/NVIDIA/nvidia-docker/wiki/List-of-available-images.
+  * If custom Docker images are being used, consult the page at https://github.com/NVIDIA/nvidia-docker/wiki/Image-inspection#nvidia-docker for notes on image labels used by `nvidia-docker`.
