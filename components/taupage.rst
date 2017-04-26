@@ -380,7 +380,6 @@ Sample EBS volume configuration::
    You also have to create a **IAM Role** for this. Resource can be "*" or the ARN of the Volume ( arn:aws:ec2:region:account:volume/volume-id ).
 
 
-
 IAM-Role:
 
 .. code-block:: yaml
@@ -393,32 +392,9 @@ IAM-Role:
            "Effect": "Allow",
            "Action": [
                "ec2:AttachVolume",
-               "ec2:DescribeVolumes"
-           ],
-           "Resource": [
-               "*"
-           ]
-         }
-       ]
-     }
-
-.. _iamEraseOnBootTag:
-
-IAM-Role for use with **Taupage:erase-on-boot** tag on the EBS volume:
-
-.. code-block:: yaml
-
-     {
-       "Version": "2012-10-17",
-       "Statement": [
-         {
-           "Sid": "TaupageVolumeAccess",
-           "Effect": "Allow",
-           "Action": [
-               "ec2:AttachVolume",
                "ec2:DescribeVolumes",
-               "ec2:DescribeTags",
-               "ec2:DeleteTags"
+                "ec2:DescribeTags",
+                "ec2:DeleteTags"
            ],
            "Resource": [
                "*"
@@ -426,6 +402,7 @@ IAM-Role for use with **Taupage:erase-on-boot** tag on the EBS volume:
          }
        ]
      }
+
 RAID
 ^^^^
 
