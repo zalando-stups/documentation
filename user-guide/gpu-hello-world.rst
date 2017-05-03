@@ -73,49 +73,14 @@ This will trigger the mint worker to write your app credentials to your mint buc
 
 Deploy!
 
-Create a :ref:`senza` definition file for that (using the region you are on):
+The repository contains an example :ref:`senza` defition that can be used to deploy the Hello World example. If required, you can also add a log provider or other configuration options (like :ref:`guide <spot-pricing>`).
+
+The Cloud Formation stack can be created by running:
 
 .. code-block:: bash
 
-    $ senza init --region eu-west-1 deploy-definition.yaml
+    $ senza create --region=eu-west-1 deploy-definition.yaml stackversion pierone.stups.example.org 0.1 example-mint-bucket-eu-west-1
 
-* Choose the "bgapp" template.
-* Enter the application ID "gpu-hello-world"
-* Enter the docker image "pierone.stups.example.org/<your-team>/gpu-hello-world"
-* Go for "p2.xlarge" (This has a single K80 GPU installed)
-* Use the default mint bucket
+Note that this assumes a stack version of `stackversion` and a :ref:`pierone` image version of `0.1`.
 
-After this, you can also add a log provider or other configuration options (like :ref:`guide <spot-pricing>`).
-
-Create your Cloud Formation stack.
-
-.. code-block:: bash
-
-    $ senza create deploy-definition.yaml stackversion 0.1 --region=eu-west-1
-
-* Senza will generate CF JSON
-* CF stack is created
-* ASG launches Taupage instance
-* Taupage starts Scalyr agent
-* Taupage runs berry to download app credentials
-* Taupage pushes Taupage config userdata to fullstop.
-* Taupage pulls Docker image from Pier One using the app credentials
-* Taupage starts the Docker container
-* Taupage signals CFN
-
-Wait for completion by watching the Senza status output.
-
-.. code-block:: bash
-
-    $ senza status deploy-definition.yaml -W --region=eu-west-1
-
-or senza events:
-
-.. code-block:: bash
-
-    $ senza events deploy-definition.yaml 1 -W --region=eu-west-1
-
-.. Important::
-
-    In case of error go to your log provider, if you did not configure it.
-    Go in aws, EC2 service, find your instance, right click, Instance Settings, Get System Log.
+Once the stack has started up, you should be able to view the output in your log provider (if configured). If not, the instance can be accessed and the contents of the `/var/log/application.log` checked to confirm that the stack ran as expected.
