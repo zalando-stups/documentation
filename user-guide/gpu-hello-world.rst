@@ -79,7 +79,7 @@ The Cloud Formation stack can be created by running:
 
 .. code-block:: bash
 
-    $ senza create --region=eu-west-1 deploy-definition.yaml stackversion pierone.stups.example.org 0.1 example-mint-bucket-eu-west-1
+    $ senza create --region=eu-west-1 deploy-definition.yaml stackversion pierone.stups.example.org/<your-team>/gpu-hello-world 0.1 example-mint-bucket-eu-west-1
 
 Note that this assumes a stack version of `stackversion` and a :ref:`pierone` image version of `0.1`.
 
