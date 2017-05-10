@@ -571,6 +571,14 @@ scalyr_application_log_parser
 
 If the application.log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
 
+
+scalyr_custom_log_parser
+------------------------
+
+**(optional)**
+
+If you enable mount_custom_log Scalyr will also pickup your custom logs and if your custom log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
+
 appdynamics_application
 -----------------------
 
@@ -585,7 +593,6 @@ appdynamics_machineagent_tiername
 
 If you want to use log shipping without an App-Agent from AppDynamics you have to set the Tiername for the MachineAgent manually with this variable.
 
-
 application_logrotate_*
 -----------------------
 
@@ -594,23 +601,49 @@ application_logrotate_*
 These are settings how logrotate will rotate your application.log file.
 
 
+   **examples**::
+
+       application_logrotate_size: 10M
+       application_logrotate_interval: weekly
+       application_logrotate_rotate: 4
+
+   **explanation**:
+
+ * **application_logrotate_size**
+    * Log files are rotated when they grow bigger than size bytes. If size is followed by M, the size if assumed to be in megabytes. If the G suffix is used, the size is in gigabytes. If the k is used, the size is in kilobytes. So size 100, size 100k, and size 100M are all valid.
+    * **Default: 256M**
+ * **application_logrotate_interval**
+    * the time interval when logs will be rotated: hourly, daily, weekly, monthly, yearly is possible.
+    * **Default: weekly**
+ * **application_logrotate_rotate**
+    * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
+    * **Default: 4**
+
+customlog_logrotate_*
+-----------------------
+
+**(optional)**
+
+These are settings how logrotate will rotate your custom logs.
+
+
     **examples**::
 
-        application_logrotate_size: 10M
-        application_logrotate_interval: weekly
-        application_logrotate_rotate: 4
+        customlog_logrotate_size: 10M
+        customlog_logrotate_interval: weekly
+        customlog_logrotate_rotate: 5
 
     **explanation**:
 
-  * **application_logrotate_size**
+  * **customlog_logrotate_size**
      * Log files are rotated when they grow bigger than size bytes. If size is followed by M, the size if assumed to be in megabytes. If the G suffix is used, the size is in gigabytes. If the k is used, the size is in kilobytes. So size 100, size 100k, and size 100M are all valid.
      * **Default: 256M**
-  * **application_logrotate_interval**
+  * **customlog_logrotate_interval**
      * the time interval when logs will be rotated: hourly, daily, weekly, monthly, yearly is possible.
-     * **Default: weekly**
-  * **application_logrotate_rotate**
+     * **Default: daily**
+  * **customlog_logrotate_rotate**
      * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
-     * **Default: 4**
+     * **Default: 5**
 
 rsyslog_max_message_size
 --------------------
