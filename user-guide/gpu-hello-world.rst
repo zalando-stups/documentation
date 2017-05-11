@@ -73,7 +73,7 @@ This will trigger the mint worker to write your app credentials to your mint buc
 
 Deploy!
 
-The repository contains an example :ref:`senza` defition that can be used to deploy the Hello World example. If required, you can also add a log provider or other configuration options (like :ref:`guide <spot-pricing>`).
+The repository contains an example :ref:`senza` definition that can be used to deploy the Hello World example. If required, you can also add a log provider or other configuration options (like :ref:`guide <spot-pricing>`).
 
 The Cloud Formation stack can be created by running:
 
