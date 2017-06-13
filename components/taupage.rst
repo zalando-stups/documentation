@@ -171,9 +171,6 @@ What kind of deployment artifact you are using. Currently supported:
 
 * Docker
 
-.. NOTE::
-   We plan to integrate CoreOS's Rocket as a runtime for experimental use soon.
-
 source:
 -------
 
