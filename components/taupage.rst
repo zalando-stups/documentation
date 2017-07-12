@@ -615,6 +615,12 @@ These are settings how logrotate will rotate your application.log file.
  * **application_logrotate_rotate**
     * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
     * **Default: 4**
+ * **application_logrotate_disable_copytruncate: true**
+    * Deletes the **copytruncate** option and restores the default behavior.
+    * **Default: False**
+ * **application_logrotate_disable_delaycompress: true**
+    * Deletes the **delaycompress** option and restores the default behavior.
+    * **Default: False**
 
 customlog_logrotate_*
 -----------------------
