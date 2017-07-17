@@ -136,9 +136,12 @@ configuration format::
    application_logrotate_size: 10M
    application_logrotate_interval: daily
    application_logrotate_rotate: 4
+   application_logrotate_disable_copytruncate: false
+   application_logrotate_disable_delaycompress: false
 
    rsyslog_max_message_size: 4K
 
+   xray_enabled: true
 
 
 Provide this configuration as your user-data during launch of your EC2 instance.
@@ -655,6 +658,14 @@ rsyslog_max_message_size
 
 You can set a custom value for the maximum size of syslog.
 You can find more about it here: http://www.rsyslog.com/doc/v8-stable/configuration/global/index.html
+
+xray_enabled
+------------
+
+**(optional)**
+
+You can enable the AWS X-Ray agent.
+You can find more about it here: https://aws.amazon.com/xray/
 
 Runtime environment
 +++++++++++++++++++
