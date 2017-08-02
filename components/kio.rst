@@ -9,7 +9,7 @@ and **approvals**.
 
 Most services of STUPS rely on Kio for being the authoritative source for existing applications. Before you deploy an
 application in the STUPS infrastructure, you have to register it in Kio. You can use :ref:`yourturn` to have a nice UI
-on top of Kio or you can access it via its [REST API](https://github.com/zalando-stups/kio/blob/master/resources/api/kio-api.yaml).
+on top of Kio or you can access it via its `REST API`_.
 
 Registered applications are automatically crawled for their API definitions by :ref:`twintip` and get service users in
 your IAM solution by :ref:`mint`.
@@ -57,3 +57,4 @@ Installation
 
 See the :ref:`STUPS Installation Guide section on Kio <kio-deploy>` for details about deploying the Kio application registry into your AWS account.
 
+.. _REST API: https://github.com/zalando-stups/kio/blob/master/resources/api/kio-api.yaml
