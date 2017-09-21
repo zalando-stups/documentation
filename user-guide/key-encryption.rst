@@ -45,7 +45,7 @@ Let's test if all works:
     # 2. Then feed this encrypted content back to decrypt.  Note that the Plaintext that comes back is base64 encoded so we need to decode this.
     $ echo "Decrypted is: $(aws kms decrypt --ciphertext-blob fileb:///tmp/encrypted  --output text --query Plaintext | base64 -d)"
 
-If all works we can now repeat the first step without the base64 encryption:
+If all works we can now repeat the first step without the base64 encoding:
 
 .. code-block:: bash
 
