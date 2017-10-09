@@ -300,7 +300,7 @@ See https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-
 **Warning: this has serious security implications that you must understand and consider!**
 
 docker_daemon_access:
------------
+---------------------
 
 **(optional, default: false)**
 
@@ -309,7 +309,7 @@ the Docker daemon of the host system. **Warning: this has serious security impli
 understand and consider!**
 
 read_only:
------------
+----------
 
 **(optional, default: false)**
 
@@ -317,28 +317,28 @@ The container will run with --read-only option.
 Mount the container's root filesystem as read only.
 
 mount_var_log:
------------
+--------------
 
 **(optional, default: false)**
 
 This will mount /var/log into the Docker container /var/log-host as read-only.
 
 mount_custom_log:
------------
+-----------------
 
 **(optional, default: false)**
 
 This will mount /var/log-custom into the Docker container /var/log as read-write.
 
 mount_certs:
------------
+------------
 
 **(optional, default: false)**
 
 This will mount /etc/ssl/certs into the Docker container as read-only.
 
 keep_instance_users: true:
---------------------
+--------------------------
 
 **(optional, default: false)**
 
@@ -348,7 +348,7 @@ Access to the instances will be granted via Even&Odd.
 See https://docs.stups.io/en/latest/user-guide/ssh-access.html for more.
 
 enhanced_cloudwatch_metrics: true
---------------------
+---------------------------------
 
 **(optional, default: false)**
 
@@ -652,7 +652,7 @@ These are settings how logrotate will rotate your custom logs.
      * **Default: 5**
 
 rsyslog_max_message_size
---------------------
+------------------------
 
 **(optional)**
 
