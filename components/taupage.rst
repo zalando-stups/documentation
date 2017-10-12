@@ -127,6 +127,7 @@ configuration format::
    # AWS KMS encryption available. Example:
    scalyr_account_key: "aws:kms:v5V2bMGRgg2yTHXm5Fn..."
    scalyr_application_log_parser: customParser
+   scalyr_region: eu
 
    newrelic_account_key: 12345-ACCOUNTKEY-12234
 
@@ -578,6 +579,13 @@ scalyr_custom_log_parser
 **(optional)**
 
 If you enable mount_custom_log Scalyr will also pickup your custom logs and if your custom log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
+
+scalyr_region
+------------------------
+
+**(optional)**
+
+If set to `eu` the Scalyr Agent starts logging to https://eu.scalyr.com. Otherwise it will be logging to the default Scalyr region (https://scalyr.com).
 
 appdynamics_application
 -----------------------
