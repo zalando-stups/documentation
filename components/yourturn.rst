@@ -67,44 +67,6 @@ pull the credentials from:
 
 .. image:: images/yourturn-access-form.png
 
-"Versions" brings you to the application versions.
-
-Application Version
--------------------
-
-At first you see the list of all application versions.
-
-.. image:: images/yourturn-version-list.png
-
-You can create a new version:
-
-.. image:: images/yourturn-version-form.png
-
-YOUR TURN will enforce a unique version ID.
-
-You can view the notes and deployment artifact for a version:
-
-.. image:: images/yourturn-version-detail.png
-
-Application Version Approval
-----------------------------
-
-Under "Approvals" you can add an approval for this application version:
-
-.. image:: images/yourturn-approval-form.png
-
-There are four default approval types:
-
-* ``SPECIFICATION``: Approves that tickets in this version are properly specified and have useful content.
-* ``CODE_CHANGE``: The approver asserts that there are no unwanted code changes, i.e. did a code review (via PR or some other means).
-* ``TEST``: The approver asserts that all tests are okay, however they look like for this application (manual, automated, unit…).
-* ``DEPLOY``: The approver asserts that the code inside the deployment artifact of this version is good to deploy.
-
-In addition to that you can define your own approval type (``CUSTOM``).
-
-Note that all approvals will be deleted when you edit this version, e.g. change
-the deployment artifact or the notes.
-
 Resource Types
 --------------
 

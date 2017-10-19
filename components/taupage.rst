@@ -164,7 +164,7 @@ application_version:
 
 **(required)**
 
-The well-known, registered (in :ref:`kio`) application version string. Examples: "1.0", "0.1-alpha", ..
+The application version string. Examples: "1.0", "0.1-alpha", ..
 
 runtime:
 --------

@@ -82,12 +82,6 @@ Let's check if we can find it in the Pier One repository (login needed if your t
     $ pierone login
     $ pierone tags <your-team> zalando-cheat-sheet-generator
 
-Now let's create the version in YOUR TURN for the application created:
-
-.. code-block:: bash
-
-    https://yourturn.stups.example.org
-
 Configure your application's mint bucket (click on the "Access Control" button on your app's page in YOUR TURN).
 
 This will trigger the mint worker to write your app credentials to your mint bucket.
