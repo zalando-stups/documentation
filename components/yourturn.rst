@@ -6,7 +6,6 @@ YOUR TURN
 **YOUR TURN** is the frontend for the STUPS infrastructure. It enables you to
 
 * register your application in Kio
-* discover APIs of other applications (TWINTIP)
 * define your resources and scopes in Essentials
 * add your application into the OAuth security system (mint)
 * search for Docker images in Pier One
@@ -19,7 +18,7 @@ e.g. mint checking back with Kio if an application exists in the first place).
 The UI consists of three modules:
 
 * The search
-* Applications (using Kio, TWINTIP, mint)
+* Applications (using Kio, mint)
 * Resource Types (using essentials)
 
 They can be accessed via the sidebar, which also hosts information about the
@@ -33,7 +32,6 @@ Search
 It will search for the provided term in
 
 * Kio
-* TWINTIP
 * Pier One
 
 .. image:: images/yourturn-search.png
