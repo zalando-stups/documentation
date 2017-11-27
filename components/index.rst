@@ -23,6 +23,5 @@ Components
    senza
    sevenseconds
    taupage
-   twintip
    yourturn
    zign
