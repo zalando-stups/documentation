@@ -235,7 +235,6 @@ YOUR TURN
 **YOUR TURN** is STUPS' developer console. It is a pure Javascript application including a very small backend. Currently it depends on the following STUPS services:
 
 * Kio
-* Twintip
 * mint
 * essentials
 * Pier One
