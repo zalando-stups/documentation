@@ -10,8 +10,7 @@ Most services of STUPS rely on Kio for being the authoritative source for existi
 application in the STUPS infrastructure, you have to register it in Kio. You can use :ref:`yourturn` to have a nice UI
 on top of Kio or you can access it via command line tool or the `REST API`_.
 
-Registered applications are automatically crawled for their API definitions by :ref:`twintip` and get service users in
-your IAM solution by :ref:`mint`.
+Registered applications get service users in your IAM solution by :ref:`mint`.
 
 Command Line Client
 ===================
