@@ -463,7 +463,7 @@ This component supports the following configuration properties:
 ``Statistic``
     Which statistic to track in order to decide when scaling thresholds are met. Defaults to "Average", can also be "SampleCount", "Sum", "Minimum", "Maximum".
 ``Period``
-    Period over which statistic is calculated (in seconds), defaults to 300 (five minutes).
+    Period over which statistic is calculated (in seconds), defaults to 300 (five minutes). It can be 10, 30 or multiples of 60 seconds.
 ``EvaluationPeriods``
     The number of periods over which data is compared to the specified threshold. Defaults to 2.
 
