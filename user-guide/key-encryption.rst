@@ -38,7 +38,7 @@ Let's test if all works:
 .. code-block:: bash
 
     # 1. Encrypt and save the binary content to a file:
-    $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text | base64 | tr -d '\n' > /tmp/encrypted    
+    $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text | base64 | tr -d '\n' > /tmp/encrypted
 
 .. code-block:: bash
 
