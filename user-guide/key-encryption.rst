@@ -39,6 +39,9 @@ Let's test if all works:
 
     # 1. Encrypt and save the binary content to a file:
     $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text | base64 -d > /tmp/encrypted
+    # some mac osx base64 implementations do not know the -d flag, you can use as a workaround
+    base64 | tr -d '\n'
+    
 
 .. code-block:: bash
 
