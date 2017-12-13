@@ -38,15 +38,12 @@ Let's test if all works:
 .. code-block:: bash
 
     # 1. Encrypt and save the binary content to a file:
-    $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text | base64 -d > /tmp/encrypted
-    # some mac osx base64 implementations do not know the -d flag, you can use as a workaround
-    base64 | tr -d '\n'
-    
+    $ aws kms encrypt --key-id $KMS_KEY_ID --plaintext "<here-you-can-paste-your-pwd>"  --query CiphertextBlob --output text | base64 | tr -d '\n' > /tmp/encrypted    
 
 .. code-block:: bash
 
     # 2. Then feed this encrypted content back to decrypt.  Note that the Plaintext that comes back is base64 encoded so we need to decode this.
-    $ echo "Decrypted is: $(aws kms decrypt --ciphertext-blob fileb:///tmp/encrypted  --output text --query Plaintext | base64 -d)"
+    $ echo "Decrypted is: $(aws kms decrypt --ciphertext-blob fileb:///tmp/encrypted  --output text --query Plaintext | base64 | tr -d '\n')"
 
 If all works we can now repeat the first step without the base64 encoding:
 
