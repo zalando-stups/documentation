@@ -301,7 +301,7 @@ See https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-
 **Warning: this has serious security implications that you must understand and consider!**
 
 docker_daemon_access:
----------------------
+-----------
 
 **(optional, default: false)**
 
@@ -310,7 +310,7 @@ the Docker daemon of the host system. **Warning: this has serious security impli
 understand and consider!**
 
 read_only:
-----------
+-----------
 
 **(optional, default: false)**
 
@@ -318,28 +318,28 @@ The container will run with --read-only option.
 Mount the container's root filesystem as read only.
 
 mount_var_log:
---------------
+-----------
 
 **(optional, default: false)**
 
 This will mount /var/log into the Docker container /var/log-host as read-only.
 
 mount_custom_log:
------------------
+-----------
 
 **(optional, default: false)**
 
 This will mount /var/log-custom into the Docker container /var/log as read-write.
 
 mount_certs:
-------------
+-----------
 
 **(optional, default: false)**
 
 This will mount /etc/ssl/certs into the Docker container as read-only.
 
 keep_instance_users: true:
---------------------------
+--------------------
 
 **(optional, default: false)**
 
@@ -349,7 +349,7 @@ Access to the instances will be granted via Even&Odd.
 See https://docs.stups.io/en/latest/user-guide/ssh-access.html for more.
 
 enhanced_cloudwatch_metrics: true
----------------------------------
+--------------------
 
 **(optional, default: false)**
 
@@ -659,24 +659,8 @@ These are settings how logrotate will rotate your custom logs.
      * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
      * **Default: 5**
 
-logrotate_interval_minutes
---------------------------
-
-**(optional)**
-
-If set, logrotate will run every ``logrotate_interval_minutes`` minutes instead of hourly.
-
-rsyslog_application_hardlimit
------------------------------
-
-**(optional)**
-
-If the size of the ``application.log`` file exceeds this number, ``rsyslog`` will run ``logrotate`` before appending the next line. This setting should be greater than ``application_logrotate_size``, because rotating logs this way has more adverse effects on your application (it will be blocked on writing to stdout while the rotation is in progress, for example).
-
-If size is followed by M, the size if assumed to be in megabytes. If the G suffix is used, the size is in gigabytes. If the k is used, the size is in kilobytes. So size 100, size 100k, and size 100M are all valid.
-
 rsyslog_max_message_size
-------------------------
+--------------------
 
 **(optional)**
 
