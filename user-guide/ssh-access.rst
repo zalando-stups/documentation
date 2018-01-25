@@ -28,6 +28,10 @@ Every team member can get access to any of the team's EC2 instances by using the
 
 .. Tip::
 
+    If executing a **piu** command results in a message ``Access to host odd-eu-west-1.myteam.example.org for user <myuser> was granted.``, but you get an error ``Permission denied (publickey).``, you can solve this by installing an **ssh-agent** and executing ``ssh-add`` prior to **piu**. 
+
+.. Tip::
+
     Use the ``--clip`` option to copy the output of piu to your clipboard.
     On Linux it requires the package ``xclip``. On OSX it works out of the box.
 
