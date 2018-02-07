@@ -364,7 +364,7 @@ All Senza components must be configured in a list below the top-level "SenzaComp
 Senza::StupsAutoConfiguration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **StupsAutoConfiguration** component type autodetects load balancer and server subnets by relying on STUPS' naming convention (DMZ subnets have "dmz" in their name). It also finds the latest Taupage AMI and defines an image "LatestTaupageImage" which can be used by the "TaupageAutoScalingGroup" component.
+The **StupsAutoConfiguration** component type autodetects load balancer and server subnets by relying on STUPS' naming convention (DMZ subnets have "dmz" in their name). It also finds the latest Taupage AMIs and defines the images which can be used by the "TaupageAutoScalingGroup" component.
 
 Example usage:
 
@@ -379,6 +379,17 @@ This component supports the following configuration properties:
 ``AvailabilityZones``
     Optional list of AZ names (e.g. "eu-west-1a") to filter subnets by.
     This option is relevant for attaching EBS volumes as they are bound to availability zones.
+
+This components adds the following images:
+
+``LatestTaupageImage``
+    Latest Taupage AMI, for use in production deployments. Selected by default in the "TaupageAutoScalingGroup" component.
+
+``LatestTaupageStagingImage``
+    Staging Taupage AMI, for testing compatibility with the new Taupage releases. Should not be used for production deployments!
+
+``LatestTaupageDevImage``
+    Latest build of the Taupage AMI. Should not be used unless you're working on Taupage or its components.
 
 .. _senza-taupage-auto-scaling-group:
 
