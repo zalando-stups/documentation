@@ -659,6 +659,14 @@ These are settings how logrotate will rotate your custom logs.
      * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
      * **Default: 5**
 
+rsyslog_aws_metadata
+--------------------
+
+**(optional)**
+
+If set, AWS account ID and region will be added to log files. If you use Scalyr, make sure that your parsers handle
+the new message formats correctly.
+
 rsyslog_max_message_size
 --------------------
 
