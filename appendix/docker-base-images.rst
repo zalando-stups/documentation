@@ -12,7 +12,7 @@ Name      Description
 ========= ===========
 Ubuntu_   Ubuntu base image
 OpenJDK_  Java 8 base image (Zalando CA is imported into Java TrustStore)
-Python_   Python 3.4/3.5 base images
+Python_   Python 3.6 base image
 Node.js_  Node.js base image
 ========= ===========
 
