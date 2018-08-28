@@ -587,6 +587,91 @@ scalyr_region
 
 If set to `eu` the Scalyr Agent starts logging to https://eu.scalyr.com. Otherwise it will be logging to the default Scalyr region (https://scalyr.com).
 
+scalyr_agent_enabled
+--------------------
+
+**(optional)**
+
+If set to `false` the Scalyr Agent will not be started.
+
+fluentd_enabled
+---------------
+
+**(optional)**
+
+If set to `true` the Fluentd Agent will be started.
+
+.. NOTE::
+   By default Fluentd Agent will send all logs to scalyr. Use either Fluentd Agent or Scalyr Agent unless you know what you are doing, otherwise you might send logs to scalyr twice.
+
+   All fluentd options mentioned depend on this to be set to `true`.
+
+fluentd_s3_bucket
+-----------------
+
+**(optional)**
+
+Name of s3 bucket you want to send logs too.
+
+.. NOTE::
+   Make sure the ec2 instance can write to the bucket. Minimal permissions needed are `putObject` and `listBucket`.
+
+fluentd_s3_timekey
+------------------
+
+**(optional)**
+
+Specify time after which Buffer is flushed to s3 and a new file is written. Defaults to `1m`.
+
+fluentd_s3_region
+-----------------
+
+**(optional)**
+
+Specify region your s3 bucket is in. Defaults to `eu-central-1`.
+
+.. _fluentd_log_destination:
+
+fluentd_log_destination
+-----------------------
+
+**(optional)**
+
+Set to `s3` to send all logs to s3 bucket, defaults to `scalyr`.
+
+fluentd_applog_destination
+--------------------------
+
+**(optional)**
+
+Set to `s3` to send application.log to s3 bucket, defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
+or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+
+fluentd_syslog_destination
+--------------------------
+
+**(optional)**
+
+Set to `s3` to send syslog to s3 bucket, defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
+or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+
+fluentd_authlog_destination
+---------------------------
+
+**(optional)**
+
+Set to `s3` to send auth.log to s3 bucket, defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
+or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+
+fluentd_loglevel
+----------------
+
+**(optional)**
+
+Specify Fluentd Agent loglevel, possible values are: *fatal*, *error*, *warn*, *info*, *debug* or *trace*. Defaults to `info`.
+
+Fluentd logfile can be found in /var/log/td-agent/td-agent.log
+
 appdynamics_application
 -----------------------
 
