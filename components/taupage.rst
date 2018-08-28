@@ -606,6 +606,66 @@ If set to `true` the Fluentd Agent will be started.
 
    All fluentd options mentioned depend on this to be set to `true`.
 
+   Fluentd exposes metrics in prometheus format on port 9110. You might need to adjust your AWS security group to access it.
+
+fluentd_loglevel
+----------------
+
+**(optional)**
+
+Specify Fluentd Agent loglevel, possible values are: *fatal*, *error*, *warn*, *info*, *debug* or *trace*. Defaults to `info`.
+
+Fluentd logfile can be found in /var/log/td-agent/td-agent.log
+
+.. _fluentd_log_destination:
+
+fluentd_log_destination
+-----------------------
+
+**(optional)**
+
+Set destination for all logs. 
+
+Options: *s3*, *rsyslog* or *scalyr*. 
+
+Defaults to `scalyr`.
+
+fluentd_applog_destination
+--------------------------
+
+**(optional)**
+
+Set destination for application.log 
+
+Options: see :ref:`fluentd_log_destination <fluentd_log_destination>`
+
+Defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
+or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+
+fluentd_syslog_destination
+--------------------------
+
+**(optional)**
+
+Set destination for syslog 
+
+Options: see :ref:`fluentd_log_destination <fluentd_log_destination>`
+
+Defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
+or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+
+fluentd_authlog_destination
+---------------------------
+
+**(optional)**
+
+Set destination for auth.log 
+
+Options: see :ref:`fluentd_log_destination <fluentd_log_destination>`
+
+Defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
+or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+
 fluentd_s3_bucket
 -----------------
 
@@ -630,47 +690,47 @@ fluentd_s3_region
 
 Specify region your s3 bucket is in. Defaults to `eu-central-1`.
 
-.. _fluentd_log_destination:
+fluentd_rsyslog_host
+--------------------
 
-fluentd_log_destination
+**(optional)**
+
+rsyslog destination Host.
+
+fluentd_rsyslog_port
+--------------------
+
+**(optional)**
+
+Defaults to `514`
+
+fluentd_rsyslog_protocol
+------------------------
+
+**(optional)**
+
+Defaults to `tcp`
+
+fluentd_rsyslog_severity
+------------------------
+
+**(optional)**
+
+Defaults to `notice`
+
+fluentd_rsyslog_program
 -----------------------
 
 **(optional)**
 
-Set to `s3` to send all logs to s3 bucket, defaults to `scalyr`.
+Defaults to `fluentd`
 
-fluentd_applog_destination
---------------------------
-
-**(optional)**
-
-Set to `s3` to send application.log to s3 bucket, defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
-or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
-
-fluentd_syslog_destination
---------------------------
+fluentd_rsyslog_hostname
+------------------------
 
 **(optional)**
 
-Set to `s3` to send syslog to s3 bucket, defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
-or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
-
-fluentd_authlog_destination
----------------------------
-
-**(optional)**
-
-Set to `s3` to send auth.log to s3 bucket, defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
-or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
-
-fluentd_loglevel
-----------------
-
-**(optional)**
-
-Specify Fluentd Agent loglevel, possible values are: *fatal*, *error*, *warn*, *info*, *debug* or *trace*. Defaults to `info`.
-
-Fluentd logfile can be found in /var/log/td-agent/td-agent.log
+Local hostname, defaults to actual local hostname
 
 appdynamics_application
 -----------------------
