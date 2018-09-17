@@ -568,8 +568,8 @@ It adds the following additional properties:
 
 ``Elastigroup``
     The raw specification of the Elastigroup. Please refer to the vendor documentation
-    for the specification the `Elastigroup Create API`_. The content of this property
-    is copied to the ``group`` attribute of the API.
+    for the full specification of the `Elastigroup Create API`_. The content of this
+    property is copied to the ``group`` attribute of the API.
 
 Senza will try to mix and match `Senza::TaupageAutoScalingGroup`_ properties with the
 Elastigroup. Raw definitions inside the ``Elastigroup`` property take precedence
