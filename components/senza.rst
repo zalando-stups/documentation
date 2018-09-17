@@ -567,9 +567,9 @@ It adds the following additional properties:
     by the `Elastigroup cluster orientation`_. The default setting is "Balanced".
 
 ``Elastigroup``
-    The raw specification of the Elastigroup, according to the `Elastigroup API`_.
-    The content of this property is set as the content of the ``group`` attribute
-    of the API.
+    The raw specification of the Elastigroup. Please refer to the vendor documentation
+    for the specification the `Elastigroup Create API`_. The content of this property
+    is copied to the ``group`` attribute of the API.
 
 Senza will try to mix and match `Senza::TaupageAutoScalingGroup`_ properties with the
 Elastigroup. Raw definitions inside the ``Elastigroup`` property take precedence
@@ -691,4 +691,4 @@ Another use case for cross-stack references if one needs to access outputs from 
 .. _Spotinst's: https://spotinst.com/
 .. _Elastigroup: https://spotinst.com/products/elastigroup/
 .. _Elastigroup cluster orientation: https://help.spotinst.com/hc/en-us/articles/115003136565-Advanced-settings-General-Tab
-.. _Elastigroup API: https://api.spotinst.com/spotinst-api/elastigroup/amazon-web-services/create/
+.. _Elastigroup Create API: https://api.spotinst.com/spotinst-api/elastigroup/amazon-web-services/create/
