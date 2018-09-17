@@ -604,7 +604,7 @@ If set to `true` the Fluentd Agent will be started.
 .. NOTE::
    By default Fluentd Agent will send all logs to scalyr. Use either Fluentd Agent or Scalyr Agent unless you know what you are doing, otherwise you might send logs to scalyr twice.
 
-   All fluentd options mentioned depend on this to be set to `true`.
+   All Fluentd options mentioned depend on this to be set to `true`.
 
    Fluentd exposes metrics in prometheus format on port 9110. You might need to adjust your AWS security group to access it.
 
