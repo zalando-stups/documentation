@@ -196,6 +196,13 @@ Available properties for the ``SenzaInfo`` section are:
     Optional SNS topic name or ARN for Cloud Formation notifications. This can used for example to send notifications about deployments to a mailing list.
 ``Parameters``
     Custom Senza definition parameters. This can be used to dynamically substitute variables in the Cloud Formation template.
+``SpotinstAccessToken``
+    The access token required to create Elastigroups (optional). See the `Senza::Elastigroup`_ component
+    for more details.
+    This property can be encrypted with KMS. It will be decrypted by the senza client to generate the
+    Cloud Formation template.
+    The expected format is: "senza:kms:AQICAH...r0lbg==" where "senza:kms:" is the chosen prefix and the
+    remainder is the encrypted secret.
 
 .. Note:: By default any HTML entities within a parameter will be escaped, this may cause some unexpected behaviour. In the event you need to workaround this use three braces either side of your argument evaluation e.g. ``{{{Arguments.ApplicationId}}}``
 
@@ -505,7 +512,6 @@ up to the current price of an on demand instance you can search `AWS
 instance prices`_ list. This block will buy a c4.large instance for up
 to $0.134 per hour.
 
-
 .. code-block:: yaml
 
     SenzaComponents:
@@ -514,6 +520,84 @@ to $0.134 per hour.
           InstanceType: c4.large
           SpotPrice: 0.134
 
+Senza also supports `Spotinst's`_ `Elastigroup`_. For details how that works with
+senza read the section `Senza::Elastigroup`_
+
+Senza::Elastigroup
+~~~~~~~~~~~~~~~~~~
+
+The **Elastrigoup** component type creates an Elastigroup. It's the equivalent of
+an Auto Scaling Group, but managed externally by a third party - Spotinst.
+
+Quote from the vendor: "Spotinst Elastigroup predicts EC2 Spot behavior, capacity
+trends, pricing, and interruptions rate. Whenever there’s a risk of interruption,
+Elastigroup acts accordingly to balance capacity up to 15 minutes ahead of time,
+ensuring 100% availability."
+
+.. code-block:: yaml
+
+    SenzaComponents:
+      - AppServer:
+          Type: Senza::Elastigroup
+          InstanceType: "c5.large"
+          SpotAlternatives:
+              - "m5.large"
+              - "c5.xlarge"
+          SecurityGroups: app-hello-world
+          IamRoles:
+            - app-hello-world
+          ElasticLoadBalancerV2: AppLoadBalancer
+          TaupageConfig:
+            runtime: Docker
+            source: pierone.example.org/foobar/myapp:1.0
+            ports:
+              8080: 8080
+            environment:
+              FOO: bar
+
+This component accepts ALL of the properties of the `Senza::TaupageAutoScalingGroup`_
+component. They are mapped to the corresponding attributes of the Elastigroup.
+This includes the ``AutoScaling`` properties.
+
+It adds the following additional properties:
+
+``SpotAlternatives``
+    The EC2 instance types that should be used as Spot instead of the On-Demand
+    ``InstanceType``. The selection of which one is effectivelly used is controlled
+    by the `Elastigroup cluster orientation`_. The default setting is "Balanced".
+
+``Elastigroup``
+    The raw specification of the Elastigroup. Please refer to the vendor documentation
+    for the full specification of the `Elastigroup Create API`_. The content of this
+    property is copied to the ``group`` attribute of the API.
+
+Senza will try to mix and match `Senza::TaupageAutoScalingGroup`_ properties with the
+Elastigroup. Raw definitions inside the ``Elastigroup`` property take precedence
+and will be left untouched. For example, if the Senza file contains:
+
+.. code-block:: yaml
+
+    SenzaComponents:
+      - AppServer:
+          Type: Senza::Elastigroup
+          InstanceType: "c5.large"
+          SpotAlternatives:
+              - "m5.large"
+              - "c5.xlarge"
+          Elastigroup:
+              compute:
+                  instanceTypes:
+                      ondemand: "m4.large"
+                      spot:
+                          - "m4.xlarge"
+                          - "m4.2xlarge"
+
+The effective setting will be to use **m4.large** as On-Demand and **m4.xlarge** and
+**m4.2xlarge** as the spot alternatives. The ``InstanceType`` and ``SpotAlternatives``
+properties are ignored.
+
+This is the behavior of all the remaining properties that can be also set in the
+``Elastigroup`` property.
 
 Senza::WeightedDnsElasticLoadBalancer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -604,3 +688,7 @@ Another use case for cross-stack references if one needs to access outputs from 
 .. _valid AWS Cloud Formation ELB properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
 .. _AWS spot instance: https://aws.amazon.com/de/ec2/spot/
 .. _AWS instance prices: http://www.ec2instances.info/
+.. _Spotinst's: https://spotinst.com/
+.. _Elastigroup: https://spotinst.com/products/elastigroup/
+.. _Elastigroup cluster orientation: https://help.spotinst.com/hc/en-us/articles/115003136565-Advanced-settings-General-Tab
+.. _Elastigroup Create API: https://api.spotinst.com/spotinst-api/elastigroup/amazon-web-services/create/
