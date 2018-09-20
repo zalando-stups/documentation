@@ -563,13 +563,16 @@ It adds the following additional properties:
 
 ``SpotAlternatives``
     The EC2 instance types that should be used as Spot instead of the On-Demand
-    ``InstanceType``. The selection of which one is effectivelly used is controlled
+    ``InstanceType``. The selection of which ones are effectivelly used is controlled
     by the `Elastigroup cluster orientation`_. The default setting is "Balanced".
+    If this property is not set, the same instance type as the On-Demand `InstanceType`
+    is set as the single Spot alternative.
 
 ``Elastigroup``
-    The raw specification of the Elastigroup. Please refer to the vendor documentation
-    for the full specification of the `Elastigroup Create API`_. The content of this
-    property is copied to the ``group`` attribute of the API.
+    This is the, optional, raw specification of the Elastigroup. Please refer to the 
+    vendor documentation for the full specification of the `Elastigroup Create API`_.
+    The content of this property is copied to the ``group`` attribute of the API.
+    Please read below for details about precedence of conflicting settings.
 
 Senza will try to mix and match `Senza::TaupageAutoScalingGroup`_ properties with the
 Elastigroup. Raw definitions inside the ``Elastigroup`` property take precedence
