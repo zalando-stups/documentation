@@ -203,6 +203,8 @@ Available properties for the ``SenzaInfo`` section are:
     Cloud Formation template.
     The expected format is: "senza:kms:AQICAH...r0lbg==" where "senza:kms:" is the chosen prefix and the
     remainder is the encrypted secret.
+    
+.. Tip:: Follow the vendor's instructions to `Create an API token`_.
 
 .. Note:: By default any HTML entities within a parameter will be escaped, this may cause some unexpected behaviour. In the event you need to workaround this use three braces either side of your argument evaluation e.g. ``{{{Arguments.ApplicationId}}}``
 
@@ -529,6 +531,11 @@ Senza::Elastigroup
 The **Elastrigoup** component type creates an Elastigroup. It's the equivalent of
 an Auto Scaling Group, but managed externally by a third party - Spotinst.
 
+.. Tip::
+
+   To be able to use Elastigroups you need to specify the ``SpotinstAccessToken`` 
+   property from the `Senza Info`_ section.
+
 Quote from the vendor: "Spotinst Elastigroup predicts EC2 Spot behavior, capacity
 trends, pricing, and interruptions rate. Whenever there’s a risk of interruption,
 Elastigroup acts accordingly to balance capacity up to 15 minutes ahead of time,
@@ -695,3 +702,4 @@ Another use case for cross-stack references if one needs to access outputs from 
 .. _Elastigroup: https://spotinst.com/products/elastigroup/
 .. _Elastigroup cluster orientation: https://help.spotinst.com/hc/en-us/articles/115003136565-Advanced-settings-General-Tab
 .. _Elastigroup Create API: https://api.spotinst.com/spotinst-api/elastigroup/amazon-web-services/create/
+.. _Create an API Token: https://api.spotinst.com/spotinst-api/administration/create-an-api-token/
