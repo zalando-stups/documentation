@@ -529,6 +529,11 @@ Senza::Elastigroup
 The **Elastrigoup** component type creates an Elastigroup. It's the equivalent of
 an Auto Scaling Group, but managed externally by a third party - Spotinst.
 
+.. Tip::
+
+   To be able to use Elastigroups you need to specify the ``SpotinstAccessToken`` 
+   property from the `Senza Info`_ section.
+
 Quote from the vendor: "Spotinst Elastigroup predicts EC2 Spot behavior, capacity
 trends, pricing, and interruptions rate. Whenever there’s a risk of interruption,
 Elastigroup acts accordingly to balance capacity up to 15 minutes ahead of time,
