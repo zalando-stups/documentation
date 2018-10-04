@@ -13,7 +13,7 @@ set up to have an optimal configuration including managed SSH access, audit logg
 reviewed security additions.
 
 Using the Taupage AMI
-++++++++++++++++++++++
++++++++++++++++++++++
 
 There is currently no internal tooling but you can find the Taupage AMIs in your EC2 UI. They are maintained by the
 STUPS team and regularly updated with the most recent security fixes and configuration improvements.
@@ -301,7 +301,7 @@ See https://docs.docker.com/reference/run/#runtime-privilege-linux-capabilities-
 **Warning: this has serious security implications that you must understand and consider!**
 
 docker_daemon_access:
------------
+---------------------
 
 **(optional, default: false)**
 
@@ -310,7 +310,7 @@ the Docker daemon of the host system. **Warning: this has serious security impli
 understand and consider!**
 
 read_only:
------------
+----------
 
 **(optional, default: false)**
 
@@ -318,28 +318,28 @@ The container will run with --read-only option.
 Mount the container's root filesystem as read only.
 
 mount_var_log:
------------
+--------------
 
 **(optional, default: false)**
 
 This will mount /var/log into the Docker container /var/log-host as read-only.
 
 mount_custom_log:
------------
+-----------------
 
 **(optional, default: false)**
 
 This will mount /var/log-custom into the Docker container /var/log as read-write.
 
 mount_certs:
------------
+------------
 
 **(optional, default: false)**
 
 This will mount /etc/ssl/certs into the Docker container as read-only.
 
 keep_instance_users: true:
---------------------
+--------------------------
 
 **(optional, default: false)**
 
@@ -349,7 +349,7 @@ Access to the instances will be granted via Even&Odd.
 See https://docs.stups.io/en/latest/user-guide/ssh-access.html for more.
 
 enhanced_cloudwatch_metrics: true
---------------------
+---------------------------------
 
 **(optional, default: false)**
 
@@ -542,20 +542,64 @@ And the Agent will follow these logs:
 
 You can get your Account Key from the Logentries Webinterface under /Account/Profile
 
-
 scalyr_account_key
 ------------------
 
 **(optional)**
 
+Options: see :ref:`scalyr_account_key <scalyr_account_key>` in :ref:`logging <logging>`
+
+scalyr_application_log_parser
+-----------------------------
+
+**(optional)**
+
+Options: see :ref:`scalyr_application_log_parser <scalyr_application_log_parser>` in :ref:`logging <logging>`
+
+scalyr_custom_log_parser
+------------------------
+
+**(optional)**
+
+Options: see :ref:`scalyr_custom_log_parser <scalyr_custom_log_parser>` in :ref:`logging <logging>`
+
+scalyr_region
+-------------
+
+**(optional)**
+
+Options: see :ref:`scalyr_region <scalyr_region>` in :ref:`logging <logging>`
+
+.. _logging:
+
+logging
+-------
+
+Sample logging configuration::
+
+     logging:
+         fluentd_enabled: true
+         fluentd_loglevel: info
+         s3_bucket: log-bucket-eu-central-1
+         log_destination: s3
+         authlog_destination: scalyr
+         scalyr_region: eu
+         scalyr_account_key: "aws:kms:XYZABC..."
+
+In this example everything but the ``auth.log`` is logged to ``s3``, the ``auth.log`` is logged to ``Scalyr``. Logging is done with ``Fluentd``.
+
+.. NOTE::
+   If a logging section is present in ``senza.yaml`` then ``scalyr_account_key``, ``scalyr_application_log_parser``, ``scalyr_custom_log_parser`` and ``scalyr_region`` entries outside the scope of the logging section will be ignored.
+
+.. _scalyr_account_key:
+
+scalyr_account_key
+^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
 .. NOTE::
    You can also use AWS KMS to encrypt your Scalyr account key. See in the example above.
-
-If you provide the Scalyr AccountKey in the .yaml file, the agent of Scaylr will be installed and will follow these logs:
-
-  * /var/log/syslog
-  * /var/log/auth.log
-  * /var/log/application.log
 
 Our integration also provides some attributes you can search on Scalyr:
 
@@ -565,39 +609,42 @@ Our integration also provides some attributes you can search on Scalyr:
   * **$source**
   * **$image**
 
+.. _scalyr_application_log_parser:
+
 scalyr_application_log_parser
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 If the application.log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
 
+.. _scalyr_custom_log_parser:
 
 scalyr_custom_log_parser
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 If you enable mount_custom_log Scalyr will also pickup your custom logs and if your custom log format differs heavily between multiple applications the parser definition used by Scalyr can be overwritten here. The default value is `slf4j`.
 
+.. _scalyr_region:
+
 scalyr_region
-------------------------
+^^^^^^^^^^^^^
 
-**(optional)**
-
-If set to `eu` the Scalyr Agent starts logging to https://eu.scalyr.com. Otherwise it will be logging to the default Scalyr region (https://scalyr.com).
+**(optional, default: eu)**
 
 scalyr_agent_enabled
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
-If set to `false` the Scalyr Agent will not be started.
+If fluentd_enabled is set to true it defaults to false, otherwise it defaults to true. If you want to use Scalyr Agent besides Fluentd, you have to specifically enable it for the files, too.
 
 fluentd_enabled
----------------
+^^^^^^^^^^^^^^^
 
-**(optional)**
+**(optional, default: false)**
 
 If set to `true` the Fluentd Agent will be started.
 
@@ -609,65 +656,110 @@ If set to `true` the Fluentd Agent will be started.
    Fluentd exposes metrics in prometheus format on port 9110. You might need to adjust your AWS security group to access it.
 
 fluentd_loglevel
-----------------
+^^^^^^^^^^^^^^^^
 
-**(optional)**
+**(optional, default: info)**
 
-Specify Fluentd Agent loglevel, possible values are: *fatal*, *error*, *warn*, *info*, *debug* or *trace*. Defaults to `info`.
+Specify Fluentd Agent loglevel, possible values are: ``fatal``, ``error``, ``warn``, ``info``, ``debug`` or ``trace``.
 
-Fluentd logfile can be found in /var/log/td-agent/td-agent.log
+Fluentd logfile can be found in ``/var/log/td-agent/td-agent.log``
 
-.. _fluentd_log_destination:
+.. _log_destination:
 
-fluentd_log_destination
------------------------
+log_destination
+^^^^^^^^^^^^^^^
 
-**(optional)**
+**(optional, default: scalyr)**
 
 Set destination for all logs. 
 
-Options: *s3*, *rsyslog* or *scalyr*. 
+Options: ``s3``, ``rsyslog``, ``scalyr`` or ``scalyr_s3``.
 
-Defaults to `scalyr`.
-
-fluentd_applog_destination
---------------------------
+applog_destination
+^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 Set destination for application.log 
 
-Options: see :ref:`fluentd_log_destination <fluentd_log_destination>`
+Options: see :ref:`log_destination <log_destination>`
 
-Defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
-or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+Defaults to the value you set in :ref:`log_destination <log_destination>`
+or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
 
-fluentd_syslog_destination
---------------------------
+syslog_destination
+^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 Set destination for syslog 
 
-Options: see :ref:`fluentd_log_destination <fluentd_log_destination>`
+Options: see :ref:`log_destination <log_destination>`
 
-Defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
-or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+Defaults to the value you set in :ref:`log_destination <log_destination>`
+or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
 
-fluentd_authlog_destination
----------------------------
+authlog_destination
+^^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 Set destination for auth.log 
 
-Options: see :ref:`fluentd_log_destination <fluentd_log_destination>`
+Options: see :ref:`log_destination <log_destination>`
 
-Defaults to the value you set in :ref:`fluentd_log_destination <fluentd_log_destination>`
-or to `scalyr` if :ref:`fluentd_log_destination <fluentd_log_destination>` was not set.
+Defaults to the value you set in :ref:`log_destination <log_destination>`
+or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
 
-fluentd_s3_bucket
------------------
+customlog_destination
+^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+Set destination for custom log 
+
+Options: see :ref:`log_destination <log_destination>`
+
+Defaults to the value you set in :ref:`log_destination <log_destination>`
+or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
+
+use_scalyr_agent_all
+^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send all files to scalyr via Scalyr Agent.
+
+use_scalyr_agent_applog
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the application.log to scalyr via Scalyr Agent.
+
+use_scalyr_agent_syslog
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the syslog to scalyr via Scalyr Agent.
+
+use_scalyr_agent_authlog
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the auth.log to scalyr via Scalyr Agent.
+
+use_scalyr_agent_customlog
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the custom log to scalyr via Scalyr Agent.
+
+s3_bucket
+^^^^^^^^^
 
 **(optional)**
 
@@ -677,56 +769,48 @@ Name of s3 bucket you want to send logs too.
    Make sure the ec2 instance can write to the bucket. Minimal permissions needed are `putObject` and `listBucket`.
 
 fluentd_s3_timekey
-------------------
+^^^^^^^^^^^^^^^^^^
 
-**(optional)**
+**(optional, default: 1m)**
 
-Specify time after which Buffer is flushed to s3 and a new file is written. Defaults to `1m`.
+Specify time after which Buffer is flushed to s3 and a new file is written.
 
-fluentd_s3_region
------------------
+s3_region
+^^^^^^^^^
 
-**(optional)**
+**(optional, default: eu-central-1)**
 
-Specify region your s3 bucket is in. Defaults to `eu-central-1`.
+Specify region your s3 bucket is in.
 
-fluentd_rsyslog_host
---------------------
+rsyslog_host
+^^^^^^^^^^^^
 
 **(optional)**
 
 rsyslog destination Host.
 
-fluentd_rsyslog_port
---------------------
+rsyslog_port
+^^^^^^^^^^^^
 
-**(optional)**
+**(optional, default: 514)**
 
-Defaults to `514`
+rsyslog_protocol
+^^^^^^^^^^^^^^^^
 
-fluentd_rsyslog_protocol
-------------------------
+**(optional, default: tcp)**
 
-**(optional)**
+rsyslog_severity
+^^^^^^^^^^^^^^^^
 
-Defaults to `tcp`
+**(optional, default: notice)**
 
-fluentd_rsyslog_severity
-------------------------
+rsyslog_program
+^^^^^^^^^^^^^^^
 
-**(optional)**
+**(optional, default: fluentd)**
 
-Defaults to `notice`
-
-fluentd_rsyslog_program
------------------------
-
-**(optional)**
-
-Defaults to `fluentd`
-
-fluentd_rsyslog_hostname
-------------------------
+rsyslog_hostname
+^^^^^^^^^^^^^^^^
 
 **(optional)**
 
@@ -779,7 +863,7 @@ These are settings how logrotate will rotate your application.log file.
     * **Default: False**
 
 customlog_logrotate_*
------------------------
+---------------------
 
 **(optional)**
 
@@ -813,7 +897,7 @@ If set, AWS account ID and region will be added to log files. If you use Scalyr,
 the new message formats correctly.
 
 rsyslog_max_message_size
---------------------
+------------------------
 
 **(optional)**
 
