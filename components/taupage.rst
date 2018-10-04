@@ -768,8 +768,8 @@ Name of s3 bucket you want to send logs too.
 .. NOTE::
    Make sure the ec2 instance can write to the bucket. Minimal permissions needed are `putObject` and `listBucket`.
 
-fluentd_s3_timekey
-^^^^^^^^^^^^^^^^^^
+s3_timekey
+^^^^^^^^^^
 
 **(optional, default: 1m)**
 
