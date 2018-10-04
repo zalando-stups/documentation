@@ -443,6 +443,7 @@ defined in the **volumes** section. It is possible to specify a **erase_on_boot*
 * If it is set to **true** such partition will always be initialized on boot.
 * If this flag is set to **false** such partition will never be initialized by Taupage.
 * If this flag is not specified and partition refers to an EBS volume which has a tag **Taupage:erase-on-boot** with the value **True** then the partition will be initialized.
+
 This tag will be removed by Taupage to ensure that the partition is not erased in case the EC2 instance is restarted or the volume is attached to a different EC2 instance.
 
 .. NOTE::
