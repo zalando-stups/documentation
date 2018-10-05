@@ -546,12 +546,16 @@ You can get your Account Key from the Logentries Webinterface under /Account/Pro
 scalyr_account_key
 ------------------
 
+**Deprecated.** Please consider using a :ref:`logging <logging>` section.
+
 **(optional)**
 
 Options: see :ref:`scalyr_account_key <scalyr_account_key>` in :ref:`logging <logging>`
 
 scalyr_application_log_parser
 -----------------------------
+
+**Deprecated.** Please consider using a :ref:`logging <logging>` section.
 
 **(optional)**
 
@@ -560,12 +564,16 @@ Options: see :ref:`scalyr_application_log_parser <scalyr_application_log_parser>
 scalyr_custom_log_parser
 ------------------------
 
+**Deprecated.** Please consider using a :ref:`logging <logging>` section.
+
 **(optional)**
 
 Options: see :ref:`scalyr_custom_log_parser <scalyr_custom_log_parser>` in :ref:`logging <logging>`
 
 scalyr_region
 -------------
+
+**Deprecated.** Please consider using a :ref:`logging <logging>` section.
 
 **(optional)**
 
@@ -672,7 +680,11 @@ log_destination
 
 **(optional, default: scalyr)**
 
-Set destination for all logs. 
+Set destination for:
+
+* ``/var/log/syslog``
+* ``/var/log/auth.log``
+* ``/var/log/application.log``
 
 Options: ``s3``, ``rsyslog``, ``scalyr`` or ``scalyr_s3``.
 
@@ -681,7 +693,9 @@ applog_destination
 
 **(optional)**
 
-Set destination for application.log 
+Set destination for ``/var/log/application.log``
+
+Overrides setting in :ref:`log_destination <log_destination>`
 
 Options: see :ref:`log_destination <log_destination>`
 
@@ -693,7 +707,9 @@ syslog_destination
 
 **(optional)**
 
-Set destination for syslog 
+Set destination for ``/var/log/syslog``
+
+Overrides setting in :ref:`log_destination <log_destination>`
 
 Options: see :ref:`log_destination <log_destination>`
 
@@ -705,7 +721,9 @@ authlog_destination
 
 **(optional)**
 
-Set destination for auth.log 
+Set destination for ``/var/log/auth.log``
+
+Overrides setting in :ref:`log_destination <log_destination>`
 
 Options: see :ref:`log_destination <log_destination>`
 
@@ -718,6 +736,8 @@ customlog_destination
 **(optional)**
 
 Set destination for custom log 
+
+Overrides setting in :ref:`log_destination <log_destination>`
 
 Options: see :ref:`log_destination <log_destination>`
 
