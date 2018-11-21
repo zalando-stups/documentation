@@ -572,8 +572,16 @@ It adds the following additional properties:
     The EC2 instance types that should be used as Spot instead of the On-Demand
     ``InstanceType``. The selection of which ones are effectivelly used is controlled
     by the `Elastigroup cluster orientation`_. The default setting is "Balanced".
-    If this property is not set, the same instance type as the On-Demand `InstanceType`
+    If this property is not set, the same instance type as the On-Demand ``InstanceType``
     is set as the single Spot alternative.
+
+.. Note::
+
+    If this property is set, the instance type specified in ``InstanceType``
+    will not be considered for the Spot alternatives. This is by design, in order to allow
+    users to specify a type on instance different from the ones used for Spot. To allow
+    the same instance type in Spot or On-Demand that type will have to be present in both
+    properties.
 
 ``Elastigroup``
     This is the, optional, raw specification of the Elastigroup. Please refer to the 
