@@ -15,7 +15,7 @@ How it works
 Step 0
 ------
 
-A developer has to specify which AWS account the credentials of his application should get distributed to.
+A developer has to specify which AWS account the credentials of their application should get distributed to.
 
 Step 1 + 2
 ----------
