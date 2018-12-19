@@ -28,7 +28,7 @@ of granting SSH access to a single odd SSH bastion host.
 #. the odd host downloads the user's public SSH key from even (GET /public-keys/jdoe/sshkey.pub)
 #. even retrieves the user's public SSH key from the configured user service (simple HTTP endpoint to get public SSH key by username)
 #. the forced command on odd adds the user "jdoe" to the system and writes the ``authorized_keys`` file
-#. the user "jdoe" finally logs into the odd host using his personal SSH key
+#. the user "jdoe" finally logs into the odd host using their personal SSH key
 
 Installation
 ============
