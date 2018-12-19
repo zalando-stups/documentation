@@ -74,7 +74,7 @@ customer.
 #. The shoe search application will now redirect the customer to the customer's authorization server with the
    information to which page to come back if the customer authorized the action. The shoe search application also
    transmits which scopes it needs. Think of scopes as "permission to access a certain set of resources" - in this case it transmits the "whishlist.write" scope.
-#. The customer will land on the login screen of his authorization server, put in her password and agree, that the
+#. The customer will land on the login screen of their authorization server, put in their password and agree, that the
    shoe search application can have the "wishlist.write" scope. After agreeing, the authorization server will
    redirect the customer back to the previously submitted page of the shoe search application, including a proof,
    that the customer agreed.
@@ -119,8 +119,8 @@ Scopes
 
 Scopes define the type of access permission you have to a resource. They are always bound to a resource type. You
 can define scopes like "creditcard.read" and "creditcard.write", symbolizing read or write access to credit card
-information. Since in the real world, we cannot always ask the resource owner to grant us his permission to access
-his resource, we have to distinguish between permissions that a resource owner can grant and permissions, that
+information. Since in the real world, we cannot always ask the resource owner to grant us permission to access
+their resource, we have to distinguish between permissions that a resource owner can grant and permissions, that
 special applications can obtain.
 
 Resource Owner Scopes
@@ -389,8 +389,8 @@ Implementing a client: Using own permissions
 --------------------------------------------
 
 STUPS support service-to-service authorization via OAuth 2.0. This is useful in batch jobs, where you do not
-have the possibility to ask the resource owner for permission to access his data. This means, that your application
-itself has to somehow authenticate itself, so that a resource server can grant access. For this, :ref:`mint` will
+have the possibility to ask the resource owner for permission to access their data. This means, that your application
+has to somehow authenticate itself, so that a resource server can grant access. For this, :ref:`mint` will
 automatically create service users for you. These service users have their own identity and also username and
 password that you can read in your "user.json". You can assign this user permissions via :ref:`yourturn`. A
 typical permission would look like "sales_order.read_all".
