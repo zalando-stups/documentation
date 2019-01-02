@@ -13,6 +13,9 @@ You should regularly (at least every month) check your running stacks for :ref:`
 .. code-block:: bash
 
     $ senza images
+    
+    # no abbreviation
+    $ senza images -o tsv
 
 Check the last column and identify all stacks still running with old AMIs.
 The next section explains how to update them.
@@ -24,9 +27,16 @@ Senza allows updating launch configurations of running Cloud Formation stacks to
 
 .. code-block:: bash
 
-    $ senza patch mystack 1 --image=latest
+    $ senza patch $STACK_NAME $STACK_VERSION --image=latest
 
 The ``patch`` command will not affect any running EC2 instances, but all new instances launched in the respective Auto Scaling Group of mystack will now use the latest Taupage AMI.
+
+Example with output:
+
+.. code-block:: bash
+
+    $ senza patch mystack v1 --image=latest
+    Patching Auto Scaling Group mystack-v1-AppServer-8YHGQH3AXYMP.. OK
 
 The Senza ``respawn-instances`` command allows performing a rolling update of all EC2 instances in the Auto Scaling Group.
 
@@ -36,7 +46,7 @@ The Senza ``respawn-instances`` command allows performing a rolling update of al
 
 .. code-block:: bash
 
-    $ senza respawn-instances mystack 1
+    $ senza respawn-instances $STACK_NAME $STACK_VERSION
 
 The process of respawn-instances is as follows:
 
@@ -47,6 +57,20 @@ The process of respawn-instances is as follows:
 * Repeat until all n instances use the desired launch configuration.
 * Reset the ASG capacity to the initial value (n)
 * Resume all Scaling activities
+
+Example with output:
+
+.. code-block:: bash
+
+    $ senza respawn-instances mystack v1
+    2/2 instances need to be updated in mystack-v1-AppServer-8YHGQH3AXYMP
+    Suspending scaling processes for mystack-v1-AppServer-8YHGQH3AXYMP.. OK
+    Scaling to 3 instances.. . . . . . . . . . . . . . . . . . . . . . . . . . . OK
+    Terminating old instance i-04d79dbd939a1c7ca.. . . . . . . . OK
+    Scaling to 3 instances.. . . . . . . . . . . . . . . . . . . . . . . . . . . OK
+    Terminating old instance i-09ad58c146807dcbd.. . . . . . . . OK
+    Resetting Auto Scaling Group to original capacity (2-4-2).. OK
+    Resuming scaling processes for mystack-v1-AppServer-8YHGQH3AXYMP.. OK    
 
 This process allows updating to the latest Taupage AMI without any downtime as long as:
 
