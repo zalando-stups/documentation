@@ -909,6 +909,19 @@ These are settings how logrotate will rotate your custom logs.
      * Log files are rotated count times before being removed or mailed to the address specified in a mail directive. If count is 0, old versions are removed rather than rotated.
      * **Default: 5**
 
+rsyslog_application_log_format
+--------------------
+
+**(optional)**
+
+If you want to change how application logs get written via Docker's `syslog driver <https://docs.docker.com/config/containers/logging/syslog/>`_ you can do this by using `rsyslog_application_log_format`.
+
+One use case could be that you want to avoid writing certain data twice like timestamps that are written by an application already.
+
+Here is an example that changes the rsyslog format completely by avoiding logging of the timestamp and Docker container identifier `(Dec 21 14:29:50 ip-172-31-13-217 docker/3fbbd1129d3e[936]:)`:
+
+  rsyslog_application_log_format: "%hostname%%msg%\\n"
+
 rsyslog_aws_metadata
 --------------------
 
