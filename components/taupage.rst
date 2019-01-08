@@ -803,6 +803,22 @@ s3_region
 
 Specify region your s3 bucket is in.
 
+s3_raw_log_format
+^^^^^^^^^^^^^^^^^
+
+**(optional, default: true)**
+
+If ``true`` loglines are written to S3 as is, otherwise they will be encapsulated in a JSON object.
+
+s3_acl
+^^^^^^
+
+**(optional, default: private)**
+
+Set permissions for the object in S3. Useful if you write logs to a bucket in a different account. `Read more <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl>`_
+
+Options: ``private``, ``public-read``, ``public-read-write`` (NOT RECOMMENDED!), ``authenticated-read``, ``bucket-owner-read`` or ``bucket-owner-full-control``.
+
 rsyslog_host
 ^^^^^^^^^^^^
 
