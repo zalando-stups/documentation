@@ -936,7 +936,9 @@ One use case could be that you want to avoid writing certain data twice like tim
 
 Here is an example that changes the rsyslog format completely by avoiding logging of the timestamp and Docker container identifier from: `Dec 21 14:29:50 ip-172-31-13-217 docker/3fbbd1129d3e[936]:` to `ip-172-31-13-217 log_message`:
 
-  rsyslog_application_log_format: "%hostname%%msg%\\n"
+    **example**::
+
+        rsyslog_application_log_format: "%hostname%%msg%\\n"
 
 rsyslog_aws_metadata
 --------------------
