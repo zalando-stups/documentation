@@ -779,6 +779,29 @@ use_scalyr_agent_customlog
 
 If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the custom log to scalyr via Scalyr Agent.
 
+.. _applog_filter_exclude:
+
+applog_filter_exclude
+^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+Lets you define a regex, if it matches somewhere in the log line the line will be dropped.
+
+.. code-block:: json
+
+   applog_filter_exclude: '/INFO:/'
+
+
+This would exclude all lines containing ``INFO:``
+
+customlog_filter_exclude
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+Same as :ref:`applog_filter_exclude <applog_filter_exclude>`, but for custom logs.
+
 s3_bucket
 ^^^^^^^^^
 
@@ -787,12 +810,37 @@ s3_bucket
 Name of s3 bucket you want to send logs too.
 
 .. NOTE::
-   Make sure the ec2 instance can write to the bucket. Minimal permissions needed are `putObject` and `listBucket`.
+   Make sure the ec2 instance can write to the bucket. Minimal permissions needed are `putObject`, `getObject` and `listBucket`.
+
+IAM-Role:
+
+.. code-block:: json
+
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+            "Sid": "TaupageS3Logging0",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::<bucket name>"
+        },
+        {
+            "Sid": "TaupageS3Logging1",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::<bucket name>/*"
+        }
+      ]
+   }
 
 s3_timekey
 ^^^^^^^^^^
 
-**(optional, default: 1m)**
+**(optional, default: 5m)**
 
 Specify time after which Buffer is flushed to s3 and a new file is written.
 
@@ -813,7 +861,7 @@ If ``true`` loglines are written to S3 as is, otherwise they will be encapsulate
 s3_acl
 ^^^^^^
 
-**(optional, default: private)**
+**(optional, default: bucket-owner-full-control)**
 
 Set permissions for the object in S3. Useful if you write logs to a bucket in a different account. `Read more <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl>`_
 
