@@ -317,6 +317,14 @@ read_only:
 The container will run with --read-only option.
 Mount the container's root filesystem as read only.
 
+shm_size:
+----------
+
+**(optional, default: 64M)**
+
+The container will run with --shm-size option.
+To set /dev/shm size.
+
 mount_var_log:
 --------------
 
