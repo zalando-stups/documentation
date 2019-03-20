@@ -207,9 +207,10 @@ Available properties for the ``SenzaInfo`` section are:
 .. Tip:: Follow the vendor's instructions to `Create an API token`_.
 
 ``SpotinstAccountId``
-    Optional property the contains the target Spotinst cloud account. For ex. ``act-123c12d3``
-    Senza will try to discover the target Spotinst cloud account by looking up the one associated with the AWS account
-    where the CloudFormation stack is being deployed to. You can lookup the Spotinst cloud account id using the `Spotinst console`_.  
+    Optional property that contains the target Spotinst account Id. For ex. ``act-123c12d3``
+    Senza will try to discover the target Spotinst account by looking up the one associated with the AWS account
+    where the CloudFormation stack is being created.
+    You can lookup the Spotinst account Id using the `Spotinst console`_.  
 
 .. WARNING:: Spotinst account discovery is only possible with personal tokens. When using programmatic user tokens this property **MUST** be present or the deployment will fail.
 
