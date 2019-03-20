@@ -203,8 +203,15 @@ Available properties for the ``SenzaInfo`` section are:
     Cloud Formation template.
     The expected format is: "senza:kms:AQICAH...r0lbg==" where "senza:kms:" is the chosen prefix and the
     remainder is the encrypted secret.
-    
+
 .. Tip:: Follow the vendor's instructions to `Create an API token`_.
+
+``SpotinstAccountId``
+    Optional property the contains the target Spotinst cloud account. For ex. ``act-123c12d3``
+    Senza will try to discover the target Spotinst cloud account by looking up the one associated with the AWS account
+    where the CloudFormation stack is being deployed to. You can lookup the Spotinst cloud account id using the `Spotinst console`_.  
+
+.. WARNING:: Spotinst account discovery is only possible with personal tokens. When using programmatic user tokens this property **MUST** be present or the deployment will fail.
 
 .. Note:: By default any HTML entities within a parameter will be escaped, this may cause some unexpected behaviour. In the event you need to workaround this use three braces either side of your argument evaluation e.g. ``{{{Arguments.ApplicationId}}}``
 
@@ -711,3 +718,4 @@ Another use case for cross-stack references if one needs to access outputs from 
 .. _Elastigroup cluster orientation: https://help.spotinst.com/hc/en-us/articles/115003136565-Advanced-settings-General-Tab
 .. _Elastigroup Create API: https://api.spotinst.com/spotinst-api/elastigroup/amazon-web-services/create/
 .. _Create an API Token: https://api.spotinst.com/spotinst-api/administration/create-an-api-token/
+.. _Spotinst console: https://console.spotinst.com/#/settings/account/general
