@@ -686,7 +686,7 @@ Fluentd logfile can be found in ``/var/log/td-agent/td-agent.log``
 log_destination
 ^^^^^^^^^^^^^^^
 
-**(optional, default: scalyr)**
+**(optional, default: s3)**
 
 Set destination for:
 
@@ -694,7 +694,7 @@ Set destination for:
 * ``/var/log/auth.log``
 * ``/var/log/application.log``
 
-Options: ``s3``, ``rsyslog``, ``scalyr`` or ``scalyr_s3``.
+Options: ``s3``, ``rsyslog``, ``scalyr``, ``scalyr_s3`` or ``none``.
 
 applog_destination
 ^^^^^^^^^^^^^^^^^^
@@ -708,7 +708,7 @@ Overrides setting in :ref:`log_destination <log_destination>`
 Options: see :ref:`log_destination <log_destination>`
 
 Defaults to the value you set in :ref:`log_destination <log_destination>`
-or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
+or to `s3` if :ref:`log_destination <log_destination>` was not set.
 
 syslog_destination
 ^^^^^^^^^^^^^^^^^^
@@ -722,7 +722,7 @@ Overrides setting in :ref:`log_destination <log_destination>`
 Options: see :ref:`log_destination <log_destination>`
 
 Defaults to the value you set in :ref:`log_destination <log_destination>`
-or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
+or to `s3` if :ref:`log_destination <log_destination>` was not set.
 
 authlog_destination
 ^^^^^^^^^^^^^^^^^^^
@@ -736,7 +736,7 @@ Overrides setting in :ref:`log_destination <log_destination>`
 Options: see :ref:`log_destination <log_destination>`
 
 Defaults to the value you set in :ref:`log_destination <log_destination>`
-or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
+or to `s3` if :ref:`log_destination <log_destination>` was not set.
 
 customlog_destination
 ^^^^^^^^^^^^^^^^^^^^^
@@ -750,7 +750,7 @@ Overrides setting in :ref:`log_destination <log_destination>`
 Options: see :ref:`log_destination <log_destination>`
 
 Defaults to the value you set in :ref:`log_destination <log_destination>`
-or to `scalyr` if :ref:`log_destination <log_destination>` was not set.
+or to `s3` if :ref:`log_destination <log_destination>` was not set.
 
 use_scalyr_agent_all
 ^^^^^^^^^^^^^^^^^^^^
