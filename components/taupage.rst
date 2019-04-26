@@ -988,7 +988,10 @@ rsyslog_application_log_format
 
 If you want to change how application logs get written via Docker's `syslog driver <https://docs.docker.com/config/containers/logging/syslog/>`_ you can do this by using `rsyslog_application_log_format`.
 
-One use case could be that you want to avoid writing certain data twice like timestamps that are written by an application already.
+By default timestamps, hostname and Docker container ID's won't be written by rsyslogd anymore, since most application logging libraries add timestamps too. This will avoid excessive logging.
+However, you can still use the legacy fall back solution :code:`rsyslog_application_log_format: legacy`. This will bring back timestamps.
+
+Also you're still able to use custom settings as described below using :code:`rsyslog_application_log_format: "%hostname%%msg%\\n"` for example.
 
 Here is an example that changes the rsyslog format completely by avoiding logging of the timestamp and Docker container identifier from: `Dec 21 14:29:50 ip-172-31-13-217 docker/3fbbd1129d3e[936]:` to `ip-172-31-13-217 log_message`:
 
