@@ -596,7 +596,7 @@ Sample logging configuration::
 
      logging:
          fluentd_enabled: true
-         fluentd_loglevel: info
+         fluentd_loglevel: error
          s3_bucket: log-bucket-eu-central-1
          log_destination: s3
          authlog_destination: scalyr
@@ -675,7 +675,7 @@ If set to `true` the Fluentd Agent will be started.
 fluentd_loglevel
 ^^^^^^^^^^^^^^^^
 
-**(optional, default: info)**
+**(optional, default: error)**
 
 Specify Fluentd Agent loglevel, possible values are: ``fatal``, ``error``, ``warn``, ``info``, ``debug`` or ``trace``.
 
