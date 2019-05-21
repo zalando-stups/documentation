@@ -658,6 +658,10 @@ scalyr_agent_enabled
 
 If fluentd_enabled is set to true it defaults to false, otherwise it defaults to true. If you want to use Scalyr Agent besides Fluentd, you have to specifically enable it for the files, too.
 
+.. NOTE::
+   For logs shipped with Scalyr Agent, JWT tokens will be automatically redacted.
+   This functionality is not implemented in Fluentd.
+
 fluentd_enabled
 ^^^^^^^^^^^^^^^
 
