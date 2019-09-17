@@ -602,11 +602,9 @@ Sample logging configuration::
          authlog_destination: scalyr
          scalyr_region: eu
          scalyr_account_key: "aws:kms:XYZABC..."
+         scalyr_agent_applog_sampling: '[{ match_expression: "INFO", sampling_rate: 0.1 }, { match_expression: "FINE", sampling_rate: 0 }]'
 
 In this example everything but the ``auth.log`` is logged to ``s3``, the ``auth.log`` is logged to ``Scalyr``. Logging is done with ``Fluentd``.
-
-.. NOTE::
-   If a logging section is present in ``senza.yaml`` then ``scalyr_account_key``, ``scalyr_application_log_parser``, ``scalyr_custom_log_parser`` and ``scalyr_region`` entries outside the scope of the logging section will be ignored.
 
 .. _scalyr_account_key:
 
@@ -747,7 +745,7 @@ customlog_destination
 
 **(optional)**
 
-Set destination for custom log 
+Set destination for custom log
 
 Overrides setting in :ref:`log_destination <log_destination>`
 
@@ -770,12 +768,26 @@ use_scalyr_agent_applog
 
 If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the application.log to scalyr via Scalyr Agent.
 
+scalyr_agent_applog_sampling
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+You can define `Scalyr sampling rules <https://www.scalyr.com/help/scalyr-agent#filter>` for the application.log. Must be a string with YAML-encoded list of ``sampling_rules``.
+
 use_scalyr_agent_syslog
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the syslog to scalyr via Scalyr Agent.
+
+scalyr_agent_syslog_sampling
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+You can define `Scalyr sampling rules <https://www.scalyr.com/help/scalyr-agent#filter>` for the syslog log. Must be a string with YAML-encoded list of ``sampling_rules``.
 
 use_scalyr_agent_authlog
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -784,12 +796,26 @@ use_scalyr_agent_authlog
 
 If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the auth.log to scalyr via Scalyr Agent.
 
+scalyr_agent_authlog_sampling
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+You can define `Scalyr sampling rules <https://www.scalyr.com/help/scalyr-agent#filter>` for the auth.log. Must be a string with YAML-encoded list of ``sampling_rules``.
+
 use_scalyr_agent_customlog
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **(optional)**
 
 If you want to use Scalyr Agent and Fluentd at the same time set this to ``true`` to send the custom log to scalyr via Scalyr Agent.
+
+scalyr_agent_customlog_sampling
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**(optional)**
+
+You can define `Scalyr sampling rules <https://www.scalyr.com/help/scalyr-agent#filter>` for the custom log. Must be a string with YAML-encoded list of ``sampling_rules``.
 
 .. _applog_filter_exclude:
 
