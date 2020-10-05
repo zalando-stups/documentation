@@ -69,7 +69,7 @@ Luckily OpenSSH's ``scp`` supports jump hosts with the ``ProxyCommand`` configur
 
 .. code-block:: bash
 
-    $ scp -o ProxyCommand="ssh -W %h:%p odd-eu-west-1.myteam.example.org" mylocalfile.txt 172.31.146.1:
+    $ scp -o ProxyCommand="ssh -W %h:%p odd@odd-eu-west-1.myteam.example.org" mylocalfile.txt ubuntu@172.31.146.1:
 
 See also the `OpenSSH Cookbook on Proxies and Jump Hosts`_.
 
